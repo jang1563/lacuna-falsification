@@ -1,0 +1,272 @@
+[
+  {
+    "equation": "0.4159849 + ((x8 - x3) * -0.09313616)",
+    "auroc": 0.6298468556533073,
+    "train_auroc": 0.6401928675400292,
+    "test_auroc": 0.6298468556533073,
+    "complexity": 7,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.714
+  },
+  {
+    "equation": "log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8))))))",
+    "auroc": 0.5664711632453567,
+    "train_auroc": 0.6491387675885493,
+    "test_auroc": 0.5664711632453567,
+    "complexity": 10,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.667
+  },
+  {
+    "equation": "0.38469365 - (x8 * 0.07136952)",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 5,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.8
+  },
+  {
+    "equation": "log1p(sqrt(log1p(exp(x2 - exp(x8)))))",
+    "auroc": 0.5726621049201693,
+    "train_auroc": 0.634188500727802,
+    "test_auroc": 0.5726621049201693,
+    "complexity": 8,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.667
+  },
+  {
+    "equation": "log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8))))))",
+    "auroc": 0.6327794069729553,
+    "train_auroc": 0.6756125667151868,
+    "test_auroc": 0.6327794069729553,
+    "complexity": 14,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.667
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(exp(x2) - exp(x8)))))",
+    "auroc": 0.5664711632453567,
+    "train_auroc": 0.6491387675885493,
+    "test_auroc": 0.5664711632453567,
+    "complexity": 9,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.6
+  },
+  {
+    "equation": "log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037))))))",
+    "auroc": 0.5856956663408277,
+    "train_auroc": 0.6538391557496361,
+    "test_auroc": 0.5856956663408277,
+    "complexity": 12,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.625
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592))))",
+    "auroc": 0.5664711632453567,
+    "train_auroc": 0.6491387675885493,
+    "test_auroc": 0.5664711632453567,
+    "complexity": 11,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.714
+  },
+  {
+    "equation": "0.5249501 - (exp(x8) * 0.07136952)",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 6,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.833
+  },
+  {
+    "equation": "log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993)))))))",
+    "auroc": 0.5860215053763442,
+    "train_auroc": 0.6536875303250849,
+    "test_auroc": 0.5860215053763442,
+    "complexity": 13,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.625
+  },
+  {
+    "equation": "((x8 - x3) * -0.07060441) - -0.39114887",
+    "auroc": 0.6298468556533073,
+    "train_auroc": 0.6401928675400292,
+    "test_auroc": 0.6298468556533073,
+    "complexity": 7,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.833
+  },
+  {
+    "equation": "(exp(x8) * -0.07060441) - -0.48985445",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 6,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.833
+  },
+  {
+    "equation": "(x8 * -0.07060441) - -0.39114887",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 5,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.8
+  },
+  {
+    "equation": "log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993))))))",
+    "auroc": 0.5853698273053112,
+    "train_auroc": 0.6538088306647258,
+    "test_auroc": 0.5853698273053112,
+    "complexity": 12,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.625
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293))))",
+    "auroc": 0.5664711632453567,
+    "train_auroc": 0.6491387675885493,
+    "test_auroc": 0.5664711632453567,
+    "complexity": 11,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.714
+  },
+  {
+    "equation": "log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8))))))",
+    "auroc": 0.5614206581948518,
+    "train_auroc": 0.6490781174187288,
+    "test_auroc": 0.5614206581948518,
+    "complexity": 14,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.778
+  },
+  {
+    "equation": "log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1)))))))",
+    "auroc": 0.5777126099706745,
+    "train_auroc": 0.6494723435225619,
+    "test_auroc": 0.5777126099706745,
+    "complexity": 15,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.778
+  },
+  {
+    "equation": "(-0.07137078 * (x8 - x3)) - -0.38469547",
+    "auroc": 0.6298468556533073,
+    "train_auroc": 0.6401928675400292,
+    "test_auroc": 0.6298468556533073,
+    "complexity": 7,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.833
+  },
+  {
+    "equation": "log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8))))",
+    "auroc": 0.6906158357771262,
+    "train_auroc": 0.6425278990781174,
+    "test_auroc": 0.6906158357771262,
+    "complexity": 11,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.778
+  },
+  {
+    "equation": "log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716)",
+    "auroc": 0.6557510589768655,
+    "train_auroc": 0.6444990295972829,
+    "test_auroc": 0.6557510589768655,
+    "complexity": 10,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.667
+  },
+  {
+    "equation": "log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716)",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 14,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.727
+  },
+  {
+    "equation": "(-0.07137078 * x8) - -0.38469547",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 5,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.8
+  },
+  {
+    "equation": "log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716)",
+    "auroc": 0.6529814271749755,
+    "train_auroc": 0.6598435225618632,
+    "test_auroc": 0.6529814271749755,
+    "complexity": 12,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.7
+  },
+  {
+    "equation": "log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063)",
+    "auroc": 0.6298468556533073,
+    "train_auroc": 0.6401928675400292,
+    "test_auroc": 0.6298468556533073,
+    "complexity": 9,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.75
+  },
+  {
+    "equation": "(-0.07137078 * exp(x8)) - -0.4514672",
+    "auroc": 0.6254480286738351,
+    "train_auroc": 0.6024078117418729,
+    "test_auroc": 0.6254480286738351,
+    "complexity": 6,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.833
+  },
+  {
+    "equation": "log1p((-0.13106725 * (x8 - x3)) + 0.47160774)",
+    "auroc": 0.6298468556533073,
+    "train_auroc": 0.6401928675400292,
+    "test_auroc": 0.6298468556533073,
+    "complexity": 8,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.625
+  },
+  {
+    "equation": "log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499))",
+    "auroc": 0.6529814271749755,
+    "train_auroc": 0.6598435225618632,
+    "test_auroc": 0.6529814271749755,
+    "complexity": 13,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.727
+  }
+]
