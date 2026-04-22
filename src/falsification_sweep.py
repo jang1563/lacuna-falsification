@@ -51,7 +51,9 @@ def make_equation_fn(equation_str: str, col_names: list[str]):
 
     The matrix X is indexed positionally, but the equation references
     columns by their biological name — so the callable binds names -> columns
-    and ignores column order.
+    and ignores column order. Constant equations (PySR can emit e.g.
+    ``0.50475866`` as a low-complexity candidate) are broadcast to the
+    sample dimension so the downstream gate sees a usable score vector.
     """
     safe_globals = {"__builtins__": {}}
     np_ns = {k: getattr(np, k) for k in _NUMPY_FUNCS}
@@ -61,7 +63,15 @@ def make_equation_fn(equation_str: str, col_names: list[str]):
         # Also bind xi aliases so legacy equations still work.
         ns.update({f"x{i}": X[:, i] for i in range(len(col_names))})
         ns.update(np_ns)
-        return eval(equation_str, safe_globals, ns)  # noqa: S307
+        result = eval(equation_str, safe_globals, ns)  # noqa: S307
+        arr = np.asarray(result, dtype=float)
+        if arr.ndim == 0:
+            # Constant equation (no variables). Broadcast to n_samples so
+            # sklearn does not reject the shape.
+            arr = np.full(X.shape[0], float(arr))
+        elif arr.shape[0] != X.shape[0]:
+            arr = np.broadcast_to(arr.ravel(), (X.shape[0],))
+        return arr
 
     return fn
 
