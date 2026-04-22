@@ -49,3 +49,4 @@ data/public_workflow/
 
 # OS
 *.DS_Store
+HANDOFF_to_*.md
