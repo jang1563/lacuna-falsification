@@ -1,0 +1,16 @@
+{
+  "_description": "DatasetCard template. Copy this file, rename to {disease_id}.json, and fill in the fields below. Run `theory-copilot plug-in-dataset --csv <csv> --label-column <col> --disease-id <id> --output config/dataset_cards/<id>.json` to auto-infer one from an existing CSV instead.",
+
+  "dataset_id": "example_disease_task",
+  "csv_path": "data/example.csv",
+  "label_column": "label",
+  "gene_columns": [
+    "GENE_A",
+    "GENE_B",
+    "GENE_C"
+  ],
+  "covariate_columns": ["age", "batch_index"],
+  "disease_tokens": ["disease", "tumor", "case", "1"],
+  "standardize": true,
+  "notes": "Short free-text description of the cohort + task."
+}

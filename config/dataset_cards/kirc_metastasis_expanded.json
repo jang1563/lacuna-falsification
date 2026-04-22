@@ -1,0 +1,17 @@
+{
+  "dataset_id": "kirc_metastasis_expanded",
+  "csv_path": "data/kirc_metastasis_expanded.csv",
+  "label_column": "label",
+  "gene_columns": [
+    "ACTB", "AGXT", "ALB", "ALDOA", "ANGPTL4", "BHLHE40", "CA12", "CA9",
+    "CALB1", "CCNB1", "CDK1", "COL4A2", "CUBN", "CXCR4", "DDIT4", "ENO1",
+    "ENO2", "EPAS1", "GAPDH", "HK2", "KRT7", "LDHA", "LDHB", "LRP2",
+    "MCM2", "MKI67", "MMP9", "NDUFA4L2", "PAX2", "PAX8", "PCNA", "PDK1",
+    "PFKP", "PGK1", "PKM", "PTGER3", "RPL13A", "S100A4", "SLC12A1",
+    "SLC12A3", "SLC22A8", "SLC2A1", "SPP1", "TOP2A", "VEGFA"
+  ],
+  "covariate_columns": ["age", "batch_index"],
+  "disease_tokens": ["m1", "1", "metastasis"],
+  "standardize": true,
+  "notes": "TCGA-KIRC metastasis M1 (disease) vs M0 (control), 45-gene HIF+Warburg+proliferation+tubule+housekeeping panel. n=505, 16% M1. Surviving laws: TOP2A - EPAS1 cluster."
+}

@@ -270,3 +270,107 @@ def test_replay_missing_csv_returns_one(tmp_path, monkeypatch):
     )
     result = main()
     assert result == 1
+
+
+# ---- DatasetCard / plug-in-dataset tests (E4) ----
+
+def _make_mini_csv(tmp_path):
+    rng = np.random.default_rng(0)
+    n = 60
+    half = n // 2
+    df = pd.DataFrame({
+        "sample_id": [f"s{i}" for i in range(n)],
+        "label": ["disease"] * half + ["control"] * half,
+        "age": rng.integers(40, 80, size=n),
+        "batch_index": rng.integers(0, 3, size=n),
+        "GENE_A": np.concatenate([rng.normal(1.0, 1, half), rng.normal(-1.0, 1, half)]),
+        "GENE_B": np.concatenate([rng.normal(-0.5, 1, half), rng.normal(0.5, 1, half)]),
+        "GENE_C": rng.normal(0, 1, size=n),
+    })
+    p = tmp_path / "mini.csv"
+    df.to_csv(p, index=False)
+    return p
+
+
+def test_plug_in_dataset_emits_valid_card(tmp_path, monkeypatch, capsys):
+    csv = _make_mini_csv(tmp_path)
+    out = tmp_path / "mini_card.json"
+
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "theory-copilot", "plug-in-dataset",
+            "--csv", str(csv),
+            "--label-column", "label",
+            "--disease-id", "mini",
+            "--covariate-columns", "age,batch_index",
+            "--output", str(out),
+        ],
+    )
+    result = main()
+    assert result == 0
+    assert out.exists()
+
+    card = json.loads(out.read_text())
+    assert card["dataset_id"] == "mini"
+    assert set(card["gene_columns"]) == {"GENE_A", "GENE_B", "GENE_C"}
+    assert card["covariate_columns"] == ["age", "batch_index"]
+    assert card["label_column"] == "label"
+
+
+def test_compare_accepts_dataset_card(tmp_path, monkeypatch, capsys):
+    csv = _make_mini_csv(tmp_path)
+    card_path = tmp_path / "mini_card.json"
+    proposals_path = _make_proposals_config(tmp_path)
+
+    # Build a card via the plug-in-dataset path
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "theory-copilot", "plug-in-dataset",
+            "--csv", str(csv),
+            "--label-column", "label",
+            "--disease-id", "mini",
+            "--covariate-columns", "age,batch_index",
+            "--output", str(card_path),
+        ],
+    )
+    assert main() == 0
+    capsys.readouterr()
+
+    # Now run compare --dataset-card
+    mock_client = _mock_opus_client()
+    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+        monkeypatch.setattr(
+            sys,
+            "argv",
+            [
+                "theory-copilot", "compare",
+                "--dataset-card", str(card_path),
+                "--proposals", str(proposals_path),
+                "--output-root", str(tmp_path / "artifacts"),
+            ],
+        )
+        result = main()
+
+    out = capsys.readouterr().out
+    assert result == 0
+    assert "python3 src/pysr_sweep.py" in out
+    assert "GENE_A,GENE_B,GENE_C" in out  # dataset-card gene list flowed into handoff
+
+
+def test_compare_requires_card_or_legacy_config(tmp_path, monkeypatch, capsys):
+    proposals_path = _make_proposals_config(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "theory-copilot", "compare",
+            "--proposals", str(proposals_path),
+            "--output-root", str(tmp_path / "out"),
+        ],
+    )
+    result = main()
+    assert result == 2  # neither path provided -> usage error

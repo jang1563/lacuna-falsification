@@ -1,0 +1,13 @@
+{
+  "dataset_id": "kirc_tumor_normal",
+  "csv_path": "data/kirc_tumor_normal.csv",
+  "label_column": "label",
+  "gene_columns": [
+    "CA9", "VEGFA", "LDHA", "NDUFA4L2", "SLC2A1", "ENO2",
+    "AGXT", "ALB", "CUBN", "PTGER3", "SLC12A3"
+  ],
+  "covariate_columns": ["age", "batch_index"],
+  "disease_tokens": ["disease", "tumor"],
+  "standardize": true,
+  "notes": "TCGA-KIRC tumor (disease) vs normal (control), 11-gene HIF-axis panel. n=609."
+}

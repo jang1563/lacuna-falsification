@@ -1,0 +1,15 @@
+{
+  "dataset_id": "luad_tumor_normal",
+  "csv_path": "data/luad_tumor_normal.csv",
+  "label_column": "label",
+  "gene_columns": [
+    "SFTPC", "NAPSA", "SFTPB", "SFTPA1", "SFTPA2", "EPCAM",
+    "KRT7", "KRT18", "KRT19", "TTF1", "NKX2-1",
+    "CDK1", "CCNB1", "TOP2A", "MKI67", "PCNA", "MCM2",
+    "SLC2A1", "LDHA", "HK2", "VEGFA", "EGFR", "KRAS"
+  ],
+  "covariate_columns": ["age", "batch_index"],
+  "disease_tokens": ["disease", "tumor"],
+  "standardize": true,
+  "notes": "TCGA-LUAD tumor vs normal, 23-gene lung-identity + proliferation + hypoxia + oncogene panel. Built by data/build_tcga_luad.py (E5)."
+}
