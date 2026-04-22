@@ -69,3 +69,59 @@ B1 treats the current sign-invariant max as fixed. B2 will re-derive
 `delta_baseline` under two stronger baselines (LR-single and LR-pair+
 interaction) to test whether the verdict flips when the *definition*
 of "best single-gene baseline" changes, independent of threshold.
+
+---
+
+## B2 — Baseline definition ablation  `2026-04-22`
+
+**Code:** `src/track_b_baseline_ablation.py`
+**Artifacts:**
+- `results/track_b_gate_robustness/baseline_ablation.csv` (201 rows; 67 candidates × 3 baselines)
+- `results/track_b_gate_robustness/baseline_ablation_summary.json`
+
+### Per-task baseline AUCs
+
+| Task | `sign_invariant_max` | `lr_single` | `lr_pair_interaction` |
+|---|---|---|---|
+| flagship (n=609) | **0.9655** (CA9) | 0.9658 | **0.9842** |
+| tier2 (n=534) | **0.6098** (CUBN) | 0.6085 | **0.6434** |
+
+### Max `delta_baseline` under each baseline
+
+| Task | Baseline | Max Δ | Survivors |
+|---|---|---|---|
+| flagship | sign_invariant_max | +0.029 | 0 |
+| flagship | lr_single | +0.029 | 0 |
+| flagship | **lr_pair_interaction** | **+0.010** | 0 |
+| tier2 | sign_invariant_max | +0.029 | 0 |
+| tier2 | lr_single | +0.030 | 0 |
+| tier2 | **lr_pair_interaction** | **−0.005** | 0 |
+
+### Finding
+
+- `lr_single` ≈ `sign_invariant_max` (a logistic regression on a single
+  gene does not materially beat the simple AUC — the tails of the
+  decision function already match what LR would learn).
+- **`lr_pair_interaction` drops the max delta by ~65% on flagship
+  (+0.029 → +0.010) and turns it negative on tier2 (−0.005)**. The
+  strongest multi-gene compound law is essentially no better than a
+  two-gene logistic regression with an interaction term.
+- Under any of the three baseline definitions, zero candidates pass the
+  gate. The verdict hardens, not softens, when the baseline is
+  strengthened.
+
+### Interpretation
+
+Had we pre-registered "beat pair+interaction LR" instead of "beat
+best single gene", the incremental ceiling on flagship would be
+**+0.010 AUROC**, not +0.029. The apparent +0.029 gap is substantially
+explained by pairwise gene-gene interactions that a compound
+symbolic law can also capture, but not amplify beyond them. On tier2
+the compound laws are measurably *worse* than pair+interaction.
+
+### What's next (B3 — permutation stability)
+
+Holding the gate's baseline fixed, vary n_permutations to see whether
+the `perm_p_fdr` estimate is seed-stable. If a candidate's p flips
+across permutation counts, the gate's verdict at the margin may be
+noisy even if the +0.029 ceiling is solid.

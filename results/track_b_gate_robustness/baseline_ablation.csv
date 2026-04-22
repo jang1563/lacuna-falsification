@@ -1,0 +1,202 @@
+candidate_id,source,task,equation,law_auc,baseline_kind,baseline_auc,delta_baseline,delta_baseline_current_report,pass
+flagship_pysr::000,flagship_pysr,flagship,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),0.9804598593006413,sign_invariant_max,0.9654976205255534,0.014962238775087844,0.014962238775087844,False
+flagship_pysr::000,flagship_pysr,flagship,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),0.9804598593006413,lr_single,0.9657775799831875,0.014682279317453806,0.014962238775087844,False
+flagship_pysr::000,flagship_pysr,flagship,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),0.9804598593006413,lr_pair_interaction,0.9841650595856203,-0.0037052002849790044,0.014962238775087844,False
+flagship_pysr::001,flagship_pysr,flagship,sqrt(log1p(exp(x0))),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+flagship_pysr::001,flagship_pysr,flagship,sqrt(log1p(exp(x0))),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+flagship_pysr::001,flagship_pysr,flagship,sqrt(log1p(exp(x0))),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+flagship_pysr::002,flagship_pysr,flagship,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),0.9863956134905856,sign_invariant_max,0.9654976205255534,0.02089799296503214,0.02089799296503214,False
+flagship_pysr::002,flagship_pysr,flagship,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),0.9863956134905856,lr_single,0.9657775799831875,0.020618033507398104,0.02089799296503214,False
+flagship_pysr::002,flagship_pysr,flagship,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),0.9863956134905856,lr_pair_interaction,0.9841650595856203,0.0022305539049652934,0.02089799296503214,False
+flagship_pysr::003,flagship_pysr,flagship,exp(-0.054394767 * exp(x9 - x3)),0.9867318435754191,sign_invariant_max,0.9654976205255534,0.021234223049865664,0.021234223049865664,False
+flagship_pysr::003,flagship_pysr,flagship,exp(-0.054394767 * exp(x9 - x3)),0.9867318435754191,lr_single,0.9657775799831875,0.020954263592231626,0.021234223049865664,False
+flagship_pysr::003,flagship_pysr,flagship,exp(-0.054394767 * exp(x9 - x3)),0.9867318435754191,lr_pair_interaction,0.9841650595856203,0.0025667839897988154,0.021234223049865664,False
+flagship_pysr::004,flagship_pysr,flagship,log1p(exp(x0)),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+flagship_pysr::004,flagship_pysr,flagship,log1p(exp(x0)),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+flagship_pysr::004,flagship_pysr,flagship,log1p(exp(x0)),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+flagship_pysr::005,flagship_pysr,flagship,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),0.9872232567763294,sign_invariant_max,0.9654976205255534,0.021725636250775948,0.021725636250775948,False
+flagship_pysr::005,flagship_pysr,flagship,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),0.9872232567763294,lr_single,0.9657775799831875,0.02144567679314191,0.021725636250775948,False
+flagship_pysr::005,flagship_pysr,flagship,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),0.9872232567763294,lr_pair_interaction,0.9841650595856203,0.0030581971907091,0.021725636250775948,False
+flagship_pysr::006,flagship_pysr,flagship,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),0.9927839851024209,sign_invariant_max,0.9654976205255534,0.027286364576867506,0.027286364576867506,False
+flagship_pysr::006,flagship_pysr,flagship,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),0.9927839851024209,lr_single,0.9657775799831875,0.027006405119233468,0.027286364576867506,False
+flagship_pysr::006,flagship_pysr,flagship,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),0.9927839851024209,lr_pair_interaction,0.9841650595856203,0.008618925516800657,0.027286364576867506,False
+flagship_pysr::007,flagship_pysr,flagship,exp(-0.0154611515 * exp(x9 / exp(x0))),0.9779381336643906,sign_invariant_max,0.9654976205255534,0.012440513138837206,0.012440513138837206,False
+flagship_pysr::007,flagship_pysr,flagship,exp(-0.0154611515 * exp(x9 / exp(x0))),0.9779381336643906,lr_single,0.9657775799831875,0.012160553681203168,0.012440513138837206,False
+flagship_pysr::007,flagship_pysr,flagship,exp(-0.0154611515 * exp(x9 / exp(x0))),0.9779381336643906,lr_pair_interaction,0.9841650595856203,-0.006226925921229642,0.012440513138837206,False
+flagship_pysr::008,flagship_pysr,flagship,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),0.9863956134905856,sign_invariant_max,0.9654976205255534,0.02089799296503214,0.02089799296503214,False
+flagship_pysr::008,flagship_pysr,flagship,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),0.9863956134905856,lr_single,0.9657775799831875,0.020618033507398104,0.02089799296503214,False
+flagship_pysr::008,flagship_pysr,flagship,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),0.9863956134905856,lr_pair_interaction,0.9841650595856203,0.0022305539049652934,0.02089799296503214,False
+flagship_pysr::009,flagship_pysr,flagship,exp(exp((x9 - x3) - x1) * -0.010614875),0.991956341816677,sign_invariant_max,0.9654976205255534,0.026458721291123588,0.026458721291123588,False
+flagship_pysr::009,flagship_pysr,flagship,exp(exp((x9 - x3) - x1) * -0.010614875),0.991956341816677,lr_single,0.9657775799831875,0.02617876183348955,0.026458721291123588,False
+flagship_pysr::009,flagship_pysr,flagship,exp(exp((x9 - x3) - x1) * -0.010614875),0.991956341816677,lr_pair_interaction,0.9841650595856203,0.00779128223105674,0.026458721291123588,False
+flagship_pysr::010,flagship_pysr,flagship,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),0.9835635216221807,sign_invariant_max,0.9654976205255534,0.018065901096627313,0.018065901096627313,False
+flagship_pysr::010,flagship_pysr,flagship,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),0.9835635216221807,lr_single,0.9657775799831875,0.017785941638993275,0.018065901096627313,False
+flagship_pysr::010,flagship_pysr,flagship,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),0.9835635216221807,lr_pair_interaction,0.9841650595856203,-0.0006015379634395357,0.018065901096627313,False
+flagship_pysr::011,flagship_pysr,flagship,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),0.9938961307676392,sign_invariant_max,0.9654976205255534,0.02839851024208573,0.02839851024208573,False
+flagship_pysr::011,flagship_pysr,flagship,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),0.9938961307676392,lr_single,0.9657775799831875,0.02811855078445169,0.02839851024208573,False
+flagship_pysr::011,flagship_pysr,flagship,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),0.9938961307676392,lr_pair_interaction,0.9841650595856203,0.00973107118201888,0.02839851024208573,False
+flagship_pysr::012,flagship_pysr,flagship,exp(exp(x9 - x3) * -0.054373782),0.9867318435754191,sign_invariant_max,0.9654976205255534,0.021234223049865664,0.021234223049865664,False
+flagship_pysr::012,flagship_pysr,flagship,exp(exp(x9 - x3) * -0.054373782),0.9867318435754191,lr_single,0.9657775799831875,0.020954263592231626,0.021234223049865664,False
+flagship_pysr::012,flagship_pysr,flagship,exp(exp(x9 - x3) * -0.054373782),0.9867318435754191,lr_pair_interaction,0.9841650595856203,0.0025667839897988154,0.021234223049865664,False
+flagship_pysr::013,flagship_pysr,flagship,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),0.7620654872749844,sign_invariant_max,0.9654976205255534,-0.20343213325056908,-0.20343213325056908,False
+flagship_pysr::013,flagship_pysr,flagship,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),0.7620654872749844,lr_single,0.9657775799831875,-0.20371209270820312,-0.20343213325056908,False
+flagship_pysr::013,flagship_pysr,flagship,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),0.7620654872749844,lr_pair_interaction,0.9841650595856203,-0.22209957231063593,-0.20343213325056908,False
+flagship_pysr::014,flagship_pysr,flagship,exp(-0.025032457 / exp(exp(x9) * x0)),0.42830540037243947,sign_invariant_max,0.9654976205255534,-0.537192220153114,-0.537192220153114,False
+flagship_pysr::014,flagship_pysr,flagship,exp(-0.025032457 / exp(exp(x9) * x0)),0.42830540037243947,lr_single,0.9657775799831875,-0.537472179610748,-0.537192220153114,False
+flagship_pysr::014,flagship_pysr,flagship,exp(-0.025032457 / exp(exp(x9) * x0)),0.42830540037243947,lr_pair_interaction,0.9841650595856203,-0.5558596592131808,-0.537192220153114,False
+flagship_pysr::015,flagship_pysr,flagship,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),0.994620318642665,sign_invariant_max,0.9654976205255534,0.029122698117111545,0.029122698117111545,False
+flagship_pysr::015,flagship_pysr,flagship,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),0.994620318642665,lr_single,0.9657775799831875,0.028842738659477507,0.029122698117111545,False
+flagship_pysr::015,flagship_pysr,flagship,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),0.994620318642665,lr_pair_interaction,0.9841650595856203,0.010455259057044697,0.029122698117111545,False
+flagship_pysr::016,flagship_pysr,flagship,log1p(sqrt(2.3882582 + x0)),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+flagship_pysr::016,flagship_pysr,flagship,log1p(sqrt(2.3882582 + x0)),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+flagship_pysr::016,flagship_pysr,flagship,log1p(sqrt(2.3882582 + x0)),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+flagship_pysr::017,flagship_pysr,flagship,exp(-0.013298511 * exp((x9 - x1) - x3)),0.991956341816677,sign_invariant_max,0.9654976205255534,0.026458721291123588,0.026458721291123588,False
+flagship_pysr::017,flagship_pysr,flagship,exp(-0.013298511 * exp((x9 - x1) - x3)),0.991956341816677,lr_single,0.9657775799831875,0.02617876183348955,0.026458721291123588,False
+flagship_pysr::017,flagship_pysr,flagship,exp(-0.013298511 * exp((x9 - x1) - x3)),0.991956341816677,lr_pair_interaction,0.9841650595856203,0.00779128223105674,0.026458721291123588,False
+flagship_pysr::018,flagship_pysr,flagship,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),0.9404614111318024,sign_invariant_max,0.9654976205255534,-0.025036209393751063,-0.025036209393751063,False
+flagship_pysr::018,flagship_pysr,flagship,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),0.9404614111318024,lr_single,0.9657775799831875,-0.0253161688513851,-0.025036209393751063,False
+flagship_pysr::018,flagship_pysr,flagship,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),0.9404614111318024,lr_pair_interaction,0.9841650595856203,-0.04370364845381791,-0.025036209393751063,False
+flagship_pysr::019,flagship_pysr,flagship,exp(-0.06354956 / exp(x3 - x9)),0.9867318435754191,sign_invariant_max,0.9654976205255534,0.021234223049865664,0.021234223049865664,False
+flagship_pysr::019,flagship_pysr,flagship,exp(-0.06354956 / exp(x3 - x9)),0.9867318435754191,lr_single,0.9657775799831875,0.020954263592231626,0.021234223049865664,False
+flagship_pysr::019,flagship_pysr,flagship,exp(-0.06354956 / exp(x3 - x9)),0.9867318435754191,lr_pair_interaction,0.9841650595856203,0.0025667839897988154,0.021234223049865664,False
+flagship_pysr::020,flagship_pysr,flagship,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),0.9037606041795986,sign_invariant_max,0.9654976205255534,-0.061737016345954854,-0.061737016345954854,False
+flagship_pysr::020,flagship_pysr,flagship,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),0.9037606041795986,lr_single,0.9657775799831875,-0.06201697580358889,-0.061737016345954854,False
+flagship_pysr::020,flagship_pysr,flagship,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),0.9037606041795986,lr_pair_interaction,0.9841650595856203,-0.0804044554060217,-0.061737016345954854,False
+flagship_pysr::021,flagship_pysr,flagship,exp(exp(x1 * (x3 - x9)) * -0.014394815),0.020962652596730785,sign_invariant_max,0.9654976205255534,-0.9445349679288226,-0.9445349679288226,False
+flagship_pysr::021,flagship_pysr,flagship,exp(exp(x1 * (x3 - x9)) * -0.014394815),0.020962652596730785,lr_single,0.9657775799831875,-0.9448149273864567,-0.9445349679288226,False
+flagship_pysr::021,flagship_pysr,flagship,exp(exp(x1 * (x3 - x9)) * -0.014394815),0.020962652596730785,lr_pair_interaction,0.9841650595856203,-0.9632024069888895,-0.9445349679288226,False
+flagship_pysr::022,flagship_pysr,flagship,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),0.8625077591558039,sign_invariant_max,0.9654976205255534,-0.10298986136974952,-0.10298986136974952,False
+flagship_pysr::022,flagship_pysr,flagship,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),0.8625077591558039,lr_single,0.9657775799831875,-0.10326982082738356,-0.10298986136974952,False
+flagship_pysr::022,flagship_pysr,flagship,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),0.8625077591558039,lr_pair_interaction,0.9841650595856203,-0.12165730042981637,-0.10298986136974952,False
+flagship_pysr::023,flagship_pysr,flagship,0.87816787 + (0.25817737 * x0),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+flagship_pysr::023,flagship_pysr,flagship,0.87816787 + (0.25817737 * x0),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+flagship_pysr::023,flagship_pysr,flagship,0.87816787 + (0.25817737 * x0),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+flagship_pysr::024,flagship_pysr,flagship,exp(log1p(-0.07682814 / exp(x0))),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+flagship_pysr::024,flagship_pysr,flagship,exp(log1p(-0.07682814 / exp(x0))),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+flagship_pysr::024,flagship_pysr,flagship,exp(log1p(-0.07682814 / exp(x0))),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+flagship_pysr::025,flagship_pysr,flagship,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),0.9470049658597145,sign_invariant_max,0.9654976205255534,-0.018492654665838937,-0.018492654665838937,False
+flagship_pysr::025,flagship_pysr,flagship,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),0.9470049658597145,lr_single,0.9657775799831875,-0.018772614123472975,-0.018492654665838937,False
+flagship_pysr::025,flagship_pysr,flagship,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),0.9470049658597145,lr_pair_interaction,0.9841650595856203,-0.037160093725905785,-0.018492654665838937,False
+tier2_pysr::000,tier2_pysr,tier2,0.4159849 + ((x8 - x3) * -0.09313616),0.6385123135211934,sign_invariant_max,0.609815297182098,0.028697016339095383,0.028697016339095383,False
+tier2_pysr::000,tier2_pysr,tier2,0.4159849 + ((x8 - x3) * -0.09313616),0.6385123135211934,lr_single,0.6084604826068242,0.03005183091436925,0.028697016339095383,False
+tier2_pysr::000,tier2_pysr,tier2,0.4159849 + ((x8 - x3) * -0.09313616),0.6385123135211934,lr_pair_interaction,0.6433603794579404,-0.004848065936747026,0.028697016339095383,False
+tier2_pysr::001,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::001,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::001,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::002,tier2_pysr,tier2,0.38469365 - (x8 * 0.07136952),0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::002,tier2_pysr,tier2,0.38469365 - (x8 * 0.07136952),0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::002,tier2_pysr,tier2,0.38469365 - (x8 * 0.07136952),0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::003,tier2_pysr,tier2,log1p(sqrt(log1p(exp(x2 - exp(x8))))),0.5956961875443997,sign_invariant_max,0.609815297182098,-0.014119109637698357,-0.014119109637698357,False
+tier2_pysr::003,tier2_pysr,tier2,log1p(sqrt(log1p(exp(x2 - exp(x8))))),0.5956961875443997,lr_single,0.6084604826068242,-0.012764295062424491,-0.014119109637698357,False
+tier2_pysr::003,tier2_pysr,tier2,log1p(sqrt(log1p(exp(x2 - exp(x8))))),0.5956961875443997,lr_pair_interaction,0.6433603794579404,-0.047664191913540765,-0.014119109637698357,False
+tier2_pysr::004,tier2_pysr,tier2,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::004,tier2_pysr,tier2,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::004,tier2_pysr,tier2,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::005,tier2_pysr,tier2,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::005,tier2_pysr,tier2,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::005,tier2_pysr,tier2,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::006,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::006,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::006,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::007,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::007,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::007,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::008,tier2_pysr,tier2,0.5249501 - (exp(x8) * 0.07136952),0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::008,tier2_pysr,tier2,0.5249501 - (exp(x8) * 0.07136952),0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::008,tier2_pysr,tier2,0.5249501 - (exp(x8) * 0.07136952),0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::009,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::009,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::009,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::010,tier2_pysr,tier2,((x8 - x3) * -0.07060441) - -0.39114887,0.6385123135211934,sign_invariant_max,0.609815297182098,0.028697016339095383,0.028697016339095383,False
+tier2_pysr::010,tier2_pysr,tier2,((x8 - x3) * -0.07060441) - -0.39114887,0.6385123135211934,lr_single,0.6084604826068242,0.03005183091436925,0.028697016339095383,False
+tier2_pysr::010,tier2_pysr,tier2,((x8 - x3) * -0.07060441) - -0.39114887,0.6385123135211934,lr_pair_interaction,0.6433603794579404,-0.004848065936747026,0.028697016339095383,False
+tier2_pysr::011,tier2_pysr,tier2,(exp(x8) * -0.07060441) - -0.48985445,0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::011,tier2_pysr,tier2,(exp(x8) * -0.07060441) - -0.48985445,0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::011,tier2_pysr,tier2,(exp(x8) * -0.07060441) - -0.48985445,0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::012,tier2_pysr,tier2,(x8 * -0.07060441) - -0.39114887,0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::012,tier2_pysr,tier2,(x8 * -0.07060441) - -0.39114887,0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::012,tier2_pysr,tier2,(x8 * -0.07060441) - -0.39114887,0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::013,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::013,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::013,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::014,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::014,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::014,tier2_pysr,tier2,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::015,tier2_pysr,tier2,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::015,tier2_pysr,tier2,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::015,tier2_pysr,tier2,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::016,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::016,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::016,tier2_pysr,tier2,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::017,tier2_pysr,tier2,(-0.07137078 * (x8 - x3)) - -0.38469547,0.6385123135211934,sign_invariant_max,0.609815297182098,0.028697016339095383,0.028697016339095383,False
+tier2_pysr::017,tier2_pysr,tier2,(-0.07137078 * (x8 - x3)) - -0.38469547,0.6385123135211934,lr_single,0.6084604826068242,0.03005183091436925,0.028697016339095383,False
+tier2_pysr::017,tier2_pysr,tier2,(-0.07137078 * (x8 - x3)) - -0.38469547,0.6385123135211934,lr_pair_interaction,0.6433603794579404,-0.004848065936747026,0.028697016339095383,False
+tier2_pysr::018,tier2_pysr,tier2,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),0.5941717973004973,sign_invariant_max,0.609815297182098,-0.015643499881600742,-0.015643499881600742,False
+tier2_pysr::018,tier2_pysr,tier2,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),0.5941717973004973,lr_single,0.6084604826068242,-0.014288685306326876,-0.015643499881600742,False
+tier2_pysr::018,tier2_pysr,tier2,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),0.5941717973004973,lr_pair_interaction,0.6433603794579404,-0.04918858215744315,-0.015643499881600742,False
+tier2_pysr::019,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::019,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::019,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::020,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::020,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::020,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::021,tier2_pysr,tier2,(-0.07137078 * x8) - -0.38469547,0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::021,tier2_pysr,tier2,(-0.07137078 * x8) - -0.38469547,0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::021,tier2_pysr,tier2,(-0.07137078 * x8) - -0.38469547,0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::022,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::022,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::022,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+tier2_pysr::023,tier2_pysr,tier2,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),0.6385123135211934,sign_invariant_max,0.609815297182098,0.028697016339095383,0.028697016339095383,False
+tier2_pysr::023,tier2_pysr,tier2,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),0.6385123135211934,lr_single,0.6084604826068242,0.03005183091436925,0.028697016339095383,False
+tier2_pysr::023,tier2_pysr,tier2,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),0.6385123135211934,lr_pair_interaction,0.6433603794579404,-0.004848065936747026,0.028697016339095383,False
+tier2_pysr::024,tier2_pysr,tier2,(-0.07137078 * exp(x8)) - -0.4514672,0.609815297182098,sign_invariant_max,0.609815297182098,0.0,0.0,False
+tier2_pysr::024,tier2_pysr,tier2,(-0.07137078 * exp(x8)) - -0.4514672,0.609815297182098,lr_single,0.6084604826068242,0.001354814575273866,0.0,False
+tier2_pysr::024,tier2_pysr,tier2,(-0.07137078 * exp(x8)) - -0.4514672,0.609815297182098,lr_pair_interaction,0.6433603794579404,-0.03354508227584241,0.0,False
+tier2_pysr::025,tier2_pysr,tier2,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),0.6385123135211934,sign_invariant_max,0.609815297182098,0.028697016339095383,0.028697016339095383,False
+tier2_pysr::025,tier2_pysr,tier2,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),0.6385123135211934,lr_single,0.6084604826068242,0.03005183091436925,0.028697016339095383,False
+tier2_pysr::025,tier2_pysr,tier2,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),0.6385123135211934,lr_pair_interaction,0.6433603794579404,-0.004848065936747026,0.028697016339095383,False
+tier2_pysr::026,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),0.5,sign_invariant_max,0.609815297182098,-0.10981529718209804,0.0,False
+tier2_pysr::026,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),0.5,lr_single,0.6084604826068242,-0.10846048260682417,0.0,False
+tier2_pysr::026,tier2_pysr,tier2,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),0.5,lr_pair_interaction,0.6433603794579404,-0.14336037945794045,0.0,False
+opus_exante_flagship::000,opus_exante_flagship,flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.9844558245396233,sign_invariant_max,0.9654976205255534,0.01895820401406989,0.01895820401406989,False
+opus_exante_flagship::000,opus_exante_flagship,flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.9844558245396233,lr_single,0.9657775799831875,0.018678244556435852,0.01895820401406989,False
+opus_exante_flagship::000,opus_exante_flagship,flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.9844558245396233,lr_pair_interaction,0.9841650595856203,0.00029076495400304214,0.01895820401406989,False
+opus_exante_flagship::001,opus_exante_flagship,flagship,log1p(LDHA) - log1p(ALB),0.8234016139044071,sign_invariant_max,0.9654976205255534,-0.1420960066211463,-0.1420960066211463,False
+opus_exante_flagship::001,opus_exante_flagship,flagship,log1p(LDHA) - log1p(ALB),0.8234016139044071,lr_single,0.9657775799831875,-0.14237596607878034,-0.1420960066211463,False
+opus_exante_flagship::001,opus_exante_flagship,flagship,log1p(LDHA) - log1p(ALB),0.8234016139044071,lr_pair_interaction,0.9841650595856203,-0.16076344568121315,-0.1420960066211463,False
+opus_exante_flagship::002,opus_exante_flagship,flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.9579971032485,sign_invariant_max,0.9654976205255534,-0.007500517277053476,-0.007500517277053476,False
+opus_exante_flagship::002,opus_exante_flagship,flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.9579971032485,lr_single,0.9657775799831875,-0.007780476734687514,-0.007500517277053476,False
+opus_exante_flagship::002,opus_exante_flagship,flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.9579971032485,lr_pair_interaction,0.9841650595856203,-0.026167956337120324,-0.007500517277053476,False
+opus_exante_flagship::003,opus_exante_flagship,flagship,log1p(VEGFA) - log1p(ALB),0.9246068694392716,sign_invariant_max,0.9654976205255534,-0.04089075108628182,-0.04089075108628182,False
+opus_exante_flagship::003,opus_exante_flagship,flagship,log1p(VEGFA) - log1p(ALB),0.9246068694392716,lr_single,0.9657775799831875,-0.041170710543915856,-0.04089075108628182,False
+opus_exante_flagship::003,opus_exante_flagship,flagship,log1p(VEGFA) - log1p(ALB),0.9246068694392716,lr_pair_interaction,0.9841650595856203,-0.059558190146348666,-0.04089075108628182,False
+opus_exante_flagship::004,opus_exante_flagship,flagship,log1p(CA9),0.9654976205255534,sign_invariant_max,0.9654976205255534,0.0,0.0,False
+opus_exante_flagship::004,opus_exante_flagship,flagship,log1p(CA9),0.9654976205255534,lr_single,0.9657775799831875,-0.00027995945763403807,0.0,False
+opus_exante_flagship::004,opus_exante_flagship,flagship,log1p(CA9),0.9654976205255534,lr_pair_interaction,0.9841650595856203,-0.01866743906006685,0.0,False
+opus_exante_flagship::005,opus_exante_flagship,flagship,log1p(ACTB) - log1p(GAPDH),0.1638475067246017,sign_invariant_max,0.9654976205255534,-0.8016501138009517,-0.8016501138009517,False
+opus_exante_flagship::005,opus_exante_flagship,flagship,log1p(ACTB) - log1p(GAPDH),0.1638475067246017,lr_single,0.9657775799831875,-0.8019300732585858,-0.8016501138009517,False
+opus_exante_flagship::005,opus_exante_flagship,flagship,log1p(ACTB) - log1p(GAPDH),0.1638475067246017,lr_pair_interaction,0.9841650595856203,-0.8203175528610186,-0.8016501138009517,False
+opus_exante_flagship::006,opus_exante_flagship,flagship,log1p(MKI67) - log1p(RPL13A),0.9114938961307677,sign_invariant_max,0.9654976205255534,-0.054003724394785735,-0.054003724394785735,False
+opus_exante_flagship::006,opus_exante_flagship,flagship,log1p(MKI67) - log1p(RPL13A),0.9114938961307677,lr_single,0.9657775799831875,-0.05428368385241977,-0.054003724394785735,False
+opus_exante_flagship::006,opus_exante_flagship,flagship,log1p(MKI67) - log1p(RPL13A),0.9114938961307677,lr_pair_interaction,0.9841650595856203,-0.07267116345485258,-0.054003724394785735,False
+opus_exante_tier2::000,opus_exante_tier2,tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.5136899123845607,sign_invariant_max,0.609815297182098,-0.0961253847975373,-0.0961253847975373,False
+opus_exante_tier2::000,opus_exante_tier2,tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.5136899123845607,lr_single,0.6084604826068242,-0.09477057022226343,-0.0961253847975373,False
+opus_exante_tier2::000,opus_exante_tier2,tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),0.5136899123845607,lr_pair_interaction,0.6433603794579404,-0.1296704670733797,-0.0961253847975373,False
+opus_exante_tier2::001,opus_exante_tier2,tier2,log1p(LDHA) - log1p(ALB),0.5596880179966848,sign_invariant_max,0.609815297182098,-0.050127279185413265,-0.050127279185413265,False
+opus_exante_tier2::001,opus_exante_tier2,tier2,log1p(LDHA) - log1p(ALB),0.5596880179966848,lr_single,0.6084604826068242,-0.0487724646101394,-0.050127279185413265,False
+opus_exante_tier2::001,opus_exante_tier2,tier2,log1p(LDHA) - log1p(ALB),0.5596880179966848,lr_pair_interaction,0.6433603794579404,-0.08367236146125567,-0.050127279185413265,False
+opus_exante_tier2::002,opus_exante_tier2,tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.5355049727681743,sign_invariant_max,0.609815297182098,-0.07431032441392371,-0.07431032441392371,False
+opus_exante_tier2::002,opus_exante_tier2,tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.5355049727681743,lr_single,0.6084604826068242,-0.07295550983864985,-0.07431032441392371,False
+opus_exante_tier2::002,opus_exante_tier2,tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),0.5355049727681743,lr_pair_interaction,0.6433603794579404,-0.10785540668976612,-0.07431032441392371,False
+opus_exante_tier2::003,opus_exante_tier2,tier2,log1p(VEGFA) - log1p(ALB),0.5515924698081932,sign_invariant_max,0.609815297182098,-0.05822282737390483,-0.05822282737390483,False
+opus_exante_tier2::003,opus_exante_tier2,tier2,log1p(VEGFA) - log1p(ALB),0.5515924698081932,lr_single,0.6084604826068242,-0.05686801279863096,-0.05822282737390483,False
+opus_exante_tier2::003,opus_exante_tier2,tier2,log1p(VEGFA) - log1p(ALB),0.5515924698081932,lr_pair_interaction,0.6433603794579404,-0.09176790964974724,-0.05822282737390483,False
+opus_exante_tier2::004,opus_exante_tier2,tier2,log1p(CA9),0.4743517641487094,sign_invariant_max,0.609815297182098,-0.13546353303338865,-0.13546353303338865,False
+opus_exante_tier2::004,opus_exante_tier2,tier2,log1p(CA9),0.4743517641487094,lr_single,0.6084604826068242,-0.13410871845811478,-0.13546353303338865,False
+opus_exante_tier2::004,opus_exante_tier2,tier2,log1p(CA9),0.4743517641487094,lr_pair_interaction,0.6433603794579404,-0.16900861530923106,-0.13546353303338865,False
+opus_exante_tier2::005,opus_exante_tier2,tier2,log1p(ACTB) - log1p(GAPDH),0.49928960454653093,sign_invariant_max,0.609815297182098,-0.11052569263556711,-0.11052569263556711,False
+opus_exante_tier2::005,opus_exante_tier2,tier2,log1p(ACTB) - log1p(GAPDH),0.49928960454653093,lr_single,0.6084604826068242,-0.10917087806029324,-0.11052569263556711,False
+opus_exante_tier2::005,opus_exante_tier2,tier2,log1p(ACTB) - log1p(GAPDH),0.49928960454653093,lr_pair_interaction,0.6433603794579404,-0.14407077491140952,-0.11052569263556711,False
+opus_exante_tier2::006,opus_exante_tier2,tier2,log1p(MKI67) - log1p(RPL13A),0.5851142552687663,sign_invariant_max,0.609815297182098,-0.024701041913331778,-0.024701041913331778,False
+opus_exante_tier2::006,opus_exante_tier2,tier2,log1p(MKI67) - log1p(RPL13A),0.5851142552687663,lr_single,0.6084604826068242,-0.023346227338057912,-0.024701041913331778,False
+opus_exante_tier2::006,opus_exante_tier2,tier2,log1p(MKI67) - log1p(RPL13A),0.5851142552687663,lr_pair_interaction,0.6433603794579404,-0.05824612418917419,-0.024701041913331778,False
