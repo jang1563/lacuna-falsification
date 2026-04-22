@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+*.egg-info
+.tmp_geo/
+.pytest_cache/
+data/public_workflow/
+.env
+*.env
+manifests/
+scripts/
+artifacts/
+*.DS_Store

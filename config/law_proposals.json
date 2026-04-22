@@ -1,0 +1,146 @@
+[
+  {
+    "proposer": "opus",
+    "name": "Buffered activation ratio",
+    "template_id": "ratio",
+    "symbolic_template": "signal_a / (1 + signal_b)",
+    "allowed_operators": ["+", "/"],
+    "biological_rationale": "Disease states often amplify one module while suppressing or buffering another. A short ratio can expose that asymmetry.",
+    "target_features": []
+  },
+  {
+    "proposer": "opus",
+    "name": "Balance law",
+    "template_id": "normalized_difference",
+    "symbolic_template": "(signal_a - signal_b) / (1 + signal_a + signal_b)",
+    "allowed_operators": ["+", "-", "/"],
+    "biological_rationale": "A normalized contrast is a compact way to test whether disease reflects a shift in balance rather than a simple univariate increase.",
+    "target_features": []
+  },
+  {
+    "proposer": "opus",
+    "name": "Log contrast law",
+    "template_id": "log_ratio",
+    "symbolic_template": "log1p(signal_a) - log1p(signal_b)",
+    "allowed_operators": ["log1p", "-"],
+    "biological_rationale": "Log contrasts can stabilize heavy-tailed module scores while preserving a short, interpretable law family.",
+    "target_features": []
+  },
+  {
+    "proposer": "opus",
+    "name": "Simple additive interaction",
+    "template_id": "difference",
+    "symbolic_template": "signal_a - signal_b",
+    "allowed_operators": ["-"],
+    "biological_rationale": "A short difference law is a useful skeptic baseline because many disease effects reduce to a shift between opposing programs.",
+    "target_features": []
+  },
+  {
+    "proposer": "opus",
+    "name": "Single-feature anchor",
+    "template_id": "identity",
+    "symbolic_template": "signal_a",
+    "allowed_operators": [],
+    "biological_rationale": "A one-feature law is the simplest interpretable baseline and must remain competitive in the final comparison.",
+    "target_features": []
+  },
+  {
+    "proposer": "opus",
+    "name": "HIF/angiogenesis vs normal kidney",
+    "dataset": "kirc",
+    "template_id": "kirc_hif_angiogenesis_log",
+    "symbolic_template": "log1p(CA9) + log1p(VEGFA) - log1p(AGXT)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "CA9 is a HIF-1α target, VEGFA is a HIF-2α target, AGXT is a normal kidney oxidative marker suppressed by VHL loss.",
+    "target_features": ["CA9", "VEGFA", "AGXT"],
+    "initial_guess": "log1p(CA9) + log1p(VEGFA) - log1p(AGXT)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Warburg vs liver-like normal (KIRC)",
+    "dataset": "kirc",
+    "template_id": "kirc_warburg_alb",
+    "symbolic_template": "log1p(LDHA) - log1p(ALB)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "LDHA drives lactate production in tumor; ALB marks the normal-like liver-adjacent kidney metabolic state.",
+    "target_features": ["LDHA", "ALB"],
+    "initial_guess": "log1p(LDHA) - log1p(ALB)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Glycolysis + hypoxia vs normal kidney",
+    "dataset": "kirc",
+    "template_id": "kirc_glycolysis_hypoxia",
+    "symbolic_template": "log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "SLC2A1 (GLUT1) and NDUFA4L2 are HIF targets driving glucose uptake and suppressing OXPHOS; AGXT marks normal proximal tubule.",
+    "target_features": ["SLC2A1", "NDUFA4L2", "AGXT"],
+    "initial_guess": "log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Angiogenic ratio (KIRC)",
+    "dataset": "kirc",
+    "template_id": "kirc_vegf_alb_ratio",
+    "symbolic_template": "log1p(VEGFA) - log1p(ALB)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "VEGFA upregulation vs ALB decline captures the angiogenic switch driven by VHL loss.",
+    "target_features": ["VEGFA", "ALB"],
+    "initial_guess": "log1p(VEGFA) - log1p(ALB)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Single-gene anchor CA9 (KIRC)",
+    "dataset": "kirc",
+    "template_id": "kirc_ca9_anchor",
+    "symbolic_template": "log1p(CA9)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "CA9 single-gene baseline — must be beaten by multi-gene laws to justify increased complexity.",
+    "target_features": ["CA9"],
+    "initial_guess": "log1p(CA9)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Proliferation + glycolysis vs surfactant (LUAD)",
+    "dataset": "luad",
+    "template_id": "luad_cdk1_glut1_sftpc",
+    "symbolic_template": "log1p(CDK1) + log1p(SLC2A1) - log1p(SFTPC)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "CDK1 and SLC2A1 mark KRAS/EGFR-driven proliferation and metabolic reprogramming; SFTPC marks normal alveolar type II cells.",
+    "target_features": ["CDK1", "SLC2A1", "SFTPC"],
+    "initial_guess": "log1p(CDK1) + log1p(SLC2A1) - log1p(SFTPC)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Warburg vs normal lung (LUAD)",
+    "dataset": "luad",
+    "template_id": "luad_ldha_napsa",
+    "symbolic_template": "log1p(LDHA) - log1p(NAPSA)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "LDHA marks the Warburg effect; NAPSA is expressed in normal type II pneumocytes and lost in high-grade LUAD.",
+    "target_features": ["LDHA", "NAPSA"],
+    "initial_guess": "log1p(LDHA) - log1p(NAPSA)"
+  },
+  {
+    "proposer": "opus",
+    "name": "EGFR-driven proliferation vs surfactant (LUAD)",
+    "dataset": "luad",
+    "template_id": "luad_vegfa_cdk1_sftpb",
+    "symbolic_template": "log1p(VEGFA) + log1p(CDK1) - log1p(SFTPB)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "VEGFA + CDK1 mark angiogenic + proliferative EGFR/KRAS signals; SFTPB marks normal lung surfactant biology.",
+    "target_features": ["VEGFA", "CDK1", "SFTPB"],
+    "initial_guess": "log1p(VEGFA) + log1p(CDK1) - log1p(SFTPB)"
+  },
+  {
+    "proposer": "opus",
+    "name": "Single-gene anchor CDK1 (LUAD)",
+    "dataset": "luad",
+    "template_id": "luad_cdk1_anchor",
+    "symbolic_template": "log1p(CDK1)",
+    "allowed_operators": ["log1p", "+", "-", "/", "*"],
+    "biological_rationale": "CDK1 single-gene LUAD baseline.",
+    "target_features": ["CDK1"],
+    "initial_guess": "log1p(CDK1)"
+  }
+]
