@@ -101,6 +101,30 @@
   },
   {
     "proposer": "opus",
+    "name": "Housekeeping null (KIRC negative control)",
+    "dataset": "kirc",
+    "template_id": "kirc_housekeeping_null",
+    "symbolic_template": "log1p(ACTB) - log1p(GAPDH)",
+    "allowed_operators": ["log1p", "-"],
+    "biological_rationale": "Contrast between two housekeeping genes — NOT expected to separate tumor from normal. Included as deliberate ex-ante negative control so the demo can show the falsification gate killing a weak law alongside the rescued strong ones.",
+    "target_features": ["ACTB", "GAPDH"],
+    "initial_guess": "log1p(ACTB) - log1p(GAPDH)",
+    "expected_verdict": "FAIL"
+  },
+  {
+    "proposer": "opus",
+    "name": "Random proliferation guess (KIRC negative control)",
+    "dataset": "kirc",
+    "template_id": "kirc_proliferation_null",
+    "symbolic_template": "log1p(MKI67) - log1p(RPL13A)",
+    "allowed_operators": ["log1p", "-"],
+    "biological_rationale": "MKI67 is a generic proliferation marker and RPL13A is a housekeeping reference. Neither is KIRC-specific; expected to fail the falsification gate.",
+    "target_features": ["MKI67", "RPL13A"],
+    "initial_guess": "log1p(MKI67) - log1p(RPL13A)",
+    "expected_verdict": "FAIL"
+  },
+  {
+    "proposer": "opus",
     "name": "Proliferation + glycolysis vs surfactant (LUAD)",
     "dataset": "luad",
     "template_id": "luad_cdk1_glut1_sftpc",

@@ -4,25 +4,35 @@ import anthropic
 
 NIGHT2_SYSTEM = (
     "You are a scientific computing assistant specializing in symbolic regression. "
-    "Your task: run a PySR hyperparameter sweep on the ND2 gene expression dataset, "
-    "batch-judge the resulting candidate equations using Sonnet, and write all results "
-    "to manifest_night2.json. Use bash to execute python3 src/pysr_sweep.py and any "
-    "downstream scripts. Log progress and confirm completion with a structured summary."
+    "Your task: run a PySR hyperparameter sweep on the TCGA-KIRC tumor-vs-normal "
+    "gene expression dataset, seeded with Opus-proposed law family guesses "
+    "(config/law_proposals.json). Execute python3 src/pysr_sweep.py, then write the "
+    "candidate equations (equation, auroc, complexity, seed, law_family) to "
+    "results/night2/candidates.json. Log progress and confirm completion with a "
+    "structured summary."
 )
 
 NIGHT3_SYSTEM = (
     "You are a scientific computing assistant specializing in hypothesis falsification. "
-    "Your task: run falsification tests on the top-50 candidate equations from Night 2. "
-    "Execute python3 src/falsification_sweep.py to test each candidate against null "
-    "distributions, shuffle controls, and cross-dataset replication. Write the final "
-    "ranked results to falsification_report.json. Confirm completion with a structured summary."
+    "Your task: run the 4-test falsification gate on the top-50 candidate equations "
+    "from Night 2. Execute python3 src/falsification_sweep.py to test each candidate "
+    "against permutation null, bootstrap stability, best-single-feature baseline, and "
+    "covariate-only confound. Apply Benjamini-Hochberg FDR across candidates. Write "
+    "the ranked report (equation, passes, perm_p, perm_p_fdr, ci_lower, delta_baseline, "
+    "delta_confound, fail_reason) to results/night3/falsification_report.json. Confirm "
+    "completion with a structured summary."
 )
 
 NIGHT4_SYSTEM = (
     "You are a scientific computing assistant specializing in biological law validation. "
-    "Your task: validate the top surviving equations from Night 3 on the GSE40435 dataset "
-    "(independent PBMC cohort). Run transfer validation, compute AUC and confidence intervals, "
-    "and write all results to transfer_report.json. Confirm completion with a structured summary."
+    "Your task: replay the top surviving laws from Night 3 on the GSE40435 cohort "
+    "(independent ccRCC kidney tissue cohort, 101 paired tumor-normal samples, "
+    "microarray platform — different from TCGA-KIRC's RNA-seq). Run the same "
+    "falsification gate on the independent cohort with per-cohort z-score "
+    "standardization. Compute three-way verdict: law_transfers (same equation "
+    "survives), workflow_transfers (some law in family survives), or neither. "
+    "Write all results (per-equation AUC with 95% CI, verdict) to "
+    "results/night4/transfer_report.json. Confirm completion with a structured summary."
 )
 
 _NIGHT_SYSTEMS = {2: NIGHT2_SYSTEM, 3: NIGHT3_SYSTEM, 4: NIGHT4_SYSTEM}
@@ -180,25 +190,60 @@ def run_path_a(
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
 
-    all_outputs: list[str] = []
+    role_outputs: dict[str, str] = {}
     status = "completed"
     last_session = None
 
-    for role, agent in [
-        ("proposer", proposer),
-        ("searcher", searcher),
-        ("falsifier", falsifier),
-    ]:
+    chain = [
+        (
+            "proposer",
+            proposer,
+            (
+                f"Night {night}: select 3-5 compact law families from config/law_proposals.json "
+                "(including the required negative control) and write a refined set to "
+                "results/proposer_output.json. Emit the family list as JSON in your final message."
+            ),
+        ),
+        (
+            "searcher",
+            searcher,
+            (
+                "Read the Proposer's law families below and run PySR via bash:\n"
+                "  python3 src/pysr_sweep.py --data <flagship_csv> --genes <CSV of genes> "
+                "--proposals config/law_proposals.json --standardize "
+                "--output results/candidates.json\n"
+                "Emit a JSON summary of candidate equations with train_auroc + test_auroc + novelty.\n\n"
+                "=== Proposer output ===\n{proposer}\n=== end Proposer output ==="
+            ),
+        ),
+        (
+            "falsifier",
+            falsifier,
+            (
+                "Read the Searcher's candidate equations below and run the 4-test gate:\n"
+                "  python3 src/falsification_sweep.py --candidates results/candidates.json "
+                "--data <flagship_csv> --genes <CSV of genes> --covariate-cols age,batch_index "
+                "--output results/falsification_report.json\n"
+                "Emit a JSON summary naming every candidate plus perm_p, perm_p_fdr, ci_lower, "
+                "delta_baseline, delta_confound, decoy_p, passes, fail_reason. Flag any law where "
+                "train_auroc >> test_auroc as overfit.\n\n"
+                "=== Searcher output ===\n{searcher}\n=== end Searcher output ==="
+            ),
+        ),
+    ]
+
+    for role, agent, task_template in chain:
+        task = task_template.format(
+            proposer=role_outputs.get("proposer", ""),
+            searcher=role_outputs.get("searcher", ""),
+        )
         session = client.beta.sessions.create(
             agent=agent.id,
             environment_id=environment.id,
             title=title or f"Night {night} {role}",
         )
         last_session = session
-        task = (
-            f"Execute your assigned task for Night {night}. "
-            "Previous agents have prepared inputs in results/."
-        )
+        output_parts: list[str] = []
         try:
             with client.beta.sessions.events.stream(session.id) as stream:
                 client.beta.sessions.events.send(
@@ -214,17 +259,20 @@ def run_path_a(
                     match event.type:
                         case "agent.message":
                             for block in event.content:
-                                all_outputs.append(block.text)
+                                output_parts.append(block.text)
                         case "session.status_idle":
                             break
         except Exception as exc:
             status = "error"
-            all_outputs.append(f"Error in {role}: {exc}")
+            output_parts.append(f"Error in {role}: {exc}")
+            role_outputs[role] = "".join(output_parts)
             break
+        role_outputs[role] = "".join(output_parts)
 
+    import json as _json
     return {
         "session_id": last_session.id if last_session else "",
         "agent_id": falsifier.id,
-        "output": "".join(all_outputs),
+        "output": _json.dumps(role_outputs),
         "status": status,
     }

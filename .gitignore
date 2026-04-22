@@ -1,14 +1,51 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
 *.egg-info/
-*.egg-info
-.tmp_geo/
+
+# Test / cache
 .pytest_cache/
-data/public_workflow/
+.tmp_geo/
+
+# Secrets
 .env
 *.env
+
+# Transient artifacts (local runs + PySR checkpoints)
+artifacts/
+outputs/
 manifests/
 scripts/
-artifacts/
+
+# Pre-hackathon scaffold — excluded per hackathon rule
+# (code must be new as of kickoff; these predate it)
+src/theory_copilot/contracts.py
+src/theory_copilot/qc.py
+src/theory_copilot/reuse_inventory.py
+src/theory_copilot/reuse_plan.py
+src/theory_copilot/staging.py
+src/theory_copilot/workflow_data.py
+tests/test_contracts.py
+tests/test_reuse_inventory.py
+tests/test_reuse_plan.py
+tests/test_staging.py
+tests/test_workflow_data.py
+demo_script.md
+
+# Pre-hackathon configuration that contains environment-specific paths
+config/existing_public_data_roots.json
+config/staging_policy.json
+config/stage1_execution_plan.json
+config/workflow_export_specs.json
+config/datasets_public_open.json
+
+# Pre-hackathon docs referencing infra that should not appear in the public repo
+docs/hpc_workflow.md
+docs/open_access_staging.md
+
+# Large raw public-workflow caches (not the demo data under data/examples/)
+data/public_workflow/
+
+# OS
 *.DS_Store

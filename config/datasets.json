@@ -1,0 +1,30 @@
+[
+  {
+    "dataset_id": "flagship_demo",
+    "name": "Flagship synthetic disease-vs-normal module dataset",
+    "source_url": "local://data/examples/flagship_demo.csv",
+    "local_path": "data/examples/flagship_demo.csv",
+    "disease_label": "disease",
+    "control_label": "control",
+    "modality": "synthetic-omics-summary",
+    "species": "human",
+    "sample_count": 96,
+    "public_license_status": "synthetic demo data included for local validation; replace with a public omics export for the judged run",
+    "allowed_covariates": ["age", "batch_index"],
+    "notes": "Designed so a compact buffered activation law can survive falsification."
+  },
+  {
+    "dataset_id": "transfer_demo",
+    "name": "Transfer synthetic disease-vs-normal module dataset",
+    "source_url": "local://data/examples/transfer_demo.csv",
+    "local_path": "data/examples/transfer_demo.csv",
+    "disease_label": "disease",
+    "control_label": "control",
+    "modality": "synthetic-omics-summary",
+    "species": "human",
+    "sample_count": 88,
+    "public_license_status": "synthetic demo data included for local validation; replace with a second public omics export for the judged run",
+    "allowed_covariates": ["age", "batch_index"],
+    "notes": "Designed to replay the same workflow with a related but non-identical compact law family."
+  }
+]
