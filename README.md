@@ -32,9 +32,12 @@ Built for the Built with Opus 4.7 Hackathon · April 2026
   researcher had expected to survive and accepts a 2-gene subtype
   axis the researcher had *not* planted. The user-side workflow for
   a new task is "drop a CSV with a label column and a gene-name
-  columns, run `theory-copilot compare`, read the pass/fail table."
-  See [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) for the
-  full reproducible steps.
+  columns, run `theory-copilot compare --dataset-card <your_card>.json`,
+  read the pass/fail table." See
+  [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) for the
+  full reproducible steps and [`docs/paper/paper.pdf`](docs/paper/paper.pdf)
+  for the 6-page methodology + results write-up in workshop-paper
+  form.
 - **If you are evaluating the science (domain-expert):** start with
   [`results/track_a_task_landscape/SUMMARY.md`](results/track_a_task_landscape/SUMMARY.md)
   (4-task cross-matrix, both panel sizes), then

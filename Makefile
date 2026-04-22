@@ -1,4 +1,4 @@
-.PHONY: help install test demo demo-kirc demo-templates clean status audit
+.PHONY: help install test demo demo-kirc demo-templates clean status audit paper
 
 # ============================================================
 # Theory Copilot Falsification — Developer Commands
@@ -98,3 +98,17 @@ clean:
 	rm -rf build/ dist/ *.egg-info src/*.egg-info
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type d -name .pytest_cache -exec rm -rf {} +
+
+# --- Paper (docs/paper/paper.md → PDF via pandoc + xelatex) ---
+paper:
+	@echo ">>> Building docs/paper/paper.pdf via pandoc..."
+	@if ! command -v pandoc >/dev/null 2>&1; then \
+		echo "pandoc not installed. Install: brew install pandoc (macOS) or apt install pandoc (Linux)."; \
+		exit 1; \
+	fi
+	@pandoc docs/paper/paper.md \
+		--pdf-engine=xelatex \
+		-V geometry:margin=1in -V fontsize=11pt -V linkcolor=blue -V urlcolor=blue \
+		-V mainfont="Times New Roman" -V monofont="Menlo" \
+		-o docs/paper/paper.pdf
+	@echo ">>> Wrote docs/paper/paper.pdf"
