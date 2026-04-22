@@ -93,6 +93,24 @@ zscore to confirm the rejection holds.
 
 ---
 
+## Figures (judge-facing visuals)
+
+- `threshold_heatmap.png` — B1, 67 candidates × 32 threshold scenarios
+  (pass=green, fail=red). Reading: the entire column for the current
+  `delta_baseline=0.05` threshold is red; relaxing that threshold past
+  the empirical cliff turns rows progressively green.
+- `b2_baseline_ablation.png` — bar chart of max delta_baseline per
+  (task, baseline_kind). Pair+interaction baseline flattens the
+  flagship advantage (+0.029 → +0.010) and turns tier2 negative.
+- `b4_bootstrap_seed_variance.png` — scatter of 5-seed ci_lower per
+  candidate; the 0.60 gate line separates flagship (all well above)
+  from tier2 (all well below). Seed scatter is invisible at plot scale.
+- `b5_scaling_ablation.png` — max delta_baseline by (task, scaling);
+  the tier2 × zscore bar is the only one that crosses the 0.05 line.
+- `b6_cohort_size_curve.png` — law_auc and ci_lower vs n (left);
+  delta_baseline vs n (right). ci_lower stays well above 0.60;
+  delta stays well below 0.05 at every tested cohort size.
+
 ## Artifacts
 
 All outputs under `results/track_b_gate_robustness/`:
@@ -104,11 +122,15 @@ threshold_heatmap.png             (B1) 67 × 32 pass/fail grid
 threshold_grid_summary.json       (B1) flip curves by threshold
 baseline_ablation.csv             (B2) 201 rows, 67 candidates × 3 baselines
 baseline_ablation_summary.json    (B2) task-level baseline AUCs + survivor counts
+b2_baseline_ablation.png          (B2) bar chart max delta per baseline kind
 permutation_stability.json        (B3) pending
 bootstrap_seed_variance.json      (B4) 20 candidates × 5 seeds
+b4_bootstrap_seed_variance.png    (B4) per-candidate seed scatter
 scaling_ablation.csv              (B5) 268 rows
 scaling_ablation_summary.json     (B5) per (task, scaling) survivors
+b5_scaling_ablation.png           (B5) bar chart max delta per scaling
 cohort_size_curve.json            (B6) 4 sizes × 5 seeds
+b6_cohort_size_curve.png          (B6) dual-panel curves vs n
 ```
 
 Code under `src/`:
