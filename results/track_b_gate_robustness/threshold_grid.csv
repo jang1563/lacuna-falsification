@@ -1,0 +1,1810 @@
+candidate_id,source,equation,threshold_name,threshold_value,pass
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),current_all,,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),current_all,,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),current_all,,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),current_all,,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),current_all,,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),current_all,,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),current_all,,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),current_all,,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),current_all,,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),current_all,,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),current_all,,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),current_all,,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),current_all,,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),current_all,,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),current_all,,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),current_all,,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),current_all,,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),current_all,,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),current_all,,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),current_all,,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),current_all,,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),current_all,,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),current_all,,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),current_all,,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),current_all,,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),current_all,,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),current_all,,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),current_all,,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),current_all,,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),current_all,,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),current_all,,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),current_all,,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),current_all,,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),current_all,,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),current_all,,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),current_all,,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,current_all,,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,current_all,,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,current_all,,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),current_all,,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),current_all,,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),current_all,,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),current_all,,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,current_all,,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),current_all,,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),current_all,,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),current_all,,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,current_all,,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),current_all,,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),current_all,,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,current_all,,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),current_all,,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),current_all,,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),current_all,,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),current_all,,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),current_all,,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),current_all,,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),current_all,,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),current_all,,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),current_all,,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),current_all,,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),current_all,,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),current_all,,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),current_all,,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),current_all,,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),current_all,,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),current_all,,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.0,True
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.0,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.0,True
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.0,True
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.0,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.0,True
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.0,True
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.0,True
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.0,True
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.0,True
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.0,True
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.0,True
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.0,True
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.0,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.0,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.0,True
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.0,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.0,True
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.0,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.0,True
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.0,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.0,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.0,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.0,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.0,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.0,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.0,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.0,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.0,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.0,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.0,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.0,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.0,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.0,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.0,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.0,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.0,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.0,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.0,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.0,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.0,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.0,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.0,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.0,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.0,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.0,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.0,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.0,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.0,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.0,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.0,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.0,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.0,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.0,True
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.0,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.0,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.0,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.0,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.0,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.0,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.0,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.0,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.0,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.0,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.0,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.0,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.0,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.01,True
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.01,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.01,True
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.01,True
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.01,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.01,True
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.01,True
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.01,True
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.01,True
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.01,True
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.01,True
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.01,True
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.01,True
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.01,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.01,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.01,True
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.01,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.01,True
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.01,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.01,True
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.01,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.01,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.01,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.01,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.01,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.01,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.01,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.01,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.01,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.01,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.01,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.01,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.01,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.01,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.01,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.01,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.01,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.01,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.01,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.01,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.01,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.01,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.01,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.01,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.01,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.01,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.01,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.01,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.01,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.01,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.01,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.01,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.01,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.01,True
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.01,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.01,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.01,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.01,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.01,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.01,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.01,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.01,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.01,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.01,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.01,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.01,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.01,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.02,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.02,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.02,True
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.02,True
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.02,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.02,True
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.02,True
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.02,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.02,True
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.02,True
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.02,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.02,True
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.02,True
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.02,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.02,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.02,True
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.02,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.02,True
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.02,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.02,True
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.02,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.02,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.02,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.02,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.02,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.02,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.02,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.02,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.02,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.02,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.02,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.02,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.02,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.02,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.02,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.02,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.02,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.02,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.02,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.02,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.02,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.02,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.02,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.02,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.02,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.02,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.02,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.02,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.02,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.02,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.02,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.02,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.02,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.02,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.02,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.02,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.02,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.02,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.02,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.02,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.02,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.02,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.02,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.02,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.02,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.02,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.02,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.025,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.025,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.025,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.025,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.025,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.025,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.025,True
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.025,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.025,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.025,True
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.025,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.025,True
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.025,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.025,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.025,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.025,True
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.025,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.025,True
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.025,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.025,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.025,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.025,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.025,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.025,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.025,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.025,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.025,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.025,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.025,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.025,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.025,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.025,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.025,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.025,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.025,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.025,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.025,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.025,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.025,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.025,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.025,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.025,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.025,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.025,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.025,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.025,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.025,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.025,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.025,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.025,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.025,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.025,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.025,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.025,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.025,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.025,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.025,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.025,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.025,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.025,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.025,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.025,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.025,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.025,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.025,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.025,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.025,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.03,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.03,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.03,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.03,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.03,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.03,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.03,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.03,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.03,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.03,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.03,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.03,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.03,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.03,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.03,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.03,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.03,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.03,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.03,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.03,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.03,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.03,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.03,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.03,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.03,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.03,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.03,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.03,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.03,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.03,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.03,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.03,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.03,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.03,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.03,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.03,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.03,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.03,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.03,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.03,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.03,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.03,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.03,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.03,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.03,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.03,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.03,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.03,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.03,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.03,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.03,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.03,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.03,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.03,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.03,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.03,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.03,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.03,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.03,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.03,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.03,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.03,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.03,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.03,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.03,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.03,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.03,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.035,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.035,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.035,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.035,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.035,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.035,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.035,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.035,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.035,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.035,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.035,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.035,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.035,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.035,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.035,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.035,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.035,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.035,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.035,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.035,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.035,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.035,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.035,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.035,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.035,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.035,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.035,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.035,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.035,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.035,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.035,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.035,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.035,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.035,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.035,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.035,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.035,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.035,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.035,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.035,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.035,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.035,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.035,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.035,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.035,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.035,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.035,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.035,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.035,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.035,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.035,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.035,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.035,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.035,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.035,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.035,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.035,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.035,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.035,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.035,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.035,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.035,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.035,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.035,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.035,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.035,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.035,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.04,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.04,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.04,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.04,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.04,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.04,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.04,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.04,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.04,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.04,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.04,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.04,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.04,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.04,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.04,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.04,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.04,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.04,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.04,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.04,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.04,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.04,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.04,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.04,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.04,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.04,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.04,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.04,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.04,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.04,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.04,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.04,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.04,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.04,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.04,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.04,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.04,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.04,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.04,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.04,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.04,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.04,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.04,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.04,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.04,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.04,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.04,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.04,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.04,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.04,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.04,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.04,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.04,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.04,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.04,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.04,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.04,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.04,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.04,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.04,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.04,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.04,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.04,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.04,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.04,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.04,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.04,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.05,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.05,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.05,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.05,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.05,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.05,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.05,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.05,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.05,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.05,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.05,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.05,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.05,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.05,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.05,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.05,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.05,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.05,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.05,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.05,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.05,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.05,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.05,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.05,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.05,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.05,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.05,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.05,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.05,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.05,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.05,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.05,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.05,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.05,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.05,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.05,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.05,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.05,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.05,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.05,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.05,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.05,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.05,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.05,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.05,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.05,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.05,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.05,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.05,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.05,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.05,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.05,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.05,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.05,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.05,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.05,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.05,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.05,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.05,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.05,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.05,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.05,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.05,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.05,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.05,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.05,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.05,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.06,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.06,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.06,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.06,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.06,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.06,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.06,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.06,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.06,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.06,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.06,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.06,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.06,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.06,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.06,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.06,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.06,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.06,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.06,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.06,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.06,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.06,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.06,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.06,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.06,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.06,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.06,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.06,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.06,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.06,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.06,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.06,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.06,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.06,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.06,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.06,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.06,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.06,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.06,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.06,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.06,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.06,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.06,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.06,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.06,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.06,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.06,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.06,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.06,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.06,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.06,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.06,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.06,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.06,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.06,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.06,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.06,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.06,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.06,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.06,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.06,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.06,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.06,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.06,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.06,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.06,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.06,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_baseline,0.08,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_baseline,0.08,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_baseline,0.08,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_baseline,0.08,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_baseline,0.08,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_baseline,0.08,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_baseline,0.08,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_baseline,0.08,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_baseline,0.08,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_baseline,0.08,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_baseline,0.08,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_baseline,0.08,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_baseline,0.08,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_baseline,0.08,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_baseline,0.08,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_baseline,0.08,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_baseline,0.08,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_baseline,0.08,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_baseline,0.08,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_baseline,0.08,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_baseline,0.08,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_baseline,0.08,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_baseline,0.08,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_baseline,0.08,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_baseline,0.08,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_baseline,0.08,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_baseline,0.08,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_baseline,0.08,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_baseline,0.08,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_baseline,0.08,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_baseline,0.08,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_baseline,0.08,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_baseline,0.08,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_baseline,0.08,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_baseline,0.08,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_baseline,0.08,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_baseline,0.08,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_baseline,0.08,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_baseline,0.08,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_baseline,0.08,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_baseline,0.08,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_baseline,0.08,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_baseline,0.08,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_baseline,0.08,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_baseline,0.08,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_baseline,0.08,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_baseline,0.08,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_baseline,0.08,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_baseline,0.08,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_baseline,0.08,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_baseline,0.08,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_baseline,0.08,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_baseline,0.08,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.08,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_baseline,0.08,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.08,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_baseline,0.08,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_baseline,0.08,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.08,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.08,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_baseline,0.08,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_baseline,0.08,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_baseline,0.08,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_baseline,0.08,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_baseline,0.08,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_baseline,0.08,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_baseline,0.08,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),ci_lower,0.5,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),ci_lower,0.5,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),ci_lower,0.5,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),ci_lower,0.5,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),ci_lower,0.5,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),ci_lower,0.5,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),ci_lower,0.5,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),ci_lower,0.5,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),ci_lower,0.5,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),ci_lower,0.5,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),ci_lower,0.5,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),ci_lower,0.5,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),ci_lower,0.5,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),ci_lower,0.5,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),ci_lower,0.5,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),ci_lower,0.5,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),ci_lower,0.5,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),ci_lower,0.5,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),ci_lower,0.5,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),ci_lower,0.5,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),ci_lower,0.5,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),ci_lower,0.5,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),ci_lower,0.5,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),ci_lower,0.5,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),ci_lower,0.5,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),ci_lower,0.5,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),ci_lower,0.5,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),ci_lower,0.5,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),ci_lower,0.5,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),ci_lower,0.5,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),ci_lower,0.5,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),ci_lower,0.5,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),ci_lower,0.5,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),ci_lower,0.5,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),ci_lower,0.5,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),ci_lower,0.5,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,ci_lower,0.5,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,ci_lower,0.5,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,ci_lower,0.5,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),ci_lower,0.5,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),ci_lower,0.5,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),ci_lower,0.5,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),ci_lower,0.5,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,ci_lower,0.5,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),ci_lower,0.5,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),ci_lower,0.5,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),ci_lower,0.5,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,ci_lower,0.5,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),ci_lower,0.5,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),ci_lower,0.5,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,ci_lower,0.5,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),ci_lower,0.5,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),ci_lower,0.5,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.5,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),ci_lower,0.5,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.5,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),ci_lower,0.5,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),ci_lower,0.5,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),ci_lower,0.5,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),ci_lower,0.5,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.5,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),ci_lower,0.5,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.5,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),ci_lower,0.5,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),ci_lower,0.5,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),ci_lower,0.5,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),ci_lower,0.5,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),ci_lower,0.55,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),ci_lower,0.55,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),ci_lower,0.55,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),ci_lower,0.55,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),ci_lower,0.55,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),ci_lower,0.55,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),ci_lower,0.55,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),ci_lower,0.55,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),ci_lower,0.55,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),ci_lower,0.55,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),ci_lower,0.55,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),ci_lower,0.55,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),ci_lower,0.55,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),ci_lower,0.55,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),ci_lower,0.55,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),ci_lower,0.55,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),ci_lower,0.55,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),ci_lower,0.55,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),ci_lower,0.55,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),ci_lower,0.55,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),ci_lower,0.55,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),ci_lower,0.55,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),ci_lower,0.55,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),ci_lower,0.55,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),ci_lower,0.55,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),ci_lower,0.55,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),ci_lower,0.55,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),ci_lower,0.55,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),ci_lower,0.55,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),ci_lower,0.55,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),ci_lower,0.55,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),ci_lower,0.55,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),ci_lower,0.55,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),ci_lower,0.55,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),ci_lower,0.55,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),ci_lower,0.55,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,ci_lower,0.55,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,ci_lower,0.55,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,ci_lower,0.55,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),ci_lower,0.55,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),ci_lower,0.55,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),ci_lower,0.55,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),ci_lower,0.55,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,ci_lower,0.55,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),ci_lower,0.55,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),ci_lower,0.55,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),ci_lower,0.55,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,ci_lower,0.55,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),ci_lower,0.55,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),ci_lower,0.55,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,ci_lower,0.55,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),ci_lower,0.55,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),ci_lower,0.55,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.55,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),ci_lower,0.55,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.55,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),ci_lower,0.55,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),ci_lower,0.55,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),ci_lower,0.55,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),ci_lower,0.55,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.55,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),ci_lower,0.55,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.55,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),ci_lower,0.55,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),ci_lower,0.55,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),ci_lower,0.55,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),ci_lower,0.55,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),ci_lower,0.6,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),ci_lower,0.6,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),ci_lower,0.6,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),ci_lower,0.6,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),ci_lower,0.6,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),ci_lower,0.6,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),ci_lower,0.6,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),ci_lower,0.6,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),ci_lower,0.6,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),ci_lower,0.6,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),ci_lower,0.6,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),ci_lower,0.6,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),ci_lower,0.6,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),ci_lower,0.6,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),ci_lower,0.6,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),ci_lower,0.6,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),ci_lower,0.6,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),ci_lower,0.6,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),ci_lower,0.6,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),ci_lower,0.6,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),ci_lower,0.6,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),ci_lower,0.6,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),ci_lower,0.6,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),ci_lower,0.6,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),ci_lower,0.6,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),ci_lower,0.6,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),ci_lower,0.6,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),ci_lower,0.6,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),ci_lower,0.6,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),ci_lower,0.6,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),ci_lower,0.6,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),ci_lower,0.6,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),ci_lower,0.6,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),ci_lower,0.6,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),ci_lower,0.6,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),ci_lower,0.6,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,ci_lower,0.6,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,ci_lower,0.6,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,ci_lower,0.6,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),ci_lower,0.6,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),ci_lower,0.6,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),ci_lower,0.6,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),ci_lower,0.6,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,ci_lower,0.6,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),ci_lower,0.6,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),ci_lower,0.6,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),ci_lower,0.6,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,ci_lower,0.6,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),ci_lower,0.6,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),ci_lower,0.6,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,ci_lower,0.6,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),ci_lower,0.6,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),ci_lower,0.6,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.6,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),ci_lower,0.6,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.6,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),ci_lower,0.6,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),ci_lower,0.6,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),ci_lower,0.6,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),ci_lower,0.6,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.6,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),ci_lower,0.6,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.6,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),ci_lower,0.6,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),ci_lower,0.6,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),ci_lower,0.6,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),ci_lower,0.6,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),ci_lower,0.65,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),ci_lower,0.65,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),ci_lower,0.65,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),ci_lower,0.65,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),ci_lower,0.65,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),ci_lower,0.65,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),ci_lower,0.65,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),ci_lower,0.65,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),ci_lower,0.65,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),ci_lower,0.65,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),ci_lower,0.65,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),ci_lower,0.65,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),ci_lower,0.65,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),ci_lower,0.65,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),ci_lower,0.65,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),ci_lower,0.65,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),ci_lower,0.65,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),ci_lower,0.65,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),ci_lower,0.65,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),ci_lower,0.65,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),ci_lower,0.65,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),ci_lower,0.65,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),ci_lower,0.65,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),ci_lower,0.65,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),ci_lower,0.65,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),ci_lower,0.65,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),ci_lower,0.65,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),ci_lower,0.65,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),ci_lower,0.65,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),ci_lower,0.65,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),ci_lower,0.65,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),ci_lower,0.65,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),ci_lower,0.65,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),ci_lower,0.65,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),ci_lower,0.65,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),ci_lower,0.65,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,ci_lower,0.65,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,ci_lower,0.65,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,ci_lower,0.65,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),ci_lower,0.65,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),ci_lower,0.65,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),ci_lower,0.65,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),ci_lower,0.65,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,ci_lower,0.65,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),ci_lower,0.65,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),ci_lower,0.65,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),ci_lower,0.65,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,ci_lower,0.65,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),ci_lower,0.65,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),ci_lower,0.65,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,ci_lower,0.65,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),ci_lower,0.65,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),ci_lower,0.65,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.65,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),ci_lower,0.65,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.65,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),ci_lower,0.65,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),ci_lower,0.65,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),ci_lower,0.65,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),ci_lower,0.65,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.65,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),ci_lower,0.65,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.65,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),ci_lower,0.65,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),ci_lower,0.65,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),ci_lower,0.65,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),ci_lower,0.65,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),ci_lower,0.7,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),ci_lower,0.7,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),ci_lower,0.7,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),ci_lower,0.7,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),ci_lower,0.7,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),ci_lower,0.7,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),ci_lower,0.7,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),ci_lower,0.7,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),ci_lower,0.7,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),ci_lower,0.7,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),ci_lower,0.7,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),ci_lower,0.7,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),ci_lower,0.7,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),ci_lower,0.7,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),ci_lower,0.7,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),ci_lower,0.7,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),ci_lower,0.7,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),ci_lower,0.7,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),ci_lower,0.7,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),ci_lower,0.7,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),ci_lower,0.7,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),ci_lower,0.7,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),ci_lower,0.7,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),ci_lower,0.7,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),ci_lower,0.7,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),ci_lower,0.7,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),ci_lower,0.7,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),ci_lower,0.7,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),ci_lower,0.7,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),ci_lower,0.7,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),ci_lower,0.7,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),ci_lower,0.7,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),ci_lower,0.7,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),ci_lower,0.7,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),ci_lower,0.7,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),ci_lower,0.7,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,ci_lower,0.7,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,ci_lower,0.7,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,ci_lower,0.7,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),ci_lower,0.7,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),ci_lower,0.7,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),ci_lower,0.7,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),ci_lower,0.7,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,ci_lower,0.7,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),ci_lower,0.7,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),ci_lower,0.7,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),ci_lower,0.7,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,ci_lower,0.7,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),ci_lower,0.7,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),ci_lower,0.7,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,ci_lower,0.7,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),ci_lower,0.7,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),ci_lower,0.7,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.7,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),ci_lower,0.7,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.7,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),ci_lower,0.7,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),ci_lower,0.7,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),ci_lower,0.7,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),ci_lower,0.7,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),ci_lower,0.7,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),ci_lower,0.7,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),ci_lower,0.7,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),ci_lower,0.7,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),ci_lower,0.7,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),ci_lower,0.7,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),ci_lower,0.7,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),perm_p_fdr,0.01,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),perm_p_fdr,0.01,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),perm_p_fdr,0.01,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),perm_p_fdr,0.01,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),perm_p_fdr,0.01,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),perm_p_fdr,0.01,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),perm_p_fdr,0.01,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),perm_p_fdr,0.01,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),perm_p_fdr,0.01,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),perm_p_fdr,0.01,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),perm_p_fdr,0.01,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),perm_p_fdr,0.01,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),perm_p_fdr,0.01,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),perm_p_fdr,0.01,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),perm_p_fdr,0.01,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),perm_p_fdr,0.01,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),perm_p_fdr,0.01,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),perm_p_fdr,0.01,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),perm_p_fdr,0.01,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),perm_p_fdr,0.01,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),perm_p_fdr,0.01,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),perm_p_fdr,0.01,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),perm_p_fdr,0.01,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),perm_p_fdr,0.01,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),perm_p_fdr,0.01,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),perm_p_fdr,0.01,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),perm_p_fdr,0.01,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),perm_p_fdr,0.01,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),perm_p_fdr,0.01,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),perm_p_fdr,0.01,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),perm_p_fdr,0.01,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),perm_p_fdr,0.01,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),perm_p_fdr,0.01,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),perm_p_fdr,0.01,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),perm_p_fdr,0.01,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),perm_p_fdr,0.01,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,perm_p_fdr,0.01,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,perm_p_fdr,0.01,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,perm_p_fdr,0.01,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),perm_p_fdr,0.01,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),perm_p_fdr,0.01,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),perm_p_fdr,0.01,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),perm_p_fdr,0.01,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,perm_p_fdr,0.01,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),perm_p_fdr,0.01,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),perm_p_fdr,0.01,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),perm_p_fdr,0.01,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,perm_p_fdr,0.01,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),perm_p_fdr,0.01,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),perm_p_fdr,0.01,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,perm_p_fdr,0.01,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),perm_p_fdr,0.01,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),perm_p_fdr,0.01,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.01,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.01,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.01,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.01,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),perm_p_fdr,0.01,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.01,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.01,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.01,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.01,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.01,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.01,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),perm_p_fdr,0.01,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.01,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.01,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),perm_p_fdr,0.05,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),perm_p_fdr,0.05,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),perm_p_fdr,0.05,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),perm_p_fdr,0.05,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),perm_p_fdr,0.05,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),perm_p_fdr,0.05,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),perm_p_fdr,0.05,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),perm_p_fdr,0.05,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),perm_p_fdr,0.05,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),perm_p_fdr,0.05,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),perm_p_fdr,0.05,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),perm_p_fdr,0.05,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),perm_p_fdr,0.05,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),perm_p_fdr,0.05,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),perm_p_fdr,0.05,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),perm_p_fdr,0.05,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),perm_p_fdr,0.05,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),perm_p_fdr,0.05,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),perm_p_fdr,0.05,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),perm_p_fdr,0.05,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),perm_p_fdr,0.05,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),perm_p_fdr,0.05,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),perm_p_fdr,0.05,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),perm_p_fdr,0.05,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),perm_p_fdr,0.05,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),perm_p_fdr,0.05,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),perm_p_fdr,0.05,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),perm_p_fdr,0.05,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),perm_p_fdr,0.05,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),perm_p_fdr,0.05,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),perm_p_fdr,0.05,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),perm_p_fdr,0.05,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),perm_p_fdr,0.05,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),perm_p_fdr,0.05,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),perm_p_fdr,0.05,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),perm_p_fdr,0.05,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,perm_p_fdr,0.05,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,perm_p_fdr,0.05,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,perm_p_fdr,0.05,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),perm_p_fdr,0.05,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),perm_p_fdr,0.05,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),perm_p_fdr,0.05,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),perm_p_fdr,0.05,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,perm_p_fdr,0.05,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),perm_p_fdr,0.05,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),perm_p_fdr,0.05,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),perm_p_fdr,0.05,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,perm_p_fdr,0.05,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),perm_p_fdr,0.05,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),perm_p_fdr,0.05,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,perm_p_fdr,0.05,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),perm_p_fdr,0.05,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),perm_p_fdr,0.05,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.05,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.05,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.05,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.05,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),perm_p_fdr,0.05,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.05,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.05,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.05,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.05,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.05,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.05,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),perm_p_fdr,0.05,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.05,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.05,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),perm_p_fdr,0.1,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),perm_p_fdr,0.1,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),perm_p_fdr,0.1,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),perm_p_fdr,0.1,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),perm_p_fdr,0.1,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),perm_p_fdr,0.1,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),perm_p_fdr,0.1,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),perm_p_fdr,0.1,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),perm_p_fdr,0.1,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),perm_p_fdr,0.1,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),perm_p_fdr,0.1,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),perm_p_fdr,0.1,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),perm_p_fdr,0.1,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),perm_p_fdr,0.1,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),perm_p_fdr,0.1,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),perm_p_fdr,0.1,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),perm_p_fdr,0.1,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),perm_p_fdr,0.1,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),perm_p_fdr,0.1,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),perm_p_fdr,0.1,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),perm_p_fdr,0.1,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),perm_p_fdr,0.1,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),perm_p_fdr,0.1,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),perm_p_fdr,0.1,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),perm_p_fdr,0.1,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),perm_p_fdr,0.1,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),perm_p_fdr,0.1,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),perm_p_fdr,0.1,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),perm_p_fdr,0.1,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),perm_p_fdr,0.1,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),perm_p_fdr,0.1,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),perm_p_fdr,0.1,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),perm_p_fdr,0.1,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),perm_p_fdr,0.1,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),perm_p_fdr,0.1,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),perm_p_fdr,0.1,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,perm_p_fdr,0.1,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,perm_p_fdr,0.1,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,perm_p_fdr,0.1,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),perm_p_fdr,0.1,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),perm_p_fdr,0.1,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),perm_p_fdr,0.1,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),perm_p_fdr,0.1,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,perm_p_fdr,0.1,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),perm_p_fdr,0.1,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),perm_p_fdr,0.1,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),perm_p_fdr,0.1,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,perm_p_fdr,0.1,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),perm_p_fdr,0.1,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),perm_p_fdr,0.1,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,perm_p_fdr,0.1,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),perm_p_fdr,0.1,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),perm_p_fdr,0.1,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.1,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.1,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.1,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.1,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),perm_p_fdr,0.1,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.1,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.1,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),perm_p_fdr,0.1,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),perm_p_fdr,0.1,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),perm_p_fdr,0.1,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),perm_p_fdr,0.1,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),perm_p_fdr,0.1,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),perm_p_fdr,0.1,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),perm_p_fdr,0.1,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_confound,0.0,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_confound,0.0,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_confound,0.0,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_confound,0.0,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_confound,0.0,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_confound,0.0,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_confound,0.0,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_confound,0.0,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_confound,0.0,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_confound,0.0,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_confound,0.0,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_confound,0.0,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_confound,0.0,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_confound,0.0,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_confound,0.0,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_confound,0.0,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_confound,0.0,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_confound,0.0,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_confound,0.0,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_confound,0.0,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_confound,0.0,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_confound,0.0,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_confound,0.0,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_confound,0.0,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_confound,0.0,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_confound,0.0,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_confound,0.0,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_confound,0.0,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_confound,0.0,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_confound,0.0,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_confound,0.0,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_confound,0.0,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_confound,0.0,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_confound,0.0,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_confound,0.0,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_confound,0.0,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_confound,0.0,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_confound,0.0,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_confound,0.0,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_confound,0.0,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_confound,0.0,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_confound,0.0,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_confound,0.0,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_confound,0.0,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_confound,0.0,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_confound,0.0,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_confound,0.0,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_confound,0.0,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_confound,0.0,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_confound,0.0,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_confound,0.0,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_confound,0.0,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_confound,0.0,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.0,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_confound,0.0,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.0,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_confound,0.0,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_confound,0.0,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_confound,0.0,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_confound,0.0,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.0,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_confound,0.0,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.0,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_confound,0.0,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_confound,0.0,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_confound,0.0,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_confound,0.0,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_confound,0.01,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_confound,0.01,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_confound,0.01,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_confound,0.01,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_confound,0.01,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_confound,0.01,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_confound,0.01,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_confound,0.01,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_confound,0.01,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_confound,0.01,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_confound,0.01,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_confound,0.01,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_confound,0.01,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_confound,0.01,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_confound,0.01,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_confound,0.01,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_confound,0.01,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_confound,0.01,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_confound,0.01,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_confound,0.01,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_confound,0.01,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_confound,0.01,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_confound,0.01,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_confound,0.01,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_confound,0.01,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_confound,0.01,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_confound,0.01,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_confound,0.01,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_confound,0.01,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_confound,0.01,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_confound,0.01,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_confound,0.01,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_confound,0.01,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_confound,0.01,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_confound,0.01,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_confound,0.01,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_confound,0.01,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_confound,0.01,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_confound,0.01,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_confound,0.01,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_confound,0.01,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_confound,0.01,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_confound,0.01,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_confound,0.01,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_confound,0.01,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_confound,0.01,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_confound,0.01,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_confound,0.01,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_confound,0.01,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_confound,0.01,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_confound,0.01,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_confound,0.01,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_confound,0.01,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.01,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_confound,0.01,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.01,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_confound,0.01,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_confound,0.01,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_confound,0.01,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_confound,0.01,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.01,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_confound,0.01,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.01,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_confound,0.01,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_confound,0.01,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_confound,0.01,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_confound,0.01,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_confound,0.02,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_confound,0.02,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_confound,0.02,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_confound,0.02,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_confound,0.02,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_confound,0.02,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_confound,0.02,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_confound,0.02,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_confound,0.02,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_confound,0.02,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_confound,0.02,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_confound,0.02,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_confound,0.02,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_confound,0.02,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_confound,0.02,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_confound,0.02,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_confound,0.02,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_confound,0.02,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_confound,0.02,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_confound,0.02,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_confound,0.02,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_confound,0.02,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_confound,0.02,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_confound,0.02,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_confound,0.02,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_confound,0.02,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_confound,0.02,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_confound,0.02,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_confound,0.02,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_confound,0.02,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_confound,0.02,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_confound,0.02,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_confound,0.02,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_confound,0.02,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_confound,0.02,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_confound,0.02,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_confound,0.02,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_confound,0.02,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_confound,0.02,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_confound,0.02,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_confound,0.02,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_confound,0.02,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_confound,0.02,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_confound,0.02,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_confound,0.02,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_confound,0.02,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_confound,0.02,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_confound,0.02,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_confound,0.02,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_confound,0.02,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_confound,0.02,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_confound,0.02,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_confound,0.02,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.02,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_confound,0.02,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.02,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_confound,0.02,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_confound,0.02,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_confound,0.02,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_confound,0.02,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.02,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_confound,0.02,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.02,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_confound,0.02,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_confound,0.02,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_confound,0.02,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_confound,0.02,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_confound,0.03,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_confound,0.03,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_confound,0.03,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_confound,0.03,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_confound,0.03,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_confound,0.03,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_confound,0.03,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_confound,0.03,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_confound,0.03,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_confound,0.03,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_confound,0.03,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_confound,0.03,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_confound,0.03,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_confound,0.03,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_confound,0.03,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_confound,0.03,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_confound,0.03,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_confound,0.03,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_confound,0.03,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_confound,0.03,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_confound,0.03,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_confound,0.03,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_confound,0.03,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_confound,0.03,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_confound,0.03,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_confound,0.03,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_confound,0.03,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_confound,0.03,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_confound,0.03,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_confound,0.03,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_confound,0.03,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_confound,0.03,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_confound,0.03,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_confound,0.03,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_confound,0.03,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_confound,0.03,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_confound,0.03,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_confound,0.03,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_confound,0.03,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_confound,0.03,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_confound,0.03,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_confound,0.03,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_confound,0.03,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_confound,0.03,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_confound,0.03,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_confound,0.03,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_confound,0.03,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_confound,0.03,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_confound,0.03,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_confound,0.03,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_confound,0.03,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_confound,0.03,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_confound,0.03,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.03,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_confound,0.03,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.03,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_confound,0.03,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_confound,0.03,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_confound,0.03,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_confound,0.03,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.03,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_confound,0.03,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.03,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_confound,0.03,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_confound,0.03,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_confound,0.03,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_confound,0.03,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),delta_confound,0.05,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),delta_confound,0.05,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),delta_confound,0.05,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),delta_confound,0.05,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),delta_confound,0.05,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),delta_confound,0.05,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),delta_confound,0.05,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),delta_confound,0.05,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),delta_confound,0.05,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),delta_confound,0.05,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),delta_confound,0.05,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),delta_confound,0.05,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),delta_confound,0.05,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),delta_confound,0.05,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),delta_confound,0.05,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),delta_confound,0.05,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),delta_confound,0.05,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),delta_confound,0.05,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),delta_confound,0.05,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),delta_confound,0.05,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),delta_confound,0.05,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),delta_confound,0.05,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),delta_confound,0.05,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),delta_confound,0.05,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),delta_confound,0.05,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),delta_confound,0.05,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),delta_confound,0.05,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),delta_confound,0.05,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),delta_confound,0.05,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),delta_confound,0.05,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),delta_confound,0.05,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),delta_confound,0.05,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),delta_confound,0.05,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),delta_confound,0.05,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),delta_confound,0.05,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),delta_confound,0.05,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,delta_confound,0.05,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,delta_confound,0.05,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,delta_confound,0.05,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),delta_confound,0.05,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),delta_confound,0.05,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),delta_confound,0.05,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),delta_confound,0.05,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,delta_confound,0.05,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),delta_confound,0.05,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),delta_confound,0.05,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),delta_confound,0.05,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,delta_confound,0.05,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),delta_confound,0.05,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),delta_confound,0.05,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,delta_confound,0.05,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),delta_confound,0.05,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),delta_confound,0.05,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.05,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),delta_confound,0.05,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.05,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),delta_confound,0.05,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),delta_confound,0.05,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),delta_confound,0.05,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),delta_confound,0.05,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),delta_confound,0.05,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),delta_confound,0.05,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),delta_confound,0.05,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),delta_confound,0.05,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),delta_confound,0.05,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),delta_confound,0.05,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),delta_confound,0.05,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),decoy_p,0.01,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),decoy_p,0.01,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),decoy_p,0.01,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),decoy_p,0.01,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),decoy_p,0.01,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),decoy_p,0.01,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),decoy_p,0.01,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),decoy_p,0.01,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),decoy_p,0.01,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),decoy_p,0.01,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),decoy_p,0.01,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),decoy_p,0.01,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),decoy_p,0.01,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),decoy_p,0.01,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),decoy_p,0.01,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),decoy_p,0.01,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),decoy_p,0.01,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),decoy_p,0.01,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),decoy_p,0.01,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),decoy_p,0.01,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),decoy_p,0.01,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),decoy_p,0.01,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),decoy_p,0.01,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),decoy_p,0.01,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),decoy_p,0.01,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),decoy_p,0.01,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),decoy_p,0.01,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),decoy_p,0.01,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),decoy_p,0.01,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),decoy_p,0.01,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),decoy_p,0.01,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),decoy_p,0.01,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),decoy_p,0.01,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),decoy_p,0.01,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),decoy_p,0.01,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),decoy_p,0.01,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,decoy_p,0.01,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,decoy_p,0.01,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,decoy_p,0.01,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),decoy_p,0.01,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),decoy_p,0.01,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),decoy_p,0.01,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),decoy_p,0.01,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,decoy_p,0.01,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),decoy_p,0.01,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),decoy_p,0.01,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),decoy_p,0.01,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,decoy_p,0.01,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),decoy_p,0.01,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),decoy_p,0.01,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,decoy_p,0.01,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),decoy_p,0.01,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),decoy_p,0.01,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.01,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),decoy_p,0.01,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.01,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),decoy_p,0.01,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),decoy_p,0.01,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),decoy_p,0.01,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),decoy_p,0.01,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.01,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),decoy_p,0.01,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.01,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),decoy_p,0.01,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),decoy_p,0.01,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),decoy_p,0.01,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),decoy_p,0.01,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),decoy_p,0.05,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),decoy_p,0.05,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),decoy_p,0.05,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),decoy_p,0.05,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),decoy_p,0.05,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),decoy_p,0.05,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),decoy_p,0.05,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),decoy_p,0.05,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),decoy_p,0.05,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),decoy_p,0.05,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),decoy_p,0.05,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),decoy_p,0.05,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),decoy_p,0.05,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),decoy_p,0.05,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),decoy_p,0.05,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),decoy_p,0.05,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),decoy_p,0.05,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),decoy_p,0.05,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),decoy_p,0.05,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),decoy_p,0.05,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),decoy_p,0.05,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),decoy_p,0.05,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),decoy_p,0.05,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),decoy_p,0.05,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),decoy_p,0.05,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),decoy_p,0.05,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),decoy_p,0.05,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),decoy_p,0.05,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),decoy_p,0.05,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),decoy_p,0.05,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),decoy_p,0.05,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),decoy_p,0.05,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),decoy_p,0.05,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),decoy_p,0.05,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),decoy_p,0.05,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),decoy_p,0.05,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,decoy_p,0.05,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,decoy_p,0.05,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,decoy_p,0.05,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),decoy_p,0.05,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),decoy_p,0.05,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),decoy_p,0.05,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),decoy_p,0.05,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,decoy_p,0.05,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),decoy_p,0.05,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),decoy_p,0.05,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),decoy_p,0.05,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,decoy_p,0.05,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),decoy_p,0.05,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),decoy_p,0.05,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,decoy_p,0.05,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),decoy_p,0.05,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),decoy_p,0.05,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.05,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),decoy_p,0.05,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.05,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),decoy_p,0.05,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),decoy_p,0.05,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),decoy_p,0.05,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),decoy_p,0.05,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.05,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),decoy_p,0.05,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.05,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),decoy_p,0.05,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),decoy_p,0.05,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),decoy_p,0.05,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),decoy_p,0.05,False
+flagship_pysr::000,flagship_pysr,exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688),decoy_p,0.1,False
+flagship_pysr::001,flagship_pysr,sqrt(log1p(exp(x0))),decoy_p,0.1,False
+flagship_pysr::002,flagship_pysr,exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025),decoy_p,0.1,False
+flagship_pysr::003,flagship_pysr,exp(-0.054394767 * exp(x9 - x3)),decoy_p,0.1,False
+flagship_pysr::004,flagship_pysr,log1p(exp(x0)),decoy_p,0.1,False
+flagship_pysr::005,flagship_pysr,exp(exp((x9 + x7) / exp(x1)) * -0.010614875),decoy_p,0.1,False
+flagship_pysr::006,flagship_pysr,exp(exp(((x7 + x9) - x3) - x1) * -0.010614875),decoy_p,0.1,False
+flagship_pysr::007,flagship_pysr,exp(-0.0154611515 * exp(x9 / exp(x0))),decoy_p,0.1,False
+flagship_pysr::008,flagship_pysr,sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012531)),decoy_p,0.1,False
+flagship_pysr::009,flagship_pysr,exp(exp((x9 - x3) - x1) * -0.010614875),decoy_p,0.1,False
+flagship_pysr::010,flagship_pysr,exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)),decoy_p,0.1,False
+flagship_pysr::011,flagship_pysr,exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))),decoy_p,0.1,False
+flagship_pysr::012,flagship_pysr,exp(exp(x9 - x3) * -0.054373782),decoy_p,0.1,False
+flagship_pysr::013,flagship_pysr,exp(-0.013298511 * exp((x7 - x1) * exp(x9))),decoy_p,0.1,False
+flagship_pysr::014,flagship_pysr,exp(-0.025032457 / exp(exp(x9) * x0)),decoy_p,0.1,False
+flagship_pysr::015,flagship_pysr,exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) - x0)),decoy_p,0.1,False
+flagship_pysr::016,flagship_pysr,log1p(sqrt(2.3882582 + x0)),decoy_p,0.1,False
+flagship_pysr::017,flagship_pysr,exp(-0.013298511 * exp((x9 - x1) - x3)),decoy_p,0.1,False
+flagship_pysr::018,flagship_pysr,exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)),decoy_p,0.1,False
+flagship_pysr::019,flagship_pysr,exp(-0.06354956 / exp(x3 - x9)),decoy_p,0.1,False
+flagship_pysr::020,flagship_pysr,exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.0077730184),decoy_p,0.1,False
+flagship_pysr::021,flagship_pysr,exp(exp(x1 * (x3 - x9)) * -0.014394815),decoy_p,0.1,False
+flagship_pysr::022,flagship_pysr,exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))),decoy_p,0.1,False
+flagship_pysr::023,flagship_pysr,0.87816787 + (0.25817737 * x0),decoy_p,0.1,False
+flagship_pysr::024,flagship_pysr,exp(log1p(-0.07682814 / exp(x0))),decoy_p,0.1,False
+flagship_pysr::025,flagship_pysr,sqrt(exp(-0.0077730184 * exp((x0 * (-3.4583066 - (x7 + x4))) + x9))),decoy_p,0.1,False
+tier2_pysr::000,tier2_pysr,0.4159849 + ((x8 - x3) * -0.09313616),decoy_p,0.1,False
+tier2_pysr::001,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))),decoy_p,0.1,False
+tier2_pysr::002,tier2_pysr,0.38469365 - (x8 * 0.07136952),decoy_p,0.1,False
+tier2_pysr::003,tier2_pysr,log1p(sqrt(log1p(exp(x2 - exp(x8))))),decoy_p,0.1,False
+tier2_pysr::004,tier2_pysr,log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))))),decoy_p,0.1,False
+tier2_pysr::005,tier2_pysr,log1p(log1p(log1p(exp(exp(x2) - exp(x8))))),decoy_p,0.1,False
+tier2_pysr::006,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))))),decoy_p,0.1,False
+tier2_pysr::007,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))),decoy_p,0.1,False
+tier2_pysr::008,tier2_pysr,0.5249501 - (exp(x8) * 0.07136952),decoy_p,0.1,False
+tier2_pysr::009,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.2763993))))))),decoy_p,0.1,False
+tier2_pysr::010,tier2_pysr,((x8 - x3) * -0.07060441) - -0.39114887,decoy_p,0.1,False
+tier2_pysr::011,tier2_pysr,(exp(x8) * -0.07060441) - -0.48985445,decoy_p,0.1,False
+tier2_pysr::012,tier2_pysr,(x8 * -0.07060441) - -0.39114887,decoy_p,0.1,False
+tier2_pysr::013,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))))),decoy_p,0.1,False
+tier2_pysr::014,tier2_pysr,log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))),decoy_p,0.1,False
+tier2_pysr::015,tier2_pysr,log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - exp(x8)))))),decoy_p,0.1,False
+tier2_pysr::016,tier2_pysr,log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.33619636) * x1))))))),decoy_p,0.1,False
+tier2_pysr::017,tier2_pysr,(-0.07137078 * (x8 - x3)) - -0.38469547,decoy_p,0.1,False
+tier2_pysr::018,tier2_pysr,log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))),decoy_p,0.1,False
+tier2_pysr::019,tier2_pysr,log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716),decoy_p,0.1,False
+tier2_pysr::020,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10)) + 0.5105716),decoy_p,0.1,False
+tier2_pysr::021,tier2_pysr,(-0.07137078 * x8) - -0.38469547,decoy_p,0.1,False
+tier2_pysr::022,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5105716),decoy_p,0.1,False
+tier2_pysr::023,tier2_pysr,log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063),decoy_p,0.1,False
+tier2_pysr::024,tier2_pysr,(-0.07137078 * exp(x8)) - -0.4514672,decoy_p,0.1,False
+tier2_pysr::025,tier2_pysr,log1p((-0.13106725 * (x8 - x3)) + 0.47160774),decoy_p,0.1,False
+tier2_pysr::026,tier2_pysr,log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqrt(0.2628499)),decoy_p,0.1,False
+opus_exante_flagship::000,opus_exante_flagship,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.1,False
+opus_exante_flagship::001,opus_exante_flagship,log1p(LDHA) - log1p(ALB),decoy_p,0.1,False
+opus_exante_flagship::002,opus_exante_flagship,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.1,False
+opus_exante_flagship::003,opus_exante_flagship,log1p(VEGFA) - log1p(ALB),decoy_p,0.1,False
+opus_exante_flagship::004,opus_exante_flagship,log1p(CA9),decoy_p,0.1,False
+opus_exante_flagship::005,opus_exante_flagship,log1p(ACTB) - log1p(GAPDH),decoy_p,0.1,False
+opus_exante_flagship::006,opus_exante_flagship,log1p(MKI67) - log1p(RPL13A),decoy_p,0.1,False
+opus_exante_tier2::000,opus_exante_tier2,log1p(CA9) + log1p(VEGFA) - log1p(AGXT),decoy_p,0.1,False
+opus_exante_tier2::001,opus_exante_tier2,log1p(LDHA) - log1p(ALB),decoy_p,0.1,False
+opus_exante_tier2::002,opus_exante_tier2,log1p(SLC2A1) + log1p(NDUFA4L2) - log1p(AGXT),decoy_p,0.1,False
+opus_exante_tier2::003,opus_exante_tier2,log1p(VEGFA) - log1p(ALB),decoy_p,0.1,False
+opus_exante_tier2::004,opus_exante_tier2,log1p(CA9),decoy_p,0.1,False
+opus_exante_tier2::005,opus_exante_tier2,log1p(ACTB) - log1p(GAPDH),decoy_p,0.1,False
+opus_exante_tier2::006,opus_exante_tier2,log1p(MKI67) - log1p(RPL13A),decoy_p,0.1,False
