@@ -54,7 +54,14 @@ def make_equation_fn(equation_str: str, col_names: list[str]):
     and ignores column order. Constant equations (PySR can emit e.g.
     ``0.50475866`` as a low-complexity candidate) are broadcast to the
     sample dimension so the downstream gate sees a usable score vector.
+
+    Numeric warnings inside the eval are wrapped in `np.errstate` +
+    `warnings.catch_warnings()` because NumPy's default warning handler
+    calls `warnings.warn`, which under `__builtins__={}` can't find
+    `__import__` and raises `KeyError: '__import__'`. Any resulting NaN
+    values are caught by the caller's `np.isfinite(...).all()` probe.
     """
+    import warnings as _warnings
     safe_globals = {"__builtins__": {}}
     np_ns = {k: getattr(np, k) for k in _NUMPY_FUNCS}
 
@@ -63,7 +70,10 @@ def make_equation_fn(equation_str: str, col_names: list[str]):
         # Also bind xi aliases so legacy equations still work.
         ns.update({f"x{i}": X[:, i] for i in range(len(col_names))})
         ns.update(np_ns)
-        result = eval(equation_str, safe_globals, ns)  # noqa: S307
+        with np.errstate(invalid="ignore", divide="ignore", over="ignore", under="ignore"):
+            with _warnings.catch_warnings():
+                _warnings.simplefilter("ignore")
+                result = eval(equation_str, safe_globals, ns)  # noqa: S307
         arr = np.asarray(result, dtype=float)
         if arr.ndim == 0:
             # Constant equation (no variables). Broadcast to n_samples so
