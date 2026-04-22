@@ -1,8 +1,49 @@
 # Theory Copilot: Falsification-Aware Biological Law Discovery
 
-Theory Copilot Discovery is a falsification-aware biological law discovery workflow built around Opus 4.7. Instead of celebrating the first high-scoring equation, the system proposes compact law families, searches for concrete candidates, attacks them with a five-test statistical gate, and only reports what survives. In the current judged core, the survivor discovered on TCGA-KIRC is replayed on GSE40435 as an independent cohort check.
+Theory Copilot Discovery is a falsification-aware biological law discovery workflow built around Opus 4.7. Instead of celebrating the first high-scoring equation, the system proposes compact law families, searches for concrete candidates, attacks them with a five-test statistical gate, and only reports what survives. On real TCGA-KIRC the gate rejects 100+ candidates across four tasks with an 11-gene HIF-axis panel (each task is already solved by one gene) **and** accepts 9/30 candidates on metastasis with a 45-gene expanded panel, led by the two-gene law `TOP2A − EPAS1` that reproduces the published ccA-vs-ccB ccRCC subtype axis from unconstrained symbolic regression.
 
 Built for the Built with Opus 4.7 Hackathon · April 2026
+
+---
+
+## Read first (by persona)
+
+- **If you are evaluating the agentic / Claude-Code architecture (Boris-ish):**
+  start with [`docs/methodology.md §4`](docs/methodology.md) (three-agent
+  Managed Agents split with verified Path B run) and
+  [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py).
+  Live agent / environment / session / stream trace is at
+  [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log).
+  The pipeline is structured so Path B (public beta) drives the live
+  demo today and Path A (`callable_agents`, waitlist) is one feature-
+  flag flip away.
+- **If you are evaluating developer experience (Lydia-ish):** `make
+  install && make test && make demo-kirc` is the full happy path;
+  all judge-facing docs in `docs/` are ≤ 400 lines, all figures in
+  `results/plots/` and `results/track_a_task_landscape/plots/` are
+  reproducible from `src/make_plots.py`, `src/plot_track_a.py`,
+  `src/track_a_survivor_plots.py`. `make audit` returns `OK` on
+  every commit — the compliance check runs against a pattern file
+  in `.audit-patterns`.
+- **If you are evaluating real-world impact and accessibility
+  (Jason-ish):** the project started as a bioinformatics-postdoc
+  question about confirmation bias in AI-for-Science and ends with
+  a concrete engineering artefact that rejects textbook biology the
+  researcher had expected to survive and accepts a 2-gene subtype
+  axis the researcher had *not* planted. The user-side workflow for
+  a new task is "drop a CSV with a label column and a gene-name
+  columns, run `theory-copilot compare`, read the pass/fail table."
+  See [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) for the
+  full reproducible steps.
+- **If you are evaluating the science (domain-expert):** start with
+  [`results/track_a_task_landscape/SUMMARY.md`](results/track_a_task_landscape/SUMMARY.md)
+  (4-task cross-matrix, both panel sizes), then
+  [`results/track_a_task_landscape/survivor_robustness/SUMMARY.md`](results/track_a_task_landscape/survivor_robustness/SUMMARY.md)
+  (6-axis stress test of the `TOP2A − EPAS1` survivor, with the
+  explicit caveat on the pair-with-interaction baseline), then
+  [`results/track_b_gate_robustness/SUMMARY.md`](results/track_b_gate_robustness/SUMMARY.md)
+  (6-axis robustness of the reject verdict). Every reported number
+  has a JSON file behind it in the same directory.
 
 ---
 
