@@ -1,0 +1,57 @@
+[
+  {
+    "cohort_id": "gse53757",
+    "status": "ran_tumor_vs_normal",
+    "task_label": "tumor_vs_normal_SANITY",
+    "n": 144,
+    "n_disease": 72,
+    "metrics": {
+      "passes": false,
+      "perm_p": 0.0,
+      "original_auc": 0.7226080246913581,
+      "ci_width": 0.17084639955409786,
+      "ci_lower": 0.6320618130062886,
+      "mean_auc": 0.7234616851236951,
+      "delta_baseline": -0.24787808641975306,
+      "law_auc": 0.7226080246913581,
+      "baseline_auc": 0.9704861111111112,
+      "delta_confound": null,
+      "confound_auc": null,
+      "decoy_p": 0.0,
+      "decoy_q95": 0.5949652777777777
+    },
+    "auc_sign_invariant": 0.7226080246913581,
+    "honest_caveat": "This is NOT a metastasis replay \u2014 the cohort lacks M-stage. The AUROC here reflects how well TOP2A-EPAS1 separates tumor from normal, which is expected to be high given the proliferation gradient and the HIF-2\u03b1 program both differ across tumor/normal. Interpret as a sanity check, not as evidence for the metastasis claim."
+  },
+  {
+    "cohort_id": "gse40435_expanded",
+    "status": "ran_tumor_vs_normal",
+    "task_label": "tumor_vs_normal_SANITY",
+    "n": 202,
+    "n_disease": 101,
+    "metrics": {
+      "passes": false,
+      "perm_p": 0.0,
+      "original_auc": 0.6431722380158807,
+      "ci_width": 0.1593537211887449,
+      "ci_lower": 0.5598991911185278,
+      "mean_auc": 0.6425986955511178,
+      "delta_baseline": -0.3506518968728557,
+      "law_auc": 0.6431722380158807,
+      "baseline_auc": 0.9938241348887364,
+      "delta_confound": null,
+      "confound_auc": null,
+      "decoy_p": 0.0,
+      "decoy_q95": 0.595049504950495
+    },
+    "auc_sign_invariant": 0.6431722380158807,
+    "honest_caveat": "This is NOT a metastasis replay \u2014 the cohort lacks M-stage. The AUROC here reflects how well TOP2A-EPAS1 separates tumor from normal, which is expected to be high given the proliferation gradient and the HIF-2\u03b1 program both differ across tumor/normal. Interpret as a sanity check, not as evidence for the metastasis claim."
+  },
+  {
+    "cohort_id": "cptac3_ccrcc",
+    "status": "csv_empty",
+    "csv_path": "/Users/jak4013/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/data/cptac3_ccrcc.csv",
+    "task_label": "metastasis_preferred",
+    "message": "CSV is a header-only stub (see NOTE file)."
+  }
+]
