@@ -1,0 +1,18 @@
+=== Step 1: Create Agent ===
+  agent.id = agent_011CaJWgfhieod4uMBrauFZh
+  agent.version = 1
+
+=== Step 2: Create Environment ===
+  environment.id = env_015hLG2PgdxJhd2EVM6hBNUC
+
+=== Step 3: Create Session ===
+  session.id = sesn_011CaJWgi47AEXz5U8yYnwZv
+
+=== Step 4: Stream + Send minimal task ===
+  event types seen: ['agent.message', 'session.status_idle', 'session.status_running', 'span.model_request_end', 'span.model_request_start', 'user.message']
+  agent_message events: 1
+  tool_use events: 0
+  idle seen: True
+  output (first 400 chars): 'HELLO FROM MANAGED AGENT'
+
+=== Managed Agents API shape: VERIFIED ===

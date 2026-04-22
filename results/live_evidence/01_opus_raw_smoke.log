@@ -1,0 +1,17 @@
+=== PROPOSAL OUTPUT ===
+```json
+[
+  {
+    "name": "HypoxiaGlycolysis_vs_RenalFunction",
+    "form": "(CA9 + VEGFA + LDHA) / (AGXT + ALB)",
+    "hypothesis": "ccRCC tumors upregulate HIF-driven hypoxia/glycolysis genes (CA9, VEGFA, LDHA) while losing differentiated proximal tubule function (AGXT, ALB), so this ratio should be markedly elevated in tumor versus adjacent normal kidney."
+  },
+  {
+    "name": "CA9_AGXT_Axis",
+    "form": "CA9 / AGXT",
+    "hypothesis": "CA9 is a canonical VHL-loss hypoxia marker strongly induced in ccRCC, whereas AGXT is a proximal tubule enzyme suppressed in tumor; their log-ratio should provide a simple, high-contrast separator between tumor and normal samples."
+  }
+]
+```
+
+Usage: Usage(cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0), cache_creation_input_tokens=0, cache_read_input_tokens=0, inference_geo='global', input_tokens=165, output_tokens=336, server_tool_use=None, service_tier='standard')

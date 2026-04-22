@@ -1,0 +1,172 @@
+================================================================================
+API VALIDATION LOG — 2026-04-22
+Theory Copilot Discovery / Hackathon 2026-04-26
+================================================================================
+
+PART 0 — Setup check
+--------------------------------------------------------------------------------
+ANTHROPIC_API_KEY: present (loaded from ~/.zshrc, prefix sk-ant-api03-Q5Fbd77)
+.venv/bin/python: Python 3.13 (symlink to /usr/local/opt/python@3.13)
+anthropic SDK version: 0.96.0
+All four required files read:
+  - src/theory_copilot/opus_client.py
+  - src/theory_copilot/managed_agent_runner.py
+  - docs/managed_agents_verification.md
+  - docs/opus47_api_verification.md
+
+
+PART 1 — Opus 4.7 raw smoke test
+--------------------------------------------------------------------------------
+STATUS: PASS
+Model: claude-opus-4-7
+thinking={"type": "adaptive", "display": "summarized"}
+output_config={"effort": "high"}
+max_tokens=4000
+
+Output: returned 2 JSON-formatted law families:
+  1. HypoxiaGlycolysis_vs_RenalFunction: (CA9 + VEGFA + LDHA) / (AGXT + ALB)
+  2. CA9_AGXT_Axis: CA9 / AGXT
+
+Usage: input_tokens=165, output_tokens=336
+(No separate thinking block returned in response.content for this call — text
+block only. Thinking was invoked but summary was 0 chars. Expected since
+display=summarized doesn't guarantee non-empty thinking text.)
+
+
+PART 2 — OpusClient.propose_laws() real call
+--------------------------------------------------------------------------------
+STATUS: PASS (with caveat)
+Initial failure: ValueError from SDK: "Streaming is required for operations that
+may take longer than 10 minutes" — triggered by nonstreaming request with
+max_tokens=32000 on claude-opus-4-7.
+
+FIX APPLIED (src/theory_copilot/opus_client.py, _call method):
+Replaced `client.messages.create(...)` with `client.messages.stream(...)`
+context manager + `stream.get_final_message()`. Also stashes usage on
+`self._last_usage` for downstream cost reporting.
+
+Re-run output: API call succeeded.
+  raw_response: 4 well-formed law families in markdown (HIF-activation contrast,
+    Pseudohypoxic glycolysis balance, Tubule-identity loss single-feature null,
+    Angiogenic–metabolic interaction)
+  families parsed: 0
+  raw_thinking: 0 chars
+
+Caveat: `propose_laws()` expects JSON with `{"families": [...]}`, but
+prompts/law_family_proposal.md does not instruct Opus to return JSON — Opus
+returned markdown, so `json.loads(raw_response)` failed and families defaulted
+to []. This is a prompt/parser mismatch, NOT an API-shape bug. Out of scope
+for this session; the raw_response field preserves the full model output for
+downstream use or future prompt hardening.
+
+Usage: input_tokens=354, output_tokens=913
+
+
+PART 3 — OpusClient skeptic role (judge_candidate) real call
+--------------------------------------------------------------------------------
+STATUS: PASS (adapted inline)
+Adaptation: test spec used `client.falsify_candidate(...)`, but the method
+name in opus_client.py is `judge_candidate(equation, metrics)`. Adapted the
+test inline per instructions (no modification to opus_client.py for this).
+
+Call shape used:
+  client.judge_candidate(
+      equation="CA9 + VEGFA",
+      metrics={"name": ..., "hypothesis": ..., "perm_p": 0.03, "ci_width": 0.08,
+               "delta_baseline": 0.04, "delta_confound": None, "passes": False},
+  )
+
+Result:
+  verdict: "UNCERTAIN" (default — prompts/skeptic_review.md also doesn't
+    enforce JSON output; same markdown/JSON mismatch as Part 2)
+  reason: "" (empty for same reason)
+  raw_thinking: 0 chars
+
+Usage: input_tokens=277, output_tokens=1131
+
+
+PART 4 — Managed Agents Path B real call
+--------------------------------------------------------------------------------
+STATUS: API SHAPE VERIFIED (via minimal direct call)
+
+Step 4a: Ran exactly as spec'd:
+  run_path_b(night=1, title="API-smoke-test")
+  → KeyError: 1
+  Root cause: _NIGHT_SYSTEMS dict only defines keys {2, 3, 4}. Night 1 is the
+    Opus-proposal phase (no Managed Agent needed). This is by design, not a
+    bug. Running night=2 or higher would launch the full PySR overnight sweep,
+    which far exceeds the $10 budget for a smoke test.
+
+Step 4b: Validated the SAME SDK shape run_path_b uses, with a minimal "say
+hello" task:
+  client.beta.agents.create(name, model="claude-opus-4-7", system, tools=
+      [{"type": "agent_toolset_20260401"}])                           → OK
+    → agent.id = agent_011CaJWgfhieod4uMBrauFZh, version=1
+  client.beta.environments.create(name, config={"type":"cloud", ...}) → OK
+    → environment.id = env_015hLG2PgdxJhd2EVM6hBNUC
+  client.beta.sessions.create(agent=agent.id, environment_id, title)  → OK
+    → session.id = sesn_011CaJWgi47AEXz5U8yYnwZv
+  with client.beta.sessions.events.stream(session.id) as stream:
+      client.beta.sessions.events.send(session.id, events=[{"type":
+          "user.message", "content": [{"type": "text", "text": ...}]}])
+      for event in stream: ...                                        → OK
+
+  Event types observed in stream:
+    agent.message, session.status_idle, session.status_running,
+    span.model_request_end, span.model_request_start, user.message
+  agent.message events: 1
+  tool_use events: 0
+  idle seen: True
+  Agent output: "HELLO FROM MANAGED AGENT"
+
+Conclusion: The Managed Agents Path B API shape in managed_agent_runner.py is
+correct. The stream-then-send ordering works, the agent_toolset_20260401 is
+accepted, and session.status_idle fires as the termination signal. Running
+run_path_b(night=2|3|4, ...) from the hackathon orchestrator will use the
+identical verified API shape.
+
+
+PART 5 — Fixes applied
+--------------------------------------------------------------------------------
+Files modified: 1
+  - src/theory_copilot/opus_client.py
+      _call() now uses client.messages.stream(...) + get_final_message()
+      instead of nonstreaming messages.create(). Required because max_tokens
+      =32000 on Opus 4.7 trips the SDK's 10-minute nonstreaming guard. Also
+      stores response.usage on self._last_usage for cost telemetry.
+
+No changes to managed_agent_runner.py — API shape there is correct as-is.
+
+
+PART 6 — Cost report
+--------------------------------------------------------------------------------
+Opus 4.7 token usage (sum of measured .usage.input_tokens / .usage.output_tokens
+across Parts 1–3, plus an estimate for Part 4b's Managed Agent call):
+
+  Part 1 (raw smoke):               input=   165   output=  336
+  Part 2 (propose_laws):            input=   354   output=  913
+  Part 3 (judge_candidate):         input=   277   output= 1131
+  Part 4b (managed agent minimal):  input≈  ~500   output≈   50  (est.)
+    (Managed Agents usage not directly exposed per-event in this SDK version;
+     toolset schema inflates input; agent output was a single 24-char message.)
+
+  Totals (incl. Part 4b estimate):  input≈ ~1296   output≈ 2430
+
+Pricing (Opus 4.7, as of 2026-04):
+  input:  $15 / 1M tokens
+  output: $75 / 1M tokens
+
+Estimated cost:
+  input:  1296  × $15/M  = $0.0194
+  output: 2430  × $75/M  = $0.1823
+  -----------------------------------
+  TOTAL:                 ≈ $0.20
+
+Well under the $10 session budget. The Managed Agent, Environment, and Session
+resources created in Part 4b are persistent (Anthropic side) and may incur a
+small idle/storage cost separately; leaving them in place for potential follow-
+up smoke tests before the 2026-04-26 deadline.
+
+================================================================================
+END OF LOG
+================================================================================

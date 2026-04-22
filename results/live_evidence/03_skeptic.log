@@ -1,0 +1,4 @@
+Verdict: UNCERTAIN
+Reason (first 400 chars): 
+Raw thinking len: 0
+Usage: Usage(cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0), cache_creation_input_tokens=0, cache_read_input_tokens=0, inference_geo='global', input_tokens=277, output_tokens=1131, server_tool_use=None, service_tier='standard')
