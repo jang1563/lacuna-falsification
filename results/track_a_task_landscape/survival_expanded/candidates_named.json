@@ -1,0 +1,449 @@
+[
+  {
+    "equation": "log1p(log1p(sqrt(exp((TOP2A - CUBN) - PCNA))))",
+    "auroc": 0.629951690821256,
+    "train_auroc": 0.7654208998548622,
+    "test_auroc": 0.629951690821256,
+    "complexity": 9,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.714,
+    "equation_original": "log1p(log1p(sqrt(exp((x31 - x21) - x32))))",
+    "genes_used": [
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(1.5241251 - CUBN))",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 5,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.5,
+    "equation_original": "log1p(log1p(1.5241251 - x21))",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "sqrt(0.88326794 / exp(exp(CUBN)))",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 6,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 1.0,
+    "equation_original": "sqrt(0.88326794 / exp(exp(x21)))",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(sqrt(exp(MKI67 - exp(exp(CA9) * CUBN)))))",
+    "auroc": 0.6067632850241546,
+    "train_auroc": 0.7789368650217706,
+    "test_auroc": 0.6067632850241546,
+    "complexity": 11,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.75,
+    "equation_original": "log1p(sqrt(sqrt(exp(x28 - exp(exp(x0) * x21)))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "MKI67"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(sqrt(exp(ENO2 - exp(CA9 + CUBN)))))",
+    "auroc": 0.6342995169082126,
+    "train_auroc": 0.7705914368650217,
+    "test_auroc": 0.6342995169082126,
+    "complexity": 10,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.625,
+    "equation_original": "log1p(sqrt(sqrt(exp(x12 - exp(x0 + x21)))))",
+    "genes_used": [
+      "CA9",
+      "ENO2",
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(log1p(exp((TOP2A - exp(CUBN + CA9)) - (-1.2221171 + PCNA)))))",
+    "auroc": 0.6420289855072463,
+    "train_auroc": 0.7884615384615385,
+    "test_auroc": 0.6420289855072463,
+    "complexity": 14,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.7,
+    "equation_original": "log1p(sqrt(log1p(exp((x31 - exp(x21 + x0)) - (-1.2221171 + x32)))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(sqrt(exp((TOP2A - exp(exp(CA9) * CUBN)) - PCNA))))",
+    "auroc": 0.6772946859903382,
+    "train_auroc": 0.7907293178519593,
+    "test_auroc": 0.6772946859903382,
+    "complexity": 13,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.778,
+    "equation_original": "log1p(sqrt(sqrt(exp((x31 - exp(exp(x0) * x21)) - x32))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "sqrt(log1p(log1p(exp(MKI67 - exp(CUBN)))))",
+    "auroc": 0.5739130434782609,
+    "train_auroc": 0.7349419448476052,
+    "test_auroc": 0.5739130434782609,
+    "complexity": 8,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "sqrt(log1p(log1p(exp(x28 - exp(x21)))))",
+    "genes_used": [
+      "CUBN",
+      "MKI67"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(sqrt(exp((TOP2A - exp(CA9 + CUBN)) - PCNA))))",
+    "auroc": 0.6420289855072463,
+    "train_auroc": 0.7884615384615385,
+    "test_auroc": 0.6420289855072463,
+    "complexity": 12,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(sqrt(sqrt(exp((x31 - exp(x0 + x21)) - x32))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(log1p(exp((TOP2A - exp(exp(CA9) * CUBN)) - (PCNA + -1.2221171)))))",
+    "auroc": 0.6772946859903382,
+    "train_auroc": 0.7907293178519593,
+    "test_auroc": 0.6772946859903382,
+    "complexity": 15,
+    "seed": 1,
+    "law_family": "",
+    "novelty": 0.727,
+    "equation_original": "log1p(sqrt(log1p(exp((x31 - exp(exp(x0) * x21)) - (x32 + -1.2221171)))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(1.5280566 - CUBN))",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 5,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.5,
+    "equation_original": "log1p(log1p(1.5280566 - x21))",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(0.8631686 - CUBN) - CA9)))",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 9,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(log1p(log1p(exp(0.8631686 - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(1.7121024 - CUBN) / 1.7121024",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 6,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.6,
+    "equation_original": "log1p(1.7121024 - x21) / 1.7121024",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p((1.9607184 - CUBN) - CA9)))",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 8,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.6,
+    "equation_original": "log1p(log1p(log1p((1.9607184 - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(log1p(exp(TOP2A)) - CUBN) - CA9)))",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 11,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(log1p(log1p(exp(log1p(exp(x31)) - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(sqrt(log1p(exp(TOP2A))) - CUBN) - CA9)))",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 12,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.714,
+    "equation_original": "log1p(log1p(log1p(exp(sqrt(log1p(exp(x31))) - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(log1p(log1p(exp(exp(TOP2A))) + ALB) - CUBN) - CA9)))",
+    "auroc": 0.6019323671497584,
+    "train_auroc": 0.7811139332365747,
+    "test_auroc": 0.6019323671497584,
+    "complexity": 15,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.625,
+    "equation_original": "log1p(log1p(log1p(exp(log1p(log1p(exp(exp(x31))) + x20) - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "ALB",
+      "CUBN",
+      "TOP2A"
+    ]
+  },
+  {
+    "equation": "log1p(log1p((1.6631382 - CUBN) * 0.7046429))",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 7,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(log1p((1.6631382 - x21) * 0.7046429))",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(log1p(log1p(exp(exp(TOP2A)))) - CUBN) - CA9)))",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 13,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(log1p(log1p(exp(log1p(log1p(exp(exp(x31)))) - x21) - x0)))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A"
+    ]
+  },
+  {
+    "equation": "log1p(0.6565859)",
+    "auroc": 0.5,
+    "train_auroc": 0.5,
+    "test_auroc": 0.5,
+    "complexity": 2,
+    "seed": 2,
+    "law_family": "",
+    "novelty": 0.5,
+    "equation_original": "log1p(0.6565859)",
+    "genes_used": []
+  },
+  {
+    "equation": "log1p(log1p(sqrt(exp((TOP2A - PCNA) - CUBN))))",
+    "auroc": 0.629951690821256,
+    "train_auroc": 0.7654208998548622,
+    "test_auroc": 0.629951690821256,
+    "complexity": 9,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.714,
+    "equation_original": "log1p(log1p(sqrt(exp((x31 - x32) - x21))))",
+    "genes_used": [
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "exp(exp(CUBN) * -0.4975281)",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 5,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 1.0,
+    "equation_original": "exp(exp(x21) * -0.4975281)",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "exp(exp(CA9) * (-0.38428438 * exp(CUBN)))",
+    "auroc": 0.6144927536231884,
+    "train_auroc": 0.7362119013062409,
+    "test_auroc": 0.6144927536231884,
+    "complexity": 8,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 1.0,
+    "equation_original": "exp(exp(x0) * (-0.38428438 * exp(x21)))",
+    "genes_used": [
+      "CA9",
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(sqrt(log1p(log1p(exp((exp(TOP2A) - exp(CUBN + CA9)) - PCNA)))))",
+    "auroc": 0.6613526570048308,
+    "train_auroc": 0.7932692307692308,
+    "test_auroc": 0.6613526570048308,
+    "complexity": 14,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.667,
+    "equation_original": "log1p(sqrt(log1p(log1p(exp((exp(x31) - exp(x21 + x0)) - x32)))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "sqrt(log1p(log1p(exp((TOP2A - exp(CUBN)) - PCNA))))",
+    "auroc": 0.6613526570048309,
+    "train_auroc": 0.7653301886792453,
+    "test_auroc": 0.6613526570048309,
+    "complexity": 10,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.714,
+    "equation_original": "sqrt(log1p(log1p(exp((x31 - exp(x21)) - x32))))",
+    "genes_used": [
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "exp(-0.874797 * log1p(exp(CUBN)))",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 6,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.8,
+    "equation_original": "exp(-0.874797 * log1p(exp(x21)))",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "log1p(log1p(log1p(exp(((TOP2A - PCNA) - -0.6000067) - CUBN))))",
+    "auroc": 0.629951690821256,
+    "train_auroc": 0.7654208998548622,
+    "test_auroc": 0.629951690821256,
+    "complexity": 11,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.714,
+    "equation_original": "log1p(log1p(log1p(exp(((x31 - x32) - -0.6000067) - x21))))",
+    "genes_used": [
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  },
+  {
+    "equation": "exp((exp(CUBN) * -0.38428438) + -0.1631942)",
+    "auroc": 0.6603864734299516,
+    "train_auroc": 0.7115384615384616,
+    "test_auroc": 0.6603864734299516,
+    "complexity": 7,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.833,
+    "equation_original": "exp((exp(x21) * -0.38428438) + -0.1631942)",
+    "genes_used": [
+      "CUBN"
+    ]
+  },
+  {
+    "equation": "sqrt(log1p(log1p(exp((TOP2A - exp((CUBN - sqrt(0.23608987)) + CA9)) - PCNA))))",
+    "auroc": 0.629951690821256,
+    "train_auroc": 0.793722786647315,
+    "test_auroc": 0.629951690821256,
+    "complexity": 15,
+    "seed": 3,
+    "law_family": "",
+    "novelty": 0.7,
+    "equation_original": "sqrt(log1p(log1p(exp((x31 - exp((x21 - sqrt(0.23608987)) + x0)) - x32))))",
+    "genes_used": [
+      "CA9",
+      "CUBN",
+      "TOP2A",
+      "PCNA"
+    ]
+  }
+]

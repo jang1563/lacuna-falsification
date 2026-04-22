@@ -8,30 +8,62 @@ as the flagship Tier-1 / Tier-2 runs.
 
 ---
 
-## Headline
+## Headline (updated 2026-04-22 after Option A expanded-gene-set run)
 
-**0 / ~100 candidates survive across four biologically meaningful
-ccRCC tasks.** Each task is dominated by a different single gene, and
-the compound-law ceiling for 11-gene PySR search is at or below the
-best single-gene classifier in every case. Opus 4.7's pathway-grounded
-ex-ante laws also fail, often *worse* than PySR's unconstrained
-candidates on task 2 and 3 (survival, metastasis).
+With the **45-gene expanded HIF/Warburg/tubule/proliferation/metastasis
+panel**, the falsification gate emits **its first survivors**: 9 /30
+candidates on the metastasis M0 vs M1 task, led by a 2-gene law
+`TOP2A − EPAS1` (proliferation minus HIF-2α) with AUROC 0.726 and
+delta_baseline +0.069 against the best single-gene baseline
+(MKI67 = 0.645). This reproduces the published ccRCC "ccA / ccB
+subtype" axis (aggressive proliferative-dedifferentiated tumors vs
+hypoxic-differentiated tumors) entirely from unconstrained symbolic
+regression + pre-registered falsification — *not* from a priori
+template injection.
 
-This generalizes the +0.029 ceiling observed on Tier-1 / Tier-2 to a
-**+0.0 ceiling on survival** and a **−0.030 ceiling on metastasis**:
-Track B (Gate Robustness) can now ask whether that ceiling is a
-property of our gene panel, our gate, or ccRCC itself.
+The broader picture now holds in two layers:
+
+- **With the original 11-gene HIF-axis + normal-kidney panel,** the
+  gate rejects 0 / 100+ candidates across four tasks. Each task is
+  dominated by a different single gene and the compound-law ceiling
+  stays below the pre-registered +0.05 threshold: CA9 for
+  tumor/normal, CUBN for stage and survival, MKI67 for metastasis.
+- **With the 45-gene expanded panel,** the ceiling lifts to +0.069 on
+  metastasis (9 passing laws, most reading as proliferation-over-
+  hypoxia), and to +0.019 on survival (still below threshold). The
+  expansion does **not** produce survivors on tumor/normal or stage —
+  consistent with those tasks being saturated by a single dominant gene.
+
+This gives the artifact two complementary outcomes on the same
+infrastructure: (a) negative examples where pre-registration bites
+and rejects textbook biology alike; (b) a positive example where a
+cleanly two-gene, biologically legible law passes the gate and
+replays published ccRCC biology. Track B (Gate Robustness) can now
+test whether the +0.069 metastasis survivor is robust to
+threshold / baseline-definition / scaling perturbations.
 
 ---
 
 ## Task matrix
 
-| Task | n | Labels | Dominant gene (sign-inv AUC) | Gate pass? | Best law AUC (PySR) | Δ_baseline |
-|---|---|---|---|---|---|---|
-| Tumor vs Normal (Tier 1) | 609 | 537 / 72 | **CA9 = 0.965** | 0 / 26 | 0.995 | +0.029 |
-| Stage I-II vs III-IV (Tier 2) | 534 | 328 / 206 | CUBN = 0.610 | 0 / 27 | 0.691 | +0.029 |
-| 5-year Survival | 301 | 149 / 152 | CUBN = 0.696 | 0 / 29 | 0.696 | **+0.000** (best law ≡ CUBN) |
-| Metastasis M0 vs M1 | 505 | 426 / 79 | MKI67 = 0.645 | 0 / 30 | 0.592 | **-0.030** (worse than MKI67) |
+Two gene-panel sizes reported side-by-side — the 11-gene HIF-axis
+panel (original Tier-1 / Tier-2 / A4 config) and the 45-gene
+expanded panel (Option A6). n and label definitions are identical
+within each task.
+
+| Task | n | Labels | Dominant gene (sign-inv AUC) | 11-gene gate | 11-gene best Δbase | 45-gene gate | 45-gene best Δbase |
+|---|---|---|---|---|---|---|---|
+| Tumor vs Normal (Tier 1) | 609 | 537 / 72 | **CA9 = 0.965** | 0 / 26 | +0.029 | not rerun | — |
+| Stage I-II vs III-IV (Tier 2) | 534 | 328 / 206 | CUBN = 0.610 | 0 / 27 | +0.029 | not rerun | — |
+| 5-year Survival | 301 | 149 / 152 | CUBN = 0.696 | 0 / 29 | +0.000 (best ≡ CUBN) | **0 / 29** | **+0.019** (still fails) |
+| Metastasis M0 vs M1 | 505 | 426 / 79 | MKI67 = 0.645 | 0 / 30 | −0.030 | **9 / 30** | **+0.069** ✅ |
+
+All runs: PySR unconstrained search (iter=600–800, populations=10–12,
+seeds={1,2,3}, maxsize=15), per-cohort z-score standardisation,
+pre-registered 5-test gate (two-sided permutation null, bootstrap CI
+lower bound > 0.6, sign-invariant best-single-feature baseline
+Δ > 0.05, incremental-covariate confound Δ > 0.03 when covariates
+available, decoy-feature null p < 0.05), BH-FDR across candidates.
 
 All four tasks used the same PySR config: 11 genes, niter=800,
 populations=12, seeds={1, 2, 3}, maxsize=15, per-cohort z-score
@@ -123,15 +155,84 @@ to *reject*.
 
 ---
 
+## The metastasis survivors in detail (Option A6)
+
+Nine PySR candidates cleared the full 5-test gate on the metastasis
+task with the 45-gene panel. They cluster into three biologically
+distinct shapes:
+
+**Cluster 1 — `TOP2A − EPAS1` (proliferation − HIF-2α)** — 5 laws at
+AUROC 0.726. The simplest member:
+
+    0.0986 * (TOP2A − EPAS1) + 0.161         (AUROC 0.726, ci_lower 0.658)
+
+plus four monotone rewrites (`log1p(log1p(exp(TOP2A − EPAS1)) * k)`
+etc.) that collapse to the same score ranking.
+
+**Cluster 2 — `MKI67 − EPAS1`** — 2 laws at AUROC 0.708 with
+`delta_baseline = +0.051`. Same axis as Cluster 1 but uses MKI67
+(proliferation-marker canonical) instead of TOP2A (proliferation-
+marker enzymatic).
+
+**Cluster 3 — 5-gene compound** — 2 laws at AUROC 0.726, using
+`MKI67 - exp(((EPAS1 - PTGER3) + LRP2) - RPL13A)` style
+structure. This wraps the proliferation / HIF-2α core with
+normal-kidney markers (LRP2, PTGER3) and a housekeeping reference
+(RPL13A). Same AUROC as the 2-gene Cluster 1 laws, so the extra
+genes are not adding discriminative value; the 2-gene form is
+preferred by parsimony.
+
+### Why this is biologically legible
+
+EPAS1 is HIF-2α, the dominant hypoxia-response transcription factor
+in well-differentiated ccRCC. TOP2A and MKI67 are canonical
+proliferation markers. The ratio *`proliferation > hypoxia-
+differentiation`* reproduces the published ClearCode34 / ccA-vs-ccB
+subtype axis: aggressive, proliferative, less HIF-2α-driven tumors
+are more likely to be metastatic (M1). The unconstrained symbolic
+search found this axis *without* being seeded with it, and the
+pre-registered gate accepted it only because its incremental AUROC
+over MKI67 alone is +0.069 — comfortably above the +0.05 threshold.
+
+This is the first candidate in the entire pipeline run (across 150+
+candidates and six task/panel combinations) that survives every
+falsification test. Track B (Gate Robustness) should specifically
+stress-test this survivor under threshold / baseline-definition /
+scaling perturbations before we over-commit to the narrative.
+
 ## Numerical artifacts
 
+### Original 11-gene panel (A4–A5)
+
 - `results/track_a_task_landscape/survival/candidates.json` — 29 PySR candidates on survival
+- `results/track_a_task_landscape/survival/candidates_named.json` — same, with xi → gene name substitution
 - `results/track_a_task_landscape/survival/falsification_report.json` — 5-test gate output on PySR survival candidates
 - `results/track_a_task_landscape/survival/opus_exante_report.json` — 5-test gate output on Opus ex-ante laws × survival cohort
 - `results/track_a_task_landscape/metastasis/candidates.json` — 30 PySR candidates on metastasis
+- `results/track_a_task_landscape/metastasis/candidates_named.json` — same, renamed
 - `results/track_a_task_landscape/metastasis/falsification_report.json` — 5-test gate output on PySR metastasis candidates
 - `results/track_a_task_landscape/metastasis/opus_exante_report.json` — 5-test gate output on Opus ex-ante laws × metastasis cohort
 
-Data:
-- `data/kirc_survival.csv` — 301 ccRCC tumor samples labelled by 5-year OS
-- `data/kirc_metastasis.csv` — 505 ccRCC tumor samples labelled by M0/M1
+### Expanded 45-gene panel (A6)
+
+- `results/track_a_task_landscape/survival_expanded/candidates.json`
+- `results/track_a_task_landscape/survival_expanded/candidates_named.json`
+- `results/track_a_task_landscape/survival_expanded/falsification_report.json` — 0 / 29 survivors, best law `TOP2A − CUBN − PCNA` at AUROC 0.715 / Δbase +0.019
+- `results/track_a_task_landscape/metastasis_expanded/candidates.json`
+- `results/track_a_task_landscape/metastasis_expanded/candidates_named.json`
+- `results/track_a_task_landscape/metastasis_expanded/falsification_report.json` — **9 / 30 survivors**, proliferation-over-HIF-2α family
+
+### Data
+
+- `data/kirc_survival.csv` — 301 ccRCC tumor samples, 11-gene panel, 5-yr OS labels
+- `data/kirc_metastasis.csv` — 505 ccRCC tumor samples, 11-gene panel, M0/M1 labels
+- `data/kirc_survival_expanded.csv` — same 301 samples, 45-gene panel
+- `data/kirc_metastasis_expanded.csv` — same 505 samples, 45-gene panel
+- `data/build_tcga_kirc_expanded.py` — re-extracts the 45 Ensembl IDs from the cached `TCGA-KIRC.star_tpm.tsv.gz`
+
+### Plots
+
+- `results/track_a_task_landscape/plots/task_auroc_comparison.png` — 11-gene panel cross-task AUROC scatter
+- `results/track_a_task_landscape/plots/delta_baseline_by_task.png` — 11-gene panel Δbaseline histogram
+
+(An expanded-panel cross-comparison plot is a natural next addition.)
