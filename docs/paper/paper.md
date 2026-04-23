@@ -331,7 +331,42 @@ Opus can do it"; it is "Opus 4.7 does it correctly enough that the
 rest of the pipeline can stay deterministic, which is what makes the
 final artefact auditable."
 
-## 4.4 Limitations
+## 4.4 The gate as an RLVR verifier for biology (future work)
+
+Reinforcement Learning with Verifiable Rewards (RLVR) has become the
+dominant training paradigm on domains where solutions are hard to produce
+but easy to check: mathematics, coding, sudoku. The 2026 frontier is
+extending RLVR *beyond* math and code — into medicine, chemistry, and
+biology — which requires verifier infrastructure that does not yet
+publicly exist for most life-sciences tasks. Our 5-test gate is, by
+construction, exactly such a verifier:
+
+- **Deterministic**: plain Python, no LLM in the loop at scoring time.
+- **Ungameable by the proposer**: the gate sees only cohort data and
+  the candidate equation, never the Proposer's internal rationale.
+- **Cheap**: a full 5-test evaluation on n=505 takes ≈ 20 seconds on a
+  laptop — fast enough to be an inner loop of an RL training run.
+- **Binary + thresholded**: pass/fail, with pre-registered thresholds
+  committed to `preregistrations/` before any search.
+
+What we have built is therefore *not an RL training run* — our model
+weights never change — but an **RLVR *environment*** for biological
+law proposal. Our Path C Routine (`run_path_c_routine`) closes the
+loop in the test-time-reasoning regime; RL fine-tuning of a
+Claude-derived biology specialist against this same gate is the
+natural next step, and is directly relevant to the stated 2026
+priority of "RL environment scaling" in scientific domains.
+
+Importantly, the gate-vs-Opus architectural split we describe in § 4.3
+mirrors the RLVR-range / non-RLVR-range distinction: the gate is the
+*"RL range"* (verifiable, superluminal under RL), while Opus's
+interpretive, novelty-estimating, and clinical-translation work is
+*outside* it (drifts without a verifier, relies on domain judgement).
+Theory Copilot's contribution is precisely this separation — drawing
+the boundary empirically on real biology data rather than assuming
+the whole pipeline is reducible to a single reward function.
+
+## 4.5 Limitations
 
 (i) The compact survivor is biological *rediscovery* of a published
 subtype axis, not novel biology. The novelty is procedural — that
