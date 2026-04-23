@@ -1,4 +1,4 @@
-.PHONY: help install test demo demo-kirc demo-templates clean status audit paper skeptic-review
+.PHONY: help install test demo demo-kirc demo-templates clean status audit paper skeptic-review prereg prereg-validate prereg-audit
 
 # ============================================================
 # Theory Copilot Falsification — Developer Commands
@@ -121,6 +121,24 @@ skeptic-review:
 			--dry-run; \
 	fi
 	@echo ">>> Wrote results/skeptic_consensus/SUMMARY.md + consensus.json"
+
+# --- Pre-registration YAML artifacts (PhF-1) ---
+# Emit one machine-readable pre-registration per law family BEFORE any search.
+# Files are committed once and never modified; their git history is the
+# tamper-evidence audit trail (FDA-EMA 2026-01 / EU AI Act 2026-08-02 alignment).
+prereg:
+	@echo ">>> Emitting pre-registration YAMLs for every law family..."
+	$(PYTHONPATH_SRC) $(PYTHON) src/preregistration.py emit \
+		--proposals config/law_proposals.json \
+		--out preregistrations \
+		--retroactive \
+		--analyst "theory-copilot-team"
+
+prereg-validate:
+	$(PYTHONPATH_SRC) $(PYTHON) src/preregistration.py validate --dir preregistrations
+
+prereg-audit:
+	$(PYTHONPATH_SRC) $(PYTHON) src/preregistration.py audit --dir preregistrations
 
 # --- Paper (docs/paper/paper.md → PDF via pandoc + xelatex) ---
 paper:

@@ -1,0 +1,70 @@
+# Pre-registration artifact — Theory Copilot Phase F
+#
+# Committed once and never modified. Any subsequent edit of this file
+# invalidates the pre-registration (verifiable via `git log -p <file>`).
+# This file is the machine-readable form of the FDA-EMA 2026-01 'credibility
+# assessment plan' applied to a single symbolic-regression hypothesis.
+
+hypothesis_id: ratio
+emitted_at_utc: 2026-04-23T04:44:34Z
+emitted_git_sha: 7dcc1025859a
+retroactive: true
+analyst: theory-copilot-team
+data_cutoff_date: 2026-04-23
+dataset_context: generic
+
+law_family_name: 'Buffered activation ratio'
+template_id: ratio
+symbolic_template: 'signal_a / (1 + signal_b)'
+initial_guess: 'signal_a / (1 + signal_b)'
+biological_rationale: 'Disease states often amplify one module while suppressing or buffering another. A short ratio can expose that asymmetry.'
+target_features: []
+negative_control: false
+
+# Expected verdict under the 5-test gate (kept pristine from the
+# pre-hackathon law_proposals.json entry).
+expected_verdict: UNKNOWN
+
+# Deterministic kill-test thresholds. By default these mirror the
+# 5-test binary-classification gate in src/theory_copilot/falsification.py
+# (a change to that file invalidates every classification pre-reg).
+# When `uses_kill_tests_override: true`, the hypothesis is not a binary
+# classification and the tests below are hypothesis-specific (e.g.
+# log-rank + hazard-ratio for a survival-analysis replay).
+uses_kill_tests_override: false
+kill_tests:
+  - name: label_shuffle_null
+    statistic: two_sided_perm_p_bh_fdr
+    threshold: < 0.05
+    n_permutations: 1000
+  - name: bootstrap_stability
+    statistic: ci95_lower_bound_on_auroc
+    threshold: > 0.6
+    n_resamples: 1000
+  - name: baseline_comparison
+    statistic: law_auroc_minus_max_sign_inv_single_gene_auroc
+    threshold: > 0.05
+  - name: confound_only
+    statistic: auroc(LR(cov+law))_minus_auroc(LR(cov))
+    threshold: > 0.03
+  - name: decoy_feature_test
+    statistic: p_vs_100_random_matched_scale_features
+    threshold: < 0.05
+
+multiple_testing_correction: benjamini_hochberg_fdr
+alpha: 0.05
+stopping_rule: |
+  Stop as soon as the 5-test gate returns a verdict (PASS/FAIL). No
+  post-hoc threshold adjustment, no re-analysis under new thresholds,
+  no cherry-picking a different p-value correction.
+
+# Tamper-evidence pointers.
+references:
+  falsification_gate_impl: src/theory_copilot/falsification.py
+  law_proposal_source: config/law_proposals.json
+  methodology_doc: docs/methodology.md
+
+# Regulatory context for why we bother with this discipline.
+regulatory_references:
+  - https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0
+  - https://artificialintelligenceact.eu/  # EU AI Act high-risk provisions 2026-08-02
