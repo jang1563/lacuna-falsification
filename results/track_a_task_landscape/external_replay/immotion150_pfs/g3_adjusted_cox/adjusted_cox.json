@@ -1,4 +1,12 @@
 {
+  "model0_unadjusted": {
+    "n": 263,
+    "covariates": [],
+    "score_z_hr": 1.3612591583597868,
+    "score_z_hr_ci_low": 1.1648590841356643,
+    "score_z_hr_ci_high": 1.5907730999010554,
+    "score_z_p": 0.00010464976892071845
+  },
   "model1_treatment_adjusted": {
     "n": 263,
     "covariates": [
@@ -22,13 +30,32 @@
     "score_z_hr_ci_high": 1.618390513127467,
     "score_z_p": 0.024437003862864428
   },
-  "model0_unadjusted": {
-    "n": 263,
-    "covariates": [],
-    "score_z_hr": 1.3612591583597868,
-    "score_z_hr_ci_low": 1.1648590841356643,
-    "score_z_hr_ci_high": 1.5907730999010554,
-    "score_z_p": 0.00010464976892071845
+  "model3_immune_subtype_adjusted": {
+    "status": "NOT_FEASIBLE",
+    "note": "NOT_FEASIBLE: cBioPortal IMMUNE_SUBTYPE attribute for study rcc_iatlas_immotion150_2018 returns a single category (C4) for all samples. McDermott 2018 TGF-beta/Inflamed/Desert subtype data not publicly available via cBioPortal API as of 2026-04-23."
+  },
+  "model4_fully_adjusted": {
+    "status": "NOT_FEASIBLE",
+    "note": "NOT_FEASIBLE: cBioPortal IMMUNE_SUBTYPE attribute for study rcc_iatlas_immotion150_2018 returns a single category (C4) for all samples. McDermott 2018 TGF-beta/Inflamed/Desert subtype data not publicly available via cBioPortal API as of 2026-04-23."
+  },
+  "prereg_kill_test_verdicts": {
+    "adjusted_cox_hr_treatment": {
+      "pass": true,
+      "hr": 1.3646462220138251,
+      "ci_low": 1.1682206463274174,
+      "ci_high": 1.5940989547745679,
+      "p": 8.825923852225748e-05
+    },
+    "adjusted_cox_hr_immune_subtype": {
+      "status": "NOT_FEASIBLE",
+      "note": "NOT_FEASIBLE: cBioPortal IMMUNE_SUBTYPE attribute for study rcc_iatlas_immotion150_2018 returns a single category (C4) for all samples. McDermott 2018 TGF-beta/Inflamed/Desert subtype data not publicly available via cBioPortal API as of 2026-04-23."
+    },
+    "adjusted_cox_hr_full": {
+      "status": "NOT_FEASIBLE",
+      "note": "NOT_FEASIBLE: cBioPortal IMMUNE_SUBTYPE attribute for study rcc_iatlas_immotion150_2018 returns a single category (C4) for all samples. McDermott 2018 TGF-beta/Inflamed/Desert subtype data not publicly available via cBioPortal API as of 2026-04-23."
+    },
+    "overall_verdict": "PASS_PARTIAL",
+    "feasibility_note": "NOT_FEASIBLE: cBioPortal IMMUNE_SUBTYPE attribute for study rcc_iatlas_immotion150_2018 returns a single category (C4) for all samples. McDermott 2018 TGF-beta/Inflamed/Desert subtype data not publicly available via cBioPortal API as of 2026-04-23."
   },
   "verdict": {
     "unadjusted_hr": 1.3612591583597868,

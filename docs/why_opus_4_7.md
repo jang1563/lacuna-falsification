@@ -32,6 +32,12 @@ its way to agreement.
 
 This rigor framing matches the one the NeurIPS 2025 AI4Science workshop *"[The Reach and Limits of AI for Scientific Discovery](https://ai4sciencecommunity.github.io/neurips25.html)"* puts at the centre of its call.
 
+The same discipline has now been named publicly by the Claude Code team as the desired product-development stance. At the 2026-04-22 *Built with Opus 4.7* live session (Tharik, Cloud Code team), the recommendation was:
+
+> "Have conviction... trying to **disprove it** versus trying to test a bunch of different hypotheses."
+
+Theory Copilot ports that epistemic posture from product development into scientific discovery itself: Opus 4.7 proposes a law *and writes the test that would kill it*, then a deterministic gate runs the kill test, then Opus 4.7 interprets only what the gate failed to reject. The same-session Q&A also confirmed that "a verification script that forces the agent to test its own outputs against hard constraints" is an open problem the Cloud Code team intends to write a post about. This repository is a worked example of that script.
+
 ## 2. Where Opus 4.7 is load-bearing, and where it is not
 
 **What Opus 4.7 does:**

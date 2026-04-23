@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "method": "Model-X Knockoffs (Cand\u00e8s et al. 2018)",
+    "knockoff_type": "equicorrelated (non-Gaussian fallback)",
+    "mardia_subset_genes": [
+      "ACTB",
+      "AGXT",
+      "ALB",
+      "ALDOA",
+      "ANGPTL4",
+      "BHLHE40",
+      "CA12",
+      "CA9",
+      "CALB1",
+      "CCNB1",
+      "CDK1",
+      "COL4A2",
+      "CUBN",
+      "CXCR4",
+      "DDIT4",
+      "ENO1",
+      "ENO2",
+      "EPAS1",
+      "GAPDH",
+      "HK2"
+    ],
+    "n": 505,
+    "p": 45,
+    "disease_prevalence": 0.15643564356435644
+  },
+  "mardia_test": {
+    "b1p": 193.17323701569478,
+    "b2p": 752.0615244675596,
+    "kappa_skewness": 16258.747448820977,
+    "df_skewness": 1540.0,
+    "p_skewness": 0.0,
+    "z_kurtosis": 118.19921250046963,
+    "p_kurtosis": 0.0,
+    "multivariate_normal": false,
+    "note": "Mardia test: FAIL \u2014 using equicorrelated knockoffs (non-Gaussian fallback)"
+  },
+  "knockoff_stats": {
+    "pairwise_corr_mean": 0.9344333087969732,
+    "pairwise_corr_max": 0.9446162109372492
+  },
+  "filter_q0.10": {
+    "threshold": null,
+    "fdr_q": 0.1,
+    "selected_genes": [],
+    "selected_count": 0,
+    "top_15_genes_by_W": {
+      "EPAS1": 0.05613049683517949,
+      "TOP2A": 0.047146492708768466,
+      "KRT7": 0.01686939756393043,
+      "ALB": 0.014664343009642,
+      "LDHB": 0.012075195395974066,
+      "PAX8": 0.011797147501828385,
+      "PAX2": 0.010727787046674993,
+      "ACTB": 0.008515161178518705,
+      "PDK1": 0.003923688526028599,
+      "SLC22A8": 0.0027669133934420534,
+      "MKI67": 0.002596390971099451,
+      "ALDOA": 0.0,
+      "BHLHE40": 0.0,
+      "CA9": 0.0,
+      "CALB1": 0.0
+    },
+    "TOP2A_W": 0.047146492708768466,
+    "EPAS1_W": 0.05613049683517949,
+    "TOP2A_selected": false,
+    "EPAS1_selected": false
+  },
+  "filter_q0.20": {
+    "threshold": null,
+    "fdr_q": 0.2,
+    "selected_genes": [],
+    "selected_count": 0,
+    "top_15_genes_by_W": {
+      "EPAS1": 0.05613049683517949,
+      "TOP2A": 0.047146492708768466,
+      "KRT7": 0.01686939756393043,
+      "ALB": 0.014664343009642,
+      "LDHB": 0.012075195395974066,
+      "PAX8": 0.011797147501828385,
+      "PAX2": 0.010727787046674993,
+      "ACTB": 0.008515161178518705,
+      "PDK1": 0.003923688526028599,
+      "SLC22A8": 0.0027669133934420534,
+      "MKI67": 0.002596390971099451,
+      "ALDOA": 0.0,
+      "BHLHE40": 0.0,
+      "CA9": 0.0,
+      "CALB1": 0.0
+    },
+    "TOP2A_W": 0.047146492708768466,
+    "EPAS1_W": 0.05613049683517949,
+    "TOP2A_selected": false,
+    "EPAS1_selected": false
+  },
+  "verdict": {
+    "TOP2A_selected_q01": false,
+    "EPAS1_selected_q01": false,
+    "TOP2A_selected_q02": false,
+    "EPAS1_selected_q02": false,
+    "pair_jointly_selected_q01": false,
+    "interpretation": "Neither TOP2A nor EPAS1 is selected at q=0.10 or q=0.20. The knockoff filter is conservative; this does not contradict the AUROC-based falsification gate result."
+  }
+}

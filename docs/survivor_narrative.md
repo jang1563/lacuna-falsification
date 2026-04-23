@@ -33,6 +33,16 @@ regression rediscovered it without being seeded with it, and that
 the pre-registered falsification gate accepted the compact 2-gene
 form on merits written down before the search.
 
+**Independent per-gene annotation.** Human Protein Atlas v21.0
+pathology.tsv (Uhlén et al., *Science* 2015;
+https://v21.proteinatlas.org/download/, queried 2026-04-23) flags
+**TOP2A** as *prognostic\_unfavorable* and **EPAS1** as
+*prognostic\_favorable* in renal cancer. This is a genome-wide
+annotation computed from TCGA survival data by HPA curators — not
+from our own cohort. The assignment aligns with the score direction
+("high TOP2A − EPAS1 → worse PFS / M1") without any circular
+reasoning from our analysis.
+
 **How robust is this?** The survivor passes five of six robustness
 axes (threshold grid, two-sided permutation stability, bootstrap
 seed variance, feature scaling, cohort-size subsample) and a 5-fold

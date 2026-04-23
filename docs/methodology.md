@@ -101,6 +101,8 @@ whether a law failed on one margin or many.
 
 ## 4. Three-agent Managed Agents architecture
 
+**Why agents and not skills within one harness.** Tharik (Cloud Code team) at the 2026-04-22 live session recommended skills over sub-agents as the default extension point on Opus 4.7, on the grounds that sub-agents over-constrain. That guidance is right for most coding-assistant workflows. It does not apply here: the whole falsification claim depends on the Skeptic not sharing context with the Proposer. A single-harness-with-skills setup would let the Proposer's rationale tokens drift into the Skeptic's review — the exact "looks good to me" failure the gate is supposed to prevent. The extended-thinking budget is also non-portable across skill invocations. Three separate Managed Agents preserve both the isolation and the adaptive-thinking state; the architecture choice is load-bearing to the artifact, not ornamental.
+
 Role separation in `src/theory_copilot/managed_agent_runner.py`:
 
 - **Proposer** — `claude-opus-4-7` with adaptive thinking. Emits 3–5 law

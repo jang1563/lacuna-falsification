@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "method": "PySR fraction_replaced_guesses comparison",
+    "seeded_fraction": 0.3,
+    "unseeded_fraction": 0.0,
+    "note": "Full unseeded PySR run requires Julia subprocess; queued for next session with Julia pre-warmed. Novelty-score analysis from existing seeded run is reported here as partial evidence."
+  },
+  "seeded_run_fraction_0_3": {
+    "total_candidates": 30,
+    "survivors": 9,
+    "survivor_genes": ["EPAS1", "LRP2", "MKI67", "PTGER3", "RPL13A", "TOP2A"],
+    "novelty_scores": {
+      "min": 0.667,
+      "max": 0.727,
+      "mean": 0.709,
+      "note": "0 = verbatim Opus guess, 1 = fully novel. All survivors 0.67-0.73 = partially novel (core gene pair seeded, functional form novel)."
+    },
+    "top_survivors": [
+      {
+        "equation_named": "-0.086 * ((EPAS1 + -1.55) - TOP2A)",
+        "auroc": 0.631,
+        "delta_baseline": 0.069,
+        "novelty": 0.714
+      },
+      {
+        "equation_named": "log1p(log1p(exp(TOP2A - EPAS1)) * 0.218)",
+        "auroc": 0.631,
+        "delta_baseline": 0.069,
+        "novelty": 0.714
+      },
+      {
+        "equation_named": "0.169 * log1p(exp(MKI67 - EPAS1))",
+        "auroc": 0.609,
+        "delta_baseline": 0.051,
+        "novelty": 0.714
+      }
+    ]
+  },
+  "fraction_zero_run": {
+    "status": "pending_julia_session",
+    "reason": "PySR process launched but Julia worker did not start within session time limit (40+ min). PySR 1.5.9 requires Julia pre-warmed; cold-start in non-TTY environment blocked.",
+    "recommended_command": "source .venv/bin/activate && JULIA_NUM_THREADS=4 python3 src/g5_pysr_fraction_zero.py",
+    "expected_runtime_minutes": "5-15 (after Julia precompilation)"
+  },
+  "partial_evidence_novelty_analysis": {
+    "interpretation": "All 9 seeded-run survivors have novelty 0.667-0.727 (partial novelty), NOT 0.0 (verbatim Opus guess). This means PySR did NOT simply return the seeded guess verbatim — it explored the neighborhood and found related but structurally distinct equations. The functional wrapping (log1p, exp, scaling constants) is novel even when the core gene pair (TOP2A, EPAS1) was seeded. This suggests a fraction=0 run would likely rediscover the TOP2A/EPAS1 axis because the AUROC gradient is strong (+0.069 delta_baseline), but the specific functional form might differ. Full unseeded comparison deferred to next session.",
+    "prediction_for_unseeded_run": "HIGH CONFIDENCE that PySR rediscovers TOP2A/EPAS1 core axis (AUROC signal is strong). MODERATE CONFIDENCE that survivor count is similar (the gate is calibrated to the signal level, not the search heuristic). LOW CONFIDENCE on specific functional form."
+  },
+  "comparison": {
+    "top2a_epas1_rediscovered": null,
+    "survivor_count_seeded": 9,
+    "survivor_count_unseeded": null,
+    "interpretation": "Full unseeded run pending. Novelty analysis of seeded run (novelty=0.71, not 0.0) suggests seeding guides search to the correct gene pair but does not bias the gate acceptance — the 5-test gate is deterministic Python that does not know which equations were seeded."
+  }
+}

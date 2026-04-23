@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "method": "Anchor Regression (Rothenh\u00e4usler et al. 2021)",
+    "layer1": "per-cohort OLS + Cochran Q heterogeneity",
+    "layer2": "pooled anchor regression \u03b3=0..100 (cohort-demeaned y)",
+    "anchor": "cohort membership (TCGA=0, IMmotion150=1)",
+    "n_TCGA": 505,
+    "n_IMmotion150": 263
+  },
+  "layer1_per_cohort_ols": {
+    "intercept": {
+      "TCGA": {
+        "coef": 0.15643564356435635,
+        "se": 0.01550945533326848,
+        "ci_low": 0.12603711111115012,
+        "ci_high": 0.18683417601756258
+      },
+      "IMmotion150": {
+        "coef": 0.6235741444866911,
+        "se": 0.029713909092816775,
+        "ci_low": 0.5653348826647703,
+        "ci_high": 0.681813406308612
+      },
+      "pooled": {
+        "coef": 0.2564543645185832,
+        "se": 0.013749205629369881,
+        "z": 18.652304098992254,
+        "p": 1.2095072829338609e-77
+      },
+      "heterogeneity": {
+        "Q": 194.23785187475102,
+        "p": 3.7787806932324745e-44,
+        "anchor_stable": false
+      }
+    },
+    "TOP2A": {
+      "TCGA": {
+        "coef": 0.08432453079388505,
+        "se": 0.015601122248915153,
+        "ci_low": 0.053746331186011354,
+        "ci_high": 0.11490273040175875
+      },
+      "IMmotion150": {
+        "coef": 0.04211397213018203,
+        "se": 0.03216662353755402,
+        "ci_low": -0.02093261000342385,
+        "ci_high": 0.10516055426378791
+      },
+      "pooled": {
+        "coef": 0.07628607792853226,
+        "se": 0.014037221762412939,
+        "z": 5.434556724949752,
+        "p": 5.4932820210209154e-08
+      },
+      "heterogeneity": {
+        "Q": 1.3940613600696778,
+        "p": 0.2377204287870953,
+        "anchor_stable": true
+      }
+    },
+    "EPAS1": {
+      "TCGA": {
+        "coef": -0.07380786365892981,
+        "se": 0.015601122248912984,
+        "ci_low": -0.10438606326679926,
+        "ci_high": -0.043229664051060365
+      },
+      "IMmotion150": {
+        "coef": -0.044349764922604125,
+        "se": 0.03216662353756,
+        "ci_low": -0.10739634705622172,
+        "ci_high": 0.018696817211013482
+      },
+      "pooled": {
+        "coef": -0.06819795121779548,
+        "se": 0.014037221762411857,
+        "z": -4.858365307044761,
+        "p": 1.183588840512462e-06
+      },
+      "heterogeneity": {
+        "Q": 0.6789677031970334,
+        "p": 0.4099424185675121,
+        "anchor_stable": true
+      }
+    }
+  },
+  "layer2_anchor_regression_by_gamma": {
+    "0": {
+      "intercept": 0.049243708334579646,
+      "TOP2A": 0.2402096147965222,
+      "EPAS1": -0.1730764961955214,
+      "score_compound": 0.4132861109920436,
+      "resid_anchor_corr": -0.16886123221966995
+    },
+    "2": {
+      "intercept": -0.0007931420634917496,
+      "TOP2A": 0.1980958577214857,
+      "EPAS1": -0.2004030873039654,
+      "score_compound": 0.3984989450254511,
+      "resid_anchor_corr": -0.005629509925044346
+    },
+    "5": {
+      "intercept": -0.0012814106995163365,
+      "TOP2A": 0.19768490406310693,
+      "EPAS1": -0.200669745122386,
+      "score_compound": 0.3983546491854929,
+      "resid_anchor_corr": -0.004013822408801792
+    },
+    "10": {
+      "intercept": -0.00144629142806807,
+      "TOP2A": 0.19754613140068936,
+      "EPAS1": -0.20075979132263247,
+      "score_compound": 0.3983059227233218,
+      "resid_anchor_corr": -0.003468231953355903
+    },
+    "50": {
+      "intercept": -0.0015789728484892512,
+      "TOP2A": 0.19743445944165228,
+      "EPAS1": -0.2008322525366088,
+      "score_compound": 0.3982667119782611,
+      "resid_anchor_corr": -0.0030291903946816916
+    },
+    "100": {
+      "intercept": -0.0015956068803175706,
+      "TOP2A": 0.19742045932833047,
+      "EPAS1": -0.20084133686910605,
+      "score_compound": 0.3982617961974365,
+      "resid_anchor_corr": -0.0029741486420300565
+    }
+  },
+  "verdict": {
+    "per_cohort_direction_agreement_TOP2A": true,
+    "per_cohort_direction_agreement_EPAS1": true,
+    "TOP2A_heterogeneity_significant": false,
+    "EPAS1_heterogeneity_significant": false,
+    "anchor_regression_TOP2A_sign_stable_gamma0_to_100": true,
+    "anchor_regression_EPAS1_sign_stable_gamma0_to_100": true,
+    "compound_score_sign_stable": true,
+    "overall_anchor_stability": true,
+    "interpretation": "TOP2A coefficient is consistently positive and EPAS1 consistently negative across both cohorts and all anchor penalty levels \u03b3=0\u2192100. Cochran Q heterogeneity tests show no significant inter-cohort disagreement (p>0.05). The proliferation-over-HIF-2\u03b1 law is anchor-stable across TCGA-KIRC (n=505) and IMmotion150 (n=263)."
+  }
+}

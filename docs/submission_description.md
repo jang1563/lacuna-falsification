@@ -64,6 +64,10 @@ Live transcripts of all four roles at `results/live_evidence/`.
   `MANAGED_AGENTS_WAITLIST=approved`; flips on when the multiagent
   research-preview is granted.
 
+## External Validation of the Problem Framing
+
+At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) named "a verification script that forces the agent to test its own outputs against hard constraints before it sends the payload" as an open community problem on Opus 4.7 — serious enough that he proposed writing a follow-up article on it. The same session's stated development posture was "trying to **disprove it** versus trying to test a bunch of different hypotheses." Theory Copilot is a worked example of exactly that script, ported from product development into scientific discovery: a pre-registered deterministic gate that the proposing model itself cannot rationalize past. This is not a coincidence of framing — the falsification-first loop was built to solve the confirmation-bias-automation problem that the Cloud Code team publicly flagged the same week.
+
 ## Prize Category Justification
 
 - **Keep Thinking ($5K).** The load-bearing cognitive work is the
