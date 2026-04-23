@@ -1,0 +1,103 @@
+# Pre-registration artifact — Theory Copilot Phase L (PhL-1)
+#
+# Committed once and never modified. Any subsequent edit of this file
+# invalidates the pre-registration (verifiable via `git log -p <file>`).
+# Written BEFORE running src/phl1_slc22a8_cross_cohort.py.
+
+hypothesis_id: phl1_immotion150_slc22a8_extension
+emitted_at_utc: 2026-04-23T18:13:22Z
+emitted_git_sha: 87a2710
+retroactive: false
+analyst: theory-copilot-team
+data_cutoff_date: 2026-04-23
+dataset_context: immotion150
+
+law_family_name: 'External replay of the 3-gene form TOP2A − (EPAS1 + SLC22A8) on IMmotion150 metastatic ccRCC'
+template_id: phl1_immotion150_slc22a8_extension
+symbolic_template: 'TOP2A - (EPAS1 + SLC22A8)'
+initial_guess: 'TOP2A - (EPAS1 + SLC22A8)'
+biological_rationale: |
+  The H1 Falsification-Guided SR Loop (HPC job 2810338, committed at
+  e5b96e5) converged on iteration 1 with 5 survivors, all variations of
+  TOP2A − EPAS1. The best-AUC member added SLC22A8 to EPAS1 in the
+  subtraction: `log1p(log1p(log1p(exp(TOP2A − (exp(EPAS1) + SLC22A8)))))
+  * 0.586` reached AUC 0.739 on TCGA-KIRC metastasis (vs 0.726 for the
+  linear TOP2A − EPAS1 form), a Δ-lift of +0.013. SLC22A8 (OAT3,
+  organic anion transporter 3) is a canonical proximal-tubule identity
+  marker, on the same tubule-identity axis as LRP2 (the marker that
+  dominated v1 pathway convergence; see
+  results/overhang/sr_loop_run_v1_var_bug.json).
+
+  This pre-registration asks whether the 3-gene score TOP2A − (EPAS1 +
+  SLC22A8) replicates as a PFS stratifier in the independent metastatic
+  IMmotion150 Phase-2 cohort (Nat Med 2018, atezolizumab +/- bevacizumab,
+  n=263). Three possible outcomes, all interpretable:
+
+  1. **3-gene form passes + outperforms 2-gene.** PhF-3 already
+     established the 2-gene TOP2A − EPAS1 form passes on this cohort
+     (logrank p=0.0003, HR=1.36, C-index=0.601). If the 3-gene form's
+     C-index and HR are BOTH larger than the 2-gene form's on the same
+     cohort, H1's SLC22A8 addition is a real finding.
+  2. **3-gene form passes but does NOT outperform 2-gene.** The
+     extension generalises but adds no independent information;
+     parsimony picks the 2-gene form. Honest neutral outcome.
+  3. **3-gene form fails.** The H1 loop's SLC22A8 addition was
+     TCGA-KIRC specific; does not cross-cohort replicate. This would
+     downgrade the H1 v2 claim in docs/headline_findings.md to "a
+     TCGA-KIRC within-cohort lift, not a generalisable finding."
+
+  Any of the three is an honest result that goes straight to the
+  submission. Outcome 1 is the strongest, outcome 3 the most informative
+  for the submission's "our own H1 output has honest limitations" angle.
+
+target_features: ["TOP2A", "EPAS1", "SLC22A8"]
+negative_control: false
+
+# Expected verdict under the pre-registered kill tests.
+expected_verdict: UNKNOWN
+
+uses_kill_tests_override: true
+kill_tests:
+  - name: logrank_median_split
+    description: Median-split 3-gene score TOP2A - (EPAS1 + SLC22A8) into high vs low. Log-rank test on Kaplan-Meier PFS curves.
+    statistic: logrank_chi_squared_p_value
+    threshold: < 0.05
+    two_sided: True
+  - name: cox_hazard_ratio
+    description: Univariate Cox proportional-hazards regression on the continuous standardized 3-gene score.
+    statistic: hazard_ratio_per_z
+    threshold_for_pass: HR_95CI excludes 1.0 AND abs(log(HR)) > log(1.3)
+    threshold_explanation: Same conservative bar as PhF-3 (CI excludes 1 AND HR effect > 30%).
+  - name: concordance_index
+    description: Harrell C-index on the continuous score against PFS with censoring.
+    statistic: c_index
+    threshold: > 0.55
+    threshold_explanation: Same floor as PhF-3 (0.5 chance; 0.55 weak-but-meaningful). PhF-3 (2-gene) measured 0.601 on this cohort.
+
+# Pre-registered comparison against the 2-gene form (PhF-3).
+# This is the SPECIFIC claim H1 v2 makes: SLC22A8 adds information.
+comparison_gate:
+  reference_form: 'TOP2A - EPAS1 (PhF-3, verdict.json c_index=0.601, HR=1.36)'
+  reference_c_index: 0.601
+  reference_hr: 1.36
+  reference_logrank_p: 0.0003
+  outperforms_criterion: 'The 3-gene form outperforms the 2-gene form if BOTH (a) C-index (3-gene) > C-index (2-gene) + 0.01, AND (b) HR (3-gene) > HR (2-gene). Weaker criterion (just one of the two) → ambiguous; neither → no improvement.'
+  outperforms_criterion_rationale: 'A 0.01 C-index lift is the minimum distinguishable with n=263 (rule of thumb: SE ~ 0.03 at this sample size, so 0.01 is noisy but the directional bar is fair). Requiring BOTH directions prevents a random-noise 3-gene HR inflation from masquerading as improvement.'
+
+multiple_testing_correction: benjamini_hochberg_fdr
+alpha: 0.05
+stopping_rule: |
+  Report the three kill-test verdicts plus the comparison-gate outcome
+  (outperforms / matches / underperforms the 2-gene form). No post-hoc
+  re-tweaking of thresholds; no cherry-picked alternative score forms.
+
+references:
+  h1_loop_result: results/overhang/sr_loop_run.json
+  phf3_2gene_replay: results/track_a_task_landscape/external_replay/immotion150_pfs/verdict.json
+  falsification_gate_impl: src/theory_copilot/falsification.py
+  cohort_build: data/build_immotion150.py
+  methodology_doc: docs/methodology.md
+
+regulatory_references:
+  - https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0
+  - https://artificialintelligenceact.eu/  # EU AI Act high-risk provisions 2026-08-02

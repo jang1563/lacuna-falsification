@@ -42,6 +42,12 @@ GENES = {
     "LRP2":    4036,
     "PTGER3":  5733,
     "RPL13A":  23521,
+    # Added 2026-04-23 after H1 LLM-SR loop (Job 2810338) emerged SLC22A8
+    # as a 3-gene extension of TOP2A - EPAS1 on TCGA-KIRC. SLC22A8 (OAT3)
+    # is a proximal-tubule organic-anion transporter — same tubule-identity
+    # axis as LRP2. Cross-cohort replay test: does the 3-gene form
+    # (TOP2A - (EPAS1 + SLC22A8)) also stratify PFS on IMmotion150?
+    "SLC22A8": 9376,
 }
 
 
