@@ -1,0 +1,698 @@
+{
+  "dataset": "TCGA-KIRC metastasis M0 vs M1",
+  "n_samples": 505,
+  "prevalence": 0.15643564356435644,
+  "gene_panel_size": 45,
+  "pairs_evaluated": 990,
+  "top2a_epas1_auc": 0.7256,
+  "top2a_epas1_rank": 1,
+  "best_pair_observed": "EPAS1-TOP2A",
+  "best_pair_auc": 0.7255601117252035,
+  "rashomon_set_sizes": {
+    "eps_0.005": {
+      "threshold_auc": 0.7206,
+      "set_size": 1
+    },
+    "eps_0.01": {
+      "threshold_auc": 0.7156,
+      "set_size": 1
+    },
+    "eps_0.02": {
+      "threshold_auc": 0.7056,
+      "set_size": 3
+    },
+    "eps_0.03": {
+      "threshold_auc": 0.6956,
+      "set_size": 6
+    },
+    "eps_0.05": {
+      "threshold_auc": 0.6756,
+      "set_size": 21
+    },
+    "eps_0.1": {
+      "threshold_auc": 0.6256,
+      "set_size": 141
+    }
+  },
+  "top20_pathway_combo_distribution": {
+    "('HIF_axis', 'Proliferation')": 5,
+    "('Proliferation', 'Warburg')": 5,
+    "('Proliferation', 'other')": 3,
+    "('Proliferation', 'Tubule_normal')": 3,
+    "('HIF_axis', 'Housekeeping')": 2,
+    "('EMT_metastasis', 'HIF_axis')": 1,
+    "('Proliferation', 'Proliferation')": 1
+  },
+  "top50": [
+    {
+      "gene1": "EPAS1",
+      "gene2": "TOP2A",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.7255601117252035,
+      "auprc": 0.31678492204735026
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "EPAS1",
+      "pathway1": "Proliferation",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.7128424555773458,
+      "auprc": 0.30326993018429865
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "MKI67",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.7076127651987876,
+      "auprc": 0.31332039973015063
+    },
+    {
+      "gene1": "PGK1",
+      "gene2": "TOP2A",
+      "pathway1": "other",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "other"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.7022642182207167,
+      "auprc": 0.30206042542892797
+    },
+    {
+      "gene1": "CCNB1",
+      "gene2": "EPAS1",
+      "pathway1": "Proliferation",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.7020562191715695,
+      "auprc": 0.29182139069507806
+    },
+    {
+      "gene1": "PDK1",
+      "gene2": "TOP2A",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6981933796874071,
+      "auprc": 0.31532413701767154
+    },
+    {
+      "gene1": "CXCR4",
+      "gene2": "EPAS1",
+      "pathway1": "EMT_metastasis",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "EMT_metastasis",
+        "HIF_axis"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6949248232008082,
+      "auprc": 0.2544827197137995
+    },
+    {
+      "gene1": "MCM2",
+      "gene2": "TOP2A",
+      "pathway1": "Proliferation",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6944493968027574,
+      "auprc": 0.29346133826807996
+    },
+    {
+      "gene1": "PFKP",
+      "gene2": "TOP2A",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6883877102276104,
+      "auprc": 0.27451848006772356
+    },
+    {
+      "gene1": "CCNB1",
+      "gene2": "PFKP",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6857431508884531,
+      "auprc": 0.2525363364851703
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "PGK1",
+      "pathway1": "Proliferation",
+      "pathway2": "other",
+      "pathway_combo": [
+        "Proliferation",
+        "other"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6845842990432044,
+      "auprc": 0.2893253279516186
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "SLC22A8",
+      "pathway1": "Proliferation",
+      "pathway2": "Tubule_normal",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6832174481488086,
+      "auprc": 0.30018515567853415
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "PCNA",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6824745944018542,
+      "auprc": 0.2707087551569073
+    },
+    {
+      "gene1": "ACTB",
+      "gene2": "EPAS1",
+      "pathway1": "Housekeeping",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "HIF_axis",
+        "Housekeeping"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6824448802519761,
+      "auprc": 0.26643680231547556
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "PFKP",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6824151661020978,
+      "auprc": 0.25892925264332933
+    },
+    {
+      "gene1": "CCNB1",
+      "gene2": "PGK1",
+      "pathway1": "Proliferation",
+      "pathway2": "other",
+      "pathway_combo": [
+        "Proliferation",
+        "other"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6820883104534379,
+      "auprc": 0.286399335684838
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "PDK1",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6816723123551435,
+      "auprc": 0.29061458817848573
+    },
+    {
+      "gene1": "SLC22A8",
+      "gene2": "TOP2A",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6816425982052654,
+      "auprc": 0.30712249947504855
+    },
+    {
+      "gene1": "MKI67",
+      "gene2": "SLC22A8",
+      "pathway1": "Proliferation",
+      "pathway2": "Tubule_normal",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6781066143697629,
+      "auprc": 0.29754041607342047
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "RPL13A",
+      "pathway1": "HIF_axis",
+      "pathway2": "Housekeeping",
+      "pathway_combo": [
+        "HIF_axis",
+        "Housekeeping"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6773340464729304,
+      "auprc": 0.24787046758645423
+    },
+    {
+      "gene1": "MKI67",
+      "gene2": "PDK1",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6766506210257325,
+      "auprc": 0.2997781803740133
+    },
+    {
+      "gene1": "BHLHE40",
+      "gene2": "TOP2A",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6751351993819457,
+      "auprc": 0.28406631588477427
+    },
+    {
+      "gene1": "MKI67",
+      "gene2": "PGK1",
+      "pathway1": "Proliferation",
+      "pathway2": "other",
+      "pathway_combo": [
+        "Proliferation",
+        "other"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6743032031853569,
+      "auprc": 0.29824122954716764
+    },
+    {
+      "gene1": "COL4A2",
+      "gene2": "EPAS1",
+      "pathway1": "EMT_metastasis",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "EMT_metastasis",
+        "HIF_axis"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6737386343376716,
+      "auprc": 0.2719198956402144
+    },
+    {
+      "gene1": "CCNB1",
+      "gene2": "PDK1",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6728472098413264,
+      "auprc": 0.2662898567897796
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "PKM",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6702917929518036,
+      "auprc": 0.2688258898569184
+    },
+    {
+      "gene1": "MKI67",
+      "gene2": "PFKP",
+      "pathway1": "Proliferation",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6692517977060677,
+      "auprc": 0.26872492720604313
+    },
+    {
+      "gene1": "PKM",
+      "gene2": "TOP2A",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6686575147085042,
+      "auprc": 0.2654474199160559
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "LDHA",
+      "pathway1": "HIF_axis",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "HIF_axis",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6686575147085042,
+      "auprc": 0.2736519277925773
+    },
+    {
+      "gene1": "CDK1",
+      "gene2": "PCNA",
+      "pathway1": "Proliferation",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Proliferation"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.667766090212159,
+      "auprc": 0.2729567589158445
+    },
+    {
+      "gene1": "MCM2",
+      "gene2": "MKI67",
+      "pathway1": "Proliferation",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6675283770131336,
+      "auprc": 0.26518844449030077
+    },
+    {
+      "gene1": "ALDOA",
+      "gene2": "TOP2A",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6654781006715398,
+      "auprc": 0.26800150850386456
+    },
+    {
+      "gene1": "ALDOA",
+      "gene2": "CDK1",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.664972960123611,
+      "auprc": 0.2615122230087624
+    },
+    {
+      "gene1": "DDIT4",
+      "gene2": "EPAS1",
+      "pathway1": "HIF_axis",
+      "pathway2": "HIF_axis",
+      "pathway_combo": [
+        "HIF_axis",
+        "HIF_axis"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6649432459737328,
+      "auprc": 0.2417923646555179
+    },
+    {
+      "gene1": "ALDOA",
+      "gene2": "CCNB1",
+      "pathway1": "Warburg",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6649135318238545,
+      "auprc": 0.2606888703361012
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "GAPDH",
+      "pathway1": "HIF_axis",
+      "pathway2": "Housekeeping",
+      "pathway_combo": [
+        "HIF_axis",
+        "Housekeeping"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6642598205265348,
+      "auprc": 0.24738593906796563
+    },
+    {
+      "gene1": "BHLHE40",
+      "gene2": "CDK1",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6629821120817734,
+      "auprc": 0.25530095085541143
+    },
+    {
+      "gene1": "CUBN",
+      "gene2": "TOP2A",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6628632554822607,
+      "auprc": 0.26291601140981724
+    },
+    {
+      "gene1": "PCNA",
+      "gene2": "TOP2A",
+      "pathway1": "Proliferation",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6622986866345755,
+      "auprc": 0.2819044047548213
+    },
+    {
+      "gene1": "ALB",
+      "gene2": "TOP2A",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6614072621382302,
+      "auprc": 0.29867055244067187
+    },
+    {
+      "gene1": "EPAS1",
+      "gene2": "LDHB",
+      "pathway1": "HIF_axis",
+      "pathway2": "Warburg",
+      "pathway_combo": [
+        "HIF_axis",
+        "Warburg"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6606049800915197,
+      "auprc": 0.24254594611085142
+    },
+    {
+      "gene1": "COL4A2",
+      "gene2": "TOP2A",
+      "pathway1": "EMT_metastasis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "EMT_metastasis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6603078385927379,
+      "auprc": 0.24387991445660578
+    },
+    {
+      "gene1": "LRP2",
+      "gene2": "TOP2A",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6600106970939561,
+      "auprc": 0.2753596249935411
+    },
+    {
+      "gene1": "BHLHE40",
+      "gene2": "MKI67",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6597135555951744,
+      "auprc": 0.2879064842435588
+    },
+    {
+      "gene1": "AGXT",
+      "gene2": "TOP2A",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6597135555951744,
+      "auprc": 0.3045471766806355
+    },
+    {
+      "gene1": "AGXT",
+      "gene2": "CDK1",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6596541272954181,
+      "auprc": 0.29622890511182365
+    },
+    {
+      "gene1": "CCNB1",
+      "gene2": "SLC22A8",
+      "pathway1": "Proliferation",
+      "pathway2": "Tubule_normal",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "+",
+      "auc_sign_inv": 0.6594758423961491,
+      "auprc": 0.28352462394488687
+    },
+    {
+      "gene1": "CALB1",
+      "gene2": "CDK1",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.658940987698342,
+      "auprc": 0.2904544428951997
+    },
+    {
+      "gene1": "BHLHE40",
+      "gene2": "CCNB1",
+      "pathway1": "HIF_axis",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "HIF_axis",
+        "Proliferation"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6586735603494384,
+      "auprc": 0.2472704496012188
+    },
+    {
+      "gene1": "ALB",
+      "gene2": "MKI67",
+      "pathway1": "Tubule_normal",
+      "pathway2": "Proliferation",
+      "pathway_combo": [
+        "Proliferation",
+        "Tubule_normal"
+      ],
+      "direction": "-",
+      "auc_sign_inv": 0.6581089915017531,
+      "auprc": 0.3004957533916065
+    }
+  ]
+}
