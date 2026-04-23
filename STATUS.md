@@ -1,7 +1,7 @@
 # STATUS — theory-copilot-falsification
 
-**Last updated:** 2026-04-22 19:05 ET (Phase E Lane 1 closing)
-**Days to submit:** T-4d 0h55m
+**Last updated:** 2026-04-23 01:20 ET (Phase F content-depth pass closed)
+**Days to submit:** T-3d 18h40m
 **Submit window:** 2026-04-26 20:00 ET
 **Judging:** 2026-04-28 12:00 ET
 
@@ -51,7 +51,13 @@ plan file under `~/.claude/plans/`.
 | D11 | DatasetCard + `plug-in-dataset` CLI | E | 🟢 | 18a1763 | 4 committed cards + auto-inference subcommand (E4) |
 | D12 | TCGA-LUAD second-disease run | E | 🟢 | 6a0963f | data/build_tcga_luad.py + opus-exante report (E5) |
 | D13 | MCP biology-validator server | E | 🟢 | fe3fb62 | validate_law + fetch_cohort_summary (E8) |
-| D14 | docs/paper/paper.pdf | E | 🟢 | b6d041a | 6-page workshop-paper via pandoc (E9) |
+| D14 | docs/paper/paper.pdf | E | 🟢 | b6d041a → 0f3ce58 | 6-page workshop-paper via pandoc (E9) + PhF-2 benchmark section |
+| D15 | Pre-registration YAML artifact (PhF-1) | F | 🟢 | 0444629 | 17 committed YAMLs + make prereg/validate/audit + tamper-evidence audit chain |
+| D16 | External-cohort survival replay (PhF-3) | F | 🟢 | f9c88d1 | IMmotion150 PFS: 3/3 pre-reg kill tests PASS (log-rank p=0.0003, HR=1.36, C=0.601) |
+| D17 | Benchmark vs SPOT / Sakana-v2 / POPPER (PhF-2) | F | 🟢 | 0f3ce58 | docs/paper/benchmark_vs_related.md + paper §4.2 |
+| D18 | Rejection Log static HTML + GitHub Pages (PhF-4) | F | 🟢 | 3ce8a6b | 204 candidates / 194 rejected; `.github/workflows/pages.yml` |
+| D19 | Path C Routine + Nightly Falsifier (PhF-5) | F | 🟢 | e81b8e6 | `theory-copilot loop` + `.github/workflows/nightly_falsifier.yml` |
+| D20 | Headline findings master-narrative doc | F | 🟢 | e81b8e6 | docs/headline_findings.md — 3 findings × before/after/"6 months ago" |
 
 ## 🛡️ Backup Plan Dashboard
 
@@ -105,6 +111,7 @@ commit: `7a70919 [N] Restamp coordination contract header`.
 
 ## 📝 Decision Log (latest on top)
 
+- 2026-04-23 01:20 ET · [F] · **Phase F content-depth closed.** 5 items shipped (PhF-1 pre-registration YAML artifact + 17 committed YAMLs; PhF-2 SPOT/Sakana-v2/POPPER benchmark section in docs/paper/benchmark_vs_related.md + paper §3.5/§4.2; PhF-3 IMmotion150 external replay — all 3 pre-registered kill tests PASS, log-rank p=0.0003, HR=1.36, C-index=0.601, 7.5-month median-PFS gap on independent immunotherapy cohort; PhF-4 rejection log HTML + GitHub Pages workflow — 204 candidates / 194 rejected / 10 accepted; PhF-5 Path C Routine driver + nightly GitHub Actions workflow). Commits 0444629, f9c88d1, 0f3ce58, 3ce8a6b, e81b8e6. `make test` 72/72; `make audit` clean. Headline findings doc at docs/headline_findings.md. Submission form draft rewritten for Phase F. Awaiting user push authorization + Tharik-quote doc review (still in working tree).
 - 2026-04-22 19:05 ET · [E] · Phase E Lane 1 complete locally: E1 (CLAUDE.md + 4 subagents), E4 (DatasetCard + plug-in-dataset CLI + 3 tests), E5 (TCGA-LUAD build + ex-ante run + log1p-safe-eval bug fix), E8 (MCP biology-validator + 9 tests), E9 (docs/paper/paper.pdf via pandoc). Commits: 94b3d5e, 18a1763, 6a0963f, fe3fb62, b6d041a. `make test` 59/59 post-Lane-1; `make audit` clean. Awaiting user authorization to push to origin/main.
 - 2026-04-22 16:45 ET · [E] · Phase E plan v3 signed off. User elected full Tier 1 + 2 + 3 with 2-3 parallel lanes. Plan file at `~/.claude/plans/vast-swimming-kitten.md`. Lane 1 (this session) owns Platform; Lanes 2 and 3 remain for future sessions.
 - 2026-04-22 14:35 ET · [N] · Phase transition from Sci-A/B to Phase N/Q. N queue = narrative docs; Q queue = E2E tests + audit + plot sanity. SESSION_COORDINATION.md updated.
