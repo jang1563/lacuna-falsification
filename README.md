@@ -14,9 +14,12 @@ Built for the Built with Opus 4.7 Hackathon · April 2026
   [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py).
   Live agent / environment / session / stream trace is at
   [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log).
-  The pipeline is structured so Path B (public beta) drives the live
-  demo today and Path A (`callable_agents`, waitlist) is one feature-
-  flag flip away.
+  Submission run uses public-beta features only: Path B (single agent,
+  `agent_toolset_20260401`), Path A as a sequential chain of three Path
+  B sessions with structured-JSON handoff, Path C via Claude Code
+  Routines `/fire` with local watch-dir fallback.
+  Brain/body-decouple demo: `theory-copilot persist-events` +
+  `replay-events` CLI two-liner.
 - **If you are evaluating developer experience (Lydia-ish):** `make
   install && make test && make demo-kirc` is the full happy path;
   all judge-facing docs in `docs/` are ≤ 400 lines, all figures in
@@ -72,7 +75,8 @@ Proposal → Search → Falsification → Survivor → Replay
 |---|---|
 | [`src/theory_copilot/falsification.py`](src/theory_copilot/falsification.py) | 5-test statistical gate |
 | [`src/theory_copilot/opus_client.py`](src/theory_copilot/opus_client.py) | Opus 4.7 three-role wrapper + JSON-fence-tolerant parser |
-| [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py) | Path B (single agent, public beta) + Path A (3-agent chain, waitlist) |
+| [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py) | Path B (single agent, public beta) + Path A (sequential chain of 3 Path B sessions) + Path C Routine driver + event-log persistence/replay |
+| [`src/theory_copilot/routines_client.py`](src/theory_copilot/routines_client.py) | Claude Code Routines `/fire` HTTP client (research-preview beta header) |
 | [`src/theory_copilot/cli.py`](src/theory_copilot/cli.py) | `theory-copilot compare` + `replay` commands |
 | [`src/pysr_sweep.py`](src/pysr_sweep.py) | PySR sweep with law-family injection, train/test split, novelty scoring |
 | [`src/falsification_sweep.py`](src/falsification_sweep.py) | Batch falsification runner + BH-FDR |
@@ -233,6 +237,53 @@ for publication-bias propagation into ML/LLM predictions. Theory Copilot
 operationalizes NegBioDB's core thesis — falsification as the expensive,
 neglected half of scientific inference — on real cancer-genomics data. The
 public NegBioDB repository will be linked here at release.
+
+---
+
+## Hackathon compliance notes
+
+Per the *Built with Opus 4.7* rules and the 2026-04-23 / 2026-04-24
+Discord Q&A clarifications:
+
+**Code provenance.** Every commit in `git log` has a timestamp from
+2026-04-22 04:01 ET or later (the earliest commit in the repo). All
+code in the submitted tree was written during the hackathon. Pre-
+hackathon scaffold files (`src/theory_copilot/contracts.py`, `qc.py`,
+`reuse_inventory.py`, `reuse_plan.py`, `staging.py`, `workflow_data.py`
+plus a few config / docs / test files) are explicitly excluded via
+`.gitignore` and are not part of the submission — `git ls-files` does
+not include any of them. The hackathon-built code is the artefact; no
+pre-existing project serves as "underlying infrastructure" in the
+git-lex sense.
+
+**Managed Agents features.** Per Anthropic's 2026-04-23 response to
+our Agent Teams waitlist request, research-preview features are
+disabled for hackathon participants to keep evaluation fair. This
+submission uses public-beta features only: Path B (single agent +
+`agent_toolset_20260401`), Path A as a sequential chain of three
+Path B sessions, Path C via Claude Code Routines `/fire` HTTP client.
+The orchestrator-with-`callable_agents` code path exists in
+`_run_path_a_callable_agents` as an architectural reference, guarded
+by an env flag that is not set during the submitted run.
+
+**Data access.** Every dataset used in the pipeline is publicly
+accessible without authentication or email registration:
+
+| Dataset | Source | Access |
+|---|---|---|
+| TCGA-KIRC (STAR TPM + clinical) | GDC (gdc.cancer.gov) open-access | `data/build_tcga_kirc*.py` |
+| GSE40435, GSE53757 | NCBI GEO | `data/build_gse*.py` |
+| IMmotion150 Phase-2 (Nat Med 2018, PMID 29867230) | cBioPortal REST API (`rcc_iatlas_immotion150_2018`) | `data/build_immotion150.py` |
+| CPTAC-3 ccRCC proteogenomic (Clark Cell 2019) | PDC GraphQL + cBioPortal mirror | `data/build_cptac3_ccrcc.py` |
+| TCGA-BRCA, TCGA-LUAD | GDC open-access | `data/build_tcga_brca.py`, `build_tcga_luad.py` |
+
+No dataset requires an institutional-email login, dbGaP controlled-
+access application, or any other gate that would fail the Q&A test
+*"this isn't accessible to everyone."* Published-research knowledge
+cited in the prompts is open-access per PubMed / arXiv / DOI.
+
+**Repo visibility.** Public during the judging window (`git remote -v`
+→ `github.com/jang1563/theory-copilot-falsification`). MIT licensed.
 
 ---
 
