@@ -51,6 +51,9 @@ data/public_workflow/
 .h1_last_job_id
 results/overhang/*_hpc.json
 
+# Managed Agents local state cache (workspace-scoped agent/env/store IDs)
+results/live_evidence/phl3_state.json
+
 # OS
 *.DS_Store
 HANDOFF_to_*.md

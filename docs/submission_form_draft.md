@@ -104,16 +104,16 @@ All paths return `{session_id, agent_id, output, status}`; Path A adds
 
 ## Prize category justification (100 words, 98 counted)
 
-**Best Claude Managed Agents ($5K).** Public-beta-only (research
-preview disabled for participants). Three paths: B (single agent +
-`agent_toolset_20260401`, live), A (sequential chain, not Agent
-Teams), C (Claude Code Routines `/fire`, local fallback). Skeptic
-runs in isolated subagent context; the 5-test gate is the shareable
-verification pattern; `make audit` is the Stop hook refusing to mark
-tasks complete without proving it works. Our own H1 LLM-SR loop's
-3-gene extension was killed by the same gate on cross-cohort replay
-(PhL-1) — verification as working code, not prose. Brain/body
-decoupling demoable in <60s.
+**Best Claude Managed Agents ($5K).** Public-beta-only. Three paths:
+B (single agent + `agent_toolset_20260401`, live), A (sequential
+chain), C (Claude Code Routines `/fire`, local fallback). Plus
+**Memory public beta (integrated 2026-04-23, announcement day)**: Skeptic writes rejection lessons to a memory store
+in session 1, a fresh session 2 reads and quotes the lesson verbatim
+before judging a structurally analogous candidate — the exact
+Rakuten "distill lessons from every session" pattern, with
+server-side persistence verified via raw `/v1/memory_stores/*` API.
+Our own H1 LLM-SR loop's 3-gene extension was killed by the same
+gate on cross-cohort replay (PhL-1). Verification as working code.
 
 ---
 

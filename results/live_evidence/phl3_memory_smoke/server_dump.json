@@ -1,0 +1,8 @@
+[
+  {
+    "id": "mem_01F2wCk2rBS5AFCaYEMhyemh",
+    "path": "/lessons.md",
+    "content_sha256": "a4de0ba325523c42d23a4dd3d4351b9e85671e4662013b1b548e261131c457f0",
+    "content": "# Skeptic rejection-pattern lessons\n\nFormat: `- [verdict] equation \u2014 fail_reason (cohort/task)`\n\n- [FAIL] `log1p(CA9) + log1p(VEGFA) - log1p(AGXT)` \u2014 delta_baseline=0.019 < 0.05 threshold in TCGA-KIRC tumor-vs-normal. Ceiling-effect false positive: best single gene AUC=0.965 is already saturated (CA9 is pathognomonic for ccRCC via VHL\u2192HIF axis; VEGFA is co-regulated; AGXT downregulation just re-encodes normal-kidney tissue). Pattern: when baseline_auc_best_single_gene \u2265 ~0.95 on an easy binary task, compound lifts < 0.05 are almost always redundancy-reduction noise, not emergent law. One failed gate = FAIL; do not negotiate the threshold.\n- [FAIL] `log1p(LDHA) + log1p(SLC2A1) - log1p(ALB)` \u2014 delta_baseline=0.019 < 0.05 in TCGA-KIRC tumor-vs-normal (best-single=0.959, law=0.978). Same ceiling-effect template as the CA9/VEGFA/AGXT rejection: two HIF-1\u03b1 co-regulated glycolysis targets (LDHA, SLC2A1/GLUT1) minus a normal-tissue abundance marker (ALB). Generalized pattern (KIRC T-vs-N recurring motif): any `HIF_target_A + HIF_target_B \u2212 normal_kidney_marker` compound on this task will produce ~0.02 lift on a near-saturated baseline and should be rejected on delta_baseline alone without re-litigating the biology. Flag for Copilot: stop proposing tumor-vs-normal KIRC compounds when best-single \u2265 0.95 \u2014 route to grade/metastasis/survival tasks where there is headroom.\n"
+  }
+]
