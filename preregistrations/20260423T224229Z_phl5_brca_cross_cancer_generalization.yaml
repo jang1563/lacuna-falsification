@@ -1,0 +1,61 @@
+# Pre-registration artifact — Theory Copilot Phase L (PhL-5)
+# Written BEFORE running src/phl5_generalization_probes.py.
+
+hypothesis_id: phl5_brca_cross_cancer_generalization
+emitted_at_utc: 2026-04-23T22:42:29Z
+emitted_git_sha: 8abbcfd
+retroactive: false
+analyst: theory-copilot-team
+data_cutoff_date: 2026-04-23
+dataset_context: tcga_brca_tumor_vs_normal
+
+law_family_name: 'Cross-cancer generalization probe of TOP2A − EPAS1 on TCGA-BRCA tumor-vs-normal'
+template_id: phl5_brca_cross_cancer
+symbolic_template: 'TOP2A - EPAS1'
+initial_guess: 'TOP2A - EPAS1'
+biological_rationale: |
+  The 2-gene law TOP2A − EPAS1 is load-bearing on ccRCC (TCGA-KIRC + IMmotion150).
+  The biology is ccRCC-specific: EPAS1 / HIF-2α is a canonical ccRCC driver (VHL-loss
+  → HIF stabilization), and the proliferation-vs-HIF axis encodes the published
+  ccA / ccB ccRCC subtype distinction (Brannon 2010, ClearCode34).
+
+  In breast cancer (TCGA-BRCA), EPAS1 is NOT a lineage-defining driver. TOP2A is
+  a general proliferation marker (elevated across virtually all tumor types).
+  Predicted outcome: TOP2A − EPAS1 may classify tumor vs normal mostly via TOP2A,
+  with EPAS1 contributing noise. The 5-test gate is expected to FAIL on
+  `delta_baseline` — TOP2A alone should already beat the compound.
+
+  This is a pre-registered NEGATIVE CONTROL at the cross-cancer level:
+  if the law passed BRCA as easily as ccRCC, that would be evidence the law
+  is generic proliferation, not the ccA/ccB axis. Failing BRCA is the
+  expected and WELCOME outcome — it confirms the law is ccRCC-specific.
+
+target_features: ["TOP2A", "EPAS1"]
+negative_control: true
+expected_verdict: FAIL
+
+uses_kill_tests_override: false  # Use the standard 5-test gate (classification).
+kill_tests:
+  - name: label_shuffle_null
+    threshold: perm_p < 0.05
+  - name: bootstrap_stability
+    threshold: ci_lower > 0.6
+  - name: baseline_comparison
+    threshold: delta_baseline > 0.05
+  - name: confound_only
+    threshold: delta_confound > 0.03
+  - name: decoy_feature_test
+    threshold: decoy_p < 0.05
+
+multiple_testing_correction: benjamini_hochberg_fdr
+alpha: 0.05
+stopping_rule: |
+  Report the 5-test gate verdict as-is. If the law passes on BRCA (unexpected),
+  report it honestly and ADD a paragraph to `docs/survivor_narrative.md` revising
+  the ccRCC-specific claim. If it fails as predicted, the ccRCC specificity
+  claim is reinforced.
+
+references:
+  flagship_gate: results/track_a_task_landscape/metastasis_expanded/falsification_report.json
+  falsification_gate_impl: src/theory_copilot/falsification.py
+  cohort_build: data/build_tcga_brca.py

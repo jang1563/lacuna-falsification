@@ -1,0 +1,74 @@
+# Pre-registration artifact — Theory Copilot Phase L (PhL-6)
+# Written BEFORE running src/phl6_gse53757_probe.py.
+
+hypothesis_id: phl6_gse53757_external_replay
+emitted_at_utc: 2026-04-23T22:42:29Z
+emitted_git_sha: 8abbcfd
+retroactive: false
+analyst: theory-copilot-team
+data_cutoff_date: 2026-04-23
+dataset_context: gse53757_ccrcc_microarray
+
+law_family_name: 'External-cohort replay of TOP2A − EPAS1 on GSE53757 (Affymetrix microarray ccRCC, n=144)'
+template_id: phl6_gse53757_external
+symbolic_template: 'TOP2A - EPAS1'
+initial_guess: 'TOP2A - EPAS1'
+biological_rationale: |
+  GSE53757 is Von Roemeling et al. 2014 (PMID 25015328): 72 paired ccRCC tumor +
+  72 matched normal adjacent kidney samples on Affymetrix HG-U133 Plus 2.0
+  microarray. It is the THIRD independent cohort (after TCGA-KIRC n=505 RNA-seq
+  and IMmotion150 n=263 trial RNA-seq) with both TOP2A and EPAS1 measured.
+
+  This cohort adds two new test axes:
+    1. **Platform-shift robustness**: microarray vs RNA-seq. If TOP2A − EPAS1
+       holds on a completely different measurement technology, the law is
+       robust to assay artefacts.
+    2. **Tumor-vs-normal classification** on a n=72/72 balanced set.
+
+  No m_stage annotation (all NaN in the downloaded clinical), so this is NOT a
+  metastasis replay. It is an external T-vs-N classification replay of the
+  2-gene score, plus an optional stage1-2 vs stage3-4 probe on the 72 tumor
+  samples (43 early / 29 late, small but committed-before-looking).
+
+target_features: ["TOP2A", "EPAS1"]
+negative_control: false
+expected_verdict: UNCERTAIN
+
+uses_kill_tests_override: false  # 5-test gate on T-vs-N classification.
+kill_tests:
+  - name: label_shuffle_null
+    threshold: perm_p < 0.05
+  - name: bootstrap_stability
+    threshold: ci_lower > 0.6
+  - name: baseline_comparison
+    threshold: delta_baseline > 0.05
+  - name: confound_only
+    threshold: delta_confound > 0.03
+    note: 'No clinical covariates in GSE53757 beyond stage; confound test may be skipped.'
+  - name: decoy_feature_test
+    threshold: decoy_p < 0.05
+
+# Secondary probe: does TOP2A − EPAS1 stratify stage1-2 vs stage3-4 on
+# the 72 tumor samples? n=43/29, underpowered but pre-committed.
+secondary_endpoint:
+  name: gse53757_stage_stratification
+  task: stage_1_2_vs_3_4_binary
+  sample_split:
+    early: ["stage 1", "stage 2"]  # n=43
+    late: ["stage 3", "stage 4"]   # n=29
+  statistic: AUROC
+  threshold_for_pass: AUROC > 0.6 AND ci_lower > 0.5
+  note: 'Underpowered (n=72 tumors); report verdict but do not treat as primary replay.'
+
+multiple_testing_correction: benjamini_hochberg_fdr
+alpha: 0.05
+stopping_rule: |
+  Run the 5-test gate on T-vs-N once; report as-is. Run the stage-stratification
+  secondary once; report as-is. No threshold tweaks, no cherry-picked alternative
+  score forms.
+
+references:
+  flagship_gate: results/track_a_task_landscape/metastasis_expanded/falsification_report.json
+  prior_external_replay: results/track_a_task_landscape/external_replay/immotion150_pfs/verdict.json
+  falsification_gate_impl: src/theory_copilot/falsification.py
+  cohort_build: data/build_gse53757.py
