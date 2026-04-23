@@ -102,6 +102,8 @@ Three properties matter:
    not that nothing else could pass — it's that it passed a
    pre-registered gate while staying readable in one line.
 
+**Citations.** Published ccA/ccB ccRCC subtype axis: Brannon 2010 ([PMID 20871783](https://pubmed.ncbi.nlm.nih.gov/20871783/)); Brooks 2014 ClearCode34 ([DOI 10.1016/j.eururo.2014.02.035](https://doi.org/10.1016/j.eururo.2014.02.035)); TOP2A prognostic in ccRCC 2024 ([PMID 38730293](https://pubmed.ncbi.nlm.nih.gov/38730293/)). Contemporary falsification-oriented AI-for-Science benchmarks: POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858)); Sakana AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066)); SPOT ([arXiv 2505.11855](https://arxiv.org/abs/2505.11855)).
+
 ## What would make this claim stronger
 
 1. **Independent-cohort replay** on a ccRCC dataset with TOP2A +

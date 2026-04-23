@@ -30,6 +30,8 @@ condition for being called a survivor. The skeptic tests are executed by plain
 Python against real data — not by another LLM call that could also rationalize
 its way to agreement.
 
+This rigor framing matches the one the NeurIPS 2025 AI4Science workshop *"[The Reach and Limits of AI for Scientific Discovery](https://ai4sciencecommunity.github.io/neurips25.html)"* puts at the centre of its call.
+
 ## 2. Where Opus 4.7 is load-bearing, and where it is not
 
 **What Opus 4.7 does:**

@@ -214,6 +214,8 @@ null 0.509). A proper cross-cohort replay on CPTAC-3 ccRCC or
 cBioPortal MSKCC-IMPACT metastatic ccRCC is flagged as the natural
 follow-on.
 
+**Prior art and rigor-benchmark references.** ccA/ccB ccRCC subtype axis: Brannon 2010 ([PMID 20871783](https://pubmed.ncbi.nlm.nih.gov/20871783/)); ClearCode34 ([DOI 10.1016/j.eururo.2014.02.035](https://doi.org/10.1016/j.eururo.2014.02.035)); TOP2A in ccRCC 2024 ([PMID 38730293](https://pubmed.ncbi.nlm.nih.gov/38730293/)). Contemporary AI-for-Science rigor benchmarks this pipeline tracks: POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858)); Sakana AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066)); SPOT ([arXiv 2505.11855](https://arxiv.org/abs/2505.11855)).
+
 ## 7. Novelty accounting
 
 Each surviving equation is scored for novelty against the Opus `initial_guess`
