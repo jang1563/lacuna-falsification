@@ -1,0 +1,155 @@
+{
+  "claim_from_anthropic": "Opus 4.7 improves abstention calibration 61%\u219236% incorrect on unknowns (Adaptive mode, model card 2026-04-16).",
+  "test_setup": "Same 6 candidates, 10 repeats each (60 calls per model). Thinking: Opus 4.6 type=enabled budget=8000; Opus 4.7 type=enabled budget=8000 (gracefully falls back to adaptive on bad_request).",
+  "opus_4_6": {
+    "per_candidate": {
+      "top2a_minus_epas1": {
+        "category": "strong_survivor",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "PASS": 7,
+          "NEEDS_MORE_TESTS": 3
+        },
+        "agree_with_gate_pct": 70.0,
+        "abstain_pct": 30.0,
+        "oppose_gate_pct": 0.0
+      },
+      "mki67_minus_epas1": {
+        "category": "strong_survivor",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "NEEDS_MORE_TESTS": 9,
+          "PASS": 1
+        },
+        "agree_with_gate_pct": 10.0,
+        "abstain_pct": 90.0,
+        "oppose_gate_pct": 0.0
+      },
+      "hif_textbook_tn": {
+        "category": "borderline_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      },
+      "five_gene_compound": {
+        "category": "stress_test",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "PASS": 2,
+          "NEEDS_MORE_TESTS": 8
+        },
+        "agree_with_gate_pct": 20.0,
+        "abstain_pct": 80.0,
+        "oppose_gate_pct": 0.0
+      },
+      "actb_minus_gapdh": {
+        "category": "clean_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      },
+      "mki67_minus_rpl13a": {
+        "category": "clean_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      }
+    },
+    "miscalibration_rate_pct": 0.0,
+    "total_calls": 60
+  },
+  "opus_4_7": {
+    "per_candidate": {
+      "top2a_minus_epas1": {
+        "category": "strong_survivor",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "PASS": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      },
+      "mki67_minus_epas1": {
+        "category": "strong_survivor",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "NEEDS_MORE_TESTS": 10
+        },
+        "agree_with_gate_pct": 0.0,
+        "abstain_pct": 100.0,
+        "oppose_gate_pct": 0.0
+      },
+      "hif_textbook_tn": {
+        "category": "borderline_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      },
+      "five_gene_compound": {
+        "category": "stress_test",
+        "gate_verdict": "PASS",
+        "n": 10,
+        "counts": {
+          "NEEDS_MORE_TESTS": 10
+        },
+        "agree_with_gate_pct": 0.0,
+        "abstain_pct": 100.0,
+        "oppose_gate_pct": 0.0
+      },
+      "actb_minus_gapdh": {
+        "category": "clean_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      },
+      "mki67_minus_rpl13a": {
+        "category": "clean_reject",
+        "gate_verdict": "FAIL",
+        "n": 10,
+        "counts": {
+          "FAIL": 10
+        },
+        "agree_with_gate_pct": 100.0,
+        "abstain_pct": 0.0,
+        "oppose_gate_pct": 0.0
+      }
+    },
+    "miscalibration_rate_pct": 0.0,
+    "total_calls": 60
+  },
+  "delta": {
+    "miscalibration_46_minus_47_pp": 0.0,
+    "interpretation": "Positive value = 4.7 more calibrated than 4.6 on biology task (consistent with Anthropic's published improvement). Negative or near-zero = claimed improvement does not transfer to this domain (honest null finding)."
+  }
+}

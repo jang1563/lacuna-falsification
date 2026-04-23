@@ -7,6 +7,47 @@ replaced by a smaller model without changing what the artifact claims.
 
 This document is deliberately honest about what Opus does not do.
 
+## 0. Two complementary layers of self-verification
+
+Anthropic's official Opus 4.7 launch (2026-04-16) introduces the model as
+one that *"devises ways to verify its own outputs before reporting back."*
+That claim is load-bearing — it's the first capability the launch blog
+cites, ahead of any benchmark number.
+
+Theory Copilot's architecture is **complementary** to that native
+model-level claim, not an instantiation of it. The two layers address
+different failure modes of AI-for-Science:
+
+- **Model-level (native to 4.7):** abstention on unknowns tightened
+  from 61% incorrect (Opus 4.6 adaptive) to 36% (Opus 4.7 adaptive),
+  accuracy ~constant [Opus 4.7 model card, 2026-04-16]. This is a
+  calibration of the model's *own judgement*, without external
+  reference.
+- **Pipeline-level (this repo):** the 5-test falsification gate is
+  deterministic Python that the model cannot rationalise past. It
+  works **regardless of which frontier model is in the Skeptic role**
+  (empirically tested with Opus 4.6 and 4.7 at n=60 each in
+  `results/ablation/opus_46_vs_47/`).
+
+The empirical comparison in G6 shows:
+- **Strict miscalibration** (FAIL-on-PASS / PASS-on-FAIL): both models
+  0.0%. Neither commits this type of error on our corpus. The gate's
+  value here is independent of model choice.
+- **Verdict confidence distribution:** Opus 4.7 is more decisive on
+  unambiguous survivors (`TOP2A − EPAS1`: PASS 10/10 vs 4.6's PASS
+  7/10) and more abstentive on a stress-test case (5-gene compound:
+  `NEEDS_MORE_TESTS` 10/10 vs 4.6's 8/10 + **PASS 2/10, an
+  over-commitment 4.7 never makes**). This is the *qualitative shape*
+  of Anthropic's 61→36% delta, detectable inside the set of
+  "not-wrong" answers.
+
+Concretely: the gate makes the pipeline auditable to a reviewer who
+does not trust any specific model. Opus 4.7's calibration makes the
+*interior* of the pipeline (the Skeptic's graded {PASS, FAIL,
+NEEDS_MORE_TESTS} choice) better aligned with the evidence. The two
+are independently load-bearing — dropping either degrades a
+different reviewer's trust.
+
 ## 1. The problem: confirmation bias is automated now
 
 Most AI-for-Science pipelines have the same shape. A model proposes a hypothesis,

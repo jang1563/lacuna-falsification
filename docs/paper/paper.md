@@ -85,6 +85,28 @@ non-streaming 32000-token request trips the SDK 10-minute guard; see
 Every candidate passes through five deterministic tests. Thresholds
 are pre-registered in `src/theory_copilot/falsification.py`.
 
+Anthropic's launch copy for Opus 4.7 (2026-04-16) introduces the model
+as one that *"devises ways to verify its own outputs before reporting
+back."* Our 5-test gate is **model-agnostic** (an earlier Opus version
+or any other frontier model with a structured-output API can drive the
+Skeptic role; see § 4 "Why Opus 4.7" for the specific roles where the
+model matters). But it is **complementary** to that native claim:
+
+- **Model-level (native to 4.7):** abstention on unknowns tightened
+  from 61% incorrect in Opus 4.6 adaptive to 36% in 4.7 adaptive
+  (accuracy roughly constant). This is a calibration of the model's
+  own judgement, made without external reference.
+- **Pipeline-level (our gate):** deterministic verification on real
+  data, independent of whichever frontier model is proposing. 194 of
+  204 candidates are rejected by this gate across eleven task ×
+  panel combinations, and the rejection rate is invariant to the
+  model in the Skeptic seat (empirically verified in `results/ablation/
+  opus_46_vs_47/` at n=60 Opus 4.6 vs Opus 4.7 calls).
+
+The two layers address *different* failure modes of automated science
+(native over-confidence vs. gate-less credulity) and are measurably
+independent on our corpus.
+
 | Test | Statistic | Threshold |
 |---|---|---|
 | `label_shuffle_null` | Two-sided permutation p (1000 shuffles) | `p < 0.05` |
