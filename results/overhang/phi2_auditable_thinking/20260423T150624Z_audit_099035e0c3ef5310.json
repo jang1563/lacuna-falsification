@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "20260423T150624Z",
+  "candidate_equation": "0.0986*(TOP2A - EPAS1) + 0.1606",
+  "dataset": "TCGA-KIRC metastasis M1 vs M0 (n=505, 45 genes)",
+  "model": "claude-opus-4-7",
+  "thinking_display": "summarized (explicitly set; 4.7 default is 'omitted')",
+  "verdict": {
+    "verdict": "PASS",
+    "reason": "The gate's PASS is defensible but not overwhelming. perm_p=0.0 and decoy_p=0.0 (with decoy_q95=0.566 well below law_auc=0.7256) are strong null rejections, and delta_baseline=0.070 clears the 0.05 margin. However, ci_width=0.1166 exceeds the 0.10 preferred band and only passes via the ci_lower=0.6646>0.6 escape clause, indicating borderline bootstrap stability given only 79 M1 cases. More concerning, confound_auc=0.5 implies the covariate-only model was essentially null/trivial, so delta_confound=0.226 is not a meaningful test of confounding \u2014 the gate effectively skipped this check. Mechanistically the sign is plausible (TOP2A up with proliferative/metastatic KIRC; EPAS1/HIF2A down-weighted is biologically interesting since HIF2A is a VHL-loss driver but may anti-correlate with late metastatic dedifferentiation), so the law is not absurd, but class imbalance (79/505) and the empty confound model are the likely failure modes for generalization.",
+    "additional_test": "Re-run the confound-adjusted AUC using real clinical covariates (tumor stage, grade, age, sex) as the nuisance model to verify delta_confound remains >0.03 once a non-trivial baseline is in place."
+  },
+  "thinking_trace_file": "20260423T150624Z_thinking_099035e0c3ef5310.md",
+  "thinking_trace_sha256_16": "099035e0c3ef5310",
+  "thinking_trace_char_count": 803,
+  "reasoning_tokens": 1044
+}
