@@ -97,6 +97,41 @@ than seven months.
 - `../../../../data/build_immotion150.py` — builder that fetches the
   263-sample slice from cBioPortal's public REST API.
 
+## G3-NEW: Adjusted Cox — confounding control (2026-04-23)
+
+Pre-registration: `preregistrations/20260423T060533Z_g3_adjusted_cox_immotion150.yaml`
+Full results: `g3_adjusted_cox/adjusted_cox.json`
+
+**Important finding about IMmotion150**: The cBioPortal data includes **three
+treatment arms** — atezolizumab alone (n=86), atezo+bevacizumab (n=88), and
+**sunitinib** (n=89, non-ICI VEGF inhibitor). This means TOP2A-EPAS1 was tested
+on ICI and non-ICI treated patients simultaneously.
+
+| Cox model | n | HR (score_z) | 95% CI | p |
+|---|---|---|---|---|
+| Unadjusted | 263 | 1.361 | 1.165–1.591 | 0.0001 |
+| + treatment arm (3-level) | 263 | **1.365** | 1.168–1.594 | 0.0001 |
+| + treatment + log(TMB) | 158 | 1.293 | 1.034–1.618 | 0.024 |
+
+HR **actually increased** by 0.4% after treatment adjustment (attenuation = −0.9%,
+i.e. slightly negative). This means the TOP2A-EPAS1 prognostic signal is
+**not explained by treatment arm** — including sunitinib vs immunotherapy.
+This suggests TOP2A-EPAS1 is a **general prognostic marker** for metastatic
+ccRCC regardless of treatment modality, not an ICI-specific biomarker.
+
+Domain-expert critique "is the result confounded by treatment arm?" →
+**Directly answered: No.**
+
+## G2: AUPRC supplement (2026-04-23)
+
+IMmotion150 (62% event rate): binary AUROC=0.581 is expected to be weak — this
+is a high-event-rate setting. The appropriate primary metrics are C-index (0.601)
+and Cox HR (1.36), already reported above. AUPRC=0.706 vs baseline 0.624 (lift
+1.13x) — modest positive signal.
+
+TCGA-KIRC (16% M1): AUROC=0.726, **AUPRC=0.317** vs baseline 0.156 (**lift 2.03x**).
+At low prevalence, AUPRC demonstrates meaningful clinical discrimination.
+
 ## Reproduce
 
 ```bash

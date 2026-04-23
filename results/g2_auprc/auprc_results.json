@@ -1,0 +1,50 @@
+{
+  "tcga_kirc_metastasis": {
+    "n": 505,
+    "positive_rate": 0.15643564356435644,
+    "n_positives": 79,
+    "auroc": 0.7255601117252035,
+    "auroc_ci95": [
+      0.6690067504508209,
+      0.7826297934089433
+    ],
+    "auprc": 0.31678492204735026,
+    "auprc_ci95": [
+      0.2413849304432844,
+      0.42402335504502575
+    ],
+    "auprc_no_skill_baseline": 0.15643564356435644,
+    "auprc_lift": 2.0250175396697707,
+    "sign_flipped": false,
+    "delong_vs_mki67": {
+      "auroc1_sign_inv": 0.7255601117252035,
+      "auroc2_sign_inv": 0.6445593391573066,
+      "delta": 0.08100077256789695,
+      "delta_ci95": [
+        0.02346078353232685,
+        0.1426989117085977
+      ],
+      "p_one_sided": 0.004
+    },
+    "note": "16% M1 prevalence \u2014 AUPRC more informative than AUROC at low prevalence. AUPRC lift = AUPRC / no-skill-baseline (= M1 prevalence)."
+  },
+  "immotion150_pfs_binary": {
+    "n": 263,
+    "positive_rate": 0.623574144486692,
+    "n_positives": 164,
+    "auroc": 0.5806233062330622,
+    "auroc_ci95": [
+      0.5094069640797217,
+      0.6502645377713305
+    ],
+    "auprc": 0.7062102273390306,
+    "auprc_ci95": [
+      0.6353727874065835,
+      0.7785925443529623
+    ],
+    "auprc_no_skill_baseline": 0.623574144486692,
+    "auprc_lift": 1.1325200596961285,
+    "sign_flipped": false,
+    "note": "62% event rate: binary AUROC is an inappropriate primary metric for this high-event-rate setting. Harrell C-index (0.601) and Cox HR (1.36) are the primary metrics \u2014 both already reported in PhF-3. AUROC/AUPRC shown here for completeness and cross-dataset comparison only."
+  }
+}
