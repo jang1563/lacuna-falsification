@@ -1,0 +1,128 @@
+======================================================================
+COMPLETE REJECTION CORPUS
+(74 total rejections across all runs)
+======================================================================
+
+
+Fail reason: 'perm_p,ci_lower,delta_baseline,decoy_p' (27 rejections)
+  eq=log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8)))))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(log1p(exp(exp(x2) - exp((x4 * x7) + x8)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(exp(exp(x2) - exp(x8))))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.25556037)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(exp((exp(x2) - exp(x8)) * 0.6868592)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + log1p(0.276399 | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 + 0.24259993)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(exp((exp(x2) - exp(x8)) / 1.4281293)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(sqrt(log1p(exp((exp(x2) * (x2 / 1.3296392)) - ex | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(sqrt(exp(exp(x2) - exp(x8 - (log1p(-0.3361 | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(((-0.07698535 * x8) * (x0 - -2.4413068)) + 0.5105716) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(((-0.07698535 * x8) * ((x0 - (-2.4413068 + x7)) + x10) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + 0.5 | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(((-0.07698535 * x8) * ((x0 - -2.4413068) + x10)) + sqr | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.500 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(log1p(log1p(0.18000501 * exp((x28 - (x22 * x28)) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.544 | delta_base=-0.113 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(0.24033882 * log1p(exp((x28 - (x28 * x22)) - x4) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.544 | delta_base=-0.113 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(log1p(exp((x28 - ((x22 * x28) + x27)) - x4)) * 0 | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.557 | delta_base=-0.100 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp(x28 - exp((x4 - x23) + x22)))) * 0.6201101 | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.514 | delta_base=-0.143 | src=qa/q5_metastasis_expanded_rerun
+  eq=0.6245421 * log1p(log1p(exp(x28 - exp(x4 + x22)))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.496 | delta_base=-0.161 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(log1p(exp(x28 - exp((x4 - x23) + x22))))) | fail=perm_p,ci_lower,delta_baseline,decoy_p | auc=0.514 | delta_base=-0.143 | src=qa/q5_metastasis_expanded_rerun
+  ... and 7 more with the same failure
+
+Fail reason: 'delta_baseline' (23 rejections)
+  eq=exp(exp((x4 + (x7 - -2.0220485)) / exp(x0)) * -0.0031461688) | fail=delta_baseline | auc=0.980 | delta_base=0.015 | src=flagship_run
+  eq=sqrt(log1p(exp(x0))) | fail=delta_baseline | auc=0.965 | delta_base=0.000 | src=flagship_run
+  eq=exp(exp((x4 + ((x9 - x3) + x7)) / exp(x1)) * -0.0023506025) | fail=delta_baseline | auc=0.986 | delta_base=0.021 | src=flagship_run
+  eq=exp(-0.054394767 * exp(x9 - x3)) | fail=delta_baseline | auc=0.987 | delta_base=0.021 | src=flagship_run
+  eq=log1p(exp(x0)) | fail=delta_baseline | auc=0.965 | delta_base=0.000 | src=flagship_run
+  eq=exp(exp((x9 + x7) / exp(x1)) * -0.010614875) | fail=delta_baseline | auc=0.987 | delta_base=0.022 | src=flagship_run
+  eq=exp(exp(((x7 + x9) - x3) - x1) * -0.010614875) | fail=delta_baseline | auc=0.993 | delta_base=0.027 | src=flagship_run
+  eq=exp(-0.0154611515 * exp(x9 / exp(x0))) | fail=delta_baseline | auc=0.978 | delta_base=0.012 | src=flagship_run
+  eq=sqrt(exp(exp((x4 + (x7 + (x9 - x3))) / exp(x1)) * -0.0023012 | fail=delta_baseline | auc=0.986 | delta_base=0.021 | src=flagship_run
+  eq=exp(exp((x9 - x3) - x1) * -0.010614875) | fail=delta_baseline | auc=0.992 | delta_base=0.026 | src=flagship_run
+  eq=exp(-0.01540409 * exp((x7 - (x0 / 0.39606896)) + x4)) | fail=delta_baseline | auc=0.984 | delta_base=0.018 | src=flagship_run
+  eq=exp(-0.01702503 * exp((x7 - (x1 - x4)) - (x0 - x9))) | fail=delta_baseline | auc=0.994 | delta_base=0.028 | src=flagship_run
+  eq=exp(exp(x9 - x3) * -0.054373782) | fail=delta_baseline | auc=0.987 | delta_base=0.021 | src=flagship_run
+  eq=exp(-0.013298511 * exp((x7 - x1) * exp(x9))) | fail=delta_baseline | auc=0.762 | delta_base=-0.203 | src=flagship_run
+  eq=exp(-0.013298511 * exp(((x7 + x9) - ((x1 / 0.7186556) - x4)) | fail=delta_baseline | auc=0.995 | delta_base=0.029 | src=flagship_run
+  eq=log1p(sqrt(2.3882582 + x0)) | fail=delta_baseline | auc=0.965 | delta_base=0.000 | src=flagship_run
+  eq=exp(-0.013298511 * exp((x9 - x1) - x3)) | fail=delta_baseline | auc=0.992 | delta_base=0.026 | src=flagship_run
+  eq=exp(-0.0077730184 * exp(((-3.538925 - x7) - x4) * x0)) | fail=delta_baseline | auc=0.940 | delta_base=-0.025 | src=flagship_run
+  eq=exp(-0.06354956 / exp(x3 - x9)) | fail=delta_baseline | auc=0.987 | delta_base=0.021 | src=flagship_run
+  eq=0.87816787 + (0.25817737 * x0) | fail=delta_baseline | auc=0.965 | delta_base=0.000 | src=flagship_run
+  ... and 3 more with the same failure
+
+Fail reason: 'ci_lower,delta_baseline' (19 rejections)
+  eq=0.4159849 + ((x8 - x3) * -0.09313616) | fail=ci_lower,delta_baseline | auc=0.639 | delta_base=0.029 | src=tier2_run
+  eq=0.38469365 - (x8 * 0.07136952) | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=log1p(sqrt(log1p(exp(x2 - exp(x8))))) | fail=ci_lower,delta_baseline | auc=0.596 | delta_base=-0.014 | src=tier2_run
+  eq=0.5249501 - (exp(x8) * 0.07136952) | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=((x8 - x3) * -0.07060441) - -0.39114887 | fail=ci_lower,delta_baseline | auc=0.639 | delta_base=0.029 | src=tier2_run
+  eq=(exp(x8) * -0.07060441) - -0.48985445 | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=(x8 * -0.07060441) - -0.39114887 | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=(-0.07137078 * (x8 - x3)) - -0.38469547 | fail=ci_lower,delta_baseline | auc=0.639 | delta_base=0.029 | src=tier2_run
+  eq=(-0.07137078 * x8) - -0.38469547 | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=log1p(log1p(sqrt(exp(x3 - x8))) / 1.5258063) | fail=ci_lower,delta_baseline | auc=0.639 | delta_base=0.029 | src=tier2_run
+  eq=(-0.07137078 * exp(x8)) - -0.4514672 | fail=ci_lower,delta_baseline | auc=0.610 | delta_base=0.000 | src=tier2_run
+  eq=log1p((-0.13106725 * (x8 - x3)) + 0.47160774) | fail=ci_lower,delta_baseline | auc=0.639 | delta_base=0.029 | src=tier2_run
+  eq=log1p(exp(x28)) * 0.19264796 | fail=ci_lower,delta_baseline | auc=0.645 | delta_base=-0.012 | src=qa/q5_metastasis_expanded_rerun
+  eq=0.12137848 / exp(x27) | fail=ci_lower,delta_baseline | auc=0.631 | delta_base=-0.026 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp((x28 - (x13 * x22)) - x4)) * 0.21792223) | fail=ci_lower,delta_baseline | auc=0.620 | delta_base=-0.037 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(exp(x28)) * 0.19233106 | fail=ci_lower,delta_baseline | auc=0.645 | delta_base=-0.012 | src=qa/q5_metastasis_expanded_rerun
+  eq=0.12068064 / exp(x27) | fail=ci_lower,delta_baseline | auc=0.631 | delta_base=-0.026 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(exp(x28)) * 0.19301449 | fail=ci_lower,delta_baseline | auc=0.645 | delta_base=-0.012 | src=qa/q5_metastasis_expanded_rerun
+  eq=0.102448665 / exp(x27) | fail=ci_lower,delta_baseline | auc=0.631 | delta_base=-0.026 | src=qa/q5_metastasis_expanded_rerun
+
+Fail reason: 'ci_lower,delta_baseline,decoy_p' (2 rejections)
+  eq=exp(-0.025032457 / exp(exp(x9) * x0)) | fail=ci_lower,delta_baseline,decoy_p | auc=0.428 | delta_base=-0.537 | src=flagship_run
+  eq=exp(exp(x1 * (x3 - x9)) * -0.014394815) | fail=ci_lower,delta_baseline,decoy_p | auc=0.021 | delta_base=-0.945 | src=flagship_run
+
+Fail reason: 'delta_baseline,delta_confound' (2 rejections)
+  eq=exp(exp(((x1 - (x9 + x4)) - exp(log1p(x7))) * x0) * -0.00777 | fail=delta_baseline,delta_confound | auc=0.904 | delta_base=-0.062 | src=flagship_run
+  eq=exp(-0.028306283 * exp(x0 * ((x1 - x9) - (x7 + x4)))) | fail=delta_baseline,delta_confound | auc=0.863 | delta_base=-0.103 | src=flagship_run
+
+Fail reason: 'ci_lower,delta_baseline,delta_confound' (1 rejections)
+  eq=log1p(sqrt(exp(((-0.8572334 * x1) * x4) - exp(x8)))) | fail=ci_lower,delta_baseline,delta_confound | auc=0.594 | delta_base=-0.016 | src=tier2_run
+
+======================================================================
+SURVIVORS (equations that passed all gates)
+(9 total survivors)
+======================================================================
+
+  eq=-0.08599428 * ((x4 + -1.5503553) - x31) | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp(x31 - x4)) * 0.21792223) | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(0.24403314) * log1p(exp(x31 - x4))) | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=0.16861118 * log1p(exp(x28 - x4)) | auc=0.708 | delta_base=0.051 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp(x28 - exp(((x4 - x23) + x22) - x44)))) * 0.6274355 | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(log1p(exp(x28 - exp((x4 - (x23 + x44)) + x22))))) | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp(x28 - x4)) * 0.2149816) | auc=0.708 | delta_base=0.051 | src=qa/q5_metastasis_expanded_rerun
+  eq=(0.09855198 * (x31 - x4)) + 0.16059029 | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+  eq=log1p(log1p(exp(x31 - x4)) * 0.21692236) | auc=0.726 | delta_base=0.069 | src=qa/q5_metastasis_expanded_rerun
+
+======================================================================
+PUBLISHED PAPER ABSTRACTS (prior art + methodology context)
+======================================================================
+
+
+## Molecular stratification of clear cell renal cell carcinoma by consensus clustering reveals distinct subtypes and survival patterns (Brannon et al. 2010, PMID 20871783)
+Clear cell renal cell carcinoma (ccRCC) tumors were stratified by consensus clustering into two major subtypes: ccA (differentiated, HIF-2α high, VHL mutant, better prognosis) and ccB (dedifferentiated, proliferative, aggressive, worse prognosis). The ccB subtype is characterized by elevated TOP2A, MKI67, CCNB1 (proliferation program) and reduced EPAS1 (HIF-2α) relative expression. The ccA/ccB axis is a reproducible transcriptomic partition of ccRCC that predicts cancer-specific survival.
+
+## ClearCode34 classifier for clear cell renal cell carcinoma subtypes (Brooks et al. 2014, DOI 10.1016/j.eururo.2014.02.035)
+A 34-gene classifier (ClearCode34) was developed to assign ccRCC tumors to ccA and ccB subtypes. Genes upregulated in ccB include TOP2A, MKI67, PCNA, CDK1 (proliferation). Genes upregulated in ccA include EPAS1 and downstream HIF-2α targets. The ClearCode34 classifier was validated in independent TCGA cohorts and its prognostic value was confirmed. The ccB subtype is associated with a higher rate of metastasis at diagnosis.
+
+## TOP2A overexpression predicts poor prognosis in ccRCC (2024, PMID 38730293)
+Topoisomerase IIα (TOP2A) expression is significantly elevated in ccRCC compared to adjacent normal kidney tissue. High TOP2A expression correlates with advanced tumor stage, lymph node metastasis, and shorter overall survival. TOP2A promotes tumor cell proliferation, invasion, and metastasis. The prognostic value of TOP2A is independent of EPAS1 / HIF-2α expression status.
+
+## POPPER: Falsification-oriented AI hypothesis testing (arXiv 2502.09858)
+POPPER is a framework for AI-driven hypothesis testing that explicitly operationalizes Popperian falsification. It constructs probabilistic null hypotheses, generates adversarial test cases, and rejects hypotheses that fail across multiple perturbations. Key insight: LLM-generated hypotheses routinely survive confirmation-oriented tests but fail when subjected to adversarial falsification. Pre-registration of falsification criteria before observing data is essential to prevent p-hacking by the proposer model.
+
+## Sakana AI Scientist v2 (arXiv 2504.08066)
+The AI Scientist v2 automates the full cycle of scientific discovery: hypothesis generation, experiment design, result analysis, and paper writing. Key improvement over v1: multi-step verification loops that include adversarial review of each result before it advances. The system demonstrates that iterative falsification within the discovery loop reduces spurious findings compared to single-shot hypothesis generation. The architecture separates the Proposer agent (hypothesis generation) from the Verifier agent (adversarial review) to prevent confirmation bias cascade.
+
+======================================================================
+TASK
+======================================================================
+
+Given the complete corpus above:
+1. Propose 5 equation skeletons not yet tried in the rejection corpus.
+2. Identify 3-5 mathematical invariant conditions any valid ccRCC law must satisfy.
+
+Output ONLY the JSON as specified in the system prompt.

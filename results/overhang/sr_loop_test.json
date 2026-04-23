@@ -1,0 +1,168 @@
+{
+  "dataset": "data/kirc_metastasis_expanded.csv",
+  "total_iterations": 3,
+  "total_candidates": 6,
+  "total_survivors": 2,
+  "iterations": [
+    {
+      "iteration": 1,
+      "skeleton": "TOP2A - EPAS1",
+      "pathway": "Proliferation_vs_HIF",
+      "candidates": 2,
+      "survivors": 1,
+      "best_law_auc": 0.7275212456171628,
+      "best_delta_baseline": 0.07057110596065841,
+      "dominant_fail_reason": "ci_lower",
+      "doom_loop_triggered": false,
+      "elapsed_sec": 55.3,
+      "gated_candidates": [
+        {
+          "equation": "TOP2A - EPAS1",
+          "passes": true,
+          "fail_reason": "",
+          "law_auc": 0.7275212456171628,
+          "baseline_auc": 0.6569501396565044,
+          "delta_baseline": 0.07057110596065841,
+          "perm_p": 0.0,
+          "ci_lower": 0.6660537633579918,
+          "ci_width": 0.11859066172179011,
+          "delta_confound": null,
+          "decoy_p": 0.0,
+          "origin_skeleton": "TOP2A - EPAS1",
+          "iteration": 1
+        },
+        {
+          "equation": "-1.0 * (TOP2A - EPAS1)",
+          "passes": false,
+          "fail_reason": "ci_lower,delta_baseline,decoy_p",
+          "law_auc": 0.2724787543828371,
+          "baseline_auc": 0.6569501396565044,
+          "delta_baseline": -0.3844713852736673,
+          "perm_p": 0.0,
+          "ci_lower": 0.21460272734177424,
+          "ci_width": 0.11858864646892811,
+          "delta_confound": null,
+          "decoy_p": 1.0,
+          "origin_skeleton": "TOP2A - EPAS1",
+          "iteration": 1
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "skeleton": "MKI67 - EPAS1",
+      "pathway": "Proliferation_vs_HIF",
+      "candidates": 2,
+      "survivors": 1,
+      "best_law_auc": 0.7100493254887977,
+      "best_delta_baseline": 0.05309918583229334,
+      "dominant_fail_reason": "ci_lower",
+      "doom_loop_triggered": false,
+      "elapsed_sec": 39.7,
+      "gated_candidates": [
+        {
+          "equation": "MKI67 - EPAS1",
+          "passes": true,
+          "fail_reason": "",
+          "law_auc": 0.7100493254887977,
+          "baseline_auc": 0.6569501396565044,
+          "delta_baseline": 0.05309918583229334,
+          "perm_p": 0.0,
+          "ci_lower": 0.652934962599212,
+          "ci_width": 0.11937991745094512,
+          "delta_confound": null,
+          "decoy_p": 0.0,
+          "origin_skeleton": "MKI67 - EPAS1",
+          "iteration": 2
+        },
+        {
+          "equation": "-1.0 * (MKI67 - EPAS1)",
+          "passes": false,
+          "fail_reason": "ci_lower,delta_baseline,decoy_p",
+          "law_auc": 0.28995067451120227,
+          "baseline_auc": 0.6569501396565044,
+          "delta_baseline": -0.36699946514530213,
+          "perm_p": 0.0,
+          "ci_lower": 0.2253961591839446,
+          "ci_width": 0.1323472258063558,
+          "delta_confound": null,
+          "decoy_p": 1.0,
+          "origin_skeleton": "MKI67 - EPAS1",
+          "iteration": 2
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "skeleton": "log1p(LDHA) - log1p(AGXT)",
+      "pathway": "Warburg_vs_Tubule",
+      "candidates": 2,
+      "survivors": 0,
+      "best_law_auc": 0.5,
+      "best_delta_baseline": 0.0,
+      "dominant_fail_reason": "evaluation_error: Input contains NaN.",
+      "doom_loop_triggered": false,
+      "elapsed_sec": 0.0,
+      "gated_candidates": [
+        {
+          "equation": "log1p(LDHA) - log1p(AGXT)",
+          "passes": false,
+          "fail_reason": "evaluation_error: Input contains NaN.",
+          "law_auc": 0.5,
+          "delta_baseline": 0.0,
+          "perm_p": 1.0,
+          "ci_lower": 0.0,
+          "origin_skeleton": "log1p(LDHA) - log1p(AGXT)",
+          "iteration": 3
+        },
+        {
+          "equation": "-1.0 * (log1p(LDHA) - log1p(AGXT))",
+          "passes": false,
+          "fail_reason": "evaluation_error: Input contains NaN.",
+          "law_auc": 0.5,
+          "delta_baseline": 0.0,
+          "perm_p": 1.0,
+          "ci_lower": 0.0,
+          "origin_skeleton": "log1p(LDHA) - log1p(AGXT)",
+          "iteration": 3
+        }
+      ]
+    }
+  ],
+  "survivors": [
+    {
+      "equation": "TOP2A - EPAS1",
+      "passes": true,
+      "fail_reason": "",
+      "law_auc": 0.7275212456171628,
+      "baseline_auc": 0.6569501396565044,
+      "delta_baseline": 0.07057110596065841,
+      "perm_p": 0.0,
+      "ci_lower": 0.6660537633579918,
+      "ci_width": 0.11859066172179011,
+      "delta_confound": null,
+      "decoy_p": 0.0,
+      "origin_skeleton": "TOP2A - EPAS1",
+      "iteration": 1
+    },
+    {
+      "equation": "MKI67 - EPAS1",
+      "passes": true,
+      "fail_reason": "",
+      "law_auc": 0.7100493254887977,
+      "baseline_auc": 0.6569501396565044,
+      "delta_baseline": 0.05309918583229334,
+      "perm_p": 0.0,
+      "ci_lower": 0.652934962599212,
+      "ci_width": 0.11937991745094512,
+      "delta_confound": null,
+      "decoy_p": 0.0,
+      "origin_skeleton": "MKI67 - EPAS1",
+      "iteration": 2
+    }
+  ],
+  "pathway_usage": {
+    "Proliferation_vs_HIF": 2,
+    "Warburg_vs_Tubule": 1
+  }
+}
