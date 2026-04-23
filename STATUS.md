@@ -1,7 +1,7 @@
 # STATUS — theory-copilot-falsification
 
-**Last updated:** 2026-04-23 01:20 ET (Phase F content-depth pass closed)
-**Days to submit:** T-3d 18h40m
+**Last updated:** 2026-04-23 03:40 ET (Phase G/H/N+H narrative additions pushed)
+**Days to submit:** T-3d 16h20m
 **Submit window:** 2026-04-26 20:00 ET
 **Judging:** 2026-04-28 12:00 ET
 
@@ -9,12 +9,13 @@
 
 ## 🎯 Headline artifact state
 
-Scientific payload is complete. Phase E (Enhancement) Lane 1 has landed
-Platform / AI-for-Science / Discovery upgrades locally — commits await
-user authorization for `git push` to `origin/main` (default-branch
-protection blocks automated push). Lanes 2 (Experiments) and 3 (Narrative
-+ stretch) are available in parallel Claude Code sessions per the Phase E
-plan file under `~/.claude/plans/`.
+All core phases complete and pushed. Latest additions (this session):
+- **Tharik (Cloud Code) quote integration** in methodology §4, why_opus_4_7, submission_description: public validation that falsification-first is the Claude team's stated stance.
+- **HPA v21.0 independent annotation**: TOP2A=prognostic_unfavorable, EPAS1=prognostic_favorable in renal cancer — independent of our cohort.
+- **Anchor regression stability** (Lane G/H): TOP2A/EPAS1 law anchor-stable across TCGA-KIRC + IMmotion150 (Cochran Q p=0.24 / p=0.41, γ=0→100 convergent).
+- **G3 immune-subtype adjusted Cox**: kill test 1 PASS (HR=1.365, CI excludes 1.0 after treatment adjustment); kill tests 2+3 NOT_FEASIBLE (cBioPortal IMMUNE_SUBTYPE = constant 'C4').
+- **H1 Falsification-Guided SR Loop** (falsification_sr_loop.py) + **H2 1M Synthesis** (opus_1m_synthesis.py) committed.
+- origin/main at `0cf327a` (pushed 2026-04-23 03:40 ET).
 
 - **Flagship (11-gene panel, 4 ccRCC tasks):** 0 / 100+ candidates
   survive the pre-registered 5-test gate. `delta_baseline` ceiling at
@@ -24,9 +25,10 @@ plan file under `~/.claude/plans/`.
   HIF-2α) at AUROC 0.726, `delta_baseline = +0.069`.
 - **Survivor robustness (6 axes + 5-fold CV):** passes 5 / 6 axes;
   single honest caveat is the LR pair-with-interaction baseline
-  (`Δ = +0.004`, indicating the survivor is a compact monotone form
-  of the `(TOP2A, EPAS1)` interaction rather than a multi-gene
-  discovery beyond that pair).
+  (`Δ = +0.004`).
+- **IMmotion150 external replay (PhF-3):** 3/3 pre-registered kill tests PASS.
+  Cox HR=1.36 (95%CI 1.16–1.59), treatment-adjusted HR=1.365 (unchanged),
+  treatment+TMB HR=1.293 (still sig). Anchor regression: Cochran Q p=0.24/0.41.
 - **Track B gate robustness (flagship 0-survivor verdict):** robust to
   threshold grid, baseline definition, permutation count, bootstrap
   seed, and cohort size; soft along feature-scaling (1/34 crosses a
