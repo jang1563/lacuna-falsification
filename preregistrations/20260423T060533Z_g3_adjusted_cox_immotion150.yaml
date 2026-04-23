@@ -1,0 +1,65 @@
+# Pre-registration artifact — Theory Copilot Phase F
+#
+# Committed once and never modified. Any subsequent edit of this file
+# invalidates the pre-registration (verifiable via `git log -p <file>`).
+# This file is the machine-readable form of the FDA-EMA 2026-01 'credibility
+# assessment plan' applied to a single symbolic-regression hypothesis.
+
+hypothesis_id: g3_adjusted_cox_immotion150
+emitted_at_utc: 2026-04-23T06:05:33Z
+emitted_git_sha: 0f4abb00c96c
+retroactive: false
+analyst: theory-copilot-team
+data_cutoff_date: 2026-04-23
+dataset_context: immotion150_adjusted_cox
+
+law_family_name: 'Adjusted Cox — TOP2A-EPAS1 after treatment arm + immune subtype control (IMmotion150)'
+template_id: g3_adjusted_cox_immotion150
+symbolic_template: 'TOP2A - EPAS1'
+initial_guess: 'TOP2A - EPAS1'
+biological_rationale: 'The univariate Cox model for TOP2A-EPAS1 on IMmotion150 PFS (HR=1.36, p=1e-4) may be confounded by: (1) treatment arm (atezo vs atezo+bev) which affects PFS independently; (2) immune subtype (TGF-beta / desert / inflamed) which is the primary biology-driven stratification in IMmotion150 (McDermott Nat Med 2018, PMID 29867230); (3) TMB (tumor mutational burden) which correlates with ICI response. This adjusted Cox tests whether TOP2A-EPAS1 prognostic value survives after controlling for these known confounders. Pre-registered before analysis — any outcome (HR maintained, attenuated, reversed) is reported verbatim.'
+target_features: ["TOP2A", "EPAS1"]
+negative_control: false
+
+# Expected verdict under the 5-test gate (kept pristine from the
+# pre-hackathon law_proposals.json entry).
+expected_verdict: UNKNOWN
+
+# Deterministic kill-test thresholds. By default these mirror the
+# 5-test binary-classification gate in src/theory_copilot/falsification.py
+# (a change to that file invalidates every classification pre-reg).
+# When `uses_kill_tests_override: true`, the hypothesis is not a binary
+# classification and the tests below are hypothesis-specific (e.g.
+# log-rank + hazard-ratio for a survival-analysis replay).
+uses_kill_tests_override: true
+kill_tests:
+  - name: adjusted_cox_hr_treatment
+    description: Univariate Cox HR (1.36) is tested in a multivariate model with SAMPLE_TREATMENT (atezo vs atezo+bev). Does HR for score_z survive after treatment adjustment?
+    statistic: hazard_ratio_score_z_adjusted_for_treatment
+    threshold_for_pass: 95%CI excludes 1.0 after treatment adjustment
+  - name: adjusted_cox_hr_immune_subtype
+    description: Cox HR for score_z adjusted for IMMUNE_SUBTYPE (TGF-beta/desert/inflamed) — the key biological stratifier in IMmotion150.
+    statistic: hazard_ratio_score_z_adjusted_for_immune_subtype
+    threshold_for_pass: 95%CI excludes 1.0 after immune subtype adjustment
+  - name: adjusted_cox_hr_full
+    description: Fully adjusted Cox: score_z + SAMPLE_TREATMENT + IMMUNE_SUBTYPE + log(TMB+1). Tests robustness under all available confounders simultaneously.
+    statistic: hazard_ratio_score_z_fully_adjusted
+    threshold_for_pass: 95%CI excludes 1.0 in fully adjusted model
+
+multiple_testing_correction: benjamini_hochberg_fdr
+alpha: 0.05
+stopping_rule: |
+  Stop as soon as the 5-test gate returns a verdict (PASS/FAIL). No
+  post-hoc threshold adjustment, no re-analysis under new thresholds,
+  no cherry-picking a different p-value correction.
+
+# Tamper-evidence pointers.
+references:
+  falsification_gate_impl: src/theory_copilot/falsification.py
+  law_proposal_source: config/law_proposals.json
+  methodology_doc: docs/methodology.md
+
+# Regulatory context for why we bother with this discipline.
+regulatory_references:
+  - https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0
+  - https://artificialintelligenceact.eu/  # EU AI Act high-risk provisions 2026-08-02

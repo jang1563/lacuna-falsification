@@ -1,0 +1,40 @@
+{
+  "model1_treatment_adjusted": {
+    "n": 263,
+    "covariates": [
+      "treatment_arm"
+    ],
+    "score_z_hr": 1.3646462220138251,
+    "score_z_hr_ci_low": 1.1682206463274174,
+    "score_z_hr_ci_high": 1.5940989547745679,
+    "score_z_p": 8.825923852225748e-05,
+    "arm_atezo_hr": 1.063715328883137,
+    "arm_atezo_bev_hr": 0.8860897091230897
+  },
+  "model2_treatment_tmb_adjusted": {
+    "n": 158,
+    "covariates": [
+      "treatment_arm",
+      "TMB"
+    ],
+    "score_z_hr": 1.2934456221682435,
+    "score_z_hr_ci_low": 1.0337440586408246,
+    "score_z_hr_ci_high": 1.618390513127467,
+    "score_z_p": 0.024437003862864428
+  },
+  "model0_unadjusted": {
+    "n": 263,
+    "covariates": [],
+    "score_z_hr": 1.3612591583597868,
+    "score_z_hr_ci_low": 1.1648590841356643,
+    "score_z_hr_ci_high": 1.5907730999010554,
+    "score_z_p": 0.00010464976892071845
+  },
+  "verdict": {
+    "unadjusted_hr": 1.3612591583597868,
+    "treatment_adjusted_hr": 1.3646462220138251,
+    "hr_attenuation_pct": -0.9375717059787401,
+    "ci_still_excludes_1": true,
+    "conclusion": "HR robust to treatment-arm adjustment: CI still excludes 1.0"
+  }
+}
