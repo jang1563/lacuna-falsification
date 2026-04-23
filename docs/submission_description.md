@@ -24,6 +24,14 @@ shareable verification pattern; `make audit` + pre-registration
 YAMLs form the Stop hook that refuses to mark a task complete
 without proving it works.
 
+At the 2026-04-23 *Claude Managed Agents* live session, Michael
+Cohen (Anthropic technical staff) described the upcoming `outcomes`
+research-preview feature as *"effectively a self-verification loop"*
+with plain-text rubrics stating *"in order for you to think of this
+task as done, these things have to be true."* Our pre-registered
+5-test gate is that shape, already shipping as working Python —
+before `outcomes` releases.
+
 Applied to real TCGA-KIRC, the gate rejects 100+ candidates across
 tumor-vs-normal, stage, and survival tasks on an 11-gene HIF-axis
 panel (each task is saturated by a single gene; compound laws cannot

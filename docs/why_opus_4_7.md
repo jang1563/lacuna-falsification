@@ -107,6 +107,12 @@ This rigor framing matches the NeurIPS 2025 AI4Science workshop *"[The Reach and
 
 Theory Copilot ports that epistemic posture from product development into scientific discovery itself: Opus 4.7 proposes a law *and writes the test that would kill it*, then a deterministic gate runs the kill test, then Opus 4.7 interprets only what the gate failed to reject. The same-session Q&A also confirmed that "a verification script that forces the agent to test its own outputs against hard constraints" is an open problem the Cloud Code team intends to write a post about. This repository is a worked example of that script.
 
+The same pattern was described the following day by Michael Cohen (Anthropic technical staff) at the 2026-04-23 *Claude Managed Agents* live session as the intended shape of the upcoming `outcomes` research-preview feature:
+
+> *"It is effectively a self-verification loop... in order for you to think of this task as done, these things have to be true."*
+
+Our pre-registered 5-test gate is exactly that shape — a plain-text rubric (five statistical thresholds committed before the fit) plus a boolean pass/fail that the model cannot re-negotiate — shipping as plain Python months before `outcomes` releases. What Michael described as a forthcoming primitive, the falsification pipeline already instantiates.
+
 ## 2. Where Opus 4.7 is load-bearing, and where it is not
 
 **What Opus 4.7 does:**
