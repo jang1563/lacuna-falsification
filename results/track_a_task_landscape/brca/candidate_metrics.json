@@ -1,0 +1,144 @@
+[
+  {
+    "candidate_name": "esr1_only",
+    "equation": "ESR1",
+    "genes_used": [
+      "ESR1"
+    ],
+    "category": "single_gene_baseline",
+    "expected": "pass_or_near_pass",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.0,
+    "law_auc": 0.6607590105669918,
+    "baseline_auc": 0.6607590105669918,
+    "delta_baseline": 0.0,
+    "ci_width": 0.05770536795805248,
+    "ci_lower": 0.6303778506237925,
+    "decoy_p": 0.0
+  },
+  {
+    "candidate_name": "luminal_axis",
+    "equation": "ESR1 + PGR + FOXA1",
+    "genes_used": [
+      "ESR1",
+      "PGR",
+      "FOXA1"
+    ],
+    "category": "luminal_axis_compound",
+    "expected": "uncertain",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.001,
+    "law_auc": 0.6021197592411485,
+    "baseline_auc": 0.8093886410800755,
+    "delta_baseline": -0.207268881838927,
+    "ci_width": 0.07342091773904802,
+    "ci_lower": 0.5654289629399323,
+    "decoy_p": 0.0
+  },
+  {
+    "candidate_name": "basal_axis",
+    "equation": "KRT5 + KRT14 + KRT17",
+    "genes_used": [
+      "KRT5",
+      "KRT14",
+      "KRT17"
+    ],
+    "category": "basal_axis_compound",
+    "expected": "uncertain",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.0,
+    "law_auc": 0.15984861134301775,
+    "baseline_auc": 0.8435783062598892,
+    "delta_baseline": -0.6837296949168714,
+    "ci_width": 0.09839150416577043,
+    "ci_lower": 0.11105052292776203,
+    "decoy_p": 1.0
+  },
+  {
+    "candidate_name": "proliferation_over_housekeeping",
+    "equation": "TOP2A + MKI67 - GAPDH",
+    "genes_used": [
+      "TOP2A",
+      "MKI67",
+      "GAPDH"
+    ],
+    "category": "proliferation_compound",
+    "expected": "pass_or_fail",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.0,
+    "law_auc": 0.9227790632031742,
+    "baseline_auc": 0.9521742241728883,
+    "delta_baseline": -0.029395160969714174,
+    "ci_width": 0.056251319681094536,
+    "ci_lower": 0.8929033537373119,
+    "decoy_p": 0.0
+  },
+  {
+    "candidate_name": "her2_vs_luminal",
+    "equation": "ERBB2 - ESR1",
+    "genes_used": [
+      "ERBB2",
+      "ESR1"
+    ],
+    "category": "her2_vs_luminal_compound",
+    "expected": "uncertain",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.0,
+    "law_auc": 0.6597492227814485,
+    "baseline_auc": 0.6938116706024537,
+    "delta_baseline": -0.034062447821005204,
+    "ci_width": 0.09416741319589528,
+    "ci_lower": 0.612616200341631,
+    "decoy_p": 0.0
+  },
+  {
+    "candidate_name": "epcam_housekeeping",
+    "equation": "EPCAM - ACTB",
+    "genes_used": [
+      "EPCAM",
+      "ACTB"
+    ],
+    "category": "soft_negative_control",
+    "expected": "pass_or_fail",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.008,
+    "law_auc": 0.5728518156302428,
+    "baseline_auc": 0.8276602342389618,
+    "delta_baseline": -0.25480841860871906,
+    "ci_width": 0.11120840494496353,
+    "ci_lower": 0.5159817349011891,
+    "decoy_p": 0.02
+  },
+  {
+    "candidate_name": "actb_gapdh_null",
+    "equation": "ACTB - GAPDH",
+    "genes_used": [
+      "ACTB",
+      "GAPDH"
+    ],
+    "category": "hard_negative_control",
+    "expected": "fail",
+    "n_samples": 1226,
+    "n_disease": 1113,
+    "passes": false,
+    "perm_p": 0.0,
+    "law_auc": 0.3704012912561919,
+    "baseline_auc": 0.8275886744746319,
+    "delta_baseline": -0.45718738321844,
+    "ci_width": 0.09089625717861533,
+    "ci_lower": 0.32449250049088496,
+    "decoy_p": 1.0
+  }
+]
