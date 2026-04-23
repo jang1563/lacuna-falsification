@@ -153,6 +153,31 @@ the Sakana-v2 failure mode. The gate caught it; we publish that fact.
 - Make it live via the GitHub Pages workflow at
   `.github/workflows/pages.yml` (deploys on every main push).
 
+### Opus 4.7 1M-context cross-reasoning over the rejection log (H2)
+
+On 2026-04-23 we ran `make h2` (49.7 seconds, single Opus 4.7 call,
+14,212-char prompt): the 74 rejection records + 9 survivor records + 5
+paper abstracts were loaded into one prompt, and Opus synthesized:
+
+- **5 new equation skeletons** (each with a Δbaseline hypothesis and
+  pre-registered skeptic test — Opus writes the kill-test before we
+  test the skeleton).
+- **5 invariant conditions** empirically derived from the failure
+  distribution, each citing specific failed equations as evidence.
+- A **bimodal failure landscape** analysis: 27 rejections collapse to
+  AUROC ≈ 0.5 (log1p-stack saturation), 23 plateau at 0.96-0.99 but
+  fail Δbaseline (CA9 ceiling). Only Proliferation − HIF-2α survives
+  the +0.05 hurdle.
+
+Critically, Opus's invariant condition #1 ("compound MUST contain a
+proliferation marker AND a HIF marker in opposite sign") was
+*independently* confirmed by Lane I · I2's exhaustive 990-pair
+enumeration: 15 of top 20 pairs contain a proliferation gene. Two
+methods — LLM 1M-context synthesis and exhaustive empirical
+enumeration — arrive at the same sufficient condition. This is the
+rare case where LLM reasoning produces a structural rule that is
+*empirically testable on a different scale of evidence*.
+
 ---
 
 ## Finding 3 — Pre-registration at LLM speed + a server-side Routine that outlives your laptop.
