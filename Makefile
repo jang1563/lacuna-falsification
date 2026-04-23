@@ -1,4 +1,4 @@
-.PHONY: help install test demo demo-kirc demo-templates clean status audit paper skeptic-review prereg prereg-validate prereg-audit rejection-log h1 h2
+.PHONY: help install test demo demo-kirc demo-templates clean status audit paper skeptic-review prereg prereg-validate prereg-audit rejection-log h1 h2 venv
 
 # ============================================================
 # Theory Copilot Falsification — Developer Commands
@@ -20,8 +20,9 @@ TRANSFER_OUT := artifacts/transfer_run
 help:
 	@echo "Theory Copilot Falsification — available targets:"
 	@echo ""
-	@echo "  make install       Install package + dependencies (editable)"
-	@echo "  make test          Run the test suite (no API calls)"
+	@echo "  make venv          Create .venv and install the package (fresh-clone one-liner)"
+	@echo "  make install       Install package + dependencies into existing .venv (editable)"
+	@echo "  make test          Run the local-runnable test suite (no API calls)"
 	@echo "  make demo          End-to-end demo on synthetic data"
 	@echo "  make demo-kirc     KIRC-flavoured demo (flagship_kirc_demo.csv)"
 	@echo "  make status        Print project status snapshot"
@@ -33,9 +34,27 @@ help:
 	@echo "  Set ANTHROPIC_API_KEY in .env for live Opus calls."
 	@echo "  Copy .env.example -> .env and fill values."
 
+# Fresh-clone convenience: build .venv and install the package in one step.
+# If .venv already exists this is a no-op for venv creation; pip install -e .
+# still runs to pick up any pyproject edits.
+venv:
+	@test -d .venv || python3 -m venv .venv
+	@$(PYTHON) -m pip install --quiet --upgrade pip
+	@$(PYTHON) -m pip install --quiet -e .
+	@echo ">>> .venv ready. Try: make test"
+
 install:
 	$(PYTHON) -m pip install -e .
 
+# Runs the local-runnable subset of the test suite: 105 tests (as of
+# 2026-04-23) across falsification gate, managed_agent_runner, routines
+# client, opus_client, PySR sweep, DatasetCard, CLI, MCP biology
+# validator, preregistration, and the Phase-H SR-loop harness.
+# Five pre-hackathon scaffold suites (contracts / reuse_inventory /
+# reuse_plan / staging / workflow_data) are ignored via the gitignored
+# file list — those files are not in `git ls-files` (see .gitignore) and
+# their fixtures depend on pre-hackathon HPC/staging state that the
+# submitted repo deliberately does not include.
 test:
 	$(PYTHONPATH_SRC) $(PYTHON) -m pytest tests/ -v --tb=short \
 		--ignore=tests/test_contracts.py \
@@ -194,16 +213,36 @@ prereg-audit:
 rejection-log:
 	$(PYTHONPATH_SRC) $(PYTHON) src/render_rejection_log.py
 
-# --- Paper (docs/paper/paper.md → PDF via pandoc + xelatex) ---
+# --- Paper (docs/paper/paper.md → PDF via pandoc; xelatex > typst > html) ---
+# Tries pdf-engine=xelatex first (best quality). Falls back to typst if a
+# LaTeX distribution is not installed, then to HTML as last resort. All
+# three outputs land at docs/paper/paper.pdf (or .html) — Makefile prints
+# which engine ran.
 paper:
 	@echo ">>> Building docs/paper/paper.pdf via pandoc..."
 	@if ! command -v pandoc >/dev/null 2>&1; then \
 		echo "pandoc not installed. Install: brew install pandoc (macOS) or apt install pandoc (Linux)."; \
 		exit 1; \
 	fi
-	@pandoc docs/paper/paper.md \
-		--pdf-engine=xelatex \
-		-V geometry:margin=1in -V fontsize=11pt -V linkcolor=blue -V urlcolor=blue \
-		-V mainfont="Times New Roman" -V monofont="Menlo" \
-		-o docs/paper/paper.pdf
-	@echo ">>> Wrote docs/paper/paper.pdf"
+	@if command -v xelatex >/dev/null 2>&1; then \
+		echo "  using xelatex engine..."; \
+		pandoc docs/paper/paper.md \
+			--pdf-engine=xelatex \
+			-V geometry:margin=1in -V fontsize=11pt -V linkcolor=blue -V urlcolor=blue \
+			-V mainfont="Times New Roman" -V monofont="Menlo" \
+			-o docs/paper/paper.pdf && \
+		echo ">>> Wrote docs/paper/paper.pdf (xelatex)"; \
+	elif command -v typst >/dev/null 2>&1; then \
+		echo "  xelatex not found; using typst engine..."; \
+		pandoc docs/paper/paper.md \
+			--pdf-engine=typst \
+			-V papersize=a4 -V fontsize=11pt \
+			-o docs/paper/paper.pdf && \
+		echo ">>> Wrote docs/paper/paper.pdf (typst)"; \
+	else \
+		echo "  neither xelatex nor typst found; emitting HTML fallback..."; \
+		pandoc docs/paper/paper.md \
+			-s --mathjax \
+			-o docs/paper/paper.html && \
+		echo ">>> Wrote docs/paper/paper.html (install LaTeX or typst for PDF)"; \
+	fi

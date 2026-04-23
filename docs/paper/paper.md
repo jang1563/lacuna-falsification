@@ -1,31 +1,37 @@
 ---
 title: "Falsification-Aware Biological Law Discovery with Opus 4.7"
-subtitle: "A pre-registered 5-test gate accepts one compact law and rejects 100+"
+subtitle: "A pre-registered 5-test gate accepts one compact law, rejects 194 of 204 — including our own downstream proposal"
 author: "Theory Copilot Discovery — Built with Opus 4.7 Hackathon"
 date: "April 2026"
 abstract: |
   Most AI-for-Science loops automate confirmation bias: an LLM proposes a
   hypothesis, runs a fit, reports a number. We present **Theory Copilot**,
-  a falsification-first discovery loop built around Claude Opus 4.7.
+  a verification-first discovery pipeline built around Claude Opus 4.7.
   Opus proposes 3-5 compact biological law families and the skeptic test
   for each, *before* any fit; PySR searches candidates; a deterministic
   Python gate (two-sided permutation, bootstrap CI, sign-invariant
   single-gene baseline, incremental-covariate confound, decoy-feature
   null) decides pass/fail; only survivors get an Opus interpretation.
-  On real TCGA-KIRC the gate rejects 100+ candidates across four tasks
-  where one gene already solves the problem, *and* accepts 9/30
-  candidates on metastasis with a 45-gene expanded panel, led by
-  `TOP2A − EPAS1` at AUROC 0.726 with `Δbaseline = +0.069`. This two-
-  gene law rediscovers the published ccA/ccB subtype axis from
-  unconstrained symbolic regression. We report one honest caveat
-  (a logistic-regression pair-with-interaction baseline reaches 0.722
-  on the same pair) and cross-cohort replay status. The same pipeline
+  On real TCGA-KIRC the gate rejects 194 of 204 candidates across 11
+  task-panel combinations *and* accepts 9/30 candidates on metastasis
+  with a 45-gene expanded panel, led by `TOP2A − EPAS1` at AUROC 0.726
+  with `Δbaseline = +0.069`. This two-gene law rediscovers the published
+  ccA/ccB subtype axis from unconstrained symbolic regression and
+  replicates on the independent IMmotion150 Phase-2 trial cohort
+  (n=263, log-rank p=0.0003, Cox HR 1.36, C-index 0.601, 7.5-month
+  median-PFS gap). When the system's own H1 LLM-SR loop then proposed
+  a 3-gene extension adding `SLC22A8`, the same pre-registered gate
+  killed it on cross-cohort replay (PhL-1: C-index dropped to 0.566,
+  HR to 1.16) — the pipeline refusing to promote its own best
+  downstream guess without independent-cohort evidence. We report
+  one honest caveat (a logistic-regression pair-with-interaction
+  baseline reaches 0.722 on the same pair). The same pipeline
   generalizes to TCGA-LUAD tumor-vs-normal with the same failure mode
   (SFTPC saturates at AUROC 0.998, no compound can clear +0.05).
 geometry: margin=1in
 fontsize: 11pt
-linkcolor: blue
-urlcolor: blue
+linkcolor: "#0b5fff"
+urlcolor: "#0b5fff"
 ---
 
 # 1 — Introduction
@@ -301,6 +307,48 @@ The sign structure `TOP2A − EPAS1` matches an *independent* database's
 per-gene consensus. Our pipeline did not query HPA during discovery;
 the database's classification was written before any of our runs.
 This is an external sanity check on the direction of effect.
+
+## 3.9 Cross-cohort kill of our own downstream proposal (PhL-1)
+
+The strongest falsification test is one that the pipeline applies to
+*its own* derivative outputs, not just to Opus's first-turn proposals.
+After the H1 LLM-SR loop (Opus 4.7 steering PySR with failure-history
+context across iterations) converged on TCGA-KIRC with five TOP2A −
+EPAS1 variants, the best-AUC member added `SLC22A8` (OAT3, a proximal-
+tubule organic-anion transporter) to the subtraction and reached a
+within-cohort AUC of 0.739 — a +0.013 lift over the 2-gene form.
+
+We pre-registered (commit `d2352a9`, before the analysis ran) a
+cross-cohort replay of this 3-gene form
+
+    score = TOP2A − (EPAS1 + SLC22A8)
+
+on IMmotion150 with three kill tests (log-rank on median split, Cox
+HR per z-score, Harrell C-index) plus a comparison gate: the 3-gene
+form beats the 2-gene form iff C-index(3) > C-index(2) + 0.01 AND
+HR(3) > HR(2).
+
+Result (PhL-1, commit `60d3952`): **FAIL + UNDERPERFORMS**.
+
+| Test | Threshold | Value | Pass |
+|------|-----------|-------|------|
+| Log-rank | p < 0.05 | **p = 0.117** | ❌ |
+| Cox HR per z | |log HR| > log 1.3 AND CI excludes 1 | HR = 1.16 (CI 0.99–1.37) | ❌ |
+| Harrell C-index | > 0.55 | 0.566 | ✅ |
+
+Against the 2-gene form on the same sample set: C-index dropped from
+0.601 to 0.566 (Δ = −0.035), HR dropped from 1.36 to 1.16 (Δ = −0.20).
+The H1-loop-proposed SLC22A8 addition was TCGA-KIRC cohort-specific;
+the 2-gene TOP2A − EPAS1 form remains the canonical survivor because
+it is the only form that survives both cohorts under the same gate.
+
+This is the dynamic Sakana AI Scientist v2 (arXiv 2504.08066) was
+critiqued for being unable to implement — an LLM-centered scientific
+loop that is willing to kill its own best guess on a new cohort under
+a threshold it cannot re-negotiate. The pipeline architecture made
+this possible by keeping the judgment function *outside* the model
+and binding the prereg to a commit hash before the analysis touched
+the data.
 
 # 4 — Discussion
 

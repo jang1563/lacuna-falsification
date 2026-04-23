@@ -1,0 +1,59 @@
+=== PhL-2 MCP biology-validator live demo — 2026-04-23 ===
+
+Runs both MCP tools via the direct-CLI mode (no MCP SDK needed)
+to produce a file-on-disk artefact for reviewer inspection.
+
+## Tool 1: validate_law — PubMed co-mention heuristic
+
+### TOP2A + EPAS1 + 'ccRCC'
+
+{
+  "query": "(\"TOP2A\"[Title/Abstract] AND \"EPAS1\"[Title/Abstract]) AND ccRCC[Title/Abstract]",
+  "total_results": 0,
+  "top_results": [],
+  "note": "heuristic co-mention search; does not replace wet-lab validation"
+}
+
+### TOP2A + EPAS1 + 'renal'
+
+{
+  "query": "(\"TOP2A\"[Title/Abstract] AND \"EPAS1\"[Title/Abstract]) AND renal[Title/Abstract]",
+  "total_results": 0,
+  "top_results": [],
+  "note": "heuristic co-mention search; does not replace wet-lab validation"
+}
+
+### Interpretation
+
+Zero co-mentions of TOP2A AND EPAS1 in titles+abstracts with either
+'ccRCC' or 'renal'. This is an independent signal that the 2-gene law
+is NOT in the literature as a paired biomarker — it is the axis the
+published ccA/ccB subtype papers identify implicitly through gene-set
+analysis, but no paper we found co-reports the pair as the law.
+Consistent with the paper's claim: PySR rediscovered the relationship
+without being seeded with it.
+
+## Tool 2: fetch_cohort_summary — GDC project metadata
+
+### TCGA-KIRC
+
+{
+  "project_id": "TCGA-KIRC",
+  "disease_type": [
+    "Adenomas and Adenocarcinomas"
+  ],
+  "primary_site": [
+    "Kidney"
+  ],
+  "name": "Kidney Renal Clear Cell Carcinoma",
+  "case_count": 537,
+  "file_count": 34535,
+  "data_categories": []
+}
+
+### Interpretation
+
+537 cases, kidney renal clear cell carcinoma, 34,535 data files
+available. Our metastasis-expanded CSV is n=505, consistent with
+the subset that has M-stage in the clinical metadata at the time
+of download.
