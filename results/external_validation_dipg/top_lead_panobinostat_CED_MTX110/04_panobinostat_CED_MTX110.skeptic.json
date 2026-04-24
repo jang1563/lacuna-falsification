@@ -1,0 +1,45 @@
+{
+  "candidate_id": "04_panobinostat_CED_MTX110",
+  "axis_scores": {
+    "perrin_replication_score": 2,
+    "mechanism_concordance": 3,
+    "stratifier_specificity": 3,
+    "clinical_plausibility": 3,
+    "kill_or_confirm_feasibility": 2
+  },
+  "aggregate_score": 13,
+  "verdict_preliminary": "RESCUE_SUPPORTED",
+  "weakest_axis": "kill_or_confirm_feasibility",
+  "kill_attempts": [
+    {
+      "attempt": "The 'PFS signal' from PNOC015 (PMID 37318058) is an advocate overreach: the evidence retriever confirms the paper's primary conclusions are distribution volumes and safety, not PFS superiority. No CED MTX110 study to date has established a formally controlled PFS-12 advantage over contemporary (ONC201-era) historical controls. The 'delivery works' question is closed; the 'delivery + target engagement \u2192 survival' question is explicitly open, and the 2024 follow-up (PMID 38048427) notes PFS benefit is 'modest' with non-trivial catheter/anesthesia morbidity.",
+      "advocate_response_quality": "adequate"
+    },
+    {
+      "attempt": "Selection bias in the CED cohorts is severe and unaddressed: patients who qualify for repeat-catheter CED in the brainstem are pre-selected for surgical accessibility, tumor geometry amenable to convection, family willingness for serial anesthesia, and performance status sufficient for multi-cycle infusion. Comparing this cohort's PFS-12 to an unselected RT-only historical ~20% baseline inflates the apparent effect. A single-arm n=20 design cannot resolve this; the proposed trial as written will likely produce an ambiguous PFS-12 of 25-35% that is not interpretable.",
+      "advocate_response_quality": "weak"
+    },
+    {
+      "attempt": "Two of four advocate post-rejection citations failed verification (PMID 35649345 wrong paper; DOI 10.1093/neuonc/noad151 Jackson et al. ONC201+panobinostat synergy does not resolve). The advocate flagged them as unverified, but the ONC201 combination arm in the rescue design rests on exactly this unverified synergy claim. Real preclinical synergy literature exists (Ishida/Venneti/Koschmann lineage) but the advocate did not cite it correctly \u2014 the combination arm rationale is presently on shakier ground than the monotherapy arm.",
+      "advocate_response_quality": "weak"
+    },
+    {
+      "attempt": "Kill-or-confirm feasibility fails the axis-3 threshold: 104 weeks (24 months) exceeds the \u226418-month bar and $4.5M exceeds the \u2264$2M bar by 2.25x. A CED-based pediatric brainstem Phase 2 with n=20 and serial biopsies is realistically 3-5 years to primary endpoint lock when accrual and follow-up are included \u2014 this is a program-level commitment, not a fast kill.",
+      "advocate_response_quality": "absent"
+    }
+  ],
+  "confounds_flagged": [
+    "Selection bias in PNOC015/NCT04264143/NCT03566199 CED cohorts (surgical accessibility, tumor geometry, repeat-anesthesia tolerance)",
+    "Historical RT-only PFS-12 ~20% benchmark is pre-ONC201 era; contemporaneous H3 K27M+ controls on ONC201 now show higher PFS-12, shrinking the effect size the rescue trial must clear",
+    "Repeat CED requires repeat craniotomy/catheter placement and general anesthesia \u2014 operator-dependent morbidity is a confounder not captured in PFS",
+    "ONC201 combination arm rationale rests on one unverified citation (Jackson 2023 DOI); combination effect cannot be disentangled from CED monotherapy in a single-arm design",
+    "H3K27me3 restoration biomarker on post-CED biopsy is ethically and logistically fragile in pediatric brainstem \u2014 likely under-powered for mechanism confirmation"
+  ],
+  "perrin_flags": [
+    "Grasso 2015 HTS is originating-group; advocate relies on it as the stratifier basis but independent isogenic re-confirmation (Hennika/Becher/Monje) is asserted without primary citation in the advocate JSON",
+    "PMID 35649345 does not map to the claimed Mueller first-in-human CED MTX110 paper \u2014 clinical first-in-human report attribution is wrong",
+    "DOI 10.1093/neuonc/noad151 does not resolve to the claimed Jackson et al. ONC201+panobinostat synergy paper \u2014 combination-arm preclinical foundation is not verifiable as cited",
+    "PNOC015 PFS claim is characterized by the evidence retriever as a 'mild overstatement' of what the paper actually concluded (distribution/safety, not PFS superiority)",
+    "No published randomized or concurrent-control CED MTX110 data exist; all replication is single-arm feasibility/distribution"
+  ]
+}

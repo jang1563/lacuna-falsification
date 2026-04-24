@@ -1,0 +1,23 @@
+{
+  "candidate_id": "04_panobinostat_CED_MTX110",
+  "verdict": "RESCUE_SUPPORTED",
+  "aggregate_score": 13,
+  "axis_scores": {
+    "perrin_replication_score": 2,
+    "mechanism_concordance": 3,
+    "stratifier_specificity": 3,
+    "clinical_plausibility": 3,
+    "kill_or_confirm_feasibility": 2
+  },
+  "rescue_class": "delivery",
+  "one_paragraph_summary": "This is a research-grade hypothesis that the PBTC-047 failure of systemic panobinostat in DIPG (PMID 37526549) reflected a pharmacokinetic ceiling rather than target disengagement, and that convection-enhanced delivery of aqueous MTX110 in H3 K27M+ patients could address the exposure gap that the original investigators themselves rigorously characterized through their dose-finding and PK work. Post-rejection CED feasibility and intratumoral distribution data (PMID 37318058) close the delivery question but do not establish a survival benefit, and the proposed ONC201 combination arm rests on partially unverified preclinical citations. No claim of clinical efficacy is warranted; further prospective validation in a concurrently controlled, biomarker-matched design is required before any patient-level inference.",
+  "novel_insight": "The engine cleanly separates a monotherapy rescue arm (anchored on two verified primary citations and a non-speculative H3 K27M stratifier) from a combination arm whose ONC201+panobinostat synergy rationale depends on citations that fail resolution \u2014 a fragility a single expert reading the combined corpus might have smoothed over because genuine synergy literature exists in a different authorship lineage.",
+  "follow_on_deployment": {
+    "recommended_next_step": "prospective trial design with concurrent H3 K27M+ biomarker-matched control (e.g., ONC201-era contemporaneous registry arm) rather than single-arm comparison to pre-ONC201 RT-only historical PFS-12",
+    "lead_investigator_profile_needed": "pediatric neuro-oncologist with an established multi-catheter CED program, H3 K27M biomarker-driven trial leadership, and pediatric neurosurgical co-PI with repeat-infusion brainstem experience"
+  },
+  "disagreement_record": {
+    "advocate_vs_skeptic_delta": "Advocate characterized PNOC015 (PMID 37318058) as showing a 'preliminary PFS signal exceeding historical RT-only controls'; skeptic and evidence retriever classify this as an overstatement of a paper whose primary endpoints were distribution volumes and safety. Advocate proposed an ONC201 combination arm resting on a DOI (10.1093/neuonc/noad151) that does not resolve to the claimed Jackson synergy paper. Advocate did not address kill-or-confirm feasibility failure (104 weeks, $4.5M) versus the \u226418-month / \u2264$2M axis bar.",
+    "interpreter_adjudication": "Skeptic wins on signal characterization, combination-arm foundation, and feasibility axis \u2014 the PFS-12 claim must be framed as hypothesis-generating, the combination arm requires replacement citations from the Ishida/Venneti/Koschmann lineage before inclusion, and the proposed design should be sized as a program-level commitment rather than a fast kill. Advocate wins on the core PK\u2192delivery rescue logic: PBTC-047's own investigators diagnosed tumor-site exposure as the failure mode, and independent CED MTX110 feasibility data (PMID 37318058; NCT03566199; NCT04264143) have closed the delivery question. The monotherapy rescue arm in H3 K27M+ newly-diagnosed patients survives scrutiny as a prospectively testable hypothesis; the combination arm does not in its current form."
+  }
+}

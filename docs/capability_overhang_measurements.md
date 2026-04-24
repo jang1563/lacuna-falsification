@@ -68,7 +68,7 @@ thinking is not the isolated mechanism.
 
 ---
 
-## PhL-16 — Cross-model Proposer quality
+## PhL-16 — Cross-model Proposer quality (FINAL)
 
 **Question:** is Opus 4.7 also a better Proposer, or only a better
 Skeptic (E2 ablation)?
@@ -77,24 +77,42 @@ Skeptic (E2 ablation)?
 2-gene laws → 90 proposals → all pass through the same pre-registered
 gate.
 
-**Result (write phase only — gate results pending):**
+**Result:**
 
-| Model | Valid proposals / 30 |
-|---|---|
-| `opus-4.7` | (pending) |
-| `sonnet-4.6` | 18 / 30 |
-| `haiku-4.5` | **0 / 30** (adaptive thinking produces empty output) |
+| Model | Valid / 30 | Gated | Gate-pass | Pass rate | Pathway pairs | Prolif-HIF % | Mean AUC | Max AUC |
+|---|---|---|---|---|---|---|---|---|
+| `opus-4.7` | 30 / 30 | 30 | **0** | 0.00 | 5 | 0 % | 0.557 | 0.615 |
+| `sonnet-4.6` | 18 / 30 | 18 | **0** | 0.00 | 7 | 0 % | 0.572 | 0.678 |
+| `haiku-4.5` | 0 / 30 | 0 | — | — | — | — | — | — |
 
-Haiku 4.5 failure confirms the structured-output-under-adaptive-
-thinking capability ceiling observed in PhL-18 and PhL-19.
+**Two findings:**
 
-Gate-pass rates and biology-grounding numbers are in the companion
-`SUMMARY.md` once the gate phase completes.
+### (a) Zero gate-passes for any model — the gate IS binding
 
-**Preliminary interpretation:** Haiku 4.5 under adaptive thinking
-cannot produce 2-gene compact law proposals reliably enough to be a
-drop-in substitute for Opus. The Proposer role has a hard capability
-floor — Sonnet and Opus cross it; Haiku does not.
+**0 / 48 gated proposals pass**. Combined with PhL-14 (10-iter LLM-SR:
+18 post-seed skeletons × 2 models, 0 pass), the totals reach
+**~66 consecutive LLM-proposed compact laws rejected** by the
+pre-registered gate across 5+ model/iteration combinations.
+
+- Max AUC Opus 0.615 < single-gene ceiling 0.657 on this task;
+  Sonnet max 0.678 ≈ ceiling but fails `delta_baseline > 0.05`.
+- 0 % Prolif-HIF structural rediscovery: none of the zero-shot
+  proposals reconstruct the TOP2A − EPAS1 subtype-axis form.
+  Consistent with PhL-13 memorization audit.
+- Gate-clearing survivors require **PySR symbolic regression + LLM-
+  guided skeleton seeding** (the H1 loop), not pure LLM proposing.
+
+### (b) Format-compliance gap — consistent across experiments
+
+Opus 30/30, Sonnet 18/30, Haiku 0/30 valid JSON proposals. Same
+pattern as PhL-18 (YAML) and PhL-19 (JSON). Haiku 4.5 under adaptive
+thinking at `max_tokens=1500` cannot produce a valid JSON proposal.
+
+**Narrative implication:** "Opus 4.7 is a better Proposer" is the
+WRONG framing for this result. The CORRECT framing is: **on
+zero-shot compact-law proposing, all strong models are below the
+gate's pre-registered threshold — the gate's role is the pass-gate,
+not a pass-through.**
 
 ---
 

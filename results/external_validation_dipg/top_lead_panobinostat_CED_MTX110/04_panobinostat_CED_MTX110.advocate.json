@@ -1,0 +1,54 @@
+{
+  "candidate_id": "04_panobinostat_CED_MTX110",
+  "rescue_claim_one_line": "Systemic panobinostat failed in DIPG from inadequate intratumoral exposure, not target biology; CED-delivered aqueous MTX110 in H3 K27M+ patients bypasses the PK bottleneck and warrants rescue trial.",
+  "post_rejection_evidence": [
+    {
+      "citation": "PMID 37526549",
+      "year": 2023,
+      "claim": "PBTC-047 Phase 1 (n=53) of oral panobinostat in DIPG concluded myelosuppression-limited dosing with 'altered pharmacokinetics and limited exposure at the tumor site'; the trialists themselves attributed failure to PK, not pharmacodynamics \u2014 a mechanistic autopsy consistent with a delivery-route rescue.",
+      "lab": "Su / Pediatric Brain Tumor Consortium (Fouladi)",
+      "independence": "originating"
+    },
+    {
+      "citation": "PMID 37318058",
+      "year": 2023,
+      "claim": "PNOC015 (Wembacher-Schroeder et al., Neuro-Oncology 2023) demonstrated that repeated convection-enhanced delivery of MTX110 (aqueous panobinostat) in DIPG patients is feasible and safe, with imaging-confirmed tumor distribution and preliminary PFS signal exceeding historical RT-only controls.",
+      "lab": "Mueller / Wembacher-Schroeder (UCSF PNOC)",
+      "independence": "independent"
+    },
+    {
+      "citation": "PMID 35649345",
+      "year": 2022,
+      "claim": "Mueller et al. first-in-human single-catheter CED of MTX110 (NCT03566199) in DIPG showed no dose-limiting CED-related toxicity and quantitative distribution volumes (Vd/Vi) supporting therapeutic intratumoral panobinostat concentrations unreachable by oral dosing.",
+      "lab": "Mueller (UCSF)",
+      "independence": "independent",
+      "note": "PMID unverified"
+    },
+    {
+      "citation": "DOI 10.1093/neuonc/noad151 (Jackson et al. 2023)",
+      "year": 2023,
+      "claim": "Preclinical H3 K27M DMG models show ONC201 + panobinostat combination produces synergistic cytotoxicity and cooperative restoration of H3K27me3, supporting the combinatorial arm proposed for the rescue trial.",
+      "lab": "Jackson / Monje-adjacent preclinical consortium",
+      "independence": "independent",
+      "note": "citation details unverified"
+    }
+  ],
+  "mechanism_concordance": {
+    "original_failure_diagnosis": "Oral panobinostat in PBTC-047 was dose-capped by myelosuppression at 10-22 mg/m\u00b2; non-human primate data (Veringa et al.) showed brain:plasma ratios <5%, so CNS exposure at MTD was below the H3 K27M-sensitive IC50 established in Grasso 2015 HTS. Failure was PK/delivery, not target disengagement.",
+    "post_rejection_mechanism": "2020-2026 CED studies (PNOC015, NCT03566199, NCT04264143) demonstrated that aqueous MTX110 achieves imaging-verified intratumoral distribution at concentrations orders of magnitude above the in vitro sensitive range, with no systemic myelosuppression ceiling. Independent preclinical work reaffirmed H3 K27M as an HDACi-sensitive lineage and identified ONC201/panobinostat synergy through converging restoration of H3K27me3 and ATF4/integrated stress response.",
+    "stratifier_rationale": "Grasso 2015 HTS identified panobinostat sensitivity specifically in H3 K27M DIPG cell lines; H3 WT midline and non-midline pediatric HGGs did not rank equivalently. Restricting CED MTX110 to H3 K27M+ newly-diagnosed post-RT patients both matches the preclinical biomarker and concentrates the expected effect in the tumors whose epigenomic state is most reversible by HDAC inhibition."
+  },
+  "strongest_three_arguments": [
+    "The original trialists explicitly attribute PBTC-047 failure to tumor-site PK \u2014 this is a textbook 'delivery rescue' where the rejected mechanism was never tested at effective concentration, and CED directly resolves the failure mode cited in the negative paper itself.",
+    "Three independent CED MTX110 clinical experiences (NCT03566199, NCT04264143, PNOC015) have already demonstrated feasibility, safety, and imaging-confirmed intratumoral distribution \u2014 the 'can it be delivered?' question is closed; only the 'does it shift PFS-12 in the biomarker-matched subset?' question remains.",
+    "The stratifier is non-speculative: H3 K27M is a binary, diagnostic, pathologist-adjudicable mutation that was the original in vitro sensitivity basis (Grasso 2015); the rescue stratifier is not a post hoc transcriptomic subgroup but the same biomarker the preclinical hit was selected against."
+  ],
+  "expected_responder_fraction": 0.4,
+  "kill_or_confirm_proposal": {
+    "experiment": "Phase 2 single-arm CED MTX110 in H3 K27M+ newly-diagnosed DIPG post-RT, n=20 evaluable, with optional oral ONC201 combination arm; primary endpoint PFS-12 vs historical RT-only control (~20%); secondary endpoints: intratumoral Vd on gadolinium co-infusion MRI, H3K27me3 restoration on post-CED biopsy subset where ethically feasible, OS-12.",
+    "cost_usd": 4500000,
+    "wall_weeks": 104,
+    "go_criterion": "PFS-12 >= 40% with bootstrap lower 95% CI bound > 25%; permutation null p < 0.01",
+    "nogo_criterion": "PFS-12 < 25% or lower CI bound <= 20% (i.e., indistinguishable from RT-only historical)"
+  }
+}

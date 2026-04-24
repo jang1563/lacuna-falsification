@@ -1,0 +1,50 @@
+schema_version: 1.0
+disease: "H3 K27M-mutant diffuse midline glioma (DIPG/DMG)"
+disease_code: "DMG_H3K27M"
+hypothesis_name: "CED-delivered MTX110 (aqueous panobinostat) in H3 K27M+ newly-diagnosed DIPG rescues systemic PBTC-047 PK failure"
+prereg_utc: "2026-04-24T22:00:00Z"
+operator_id: "<redacted-for-hackathon-submission>"
+rejected_trial:
+  nct: "NCT02717455"
+  drug: "panobinostat (oral/systemic)"
+  mechanism_class: "pan-HDAC inhibitor"
+  phase: "1"
+  n_enrolled: 53
+  primary_endpoint: "MTD"
+  reported_result: "Neg"
+  year_reported: 2022
+  status_ct_gov: "COMPLETED"
+  why_stopped: "PBTC-047 concluded 'altered pharmacokinetics in addition to limited exposure at the tumor site'; myelosuppression dose-limiting; no significant clinical efficacy; low CSF penetration in non-human primates (Veringa et al.)"
+  citation: "PMID 37526549 (Su et al. Neuro-Oncology 2023 Dec, PBTC-047 panobinostat DIPG Phase 1)"
+hypothesis:
+  rescue_claim: "Panobinostat was a top hit in Grasso 2015 H3 K27M DIPG HTS; the systemic trial failed due to BBB/PK not pharmacodynamics; aqueous MTX110 delivered via convection-enhanced delivery (CED) achieves local tumor exposure and yields PFS signal in H3 K27M+ DIPG (PNOC015)."
+  proposed_stratifier:
+    type: "combination"
+    variable: "molecular_subtype_DMG_H3_K27M AND delivery_route_CED_MTX110"
+    expected_responder_fraction: 0.4
+  mechanism_rationale: "Panobinostat achieves HDAC inhibition and H3K27me3 restoration in H3 K27M cells at therapeutic intratumoral concentrations; systemic dosing cannot reach these concentrations due to low brain:plasma ratio, but CED MTX110 bypasses BBB and was shown safe with PFS signal across NCT03566199 and NCT04264143 (PNOC015, Wembacher-Schroeder et al. Neuro-Oncology 2023, PMID 37318058)."
+falsification_gate:
+  perrin_replication_risk_score: 1
+  evidence_quality_axes:
+    preclinical_model_match: 3
+    mechanism_concordance: 3
+    clinical_plausibility: 2
+    dose_pk_adequacy: 2
+  statistical_thresholds:
+    retrospective_subgroup_p: 0.01
+    required_effect_size: "PFS-12 >= 40% (historical RT-only ~20%); HR <= 0.6"
+    minimum_evaluable_n_per_arm: 8
+    bootstrap_ci_lower_bound: "> 0"
+    permutation_null_p: "< 0.01 (10000 perms)"
+    decoy_stratifier_p: "> 0.2"
+    confound_incremental_delta: "> 0 relative to age+sex+KPS"
+engine_tier:
+  tier: 2
+  tier_rationale: "Rescue rests on PK/delivery (CED vs oral) rather than transcriptomic stratification; tumor PK measurement requires gadolinium co-infusion and real-time imaging not present in OpenPedCan. LLM-adjudicated."
+kill_or_confirm:
+  proposed_experiment: "Phase 2 CED MTX110 in H3 K27M+ newly-diagnosed post-RT, n=20, optional combination with oral ONC201"
+  cost_estimate_usd: 4500000
+  wall_clock_weeks: 104
+  go_nogo_criterion: "PFS-12 >= 40% with lower CI bound > 25%; kill if PFS-12 < 25%"
+registered_at_commit: "PENDING_COMMIT_SHA"
+post_registration_edits: []

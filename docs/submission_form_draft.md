@@ -140,13 +140,12 @@ shot list, 6 cuts, single terminal + browser, no overlays).
 
 ## Broader Program Context (optional, 90 words)
 
-This hackathon artefact is the Opus 4.7-centered proof-of-concept of
-a larger research program — **NegBioDB**, a structured database
-aggregating ~32.8 million confirmed negative biomedical results
-(drug-target inactives, failed clinical trials, protein non-
-interactions, non-essential genes, benign variants) paired with
-benchmarks for how publication bias propagates into ML/LLM
-predictions. Theory Copilot operationalises NegBioDB's core thesis
-— that falsification is the expensive, neglected half of
-scientific inference — as a runnable Opus 4.7 loop on real
-cancer-genomics data.
+Opus 4.7 proof-of-concept of a larger program (NegBioDB + failure
+network + rescue engine for prematurely-rejected clinical hypotheses).
+Same 4-role engine re-run on 15 pre-registered H3 K27M diffuse midline
+glioma rescue hypotheses (git SHA 8a4ecc5, locked before engine output):
+7 supported, 7 mixed, 1 insufficient. Top lead: CED-delivered MTX110
+panobinostat in H3 K27M+ DIPG — the pharmacokinetic-not-pharmacodynamic
+rescue of PBTC-047 failure — aggregate score 13/15, delivery class.
+Deployment pathway with Dr. Mark Souweidane, pioneer of convection-enhanced delivery for pediatric brain tumors. Research-
+grade hypotheses; prospective validation required.

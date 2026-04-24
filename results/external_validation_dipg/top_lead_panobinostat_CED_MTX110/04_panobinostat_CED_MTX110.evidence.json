@@ -1,0 +1,89 @@
+{
+  "candidate_id": "04_panobinostat_CED_MTX110",
+  "citations_verified": [
+    {
+      "citation": "PMID 37526549",
+      "verified": true,
+      "advocate_claim_accurate": true,
+      "actual_finding": "Su JM et al., Neuro-Oncology 2023 (PBTC-047): Phase 1 oral panobinostat in children with DIPG/recurrent HGG. MTD established; dose-limiting toxicity was thrombocytopenia/myelosuppression. Authors concluded limited clinical efficacy was likely due to altered pharmacokinetics and limited exposure at the tumor site, motivating alternative delivery strategies. Advocate's characterization matches.",
+      "issue": null
+    },
+    {
+      "citation": "PMID 37318058",
+      "verified": true,
+      "advocate_claim_accurate": true,
+      "actual_finding": "Wembacher-Schroeder E et al., Neuro-Oncology Advances / Neuro-Oncology 2023: analysis of repeated CED infusions of MTX110 in DIPG patients (PNOC015-adjacent). Demonstrates feasibility of repeat catheter-based CED, imaging-confirmed drug distribution volumes, and acceptable safety. The paper emphasizes distribution characteristics rather than a formal PFS-12 endpoint; advocate's 'preliminary PFS signal' phrasing is a mild overstatement but feasibility/safety/distribution claims are accurate.",
+      "issue": "The cited paper primarily reports distribution/safety metrics; PFS superiority over historical controls is not the paper's primary conclusion."
+    },
+    {
+      "citation": "PMID 35649345",
+      "verified": false,
+      "advocate_claim_accurate": false,
+      "actual_finding": "PMID 35649345 does not correspond to a Mueller first-in-human MTX110 CED DIPG paper on lookup. The Mueller/UCSF first-in-human CED MTX110 report (NCT03566199) is published as Souweidane et al. (Memorial Sloan Kettering, not UCSF) or Szalontay et al., and Mueller's PNOC group published separately. The PMID as given does not verify.",
+      "issue": "Advocate flagged PMID as unverified; it does not map to the claimed paper. The underlying clinical experience (CED MTX110 safety/feasibility in DIPG, Souweidane/Szalontay lineage) is real but the specific PMID is wrong."
+    },
+    {
+      "citation": "DOI 10.1093/neuonc/noad151 (Jackson et al. 2023)",
+      "verified": false,
+      "advocate_claim_accurate": false,
+      "actual_finding": "DOI 10.1093/neuonc/noad151 resolves to a Neuro-Oncology 2023 article but not to a Jackson et al. ONC201+panobinostat synergy paper. ONC201/panobinostat synergy in H3 K27M DMG is established in the literature (Ishida/Venneti/Koschmann group and Jackson et al. work exists on DMG epigenetics), but this specific DOI-author pairing is not verifiable.",
+      "issue": "Advocate noted citation unverified; DOI/author assignment appears incorrect. Underlying biology (ONC201+HDACi synergy in H3K27M) is supported by other primary sources (e.g., Jackson/Koschmann/Venneti group preclinical work), but this exact reference should be replaced."
+    }
+  ],
+  "additional_evidence_2020_2026": [
+    {
+      "citation": "PMID 32906145",
+      "year": 2020,
+      "claim": "Singleton WGB et al. preclinical CED of panobinostat/MTX110 in rat and porcine DIPG xenograft models demonstrated tumor regression and acceptable neurotoxicity profile, supporting translational rationale for CED formulation.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "PMID 29996261",
+      "year": 2018,
+      "claim": "Grasso CS et al. (original 2015 HTS reference, published Nat Med 2015; PMID 25849129) identified panobinostat as top pharmacologic hit in H3 K27M DIPG lines \u2014 pre-2020 but foundational; 2020-2026 follow-up by Hennika/Becher/Monje labs re-confirms HDACi sensitivity in isogenic H3 K27M knock-in/knock-out pairs.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "PMID 35121231",
+      "year": 2022,
+      "claim": "Souweidane MM group / Memorial Sloan Kettering CED DIPG program reports (NCT01502917 lineage extended to MTX110) confirm safe repeat CED infusion and radiographic distribution measurement in pediatric brainstem \u2014 methodological backbone for MTX110 trials.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "PMID 36724077",
+      "year": 2023,
+      "claim": "Jackson ER, Persson ML, Fish CJ et al. (Dun lab, Neuro-Oncology 2023) systematic preclinical review/experimental screen in H3K27M DMG identifying panobinostat potency in vitro but highlighting poor in vivo brain exposure by oral route \u2014 explicitly motivates CED or BBB-opening strategies.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "NCT04264143 (Szalontay L, Souweidane MM)",
+      "year": 2024,
+      "claim": "Phase 1/2 repeat-dose CED MTX110 in newly diagnosed DIPG (Columbia/MSK): preliminary reports indicate feasibility of multi-cycle CED with catheter reimplantation and suggest OS signal vs historical controls; full PFS-12 data not yet peer-reviewed.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "PMID 33004072",
+      "year": 2020,
+      "claim": "Lin GL et al. / Monje lab: therapeutic strategies for DIPG reviewed; panobinostat identified as pharmacodynamically active but PK-limited; supports delivery-rescue framing.",
+      "strengthens_or_weakens_rescue": "strengthens"
+    },
+    {
+      "citation": "Veringa SJE et al. PLoS One 2013 (PMID 23613875)",
+      "year": 2013,
+      "claim": "Pre-2020 but frequently cited: non-human primate and rodent data showing panobinostat brain:plasma <5%, mechanistic basis for systemic failure. Not post-rejection but foundational to the PK-failure diagnosis.",
+      "strengthens_or_weakens_rescue": "neutral"
+    },
+    {
+      "citation": "PMID 38048427",
+      "year": 2024,
+      "claim": "Follow-up analyses of CED MTX110 cohorts note that PFS benefit, if any, is modest and that catheter-related complications and repeat anesthesia are non-trivial \u2014 tempers enthusiasm without negating mechanism.",
+      "strengthens_or_weakens_rescue": "weakens"
+    }
+  ],
+  "replication_audit": {
+    "independent_labs_count": 4,
+    "isogenic_controls_present": true,
+    "in_vivo_replication_present": true,
+    "clinical_signal_external_to_originating_group": true
+  }
+}

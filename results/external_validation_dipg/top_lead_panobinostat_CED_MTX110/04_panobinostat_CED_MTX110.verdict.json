@@ -1,0 +1,17 @@
+{
+  "candidate_id": "04_panobinostat_CED_MTX110",
+  "verdict": "RESCUE_SUPPORTED",
+  "aggregate_score": 13,
+  "axis_scores": {
+    "perrin_replication_score": 2,
+    "mechanism_concordance": 3,
+    "stratifier_specificity": 3,
+    "clinical_plausibility": 3,
+    "kill_or_confirm_feasibility": 2
+  },
+  "dissent_preserved": true,
+  "core_citations_verified": true,
+  "amx0035_language_compliant": true,
+  "violations": [],
+  "warnings": []
+}

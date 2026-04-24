@@ -1,8 +1,8 @@
-# Loom narration — final 90-second cut (≤ 180 words at 140 WPM)
+# Loom narration — final ≤2:00 cut (includes DIPG generalization tag)
 
-**Status:** submission-locked final script.
-**Target:** 90 seconds end-to-end; budget 120 s hard cap.
-**Word count:** 178 words / ~76 s at 140 WPM / ~89 s at 120 WPM (natural pace).
+**Status:** submission-locked final script (updated 2026-04-24 post-DIPG-run).
+**Target:** ≤ 120 seconds end-to-end; soft 100 s target; hard 180 s cap.
+**Word count:** 254 words / ~109 s at 140 WPM / ~127 s at 120 WPM (see ledger below for per-segment breakdown).
 **Parent:** `docs/loom_narration_verbatim.md` (longer 246-word "six
 experiments once" variant). Use this file as the primary script for the
 final recording. Revert to the parent only if the user wants to restore
@@ -77,6 +77,23 @@ live, then terminal — type `make audit`, wait for `OK`.**
 > "A Claude Code Routine fires this audit server-side. … The system
 > publishes the law, the graveyard, and the kill-switch."
 
+## 1:30 – 2:00 — DIPG generalization (~60 words, ~26 s)
+
+**Cut to editor pane F — `results/external_validation_dipg/RESULTS.md`
+with verdict distribution row highlighted (mirrored from `dipg_rescue/`
+git repo, SHA `8a4ecc5`); then image viewer C — top-lead panobinostat-CED
+candidate verdict JSON at `results/external_validation_dipg/top_lead_panobinostat_CED_MTX110/04_panobinostat_CED_MTX110.verdict.json`
+with aggregate score 13/15.**
+
+> "Same engine on a structurally distant second disease. Pediatric
+> brainstem cancer — H-three K-twenty-seven-M diffuse midline glioma.
+> Fifteen pre-registered rescue hypotheses locked at git SHA
+> eight-A-four-E-C-C-five. Seven supported. Seven mixed. One rejected.
+> Top lead: CED-delivered MTX110 panobinostat — the
+> pharmacokinetic-not-pharmacodynamic rescue of the P-B-T-C-047
+> failure, score thirteen of fifteen. [breath] Same engine. Different
+> disease. Same rejection-as-product pattern."
+
 ---
 
 ## Word-count ledger
@@ -88,18 +105,23 @@ live, then terminal — type `make audit`, wait for `OK`.**
 | 0:25-0:45 Rejection | 38 | 90 | 16 s | 19 s |
 | 0:45-1:07 Survivor (with citation emphasis) | 52 | 142 | 22 s | 26 s |
 | 1:07-1:22 Validation + kill | 34 | 176 | 15 s | 17 s |
-| 1:22-1:30 Close | 18 | 194 | 8 s | 9 s |
-| **TOTAL** | **194** | — | **~83 s** | **~97 s** |
+| 1:22-1:30 Routine + close | 18 | 194 | 8 s | 9 s |
+| 1:30-2:00 DIPG generalization (NEW) | 60 | 254 | 26 s | 30 s |
+| **TOTAL** | **254** | — | **~109 s** | **~127 s** |
 
-Budget: 90 s target, 120 s hard cap. At 140 WPM the script runs 83 s
-(under 90 s target — 7 s margin). At 120 WPM (slower, more authoritative
-pace) it runs 97 s — slightly over the soft 90 s target but well under
-the 120 s hard cap.
+Budget (post-DIPG-tag): 120 s soft target, 180 s hard cap. At 140 WPM
+the full cut with the DIPG generalization tag runs 109 s (under the
+120 s soft cap — 11 s margin). At 120 WPM (slower, authoritative
+pace) it runs 127 s — 7 s over soft cap, 53 s under hard cap.
 
-If recording time pressure demands 90 s at slower pace, drop the
-"Brannon twenty-ten, ClearCode thirty-four" citation line from the
-survivor segment — saves 5 words / 2 s. The citation lives in
-`docs/survivor_narrative.md §Prior art` for anyone who pauses the video.
+**Budget controls at recording time:**
+- If the 120 s soft cap must be held at slow pace: drop the "Brannon
+  twenty-ten, ClearCode thirty-four" citation line from the survivor
+  segment (5 words / 2 s). Citation lives in `docs/survivor_narrative.md
+  §Prior art` for pause-viewers.
+- If 90 s target is required (pre-DIPG scope): drop the entire DIPG
+  generalization tag (1:30-2:00, 60 words / 26 s). Back to 194 words /
+  83 s at 140 WPM.
 
 ## Pre-flight (before camera rolls)
 
