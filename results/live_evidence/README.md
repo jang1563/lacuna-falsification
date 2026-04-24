@@ -39,7 +39,12 @@ all 4 tests).
 
 ## What is not here
 
-- No secrets. `ANTHROPIC_API_KEY` does not appear in any of these logs.
+- No full API keys. `ANTHROPIC_API_KEY` is never committed (gitignored via
+  `.env`, `~/.api_keys`). A 14-char key prefix that leaked into an older
+  smoke-test log (`api_validation_log.txt`) was redacted on 2026-04-23
+  after the internal review handoff flagged it (`.audit-patterns` now also
+  catches `sk-ant-api` / `sk-ant-oat` / `Bearer sk-ant` shapes going
+  forward).
 - No sample-level patient data. The KIRC dataset card used for the
   smoke test is public TCGA metadata only.
 - No institutional identifiers. The logs were screened by the

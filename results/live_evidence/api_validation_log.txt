@@ -5,7 +5,7 @@ Theory Copilot Discovery / Hackathon 2026-04-26
 
 PART 0 — Setup check
 --------------------------------------------------------------------------------
-ANTHROPIC_API_KEY: present (loaded from ~/.zshrc, prefix sk-ant-api03-Q5Fbd77)
+ANTHROPIC_API_KEY: present (loaded from shell env; prefix redacted 2026-04-23 audit)
 .venv/bin/python: Python 3.13 (symlink to /usr/local/opt/python@3.13)
 anthropic SDK version: 0.96.0
 All four required files read:

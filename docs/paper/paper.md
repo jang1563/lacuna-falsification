@@ -1,6 +1,6 @@
 ---
 title: "Falsification-Aware Biological Law Discovery with Opus 4.7"
-subtitle: "A pre-registered 5-test gate accepts one compact law, rejects 194 of 204 — including our own downstream proposal"
+subtitle: "A pre-registered 5-test gate accepts 9 compact candidates, rejects 194 of 203 — and a separately pre-registered survival replay then kills our own H1 extension"
 author: "Theory Copilot Discovery — Built with Opus 4.7 Hackathon"
 date: "April 2026"
 abstract: |
@@ -12,18 +12,22 @@ abstract: |
   Python gate (two-sided permutation, bootstrap CI, sign-invariant
   single-gene baseline, incremental-covariate confound, decoy-feature
   null) decides pass/fail; only survivors get an Opus interpretation.
-  On real TCGA-KIRC the gate rejects 194 of 204 candidates across 11
-  task-panel combinations *and* accepts 9/30 candidates on metastasis
-  with a 45-gene expanded panel, led by `TOP2A − EPAS1` at AUROC 0.726
-  with `Δbaseline = +0.069`. This two-gene law rediscovers the published
-  ccA/ccB subtype axis from unconstrained symbolic regression and
-  replicates on the independent IMmotion150 Phase-2 trial cohort
-  (n=263, log-rank p=0.0003, Cox HR 1.36, C-index 0.601, 7.5-month
-  median-PFS gap). When the system's own H1 LLM-SR loop then proposed
-  a 3-gene extension adding `SLC22A8`, the same pre-registered gate
-  killed it on cross-cohort replay (PhL-1: C-index dropped to 0.566,
-  HR to 1.16) — the pipeline refusing to promote its own best
-  downstream guess without independent-cohort evidence. We report
+  On real TCGA-KIRC the 5-test classification gate rejects 194 of 203
+  candidate evaluations across 11 task-panel combinations; 9 pass on
+  metastasis_expanded (confound leg null for metastasis task; 4 active
+  legs + BH-FDR/decoy), led by `TOP2A − EPAS1` at AUROC 0.726 with
+  `Δbaseline = +0.069`. This two-gene law rediscovers the published
+  ccA/ccB subtype axis from unconstrained symbolic regression. Under
+  three SEPARATELY PRE-REGISTERED survival kill tests (log-rank, Cox
+  HR per z, Harrell C-index — not the same 5-test classification
+  gate), the 2-gene law passes on the independent IMmotion150 Phase-2
+  trial cohort (n=263, log-rank p=0.0003, Cox HR 1.36, C-index 0.601,
+  7.5-month median-PFS gap). When the system's own H1 LLM-SR loop
+  then proposed a 3-gene extension adding `SLC22A8`, that extension
+  FAILED the same separately pre-registered IMmotion150 survival gate
+  (PhL-1: C-index dropped to 0.566, HR to 1.16) — the pipeline
+  refusing to promote its own best downstream guess without
+  independent-cohort evidence. We report
   one honest caveat (a logistic-regression pair-with-interaction
   baseline reaches 0.722 on the same pair). The same pipeline
   generalizes to TCGA-LUAD tumor-vs-normal with the same failure mode

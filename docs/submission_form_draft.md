@@ -29,7 +29,7 @@ Theory Copilot: Falsification-Aware Biological Law Discovery
 ## One-line pitch (140 char)
 
 ```
-Verification-as-skill: Opus 4.7 rediscovers TOP2A-EPAS1, a gate kills 194/204 candidates — then kills our own H1-loop extension too.
+Opus 4.7 rediscovers TOP2A-EPAS1; 5-test gate kills 194/203; separately-preregistered survival replay then kills our own H1 extension.
 ```
 (140 chars.)
 
@@ -37,20 +37,21 @@ Verification-as-skill: Opus 4.7 rediscovers TOP2A-EPAS1, a gate kills 194/204 ca
 
 ## Project summary (150 words, 145 counted)
 
-Theory Copilot is a verification-as-shipped-skill biological discovery
-loop powered by Opus 4.7 + Managed Agents (public beta 2026-04-08).
-Opus plays Proposer, Skeptic, Interpreter around a deterministic 5-test
-Python gate that runs before any LLM judgement. The gate rejected 194
-of 204 candidates (95.1%) across 11 task-panel combinations — including
-two explicit negative controls. The simplest surviving law is `TOP2A −
-EPAS1`, the published ccA-vs-ccB ccRCC subtype axis, rediscovered on
-TCGA-KIRC (AUROC 0.726) and replicated on IMmotion150 Phase-2 (n=263,
-log-rank p=0.00027, Cox HR 1.36, C-index 0.601, robust to 3-arm
-treatment adjustment). When our own H1 LLM-SR loop later proposed a
-3-gene extension adding SLC22A8, the same gate killed it on cross-cohort
-replay (PhL-1, pre-reg committed before the analysis ran — C-index
-dropped to 0.566, HR to 1.16). Pre-registrations are git-tracked YAMLs.
-The 194 rejections are the product, not an appendix.
+Theory Copilot is a verification-first biological discovery loop
+powered by Opus 4.7 + Managed Agents (public beta 2026-04-08). Opus
+plays Proposer, Skeptic, Interpreter around a deterministic 5-test
+Python gate that runs before any LLM judgement. The 5-test
+classification gate rejected 194 of 203 candidate evaluations across
+11 task-panel combinations — 9 survivors on metastasis_expanded
+(confound leg null for this task; 4 active legs + FDR/decoy). The
+simplest surviving law is `TOP2A − EPAS1`, the published ccA-vs-ccB
+ccRCC subtype axis, rediscovered on TCGA-KIRC (AUROC 0.726). Under
+three separately pre-registered survival kill tests on IMmotion150
+Phase-2 (n=263), the 2-gene form passes (log-rank p=0.0003, Cox
+HR=1.36, C-index 0.601, robust to treatment adjustment). Our own H1
+LLM-SR loop then proposed a 3-gene extension (adding SLC22A8); the
+same IMmotion150 survival gate killed it (PhL-1, C-index dropped to
+0.566). Pre-registrations are git-tracked YAMLs.
 
 ---
 

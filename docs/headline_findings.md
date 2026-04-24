@@ -110,7 +110,7 @@ having access to HPA — an external sanity check on direction.
 
 ---
 
-## Finding 2 — The rejection log IS the product. Pre-registered falsification rejects 194 of 204 candidates across 11 cohort × task × panel combinations.
+## Finding 2 — The rejection log IS the product. Pre-registered falsification rejects 194 of 203 candidate evaluations under the 5-test gate (plus 1 independent IMmotion150 survival replay PASS on a separately pre-registered 3-test gate).
 
 ### What we did
 
@@ -121,9 +121,24 @@ push to `main` via `.github/workflows/pages.yml`.
 
 ### What we found
 
-- **204 candidates evaluated**, **194 rejected**, **10 accepted** —
-  **95.1 % rejection rate.**
-- Rejection cause breakdown (composite reasons allowed):
+- **203 candidate evaluations under the 5-test TCGA classification
+  gate** (11 task × panel combinations): **194 rejected, 9 accepted**
+  — 95.6 % rejection rate. All 9 passing rows are on the
+  `metastasis_expanded` task and clear 4 active legs (`perm_p`,
+  `ci_lower`, `delta_baseline`, `decoy_p`) plus BH-FDR across
+  candidates; the `delta_confound` leg is null for all 9 because
+  metastasis M0/M1 has no non-degenerate covariates remaining after
+  filtering (see `src/falsification_sweep.py:179-222`; gate spec runs
+  the confound leg only when covariates vary).
+- **+ 1 independent IMmotion150 Phase-2 survival replay**
+  (`TOP2A − EPAS1`) under a **separately pre-registered 3-test
+  survival gate** (log-rank on median split, Cox HR per z, Harrell
+  C-index): PASS. This is NOT the same gate as the 5-test
+  classification gate — it is a separate pre-registration committed
+  at a separate git SHA with a separate YAML
+  (`preregistrations/20260423T044446Z_phf3_immotion150_pfs_replay.yaml`).
+- Rejection cause breakdown (composite reasons allowed, among the
+  194 TCGA-gate rejections):
   - `delta_baseline` failure (compound doesn't beat best single gene
     by +0.05) is the dominant cause.
   - `perm_p`, `decoy_p`, `ci_lower` each bite on a long tail of
@@ -149,7 +164,7 @@ problem:
   paper?"
 
 Theory Copilot answers that specific question in the affirmative by
-making rejection the main output. The 194 failing candidates are not
+making rejection the main output. The 194 TCGA-gate failing candidates are not
 an appendix — they are the central artefact. If we had cherry-picked
 a single AUROC 0.984 tumor-vs-normal "finding", we would have published
 the Sakana-v2 failure mode. The gate caught it; we publish that fact.

@@ -87,8 +87,40 @@ and applied uniformly.
 | `label_shuffle_null` | **Two-sided** permutation p-value (1000 shuffles) | `p < 0.05` |
 | `bootstrap_stability` | Lower bound of 95% percentile CI on AUROC (1000 resamples) | `ci_lower > 0.6` |
 | `baseline_comparison` | `law_AUROC − max_i max(AUROC(x_i), 1−AUROC(x_i))` | `delta_auroc > 0.05` |
-| `confound_only` | Incremental AUROC: `AUROC(LR(cov+law)) − AUROC(LR(cov))` | `delta_auroc > 0.03` |
+| `confound_only` | Incremental AUROC: `AUROC(LR(cov+law)) − AUROC(LR(cov))` | `delta_auroc > 0.03` (in-sample AUC; reported as screening rather than robust confound control) |
 | `decoy_feature_test` | p-value against AUROC distribution of 100 random features | `p < 0.05` |
+
+**Task-dependent active legs.** The `confound_only` leg runs only when
+the task has non-degenerate covariates available; it is skipped (value
+`null`) otherwise. In `results/track_a_task_landscape/metastasis_expanded/falsification_report.json`
+all 9 passing rows have `delta_confound = null` because the metastasis
+M0 vs M1 task on `data/kirc_metastasis_expanded.csv` has no surviving
+non-degenerate covariate after cohort filtering. For that task the
+active legs are permutation, bootstrap CI lower-bound, sign-invariant
+single-feature baseline, and decoy null — plus BH-FDR across
+candidates. For clarity, "5-test gate" in docs refers to the
+framework; the *active* legs for any given run depend on data
+availability and are recorded per-candidate in the report JSON.
+
+**External-cohort survival replay uses a separate gate.** The
+IMmotion150 external replay (PhF-3 for the 2-gene form; PhL-1 for the
+3-gene extension) uses a different pre-registered set of three
+survival kill tests — log-rank on median split, Cox HR per z-score,
+Harrell C-index — NOT the classification 5-test gate above. Each
+survival replay is a separately committed pre-registration YAML
+under `preregistrations/*phf3_*` and `preregistrations/*phl1_*`,
+with its own `emitted_git_sha`.
+
+**In-sample confound caveat.** `confound_only` fits logistic regression
+on `X_covariates` and `X_covariates + law_score` and scores AUROC on
+the same rows used for fitting. The design intent is that in-sample
+optimism cancels in the delta, but that assumption can break under
+small cohorts, many covariates, or regularization effects. For the
+current flagship survivor this concern is moot because
+`delta_confound = null` (see above). For future plug-in datasets and
+other tasks, treat `delta_confound` as an in-sample screening signal,
+not a robust confound-control test — upgrade to out-of-fold or
+held-out incremental AUC before claiming strong confound control.
 
 Notes on design choices:
 

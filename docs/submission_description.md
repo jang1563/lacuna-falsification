@@ -4,10 +4,14 @@
 
 **Theory Copilot is a verification-first discovery pipeline — the
 agent kills its own best guesses, including ones it generates downstream,
-when independent data says no.** On real cancer data the pipeline rejected
-194 of its own 204 hypotheses; on cross-cohort replay it then rejected one
-of the 10 accepted ones' own H1-loop-proposed extensions. Our own output,
-killed by our own gate on data it had never seen.
+when independent data says no.** On real cancer data the 5-test
+classification gate rejected 194 of 203 candidate evaluations (9 pass
+on metastasis — confound leg null for this task, 4 active legs +
+FDR/decoy clear). The surviving 2-gene law then passes three
+separately pre-registered IMmotion150 survival kill tests. When the
+H1 loop proposed a 3-gene extension, that extension FAILED the same
+separately pre-registered IMmotion150 survival gate. Our own
+downstream output, killed by our own gate on data it had never seen.
 
 Powered by Opus 4.7, Opus plays three roles around a deterministic
 statistical gate: a Scientist that proposes compact symbolic law
