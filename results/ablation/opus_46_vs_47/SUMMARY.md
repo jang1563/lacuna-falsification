@@ -100,9 +100,10 @@ on the cleanest survivor and (b) zero over-commitment on the stress-test.
 qualitative transfer finding on finer verdict-distribution metric.**
 
 Primary narrative ("Rejection-as-Product"): **unchanged.** The 5-test
-gate rejects 194/204 regardless of which frontier model sits in the
-Skeptic seat; both 4.6 and 4.7 respect every negative verdict the gate
-emits. The rejection rate is not a function of Opus version.
+classification gate rejects 194/203 candidate evaluations regardless of
+which frontier model sits in the Skeptic seat; both 4.6 and 4.7 respect
+every negative verdict the gate emits. The rejection rate is not a
+function of Opus version.
 
 Secondary narrative ("4.7 overhang"): **softened to complementary.** On
 the strict type-I/II miscalibration metric, the published 61→36% delta

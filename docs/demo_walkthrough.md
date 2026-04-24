@@ -93,11 +93,11 @@ Expected output:
        delta_baseline = 0.00  (< 0.05 threshold)
        reason: law collapses to a single feature; no multi-gene benefit
 [PASS] log1p(CA9) + log1p(VEGFA) - log1p(AGXT)
-       perm_p = 0.002, ci_width = 0.07, delta_baseline = 0.09, delta_confound = 0.06
+       perm_p = 0.002, ci_lower = 0.71, delta_baseline = 0.09, delta_confound = 0.06
 [FAIL] log1p(VEGFA) - log1p(ALB)
-       ci_width = 0.14  (> 0.10 threshold)
-       reason: bootstrap resampling unstable
-Survivors after BH-FDR(0.05): 1 / 3
+       ci_lower = 0.52  (< 0.60 threshold)
+       reason: bootstrap lower bound below stability threshold
+Survivors after BH-FDR(0.10): 1 / 3
 ```
 
 ## Step 4 — Interpret (Opus 4.7, Interpreter role)
@@ -278,7 +278,7 @@ PY
 Expected (abbreviated):
 
 ```text
-{'passes': True, 'perm_p': 0.001, 'ci_width': 0.06,
+{'passes': True, 'perm_p': 0.001, 'ci_lower': 0.72,
  'delta_baseline': 0.08, 'delta_confound': None,
  'law_auc': 0.94, 'baseline_auc': 0.86}
 ```
