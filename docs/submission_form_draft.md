@@ -69,8 +69,10 @@ specific metric pattern (`perm_p = 0.049` is weaker than `0.001`;
 NEEDS_MORE_TESTS with a written justification. (4) Interpreter
 writes the mechanism hypothesis and, critically, the "what this is
 not" paragraph. Extended thinking is what keeps the Skeptic turn
-from collapsing into rubber-stamp agreement with the Proposer turn
-— smaller models collapse; Opus 4.7 holds the tension.
+from collapsing across the dual-role prompt. Measured in our 180-call
+ablation (`results/ablation/SUMMARY.md`): Sonnet 4.6 emits **0 PASS of
+60** on gate-PASS candidates (full dissent collapse); Opus 4.7 emits
+**10 of 60** (PASS when warranted). Same prompt, same metrics.
 
 ---
 
@@ -108,14 +110,16 @@ All paths return `{session_id, agent_id, output, status}`; Path A adds
 ## Prize category justification (100 words, 98 counted)
 
 **Best Claude Managed Agents ($5K).** Public-beta-only. Three paths:
-B (live), A (live PhL-9, 5-session), C (live PhL-8 `/fire` 200 OK).
+B (live), A (live PhL-9 sequential 3-session + **v2 on real TCGA-KIRC**
+PhL-9v2), C (live PhL-8 `/fire` 200 OK).
 Plus **Memory public beta (integrated 2026-04-23, day-of)**: Skeptic
 writes rejection lessons to a memory store; fresh sessions read,
 quote, and **refine** prior lessons verbatim. PhL-10 grows the chain
 to 5 entries and shows the ceiling-effect rule generalizing across
 cancers (KIRC→LUAD). Server-side persistence verified via raw
-`/v1/memory_stores/*` API. Our own H1 LLM-SR extension was killed by
-the same gate on IMmotion150 (PhL-1). Verification as working code.
+`/v1/memory_stores/*` API. Our own H1 LLM-SR extension was killed by the separately-pre-registered
+IMmotion150 survival replay gate (PhL-1, NOT the TCGA classification
+gate). Verification as working code.
 
 ---
 
@@ -125,8 +129,7 @@ the same gate on IMmotion150 (PhL-1). Verification as working code.
 https://github.com/jang1563/theory-copilot-falsification
 ```
 
-Repo is currently private; flipped to public immediately before
-submission cutoff per plan.
+Repo has been public since 2026-04-23 19:32 ET.
 
 ---
 

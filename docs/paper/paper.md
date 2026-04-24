@@ -107,11 +107,14 @@ model matters). But it is **complementary** to that native claim:
   (accuracy roughly constant). This is a calibration of the model's
   own judgement, made without external reference.
 - **Pipeline-level (our gate):** deterministic verification on real
-  data, independent of whichever frontier model is proposing. 194 of
-  204 candidates are rejected by this gate across eleven task ×
-  panel combinations, and the rejection rate is invariant to the
-  model in the Skeptic seat (empirically verified in `results/ablation/
-  opus_46_vs_47/` at n=60 Opus 4.6 vs Opus 4.7 calls).
+  data, independent of whichever frontier model is proposing. **194 of
+  203 candidate evaluations** are rejected by this gate across eleven
+  task × panel combinations (the 204th row is the external
+  IMmotion150 survival replay, a separately pre-registered 3-test
+  survival gate, not the TCGA 5-test classification gate), and the
+  rejection rate is invariant to the model in the Skeptic seat
+  (empirically verified in `results/ablation/opus_46_vs_47/` at
+  n=60 Opus 4.6 vs Opus 4.7 calls).
 
 The two layers address *different* failure modes of automated science
 (native over-confidence vs. gate-less credulity) and are measurably
@@ -344,7 +347,9 @@ Against the 2-gene form on the same sample set: C-index dropped from
 0.601 to 0.566 (Δ = −0.035), HR dropped from 1.36 to 1.16 (Δ = −0.20).
 The H1-loop-proposed SLC22A8 addition was TCGA-KIRC cohort-specific;
 the 2-gene TOP2A − EPAS1 form remains the canonical survivor because
-it is the only form that survives both cohorts under the same gate.
+it is the only form that clears the TCGA-KIRC 5-test classification
+gate AND the separately pre-registered IMmotion150 3-test survival
+replay gate.
 
 This is the dynamic Sakana AI Scientist v2 (arXiv 2504.08066) was
 critiqued for being unable to implement — an LLM-centered scientific

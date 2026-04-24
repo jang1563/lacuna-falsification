@@ -112,17 +112,22 @@ At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) n
 - **Keep Thinking ($5K).** The load-bearing cognitive work is the
   ex-ante skeptic test written before any fit, the four-role review
   loop, and the post-hoc metric-pattern interpretation. All three
-  require the Skeptic stance to survive against the model's own
-  Proposer output. Smaller models collapse to rubber-stamp
-  agreement on the Skeptic turn. Adaptive thinking with
-  `effort=high` is what keeps the tension live long enough to emit
-  a dissent or a well-defended PASS.
-- **Best Claude Managed Agents ($5K).** Explicit multi-agent
+  require the Skeptic stance to survive dual-role context. Our
+  180-call cross-model ablation (`results/ablation/SUMMARY.md`)
+  measured the distinguishing behaviour: Sonnet 4.6 emits **0 PASS
+  of 60** on gate-PASS candidates (full dissent collapse); Opus 4.7
+  emits **10 of 60** (PASS when warranted). Same prompt, same gate
+  metrics. Adaptive thinking is what keeps the judgement calibrated.
+- **Best Claude Managed Agents ($5K).** Explicit three-role
   delegation with biological domain specialization per agent
-  (Proposer knows pathway biology, Searcher knows symbolic
-  regression, Falsifier knows statistics). Both delegation paths
-  implemented against the verified 2026-04-01 API. Path B runs
-  live; Path A is one flag-flip away.
+  (Proposer, Searcher, Skeptic). Three delegation paths, all live:
+  Path B (single public-beta agent + `agent_toolset_20260401`),
+  Path A (public-beta-compliant sequential 3-session chain —
+  PhL-9 architecture smoke, PhL-9v2 on real TCGA-KIRC CSV mounted
+  via `files.upload()` + `resources=[{"type":"file",...}]`),
+  Path C (Claude Code Routine `/fire` HTTP 200 live — PhL-8).
+  Research-preview `callable_agents` retained as architectural
+  reference code only, per 2026-04-23 hackathon fairness ruling.
 
 ## What We Built
 

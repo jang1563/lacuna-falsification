@@ -1,0 +1,36 @@
+```json
+[
+  {
+    "id": "LF-PROLIF-minus-HIF2A",
+    "verdict": "NEEDS_MORE_TESTS",
+    "failing_gates": ["perm_p", "ci_lower", "decoy_p"],
+    "rationale": "delta_baseline=+0.0587 clears the >0.05 threshold (law_auroc=0.7157 vs best single-gene CDK1=0.6570), but permutation p-value, bootstrap CI lower bound, and decoy-gene p-value were NOT run in this environment. Cannot PASS without those three gates resolved. delta_confound also unreported."
+  },
+  {
+    "id": "LF-WARBURG-vs-OXPHOS",
+    "verdict": "FAIL",
+    "failing_gates": ["delta_baseline"],
+    "rationale": "delta_baseline=-0.0776 is below the >0.05 threshold (law_auroc=0.5138 vs best single-gene PDK1=0.5914); the law underperforms its own best constituent. Downstream tests are moot."
+  },
+  {
+    "id": "LF-HIF-ANGIO-SHIFT",
+    "verdict": "FAIL",
+    "failing_gates": ["delta_baseline"],
+    "rationale": "delta_baseline=-0.0718 is below the >0.05 threshold (law_auroc=0.5837 vs best single-gene EPAS1=0.6556); subtracting EPAS1 destroys the only informative component. Downstream tests are moot."
+  },
+  {
+    "id": "LF-EMT-STROMA",
+    "verdict": "FAIL",
+    "failing_gates": ["delta_baseline"],
+    "rationale": "delta_baseline=-0.0394 is below the >0.05 threshold (law_auroc=0.5331 vs best single-gene MMP9=0.5725); the composite does not beat its strongest single feature. Downstream tests are moot."
+  },
+  {
+    "id": "LF-HOUSEKEEPING-NULL",
+    "verdict": "FAIL",
+    "failing_gates": ["delta_baseline"],
+    "rationale": "delta_baseline=-0.0742 is below the >0.05 threshold (law_auroc=0.5016 vs best single-gene ACTB=0.5758). This is the intended null-control behavior (AUC~0.5 confirms dataset integrity) but under the pre-registered gate it still FAILs delta_baseline; no special exemption is granted."
+  }
+]
+```
+
+On TCGA-KIRC (n=505), 1 of 5 candidates meet the delta_baseline threshold; 1 is NEEDS_MORE_TESTS pending permutation / bootstrap / decoy.

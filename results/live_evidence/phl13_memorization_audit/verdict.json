@@ -1,0 +1,365 @@
+{
+  "hypothesis_id": "phl13_memorization_audit",
+  "run_date_utc": "2026-04-24T04:36:21Z",
+  "model": "claude-opus-4-7",
+  "n_repeats_zero_shot": 10,
+  "n_exact_top2a_epas1_as_top_pick": 0,
+  "n_proliferation_hif_as_top_pick": 0,
+  "n_proliferation_hif_anywhere": 0,
+  "literature_check_categories": [
+    "structurally_equivalent_to_known",
+    "structurally_equivalent_to_known"
+  ],
+  "interpretation": "DISCOVERY SIGNAL. TOP2A-EPAS1 is the zero-shot top pick in only 0/10 repeats and the proliferation-HIF structural family appears only 0/10 times across top + runner-up picks. PySR found something the model did not retrieve from its prior.",
+  "total_tokens": 6418,
+  "zero_shot_runs": [
+    {
+      "repeat": 0,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IL6",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "ALDOB",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IL6",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "ALDOB",
+        "operator": "-"
+      },
+      "brief_reasoning": "Metastatic ccRCC shows inflammatory/IL6-JAK-STAT activation and loss of differentiated proximal tubule/kininogen programs; this axis captures EMT-inflammation gain minus nephron identity loss.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IL6\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"ALDOB\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"Metastatic ccRCC shows inflammatory/IL6-JAK-STAT activation and loss of differentiated proximal tubule/kininogen programs; this axis captures EMT-inflammation gain minus nephron identity loss.\"}"
+    },
+    {
+      "repeat": 1,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "SLC17A3",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "CXCR4",
+        "gene_b": "SLC17A3",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "SLC17A3",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "CXCR4",
+        "gene_b": "SLC17A3",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3/CXCR4 upregulated in aggressive hypoxic ccRCC driving metastasis; SLC17A3 marks retained proximal tubule differentiation lost in metastatic tumors, maximizing contrast.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"SLC17A3\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"CXCR4\", \"gene_b\": \"SLC17A3\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3/CXCR4 upregulated in aggressive hypoxic ccRCC driving metastasis; SLC17A3 marks retained proximal tubule differentiation lost in metastatic tumors, maximizing contrast.\"}"
+    },
+    {
+      "repeat": 2,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "GATM",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "GATM",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 drives hypoxia/EMT-related ccRCC metastasis; KNG1 marks differentiated proximal tubule retained in indolent tumors. Log-ratio captures dedifferentiation axis strongly linked to M1 status.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"GATM\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 drives hypoxia/EMT-related ccRCC metastasis; KNG1 marks differentiated proximal tubule retained in indolent tumors. Log-ratio captures dedifferentiation axis strongly linked to M1 status.\"}"
+    },
+    {
+      "repeat": 3,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 drives hypoxia-linked ccRCC invasion/metastasis; KNG1 loss marks aggressive disease. SAA1 rises with metastatic inflammation while CA9 decreases in dedifferentiated metastatic ccRCC.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"CA9\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 drives hypoxia-linked ccRCC invasion/metastasis; KNG1 loss marks aggressive disease. SAA1 rises with metastatic inflammation while CA9 decreases in dedifferentiated metastatic ccRCC.\"}"
+    },
+    {
+      "repeat": 4,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "VCAM1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "VCAM1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 and SAA1 are strongly upregulated in metastatic ccRCC driving HIF/inflammatory programs; VCAM1 and KNG1 mark indolent primary tumor stroma, maximizing M1 vs M0 contrast.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"VCAM1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 and SAA1 are strongly upregulated in metastatic ccRCC driving HIF/inflammatory programs; VCAM1 and KNG1 mark indolent primary tumor stroma, maximizing M1 vs M0 contrast.\"}"
+    },
+    {
+      "repeat": 5,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "EPCAM",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "EPCAM",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 rises with hypoxia/EMT in aggressive ccRCC while KNG1 marks differentiated nephron; their log-ratio captures dedifferentiation driving metastasis.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"EPCAM\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 rises with hypoxia/EMT in aggressive ccRCC while KNG1 marks differentiated nephron; their log-ratio captures dedifferentiation driving metastasis.\"}"
+    },
+    {
+      "repeat": 6,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "CA9",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "VIM",
+        "operator": "+",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "CA9",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "VIM",
+        "operator": "+"
+      },
+      "brief_reasoning": "IGFBP3 rises with hypoxia-driven metastatic progression while CA9 marks indolent VHL-loss ccRCC; their log-ratio captures aggressive dedifferentiation separating M1 from M0.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"CA9\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"VIM\", \"operator\": \"+\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 rises with hypoxia-driven metastatic progression while CA9 marks indolent VHL-loss ccRCC; their log-ratio captures aggressive dedifferentiation separating M1 from M0.\"}"
+    },
+    {
+      "repeat": 7,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "KNG1",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 upregulation marks hypoxia-driven aggressive ccRCC metastasis; KNG1 loss reflects dedifferentiation. SAA1 is a strong serum/tumor metastasis marker; CA9 decreases in high-grade metastatic ccRCC.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"KNG1\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"CA9\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 upregulation marks hypoxia-driven aggressive ccRCC metastasis; KNG1 loss reflects dedifferentiation. SAA1 is a strong serum/tumor metastasis marker; CA9 decreases in high-grade metastatic ccRCC.\"}"
+    },
+    {
+      "repeat": 8,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "VIM",
+        "operator": "+",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "CXCR4",
+        "gene_b": "AQP1",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "VIM",
+        "operator": "+"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "CXCR4",
+        "gene_b": "AQP1",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 and VIM are upregulated in aggressive/mesenchymal ccRCC driving metastasis; AQP1 marks indolent proximal-tubule phenotype lost with CXCR4-driven dissemination.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"VIM\", \"operator\": \"+\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"CXCR4\", \"gene_b\": \"AQP1\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 and VIM are upregulated in aggressive/mesenchymal ccRCC driving metastasis; AQP1 marks indolent proximal-tubule phenotype lost with CXCR4-driven dissemination.\"}"
+    },
+    {
+      "repeat": 9,
+      "parsed_ok": true,
+      "top_pick_raw": {
+        "gene_a": "IGFBP3",
+        "gene_b": "CA9",
+        "operator": "-",
+        "transform": "log"
+      },
+      "runner_up_raw": {
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-",
+        "transform": "log"
+      },
+      "top_pick_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "IGFBP3",
+        "gene_b": "CA9",
+        "operator": "-"
+      },
+      "runner_up_classification": {
+        "is_top2a_epas1_exact": false,
+        "is_prolif_minus_hif": false,
+        "gene_a": "SAA1",
+        "gene_b": "CA9",
+        "operator": "-"
+      },
+      "brief_reasoning": "IGFBP3 and SAA1 are strongly upregulated in metastatic ccRCC driving poor prognosis; CA9 marks well-differentiated VHL-driven primary tumors and declines with metastatic dedifferentiation.",
+      "raw_text_preview": "{\"top_pick\": {\"gene_a\": \"IGFBP3\", \"gene_b\": \"CA9\", \"operator\": \"-\", \"transform\": \"log\"}, \"runner_up\": {\"gene_a\": \"SAA1\", \"gene_b\": \"CA9\", \"operator\": \"-\", \"transform\": \"log\"}, \"brief_reasoning\": \"IGFBP3 and SAA1 are strongly upregulated in metastatic ccRCC driving poor prognosis; CA9 marks well-differentiated VHL-driven primary tumors and declines with metastatic dedifferentiation.\"}"
+    }
+  ],
+  "literature_check_runs": [
+    {
+      "repeat": 0,
+      "parsed_ok": true,
+      "category": "structurally_equivalent_to_known",
+      "cited_prior_work": [
+        "Brugarolas et al., VHL/HIF biology in ccRCC",
+        "Motzer et al. 2020 Nature Medicine - IMmotion151 molecular subtypes (Angiogenic/Stromal vs Proliferative)",
+        "Beuselinck et al. 2015 ccrcc1-4 subtypes",
+        "TCGA KIRC 2013 Nature"
+      ],
+      "explanation": "TOP2A (proliferation marker) minus EPAS1/HIF2A (angiogenesis/VHL-loss marker) recapitulates the canonical ccRCC proliferative-vs-angiogenic axis from IMmotion151 and Beuselinck subtypes. It is not a named published two-gene signature, but structurally it collapses a well-established biological dichotomy into its two archetypal genes.",
+      "raw_text_preview": "{\"category\":\"structurally_equivalent_to_known\",\"cited_prior_work\":[\"Brugarolas et al., VHL/HIF biology in ccRCC\",\"Motzer et al. 2020 Nature Medicine - IMmotion151 molecular subtypes (Angiogenic/Stromal vs Proliferative)\",\"Beuselinck et al. 2015 ccrcc1-4 subtypes\",\"TCGA KIRC 2013 Nature\"],\"explanation\":\"TOP2A (proliferation marker) minus EPAS1/HIF2A (angiogenesis/VHL-loss marker) recapitulates the "
+    },
+    {
+      "repeat": 1,
+      "parsed_ok": true,
+      "category": "structurally_equivalent_to_known",
+      "cited_prior_work": [
+        "Brugarolas et al., VHL/HIF biology in ccRCC",
+        "Gordan et al., Cancer Cell 2008 - HIF-1\u03b1 vs HIF-2\u03b1 (EPAS1) ccRCC subtypes",
+        "Motzer et al., Nature Medicine 2020 - IMmotion151 angiogenic vs proliferative clusters",
+        "Beuselinck et al., Clin Cancer Res 2015 - ccrcc1-4 molecular subtypes"
+      ],
+      "explanation": "TOP2A marks the proliferative/cell-cycle axis and EPAS1 (HIF-2\u03b1) marks the angiogenic/hypoxia axis that define ccRCC's canonical dichotomy (e.g., IMmotion151 Angio vs Proliferative, Beuselinck ccrcc2 vs ccrcc4). The difference is a compact restatement of this proliferative-minus-angiogenic contrast, not a new biological signal.",
+      "raw_text_preview": "{\"category\":\"structurally_equivalent_to_known\",\"cited_prior_work\":[\"Brugarolas et al., VHL/HIF biology in ccRCC\",\"Gordan et al., Cancer Cell 2008 - HIF-1\u03b1 vs HIF-2\u03b1 (EPAS1) ccRCC subtypes\",\"Motzer et al., Nature Medicine 2020 - IMmotion151 angiogenic vs proliferative clusters\",\"Beuselinck et al., Clin Cancer Res 2015 - ccrcc1-4 molecular subtypes\"],\"explanation\":\"TOP2A marks the proliferative/cell"
+    }
+  ]
+}

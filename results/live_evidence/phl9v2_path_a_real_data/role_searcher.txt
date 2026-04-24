@@ -1,0 +1,80 @@
+Now I have everything I need. The Night-2 proposals were described in the Prior output but the JSON file wasn't persisted. I'll reconstruct them from the table and evaluate all 5 candidates against the CSV data.Here is the strict evaluation output:
+
+---
+
+## Searcher Evaluation Results
+
+```json
+{
+  "candidates": [
+    {
+      "id": "LF-PROLIF-minus-HIF2A",
+      "equation": "mean(log1p(TOP2A, MKI67, CDK1)) - log1p(EPAS1)",
+      "law_auroc": 0.7157,
+      "baseline_auroc_best_single_gene": 0.6570,
+      "delta_baseline": +0.0587,
+      "n": 505,
+      "_best_single_gene_name": "CDK1",
+      "_all_single_gene_aurocs": {"TOP2A": 0.6438, "MKI67": 0.6446, "CDK1": 0.6570, "EPAS1": 0.6556}
+    },
+    {
+      "id": "LF-WARBURG-vs-OXPHOS",
+      "equation": "mean(log1p(LDHA, SLC2A1, PDK1)) - mean(log1p(LDHB, AGXT))",
+      "law_auroc": 0.5138,
+      "baseline_auroc_best_single_gene": 0.5914,
+      "delta_baseline": -0.0776,
+      "n": 505,
+      "_best_single_gene_name": "PDK1",
+      "_all_single_gene_aurocs": {"LDHA": 0.5099, "SLC2A1": 0.5128, "PDK1": 0.5914, "LDHB": 0.5755, "AGXT": 0.5597}
+    },
+    {
+      "id": "LF-HIF-ANGIO-SHIFT",
+      "equation": "log1p(VEGFA) + log1p(ANGPTL4) - log1p(EPAS1) - log1p(CA9)",
+      "law_auroc": 0.5837,
+      "baseline_auroc_best_single_gene": 0.6556,
+      "delta_baseline": -0.0718,
+      "n": 505,
+      "_best_single_gene_name": "EPAS1",
+      "_all_single_gene_aurocs": {"VEGFA": 0.5890, "ANGPTL4": 0.5147, "EPAS1": 0.6556, "CA9": 0.5207}
+    },
+    {
+      "id": "LF-EMT-STROMA",
+      "equation": "mean(log1p(MMP9, SPP1, CXCR4, S100A4)) - log1p(PAX8)",
+      "law_auroc": 0.5331,
+      "baseline_auroc_best_single_gene": 0.5725,
+      "delta_baseline": -0.0394,
+      "n": 505,
+      "_best_single_gene_name": "MMP9",
+      "_all_single_gene_aurocs": {"MMP9": 0.5725, "SPP1": 0.5193, "CXCR4": 0.5467, "S100A4": 0.5250, "PAX8": 0.5103}
+    },
+    {
+      "id": "LF-HOUSEKEEPING-NULL",
+      "equation": "log1p(ACTB) + log1p(RPL13A) - 2*log1p(GAPDH)",
+      "law_auroc": 0.5016,
+      "baseline_auroc_best_single_gene": 0.5758,
+      "delta_baseline": -0.0742,
+      "n": 505,
+      "_best_single_gene_name": "ACTB",
+      "_all_single_gene_aurocs": {"ACTB": 0.5758, "RPL13A": 0.5450, "GAPDH": 0.5489}
+    }
+  ]
+}
+```
+
+---
+
+## Summary Table
+
+| id | law_auroc | best_single_gene (name) | baseline_auroc | delta_baseline | Pre-gate verdict |
+|---|---|---|---|---|---|
+| **LF-PROLIF-minus-HIF2A** | **0.7157** | CDK1 | 0.6570 | **+0.0587** | ✅ Beats baseline; clears CV-AUC ≥ 0.68 threshold |
+| LF-WARBURG-vs-OXPHOS | 0.5138 | PDK1 | 0.5914 | −0.0776 | ❌ Below 0.70 kill-rule; does not beat single-gene |
+| LF-HIF-ANGIO-SHIFT | 0.5837 | EPAS1 | 0.6556 | −0.0718 | ❌ Below 0.65 kill-rule; law **worse** than EPAS1 alone |
+| LF-EMT-STROMA | 0.5331 | MMP9 | 0.5725 | −0.0394 | ❌ Below 0.72 kill-rule; does not beat single-gene |
+| **LF-HOUSEKEEPING-NULL** | **0.5016** | ACTB | 0.5758 | −0.0742 | ✅ Null control **behaves correctly** — AUC in [0.40, 0.60]; no dataset red-flag |
+
+**Key findings:**
+- **LF-PROLIF-minus-HIF2A** is the single survivor: law_auroc 0.7157 clears its 0.68 kill-rule and posts a +0.059 gain over the CDK1 single-gene anchor. The combination of proliferation (TOP2A/MKI67/CDK1 mean) contrasted against HIF-2α (EPAS1) is genuinely synergistic for M-stage separation.
+- **LF-WARBURG-vs-OXPHOS** fails badly (0.51): the Warburg-glycolytic genes (LDHA, SLC2A1) have near-chance AUROC individually in this **metastasis** task (they separate tumor-vs-normal well, but not M1 vs M0 within tumor), and the law cancels useful PDK1/LDHB signal rather than amplifying it.
+- **LF-HIF-ANGIO-SHIFT** is sabotaged by its own subtraction: EPAS1 alone scores 0.656 but its inclusion in the denominator of the law drives the composite below it.
+- **LF-HOUSEKEEPING-NULL** lands at 0.502 — firmly in the expected-fail zone — confirming dataset integrity.

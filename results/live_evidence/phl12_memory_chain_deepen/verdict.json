@@ -1,0 +1,66 @@
+{
+  "hypothesis_id": "phl12_memory_chain_deepen",
+  "run_date_utc": "2026-04-24T04:36:54Z",
+  "store_id": "memstore_01XvqsnMxmHQPyL25X4t56Wq",
+  "sessions": [
+    {
+      "label": "session6_pcna_epas1_template_saturation",
+      "session_id": "sesn_011CaMyMn6KsaEuicjXq8fqs",
+      "equation": "PCNA - EPAS1",
+      "cohort": "TCGA-KIRC metastasis_expanded (n=505, 16% M1)",
+      "metrics": {
+        "perm_p": 0.0,
+        "ci_lower": 0.635,
+        "delta_baseline": 0.058,
+        "delta_confound": null,
+        "decoy_p": 0.0,
+        "law_auroc": 0.693,
+        "baseline_auc_best_single_gene": 0.635
+      },
+      "agent_text": "## Verdict: **PASS** (with template-saturation flag to Copilot)\n\n### Prior lessons that apply\n\nFrom lesson 4 (`MKI67 \u2212 EPAS1` PASS):\n> \"when a new candidate instantiates the same semantic template as a prior PASS on the identical cohort (swap one proliferation marker for another homolog), treat the prior ceiling-effect dismissal as already adjudicated and do NOT demand extra novelty evidence. Narrow-margin PASS is still PASS \u2014 thresholds cut both ways; do not invent a 'margin too thin' heuristic that isn't pre-registered.\"\n\nAnd the explicit forward reference:\n> \"if a third proliferation\u2212EPAS1 variant (e.g. PCNA\u2212EPAS1, CCNB1\u2212EPAS1) also passes, flag to Copilot that the family may be exhausting independent information and future same-template candidates should be deprioritized in favor of orthogonal axes.\"\n\nFrom lesson 3 (`TOP2A \u2212 EPAS1` PASS):\n> \"delta_confound=null is acceptable per spec when cohort lacks covariates \u2014 do not invent a failure reason from a permitted null.\"\n\nThe ceiling-effect rejection pattern from lessons 1, 2, and 5 does NOT apply \u2014 this is a metastasis task (baseline 0.635, headroom regime), not a tissue-marker-saturated T-vs-N task.\n\n### Gate-by-gate application\n\n| Gate | Threshold | Value | Result |\n|---|---|---|---|\n| perm_p | < 0.05 | 0.0 | \u2713 PASS |\n| ci_lower | > 0.6 | 0.635 | \u2713 PASS (margin +0.035) |\n| delta_baseline | > 0.05 | 0.058 | \u2713 PASS (margin +0.008, thin) |\n| delta_confound | > 0.03 OR null-allowed | null | \u2713 PASS (permitted null per spec; same cohort as TOP2A/MKI67 precedents) |\n| decoy_p | < 0.05 | 0.0 | \u2713 PASS |\n\nAll 5 pre-registered gates clear. No named failing gate.\n\n### Flag to Copilot (non-gate, orthogonal context)\n\nThis is the **third** consecutive `proliferation_marker \u2212 EPAS1` PASS on the identical cohort (TOP2A\u2192MKI67\u2192PCNA), with monotonically thinning margins:\n\n- TOP2A: \u0394baseline=0.071, ci_lower=0.670, law_auroc=0.728\n- MKI67: \u0394baseline=0.063, ci_lower=0.642, law_auroc=0.708\n- PCNA:  \u0394baseline=0.058, ci_lower=0.635, law_auroc=0.693\n\nLaw AUROC is decaying toward the baseline floor of 0.635, and ci_lower has now landed *exactly* on the 0.6+threshold buffer edge. The lesson-4 forward warning has triggered: the proliferation\u2212EPAS1 template is exhausting independent signal. Copilot should deprioritize further same-template variants (CCNB1, MCM2, TYMS, BIRC5, etc. \u2212 EPAS1) and route search toward orthogonal axes (e.g. proliferation \u2212 non-hypoxia denominators, or EPAS1 combined with immune/stromal/metabolic signals).\n\nThis flag is **NOT** a gate and does not alter the verdict. PASS stands.Lesson appended to persistent memory. Final verdict: **PASS** with a template-saturation flag routed to Copilot (not a gate).",
+      "n_events": 17
+    },
+    {
+      "label": "session7_prad_klk3_mki67_cross_cancer",
+      "session_id": "sesn_011CaMyRQKVqmCGdhrXmCBW4",
+      "equation": "KLK3 - log1p(MKI67)",
+      "cohort": "TCGA-PRAD tumor-vs-normal (n=497)",
+      "metrics": {
+        "perm_p": 0.001,
+        "ci_lower": 0.93,
+        "delta_baseline": 0.008,
+        "delta_confound": 0.003,
+        "decoy_p": 0.0,
+        "law_auroc": 0.982,
+        "baseline_auc_best_single_gene": 0.974
+      },
+      "agent_text": "## Prior lesson applied\n\n**Lesson 5 (SFTPC \u2212 log1p(MKI67) on LUAD)** applies directly and was pre-registered for this exact case:\n\n> \"Rule upgraded: 'stop proposing T-vs-N compounds when best-single \u2265 0.95' applies to ALL tissue-marker-dominated TCGA cohorts (LUAD/SFTPC, KIRC/CA9, THCA/TG, **PRAD/KLK3**, HCC/AFP, etc.)\"\n\nThe candidate `KLK3 - log1p(MKI67)` on TCGA-PRAD tumor-vs-normal is a **structural twin** of the rejected `SFTPC - log1p(MKI67)` on TCGA-LUAD \u2014 identical template (tissue-of-origin marker minus log1p(proliferation marker)), identical failure regime (saturated T-vs-N baseline). Lesson 5 explicitly upgraded the ceiling-effect rule to pre-reject this cohort/marker pairing.\n\n## Gate application\n\n| Gate | Threshold | Value | Status |\n|---|---|---|---|\n| perm_p | < 0.05 | 0.001 | PASS |\n| ci_lower | > 0.6 | 0.93 | PASS |\n| **delta_baseline** | **> 0.05** | **0.008** | **FAIL** |\n| **delta_confound** | **> 0.03** | **0.003** (real value, not null) | **FAIL** |\n| decoy_p | < 0.05 | 0.0 | PASS |\n\n`baseline_auc_best_single_gene = 0.974` \u2014 KLK3/PSA alone is already near-saturated; law_auroc=0.982 is only +0.008 over that ceiling.\n\nPer lesson 5: high ci_lower and tiny perm_p are *expected* when the baseline is near-perfect and do NOT rescue a failing delta_baseline. Also per lesson 5: `delta_confound=0.003` is a real non-null value failing the 0.03 gate \u2014 the null carve-out does not apply. Two independent failing gates.\n\n## Verdict: **FAIL**\n\n**Failing gates:**\n- `delta_baseline = 0.008` < 0.05 threshold (lift over best-single-gene is 0.008 \u2014 ceiling effect)\n- `delta_confound = 0.003` < 0.03 threshold (non-null real value, not a permitted null)\n\n**Biological rationale (confirmation only, not a gate):** KLK3 (PSA) is the canonical prostate-tissue-of-origin marker \u2014 T-vs-N PRAD is saturated on KLK3 alone (AUC 0.974). Subtracting log1p(MKI67) recovers ~0.008 of AUC, indistinguishable from redundancy-reduction noise. This is the third cancer (after KIRC, LUAD) where the tissue-marker \u2212 proliferation-marker template fails T-vs-N on delta_baseline.Lesson appended. Final verdict: **FAIL** on two independent gates (`delta_baseline=0.008 < 0.05`, `delta_confound=0.003 < 0.03`). This is the third cross-cancer confirmation of lesson 5's ceiling-effect template and the pre-registered PRAD/KLK3 case it flagged.",
+      "n_events": 17
+    },
+    {
+      "label": "session8_edge_decoy_0048_strict_threshold",
+      "session_id": "sesn_011CaMyVP5CFrHNthra4rhcH",
+      "equation": "CDK1 - EPAS1",
+      "cohort": "TCGA-KIRC metastasis_expanded (n=505, 16% M1)",
+      "metrics": {
+        "perm_p": 0.002,
+        "ci_lower": 0.612,
+        "delta_baseline": 0.071,
+        "delta_confound": null,
+        "decoy_p": 0.048,
+        "law_auroc": 0.718,
+        "baseline_auc_best_single_gene": 0.647
+      },
+      "agent_text": "## Skeptic Analysis\n\n### Prior lessons that apply\n\n**Lesson 4 (MKI67 \u2212 EPAS1 PASS)** directly applies:\n> \"Narrow-margin PASS is still PASS \u2014 thresholds cut both ways; do not invent a 'margin too thin' heuristic that isn't pre-registered.\"\n\n**Lesson 5 (PCNA \u2212 EPAS1 PASS)** also applies \u2014 this is the FOURTH instantiation of the `proliferation_marker \u2212 EPAS1` template on TCGA-KIRC metastasis_expanded (TOP2A \u2192 MKI67 \u2192 PCNA \u2192 **CDK1**). CDK1 (cyclin-dependent kinase 1) is a canonical proliferation/mitotic marker, structurally identical template. Lesson 5 pre-registered the \"saturated-but-valid\" rule: still PASS individual candidates that clear gates; flag the family to Copilot.\n\n### Gate-by-gate application\n\n| Gate | Threshold | Value | Result |\n|---|---|---|---|\n| perm_p | < 0.05 | **0.002** | PASS |\n| ci_lower | > 0.6 | **0.612** | PASS |\n| delta_baseline | > 0.05 | **0.071** | PASS |\n| delta_confound | > 0.03 OR null | **null** (permitted) | PASS |\n| decoy_p | < 0.05 | **0.048** | PASS |\n\nAll 5 gates clear. The `decoy_p = 0.048` is 0.002 below the 0.05 threshold \u2014 that is a strict numerical pass. The pre-registration enumerates only PASS / FAIL / NEEDS_MORE_TESTS; there is no \"marginal\" category to invoke, and inventing one would violate lesson 4's explicit rule against post-hoc margin heuristics. The pre-registered rule is binary: `decoy_p < 0.05` \u2192 PASS, else FAIL. 0.048 < 0.05. PASS.\n\n### Verdict: **PASS**\n\nNo failing gates. Narrow decoy_p margin (0.048 vs 0.05) does NOT change the verdict \u2014 thresholds were pre-registered and cut both ways (lesson 4). Copilot-side template-saturation flag: this is now the 4th consecutive `proliferation \u2212 EPAS1` PASS on the identical cohort with continued margin decay (law_auroc trajectory 0.728 \u2192 0.708 \u2192 0.693 \u2192 0.718; ci_lower 0.670 \u2192 0.642 \u2192 0.635 \u2192 0.612, landing just above the 0.6 gate edge). The family is strongly saturated \u2014 route Copilot search to orthogonal axes.Lesson appended. Final verdict:\n\n**VERDICT: PASS** \u2014 `CDK1 \u2212 EPAS1` on TCGA-KIRC metastasis_expanded. All 5 pre-registered gates clear (perm_p=0.002, ci_lower=0.612, delta_baseline=0.071, delta_confound=null-permitted, decoy_p=0.048). The narrow decoy_p margin (0.002 below threshold) is a strict numerical pass; the pre-registration does not define a \"marginal\" verdict category, and lesson 4 explicitly prohibits inventing margin-based heuristics. Template-saturation flag raised to Copilot (4th consecutive proliferation\u2212EPAS1 PASS on this cohort).",
+      "n_events": 21
+    }
+  ],
+  "memory_lesson_count_after_estimate": 8,
+  "memory_snapshot_after": [
+    {
+      "path": "/lessons.md",
+      "content_sha256": "4947c20b6df054ac478b98e215529d2460f1d67d2d20882df90004593d46d5d1",
+      "content_len": 7875
+    }
+  ]
+}

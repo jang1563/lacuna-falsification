@@ -1,0 +1,38 @@
+{
+  "hypothesis": "In ccRCC, the scalar TOP2A − EPAS1 indexes a tumor's position on the ccA↔ccB axis, and metastatic competence is driven by a shift away from an EPAS1 (HIF-2α)-dominated angiogenic/indolent state (ccA-like) toward a TOP2A-high proliferative/dedifferentiated state (ccB-like). High TOP2A − EPAS1 therefore marks tumors that have decoupled from HIF-2α-driven vasculogenic homeostasis and entered a cell-cycle-dominant program licensed for distant spread.",
+  "mechanism": "VHL inactivation in ccRCC stabilizes EPAS1/HIF-2α, which sustains VEGF/angiogenic and metabolic outputs that define the ccA subtype — a relatively differentiated, vasculature-coupled state with favorable prognosis and preserved response to VEGF-pathway therapy. When tumors dedifferentiate toward ccB, the transcriptome pivots from HIF-2α-driven angiogenesis to an E2F/MYC-style proliferation program in which TOP2A (a decatenating topoisomerase essential for S/G2-M) is strongly upregulated, mirroring its role as a proliferation-coupled, prognostic-unfavorable marker in renal cancer (HPA). Subtracting EPAS1 from TOP2A on a per-tumor basis therefore yields a single scalar that captures the opposing vectors of the Brannon ccA/ccB split and the ClearCode34 classifier: ccA tumors (EPAS1-high, TOP2A-low) sit at negative values and remain locally indolent; ccB tumors (TOP2A-high, EPAS1-reduced) sit at positive values, exhibit genomic instability from elevated topoisomerase activity and replication stress, lose angiogenic normalization, and acquire the proliferative/EMT-competent phenotype that manifests as M1 disease in TCGA-KIRC and as shorter PFS under VEGF-TKI/atezolizumab pressure in IMmotion150. The +0.004 interaction-LR delta shows the biology is carried by the difference (axis position), not by a multiplicative TOP2A·EPAS1 term — exactly what a subtype-axis interpretation predicts.",
+  "cited_evidence": [
+    {"ref": "Brannon et al. 2010 (PMID 20871783)", "role": "Establishes the ccA/ccB transcriptomic dichotomy in ccRCC: ccA is angiogenesis/hypoxia-response dominant (EPAS1-anchored) with favorable survival; ccB is proliferation/cell-cycle dominant with poor survival and metastatic propensity — the exact axis TOP2A − EPAS1 projects onto."},
+    {"ref": "Brooks et al. 2014, ClearCode34 (DOI 10.1016/j.eururo.2014.02.035)", "role": "Operationalizes ccA/ccB as a 34-gene classifier whose ccA half is enriched for HIF/angiogenic genes including EPAS1 and whose ccB half is enriched for mitotic/cell-cycle genes; predicts recurrence and cancer-specific survival, grounding the prognostic direction of the TOP2A−EPAS1 scalar."},
+    {"ref": "TOP2A in ccRCC, 2024 (PMID 38730293)", "role": "Demonstrates TOP2A overexpression in ccRCC drives proliferation, correlates with higher stage/grade and worse outcome, and is mechanistically tied to cell-cycle progression — supplying the positive arm of the law."},
+    {"ref": "Human Protein Atlas v21.0, TOP2A renal", "role": "Independent pathology-grade confirmation that TOP2A is prognostic_unfavorable in renal cancer, consistent with the sign of TOP2A in the survivor law."},
+    {"ref": "Human Protein Atlas v21.0, EPAS1 renal", "role": "Independent confirmation that EPAS1 is prognostic_favorable in renal cancer, consistent with EPAS1 entering the law with a negative coefficient."},
+    {"ref": "IMmotion150 PFS replay (log-rank p=2.7e-4, HR=1.36, C=0.601)", "role": "External validation that the TOP2A−EPAS1 scalar, derived from TCGA-KIRC metastasis, also stratifies progression-free survival under VEGF-TKI/atezo therapy, consistent with ccB-axis tumors being less dependent on HIF-2α/VEGF angiogenesis and therefore less controlled by VEGF-axis treatment."}
+  ],
+  "falsifiable_predictions": [
+    {
+      "prediction": "Per-tumor TOP2A − EPAS1 will correlate monotonically with ClearCode34 ccB assignment, with ccB tumors concentrated at positive values and ccA tumors at negative values (Spearman ρ ≥ 0.5 between the scalar and ccB probability).",
+      "test": "Compute ClearCode34 ccA/ccB calls and probabilities on TCGA-KIRC and on an independent ccRCC cohort (e.g., CPTAC-CCRCC, CheckMate-025 RNA), then regress TOP2A − EPAS1 against ccB probability; the hypothesis fails if ρ < 0.3 or if the sign reverses."
+    },
+    {
+      "prediction": "Matched primary-versus-metastasis pairs will show higher TOP2A − EPAS1 in the metastatic lesion than in the primary in the majority of cases.",
+      "test": "Apply the scalar to paired primary/metastasis RNA-seq (e.g., TRACERx Renal, MSK-MET ccRCC pairs); hypothesis fails if the paired Wilcoxon p > 0.05 or if the direction is not positive."
+    },
+    {
+      "prediction": "In IMmotion150/IMmotion151, high TOP2A − EPAS1 tumors will show a larger PFS gap favoring atezolizumab+bevacizumab (or atezolizumab monotherapy) over sunitinib than low-scalar tumors, because sunitinib's benefit is tied to EPAS1-driven angiogenic dependence.",
+      "test": "Stratify the trial arms by scalar tertile and fit an arm×scalar interaction Cox model; hypothesis fails if the interaction term is non-significant or directionally opposite (i.e., sunitinib advantage grows with the scalar)."
+    },
+    {
+      "prediction": "At the protein level, dual IHC of TOP2A (nuclear, Ki67-like) and HIF-2α/EPAS1 will yield a TOP2A-high/EPAS1-low subset with markedly elevated metastasis incidence and shorter DFS compared to TOP2A-low/EPAS1-high tumors.",
+      "test": "Score a ccRCC TMA (≥200 cases) for both markers, compute a combined index, and test DFS by Kaplan–Meier with log-rank; hypothesis fails if the TOP2A-high/EPAS1-low quadrant does not show the worst survival."
+    },
+    {
+      "prediction": "CRISPR or shRNA knockdown of TOP2A in EPAS1-low ccRCC lines (e.g., 786-O derivatives engineered to low HIF-2α) will suppress proliferation and invasion more than in EPAS1-high isogenic controls, demonstrating that the proliferative arm becomes rate-limiting precisely when the HIF-2α arm is dampened.",
+      "test": "Generate isogenic EPAS1-high vs EPAS1-low ccRCC lines, knock down TOP2A, and assay proliferation, transwell invasion, and in vivo lung colonization; hypothesis fails if TOP2A knockdown does not preferentially impair the EPAS1-low context."
+    },
+    {
+      "prediction": "Replacing TOP2A with any other ccB proliferation marker (MKI67, CCNB1, BIRC5) and EPAS1 with any other ccA/HIF marker (VEGFA, CA9, ANGPTL4) will recover ≥90% of the law's AUROC on TCGA-KIRC metastasis, because the law indexes an axis, not two unique genes.",
+      "test": "Substitute genes pairwise and recompute AUROC with the same cross-validation; hypothesis fails if no substitution reaches ≥0.90 × 0.726 AUROC, which would imply a TOP2A/EPAS1-specific mechanism rather than an axis projection."
+    }
+  ]
+}

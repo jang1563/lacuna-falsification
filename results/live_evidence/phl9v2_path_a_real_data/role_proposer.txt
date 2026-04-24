@@ -1,0 +1,19 @@
+I note the system reminder on malware analysis. The files here are a TCGA-KIRC gene expression CSV and a JSON law-proposal template — benign scientific data with no executable code or malware characteristics, so I'll proceed with the requested analysis task.The files read are not malware — they are a TCGA gene-expression CSV (numeric data) and a JSON template library of biological law proposals. No executable code, no malicious patterns. Proceeding with the proposer task.Data confirmed: 505 samples (M0=426, M1=79), genes are log-normalized (range ~0–13). Labels align perfectly with m_stage (control↔M0, disease↔M1). Now emitting the Night-2 proposal JSON.All five `initial_guess` formulas are Python-parseable (verified by `eval` with `numpy.log1p`) and evaluate cleanly on the 505-sample dataset. Strict JSON emitted to `/mnt/session/outputs/night2_proposals.json`.
+
+### Night-2 proposal summary
+
+| id | role | genes (≤5) | form | pre-registered kill-rule (headline) |
+|---|---|---|---|---|
+| **LF-PROLIF-minus-HIF2A** | candidate | TOP2A, MKI67, CDK1, EPAS1 | `mean(log1p(TOP2A,MKI67,CDK1)) − log1p(EPAS1)` | CV-AUC < 0.68 OR does not beat best single-gene anchor by +0.02 OR sign flips across 3 seeds OR age-confounded in M0 |
+| **LF-WARBURG-vs-OXPHOS** | candidate | LDHA, SLC2A1, PDK1, LDHB, AGXT | `mean(log1p(LDHA,SLC2A1,PDK1)) − mean(log1p(LDHB,AGXT))` | CV-AUC < 0.70 OR does not beat `log1p(CA9)` by +0.02 OR DeLong p≥0.05 vs LDHA-alone OR batch/age-confounded |
+| **LF-HIF-ANGIO-SHIFT** | candidate | VEGFA, ANGPTL4, EPAS1, CA9 | `log1p(VEGFA)+log1p(ANGPTL4) − log1p(EPAS1) − log1p(CA9)` | CV-AUC < 0.65 OR drops > 0.10 under LOBO-batch OR drops > 0.10 when restricted to CA9>median OR refit coefficient signs disagree with prior |
+| **LF-EMT-STROMA** | candidate | MMP9, SPP1, CXCR4, S100A4, PAX8 | `mean(log1p(MMP9,SPP1,CXCR4,S100A4)) − log1p(PAX8)` | CV-AUC < 0.72 OR DeLong p≥0.05 vs every single-gene anchor OR AUC matched (Δ<0.01) by MMP9 alone |
+| **LF-HOUSEKEEPING-NULL** | **negative_control** | ACTB, GAPDH, RPL13A | `log1p(ACTB)+log1p(RPL13A) − 2·log1p(GAPDH)` | Expected FAIL (AUC in [0.40, 0.60]); if AUC > 0.60 → dataset red-flag, halt pipeline for audit |
+
+### Coverage of required properties
+- **Proliferation − HIF-2α contrast** → `LF-PROLIF-minus-HIF2A` (TOP2A/MKI67/CDK1 vs EPAS1).
+- **Warburg-based form** → `LF-WARBURG-vs-OXPHOS` (glycolytic trio vs LDHB+AGXT oxidative anchor).
+- **Ex-ante negative control** → `LF-HOUSEKEEPING-NULL` with `expected_verdict:"FAIL"` and a dataset-audit escape clause if it unexpectedly passes.
+- All five families ≤5 genes, all genes present in the 45-gene panel, all formulas fixed-coefficient (no free parameters) so the skeptic tests are true ex-ante falsifiers rather than post-hoc fits.
+
+Deliverable: `/mnt/session/outputs/night2_proposals.json`.

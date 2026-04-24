@@ -1,6 +1,6 @@
 # STATUS — theory-copilot-falsification
 
-**Last updated:** 2026-04-23 22:25 ET (Phase L + review-handoff fixes complete; PhL-9 + PhL-10 shipped)
+**Last updated:** 2026-04-24 (deep-research rebuild + PhL-9v2 real-data + PhL-11/12/13 shipped + Codex stale-phrase pass)
 **Submit window:** 2026-04-26 20:00 ET (T-2d 22h)
 **Judging:** 2026-04-28 12:00 ET final round
 **Repo:** https://github.com/jang1563/theory-copilot-falsification (public since 2026-04-23 19:32 ET)
@@ -10,7 +10,7 @@
 
 ## 🎯 Submission-ready snapshot
 
-- **10 PhL artefacts** (PhL-1 to PhL-10) all live, all committed, all pushed.
+- **14 PhL artefacts** (PhL-1 to PhL-13 + PhL-9v2) all live, all committed, all pushed.
 - **Review-handoff** (`plans/theory_copilot_review_handoff_2026_04_23.md`) processed: 12 of 20 findings fixed (P0 + P1 batch); 8 deferred with explicit rationale in commit messages.
 - **`make all`** one-command reproduction of tests + audit + prereg-audit + rejection-log + paper PDF (no API key required).
 - **`.devcontainer/devcontainer.json`** — judges can click "Open in GitHub Codespaces" and reach `make test` green in ~2 min.
@@ -31,6 +31,10 @@
 | **PhL-8** | 200 OK — Claude Code Routines `/fire` LIVE; clickable session URL committed | `results/live_evidence/phl8_routine_fire/SUMMARY.md` |
 | **PhL-9** | OK — Path A sequential 3-session chain live (`delegation_mode=sequential_fallback`, 706 s) | `results/live_evidence/phl9_path_a_chain/SUMMARY.md` |
 | **PhL-10** | PASS — Memory chain extended 3 → 5 lessons; ceiling-effect rule generalizes KIRC→LUAD | `results/live_evidence/phl10_memory_chain_extended/SUMMARY.md` |
+| **PhL-9v2** | OK — Path A on **real TCGA-KIRC** via `files.upload()` mount; Skeptic quotes `delta_baseline=+0.0587` on LF-PROLIF-minus-HIF2A | `results/live_evidence/phl9v2_path_a_real_data/SUMMARY.md` |
+| **PhL-11** | Mixed — Opus 4.7 vs Sonnet 4.6 3-turn adversarial: Opus literal per-attack rule following (5 vs 1 CRISPR KO); both 100% concede (Petri-2.0 consistent) | `results/live_evidence/phl11_adversarial_critique/SUMMARY.md` |
+| **PhL-12** | PASS — Memory chain deepened 5 → **8** lessons; agent quoted + applied prior meta-rules across 3 edge cases | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
+| **PhL-13** | **DISCOVERY SIGNAL** — TOP2A-EPAS1 in 0/10 Opus 4.7 zero-shot top picks; refutes LLM-SRBench memorization concern | `results/live_evidence/phl13_memorization_audit/SUMMARY.md` |
 
 Plus pre-Phase-L artefacts (Flagship + Tier 2 + Track A/B + Phase F preregs + G/H/I depth + IMmotion150 PhF-3 replay + paper) — full index at `docs/ARTIFACT_INDEX.md`.
 

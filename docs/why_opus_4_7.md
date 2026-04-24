@@ -7,46 +7,80 @@ replaced by a smaller model without changing what the artifact claims.
 
 This document is deliberately honest about what Opus does not do.
 
-## 0. Two complementary layers of self-verification
+## 0. Opus 4.7 self-verifies natively. This repo ships the missing external check.
 
-Anthropic's official Opus 4.7 launch (2026-04-16) introduces the model as
-one that *"devises ways to verify its own outputs before reporting back."*
-That claim is load-bearing — it's the first capability the launch blog
-cites, ahead of any benchmark number.
+Anthropic's Opus 4.7 launch ([anthropic.com/news/claude-opus-4-7,
+2026-04-16](https://www.anthropic.com/news/claude-opus-4-7)) positions
+the model as one that *"handles complex, long-running tasks with rigor
+and consistency, pays precise attention to instructions, and devises
+ways to verify its own outputs before reporting back."* That is the
+first capability the launch blog cites, ahead of any benchmark number.
 
-Theory Copilot's architecture is **complementary** to that native
-model-level claim, not an instantiation of it. The two layers address
-different failure modes of AI-for-Science:
+At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud
+Code team) named the complement to that native capability as an **open
+problem**: *"a verification script that forces the agent to test its
+own outputs against hard constraints"* — something the team intends
+to write about publicly. Michael Cohen (Managed Agents team) described
+the upcoming `outcomes` research-preview feature in the same terms on
+2026-04-23: *"It is effectively a self-verification loop... in order
+for you to think of this task as done, these things have to be true."*
 
-- **Model-level (native to 4.7):** abstention on unknowns tightened
-  from 61% incorrect (Opus 4.6 adaptive) to 36% (Opus 4.7 adaptive),
-  accuracy ~constant [Opus 4.7 model card, 2026-04-16]. This is a
-  calibration of the model's *own judgement*, without external
-  reference.
-- **Pipeline-level (this repo):** the 5-test falsification gate is
-  deterministic Python that the model cannot rationalise past. It
-  works **regardless of which frontier model is in the Skeptic role**
-  (empirically tested with Opus 4.6 and 4.7 at n=60 each in
-  `results/ablation/opus_46_vs_47/`).
+Theory Copilot is the external script that turns native self-verification
+into an audit-grade measurement harness. The two layers compose:
 
-The empirical comparison in G6 shows:
-- **Strict miscalibration** (FAIL-on-PASS / PASS-on-FAIL): both models
-  0.0%. Neither commits this type of error on our corpus. The gate's
-  value here is independent of model choice.
-- **Verdict confidence distribution:** Opus 4.7 is more decisive on
-  unambiguous survivors (`TOP2A − EPAS1`: PASS 10/10 vs 4.6's PASS
-  7/10) and more abstentive on a stress-test case (5-gene compound:
-  `NEEDS_MORE_TESTS` 10/10 vs 4.6's 8/10 + **PASS 2/10, an
-  over-commitment 4.7 never makes**). This is the *qualitative shape*
-  of Anthropic's 61→36% delta, detectable inside the set of
-  "not-wrong" answers.
+- **Model-level (native to 4.7):** on the AA-Omniscience benchmark
+  ([Artificial Analysis, 2026-04-16](https://artificialanalysis.ai/articles/opus-4-7-everything-you-need-to-know))
+  Opus 4.7 scores **26** vs **14** for Opus 4.6 Adaptive Max, hallucination
+  rate drops from **61% to 36%**, and attempt rate drops from **82% to
+  70%** — the model abstains more when it should, without losing
+  accuracy. Self-calibration, no external reference.
+- **Pipeline-level (this repo):** a pre-registered deterministic
+  5-test gate in plain Python that the LLM cannot renegotiate. The
+  Skeptic turn reviews the gate's output, not the Proposer's rationale.
+
+### What changes when you swap the Skeptic model
+
+The 180-call cross-model ablation ([results/ablation/SUMMARY.md](../results/ablation/SUMMARY.md))
+runs the same prompt, same candidate, same thinking budget across three
+models. The pre-registered citation-specificity predictions were
+**falsified** (all three models cite ≥2 metrics in 100% of critiques —
+honest null). The verdict distribution is where Opus 4.7 is
+distinguishable:
+
+| model | PASS | NEEDS_MORE_TESTS | FAIL | dissent_on_gate_PASS_pct |
+|---|---|---|---|---|
+| `claude-opus-4-7` | **10 / 60** | 20 | 30 | 66.7% |
+| `claude-haiku-4-5` | 14 / 60 | 16 | 30 | 53.3% |
+| `claude-sonnet-4-6` | **0 / 60** | 30 | 30 | **100.0%** |
+
+*Same 6 candidates × 10 repeats, same `prompts/skeptic_review.md`, same
+gate metrics, same `thinking={"type":"enabled","budget_tokens":8000}`.*
+
+**Sonnet 4.6 dissents on 100% of gate-PASS candidates — it cannot hold
+the judgement stance across the dual-role prompt and collapses into
+permanent rejection.** Opus 4.7 dissents on 66.7% — PASS when the gate
+output warrants it (10 calls), dissent when the margin is thin. This is
+the *measurable* capability that makes the pipeline's Skeptic
+interpretable: Sonnet would reject the textbook HIF-axis law *and* the
+TOP2A-EPAS1 survivor indistinguishably; Opus 4.7 draws the line where
+the pre-registered thresholds draw it.
+
+On the same ablation, Opus 4.6 vs 4.7 (n=60 each,
+[results/ablation/opus_46_vs_47/](../results/ablation/opus_46_vs_47/))
+shows the qualitative shape of Anthropic's 61→36% hallucination delta
+inside the set of not-wrong answers: 4.7 commits PASS 10/10 on clean
+survivors where 4.6 commits 7/10, and abstains
+`NEEDS_MORE_TESTS` 10/10 on a stress-test 5-gene compound where 4.6
+over-commits PASS 2/10. **Strict miscalibration** (FAIL-on-PASS /
+PASS-on-FAIL) is 0% for both — the gate's value is independent of
+model choice; 4.7's value shows up in the graded {PASS, FAIL,
+NEEDS_MORE_TESTS} calibration against pre-registered thresholds.
 
 Concretely: the gate makes the pipeline auditable to a reviewer who
 does not trust any specific model. Opus 4.7's calibration makes the
-*interior* of the pipeline (the Skeptic's graded {PASS, FAIL,
-NEEDS_MORE_TESTS} choice) better aligned with the evidence. The two
-are independently load-bearing — dropping either degrades a
-different reviewer's trust.
+*interior* of the pipeline better aligned with the evidence. The two
+are independently load-bearing — and the 0-vs-10 Sonnet-vs-Opus PASS
+gap is the measurable case for why the model swap cannot be made.
 
 ## 1. The problem: confirmation bias is automated now
 

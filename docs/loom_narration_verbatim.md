@@ -250,7 +250,7 @@ budget for the rest of the script.
 - [ ] Browser tab strips hidden (no email previews / GitHub usernames
       visible)
 - [ ] Terminal pane prompt clean (no `~/.local/...` or
-      `(.venv) jak4013@...` username visible — use `PS1="$ "` if
+      `(.venv) <username>@<host>` visible — use `PS1="$ "` if
       needed)
 - [ ] Loom set to 1080p
 - [ ] One full silent rehearsal under 95 s before camera rolls

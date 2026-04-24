@@ -1,0 +1,31 @@
+```json
+{
+  "responses": [
+    {
+      "attack_id": 1,
+      "verdict": "concede",
+      "calculation_or_limitation": "Unconstrained-subtractive-parameterization-not-validated-by-LRT: at ΔAUROC=0.004, SE_diff=sqrt(2×0.031²−2×0.95×0.031²)=0.031×sqrt(0.10)=0.0098, z=0.004/0.0098=0.41, two-sided p=0.68; the constraint β₁=−β₂ is statistically indistinguishable from a free two-coefficient logistic model (ΔBIC<0.5 by Kass–Raftery criteria on 81 positives). The claim that Δ=0.004 'confirms' oppositional biology is an invalid inference: a non-significant LRT cannot establish equivalence, and the 95% CI on the delta [−0.016, +0.024] includes values implying synergy. The subtractive structure is biologically motivated but empirically unvalidated by formal model comparison in this dataset.",
+      "char_count": 618
+    },
+    {
+      "attack_id": 2,
+      "verdict": "concede",
+      "calculation_or_limitation": "Absence-of-NRI-and-IDI-versus-Fuhrman-grade: PPV at balanced operating threshold = (0.726×0.16)/(0.726×0.16+0.274×0.84) = 0.1162/0.3463 = 0.336; at 90%-sensitivity threshold, specificity≈0.40 (binormal approximation), PPV=(0.90×0.16)/(0.90×0.16+0.60×0.84)=0.144/0.648=0.222. Fuhrman/WHO grade achieves AUROC≈0.69–0.72 for M1 status in TCGA-KIRC with zero molecular profiling cost. No NRI or IDI of TOP2A−EPAS1 over grade is reported; incremental clinical utility of RNA quantification over H&E histopathology is unestablished. The perm_p=0.0 reporting is also non-informative: with k permutations, minimum resolvable p=1/k; exact zero precludes tail-probability quantification.",
+      "char_count": 622
+    },
+    {
+      "attack_id": 3,
+      "verdict": "concede",
+      "calculation_or_limitation": "Absence-of-multivariable-Cox-model-versus-IMDC-score: IMDC achieves C≈0.664 in metastatic RCC (Heng 2013, n=1028); TOP2A−EPAS1 achieves C=0.601 in IMmotion150, ΔC=−0.063 relative to IMDC alone. R²_D=D²/(D²+π²/3) where D≈sqrt(8/π)×Φ⁻¹(0.601)≈0.71, giving R²_D=0.504/(0.504+3.290)=0.133—law explains 13.3% of PFS variance. No AIC/BIC comparison of IMDC-alone vs. IMDC+TOP2A−EPAS1 Cox model is reported; given ΔC=−0.063 disfavoring the molecular law, ΔBIC would penalize the added term, and the claim of independent prognostic contribution over established clinical risk tools is undemonstrated.",
+      "char_count": 601
+    },
+    {
+      "attack_id": 4,
+      "verdict": "concede",
+      "calculation_or_limitation": "EPAS1→CDKN1A→TOP2A-suppressive-mediation-chain-sign-contradicted: Sobel product-of-coefficients = a×b = (+0.11)×(+0.38) = +0.042; SE≈sqrt((0.38²×SE_a²)+(0.11²×SE_b²))≈sqrt((0.1444×0.0009)+(0.0121×0.0025))≈0.016; z=+0.042/0.016=2.6, p=0.009. The indirect effect is statistically significant and directionally positive—CDKN1A acts as a positive, not negative, intermediary in TCGA-KIRC tumor tissue. The CDKN1A-dependent suppressive chain is falsified by sign reversal; the mechanistic narrative must be restricted to the direct EPAS1→TOP2A negative co-variation path (r≈−0.43) and the co-activator sequestration model (HIF-2α/E2F competition for CBP/p300) without CDKN1A as validated intermediary.",
+      "char_count": 647
+    }
+  ],
+  "net_position_change": "softened"
+}
+```

@@ -1,0 +1,33 @@
+{
+  "hypothesis_id": "phl9v2_path_a_real_data",
+  "run_date_utc": "2026-04-24T04:32:24Z",
+  "delegation_mode": "sequential_fallback",
+  "status": "completed",
+  "wall_seconds": 300.4,
+  "env_id": "env_01AadWm3r2TcZ2yyDfBW7wc1",
+  "agent_ids": {
+    "proposer": "agent_011CaMxrVGEoKf1yPzAApdgY",
+    "searcher": "agent_011CaMxrWDnMachhfeoCQ85C",
+    "skeptic": "agent_011CaMxrX4PJYWz5qBUeNfXq"
+  },
+  "session_ids": {
+    "proposer": "sesn_011CaMxrYQVnLeKZEw6Bgjjs",
+    "searcher": "sesn_011CaMy52X1Ydg6UVtAW65bw",
+    "skeptic": "sesn_011CaMyCzwySvQWBEUBPCfJL"
+  },
+  "file_ids": {
+    "kirc_metastasis_expanded.csv": "file_011CaMxrPduStAK8QCeGyqx4",
+    "law_proposals.json": "file_011CaMxrSNMdtkfRKEu1dcK1"
+  },
+  "per_role_char_counts": {
+    "proposer": 2823,
+    "searcher": 3910,
+    "skeptic": 1933
+  },
+  "per_role_event_counts": {
+    "proposer": 49,
+    "searcher": 42,
+    "skeptic": 4
+  },
+  "narrative": "PhL-9 v2 \u2014 closes the PhL-9 v1 evidence weakness (which ran on a synthetic physics toy because no data was mounted). v2 uploads the real TCGA-KIRC metastasis_expanded CSV + our law_proposals.json template library via `client.beta.files.upload()` and mounts them into each session's /workspace/ via `resources=[{\"type\":\"file\",...}]`. The Proposer reads the real 505-row cohort, emits ccRCC-grounded law families (TOP2A / EPAS1 / CA9 / VEGFA). The Searcher fits them on the real data and reports law_auroc + delta_baseline. The Skeptic applies the pre-registered threshold and emits a PASS / NEEDS_MORE_TESTS verdict quoting real TCGA-KIRC numbers. Path A is the sequential public-beta-compliant execution path per the 2026-04-23 hackathon fairness ruling."
+}
