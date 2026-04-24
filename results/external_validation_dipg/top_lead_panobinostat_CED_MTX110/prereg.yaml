@@ -3,7 +3,7 @@ disease: "H3 K27M-mutant diffuse midline glioma (DIPG/DMG)"
 disease_code: "DMG_H3K27M"
 hypothesis_name: "CED-delivered MTX110 (aqueous panobinostat) in H3 K27M+ newly-diagnosed DIPG rescues systemic PBTC-047 PK failure"
 prereg_utc: "2026-04-24T22:00:00Z"
-operator_id: "<redacted-for-hackathon-submission>"
+operator_id: "principal-operator"   # scrubbed for public mirror; original pre-reg in sibling dipg_rescue repo (SHA 8a4ecc5)
 rejected_trial:
   nct: "NCT02717455"
   drug: "panobinostat (oral/systemic)"

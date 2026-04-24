@@ -1,12 +1,15 @@
 # External validation / generalization — DIPG rescue engine
 
 **Purpose:** mirror of key artefacts from the sibling `dipg_rescue/`
-project showing the same Theory Copilot 4-role engine (Proposer /
-Searcher / Skeptic / Interpreter) re-applied to a structurally
-distant second disease: H3 K27M-mutant diffuse intrinsic pontine
-glioma (DIPG / diffuse midline glioma). This mirror exists so
-submission materials (Loom narration, submission form) can reference
-the result without leaving the `theory_copilot_discovery` tree.
+project showing the same Theory Copilot 4-role agent pattern re-applied
+to a structurally distant second disease: H3 K27M-mutant diffuse
+intrinsic pontine glioma (DIPG / diffuse midline glioma). The DIPG
+variant uses rescue-claim-specific role prompts — **Advocate /
+Evidence Retriever / Skeptic / Interpreter** — the clinical-rescue
+analogue of the KIRC flagship's Proposer / Searcher / Skeptic /
+Interpreter pipeline. This mirror exists so submission materials
+(Loom narration, submission form) can reference the result without
+leaving the `theory_copilot_discovery` tree.
 
 ## Source
 
@@ -23,12 +26,18 @@ the result without leaving the `theory_copilot_discovery` tree.
 - `RESULTS.md` — verdict distribution summary (15 candidates, 7
   supported, 7 mixed, 1 insufficient, 0 missing) + ranked-by-score
   table.
-- `top_lead_panobinostat_CED_MTX110/` — the #3-tied top lead
-  (aggregate score 13 / 15, rescue-class **delivery**):
+- `top_lead_panobinostat_CED_MTX110/` — the integrator-selected top
+  lead among five candidates tied at aggregate score 13 / 15 (tie-break
+  prefers `rescue_class = delivery`, which is the cleanest
+  dordaviprone-pattern match in the 15-candidate set; the other four
+  at 13/15 were: avapritinib-PDGFRA, GD2-CAR-T-H3K27M,
+  ONC201+everolimus+paxalisib, pembrolizumab-CMMRD). Rescue-class
+  **delivery**.
   - `04_panobinostat_CED_MTX110.verdict.json` — final pipeline verdict
   - `*.advocate.json`, `*.skeptic.json`, `*.interpreter.json` — per-role
-    structured output (4-role engine; `advocate` is the DIPG-specific
-    Proposer variant)
+    structured output (4-role engine: Advocate / Evidence Retriever /
+    Skeptic / Interpreter — DIPG-rescue prompts, NOT the KIRC flagship
+    Proposer/Searcher/Skeptic/Interpreter prompts)
   - `*.usage.json` — per-role token + cost accounting
   - `prereg.yaml` — candidate pre-registration YAML from
     `../dipg_rescue/prereg/04_panobinostat_CED_MTX110.yaml`
