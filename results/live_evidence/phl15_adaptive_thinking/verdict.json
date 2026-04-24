@@ -1,0 +1,39 @@
+{
+  "model": "claude-opus-4-7",
+  "total_calls": 120,
+  "by_mode": {
+    "adaptive": {
+      "PASS": 0,
+      "FAIL": 30,
+      "NEEDS_MORE_TESTS": 30,
+      "UNPARSED": 0,
+      "total": 60
+    },
+    "disabled": {
+      "PASS": 0,
+      "FAIL": 30,
+      "NEEDS_MORE_TESTS": 30,
+      "UNPARSED": 0,
+      "total": 60
+    }
+  },
+  "dissent_on_gate_pass": {
+    "adaptive": {
+      "rate": 1.0,
+      "n": 30
+    },
+    "disabled": {
+      "rate": 1.0,
+      "n": 30
+    }
+  },
+  "citations_mean_by_mode": {
+    "adaptive": 6.63,
+    "disabled": 6.43
+  },
+  "thinking_chars_mean_by_mode": {
+    "adaptive": 0.0,
+    "disabled": 0.0
+  },
+  "generated_at_utc": "2026-04-24T20:28:04Z"
+}

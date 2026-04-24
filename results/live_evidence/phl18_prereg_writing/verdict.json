@@ -1,0 +1,45 @@
+{
+  "structural": {
+    "claude-opus-4-7": {
+      "n": 5,
+      "required_keys_coverage_pct": 100.0,
+      "mean_numeric_values": 58.8,
+      "mean_kill_test_items": 5.8,
+      "mean_biology_grounding": 5.4,
+      "falsifiability_present_pct": 100.0,
+      "scope_limits_present_pct": 100.0
+    },
+    "claude-sonnet-4-6": {
+      "n": 5,
+      "required_keys_coverage_pct": 100.0,
+      "mean_numeric_values": 110.8,
+      "mean_kill_test_items": 5.6,
+      "mean_biology_grounding": 5.0,
+      "falsifiability_present_pct": 100.0,
+      "scope_limits_present_pct": 100.0
+    }
+  },
+  "rubric": {
+    "claude-opus-4-7": {},
+    "claude-sonnet-4-6": {},
+    "claude-haiku-4-5": {}
+  },
+  "format_compliance": {
+    "claude-opus-4-7": {
+      "valid_yaml": 5,
+      "total": 5,
+      "empty": 0
+    },
+    "claude-sonnet-4-6": {
+      "valid_yaml": 5,
+      "total": 5,
+      "empty": 0
+    },
+    "claude-haiku-4-5": {
+      "valid_yaml": 0,
+      "total": 5,
+      "empty": 5
+    }
+  },
+  "generated_at": "2026-04-24T20:35:31Z"
+}

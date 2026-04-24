@@ -92,6 +92,40 @@ PASS-on-FAIL) is 0% for both — the gate's value is independent of
 model choice; 4.7's value shows up in the graded {PASS, FAIL,
 NEEDS_MORE_TESTS} calibration against pre-registered thresholds.
 
+**Honest null on mechanism attribution (PhL-15, 2026-04-24).** A
+120-call causal ablation within Opus 4.7 comparing
+`thinking={"type":"adaptive","display":"summarized"}` vs
+`thinking={"type":"disabled"}` on 6 narrow-context candidates × 10
+repeats × 2 modes finds **no measurable difference** — both modes
+produced 0 / 60 PASS, 100 % dissent on gate-PASS, and near-identical
+metric-citation specificity (6.63 vs 6.43). The E2 ablation's
+10 / 60 PASS for Opus comes from **richer prompt context** (PySR-
+tuned coefficients, `category` annotation, denser dataset label)
+rather than from adaptive thinking in isolation. So the above
+"adaptive thinking maintains the review stance" claim is more
+accurately framed as "Opus 4.7 calibration is preserved when the
+prompt carries adequate gate-metric context" — the adaptive-thinking
+state is enabled throughout our E2 and PhL-15 runs but is not the
+isolated mechanism. See
+[`results/live_evidence/phl15_adaptive_thinking/SUMMARY.md`](../results/live_evidence/phl15_adaptive_thinking/SUMMARY.md)
+for the honest null.
+
+**The gate-as-authority-substrate result (PhL-17, 2026-04-24).** A
+210-turn 7-round adversarial-critique ablation on TOP2A-EPAS1 finds
+that when the prompt includes the gate's concrete metric values,
+**both Opus 4.7 and Sonnet 4.6 hold the PASS verdict by citing
+"pre-registered" gate thresholds as authority** (78.6 % and 75.7 %
+citation rate across 70 turns each). Opus 4.7 concedes twice across
+10 sessions, both on genuinely-legitimate arguments (T4 Rashomon
+multiplicity) — calibrated updating, not stance-collapse. Sonnet
+holds PASS 10 / 10 regardless of argument quality. Haiku 4.5
+errored on all 10 sessions (multi-turn + adaptive-thinking
+incompatibility at default `max_tokens`). Interpretation: the
+external gate is the substrate that makes stance-holding possible
+for either strong model; the Opus-specific capability is
+**knowing when to concede on valid arguments**, not unconditional
+stance-holding.
+
 Concretely: the gate makes the pipeline auditable to a reviewer who
 does not trust any specific model. Opus 4.7's calibration makes the
 *interior* of the pipeline better aligned with the evidence. The two
