@@ -50,13 +50,18 @@ class FalsificationTests(unittest.TestCase):
         self.assertGreater(original_auc, 0.90)
 
     def test_label_shuffle_null_two_sided_catches_inverted_signal(self) -> None:
-        """A sign-flipped equation (AUROC far below 0.5) should still have small two-sided p."""
+        """A sign-flipped equation should still register small two-sided p
+        AND report a sign-invariant AUROC > 0.5 (post-2026-04-23 fix:
+        label_shuffle_null returns sign-invariant `max(auc, 1-auc)` so the
+        gate cannot reject mathematically equivalent sign-flipped laws).
+        """
         X, _, y = self._make_synthetic_data()
-        np.random.seed(0)
         inverted = lambda arr: -(arr[:, 0] + arr[:, 1])
-        p_value, auc = label_shuffle_null(X, y, inverted, n_permutations=200)
+        p_value, auc_sign_inv = label_shuffle_null(
+            X, y, inverted, n_permutations=200, seed=0
+        )
         self.assertLess(p_value, 0.05)
-        self.assertLess(auc, 0.1)
+        self.assertGreater(auc_sign_inv, 0.9)  # sign-invariant view of strong inverted signal
 
     def test_bootstrap_stability_returns_width_lower_mean(self) -> None:
         X, _, y = self._make_synthetic_data()

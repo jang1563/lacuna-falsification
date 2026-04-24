@@ -64,6 +64,15 @@ test:
 		--ignore=tests/test_workflow_data.py
 
 # --- Demo (synthetic flagship + transfer) ---
+# NOTE: This target runs `compare` then `replay`, but `compare` only writes
+# `proposer_output.json` and prints the next `python src/pysr_sweep.py` and
+# `python src/falsification_sweep.py` commands — it does NOT generate
+# `falsification_report.json` itself. `replay` will then fail because the
+# report doesn't exist. Treat `make demo` as the GUIDED first step that
+# tells you what to run next, not a one-shot end-to-end target. For a
+# fast sanity check, prefer `make test` (105 local-runnable tests, no
+# API key needed). Reviewer-facing happy path is `make venv && make test
+# && make audit`. See README.
 demo:
 	@echo ">>> Running end-to-end demo on synthetic data..."
 	@mkdir -p $(DEMO_OUT) $(TRANSFER_OUT)

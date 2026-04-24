@@ -25,7 +25,13 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   Brain/body-decouple demo: `theory-copilot persist-events` +
   `replay-events` CLI two-liner.
 - **If you are evaluating developer experience (Lydia-ish):** `make
-  install && make test && make demo-kirc` is the full happy path;
+  venv && make test && make audit` is the local-runnable happy path
+  (105 tests, ~90 s, no API key needed). The `make demo` / `make
+  demo-kirc` targets are scaffolding for the full pipeline (Opus call
+  + PySR sweep + falsification sweep + replay) and require an
+  ANTHROPIC_API_KEY plus the multi-step manual handoff that `compare`
+  prints; treat them as a guided walkthrough of the Night-2 / Night-3
+  / Night-4 sequence rather than a single one-shot end-to-end target.
   all judge-facing docs in `docs/` are ≤ 400 lines, all figures in
   `results/plots/` and `results/track_a_task_landscape/plots/` are
   reproducible from `src/make_plots.py`, `src/plot_track_a.py`,

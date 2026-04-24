@@ -66,25 +66,36 @@ _NIGHT_SYSTEMS = {2: NIGHT2_SYSTEM, 3: NIGHT3_SYSTEM, 4: NIGHT4_SYSTEM}
 
 _NIGHT_TASKS = {
     2: (
-        "Run the PySR hyperparameter sweep:\n"
-        "  python3 src/pysr_sweep.py --config config/datasets.json --outdir results/night2\n"
-        "Then batch-judge all candidate equations and write the final manifest to "
-        "manifest_night2.json. Include top-10 equations with AUC scores."
+        "Run the PySR hyperparameter sweep on the metastasis_expanded panel:\n"
+        "  PYTHONPATH=src .venv/bin/python src/pysr_sweep.py \\\n"
+        "    --data data/kirc_metastasis_expanded.csv \\\n"
+        "    --genes TOP2A,EPAS1,MKI67,CDK1,CCNB1,HIF1A,EPAS1,VEGFA,CA9,LRP2,PTGER3,RPL13A,SLC22A8 \\\n"
+        "    --proposals config/law_proposals.json \\\n"
+        "    --iterations 1000 --seeds 1 2 3 --standardize \\\n"
+        "    --output results/night2/candidates.json\n"
+        "Then summarise the top-10 equations by sign-invariant AUROC."
     ),
     3: (
-        "Run the falsification sweep on the top-50 candidates from manifest_night2.json:\n"
-        "  python3 src/falsification_sweep.py "
-        "--manifest results/night2/manifest_night2.json "
-        "--top 50 --outfile results/night3/falsification_report.json\n"
-        "Write the ranked results to falsification_report.json."
+        "Run the falsification sweep on the candidates from Night 2:\n"
+        "  PYTHONPATH=src .venv/bin/python src/falsification_sweep.py \\\n"
+        "    --candidates results/night2/candidates.json \\\n"
+        "    --data data/kirc_metastasis_expanded.csv \\\n"
+        "    --genes TOP2A,EPAS1,MKI67,CDK1,CCNB1,HIF1A,VEGFA,CA9,LRP2,PTGER3,RPL13A,SLC22A8 \\\n"
+        "    --output results/night3/falsification_report.json\n"
+        "Write the ranked report (passes / perm_p / ci_lower / delta_baseline / "
+        "delta_confound / decoy_p / fail_reason) to falsification_report.json."
     ),
     4: (
         "Run GSE40435 replay validation on the surviving equation from "
-        "falsification_report.json:\n"
-        "  theory-copilot replay "
-        "--flagship-artifacts results/night3 "
-        "--transfer-dataset GSE40435 --output-root results/night4\n"
-        "Write results with AUC and 95% CI to results/night4/transfer_run/transfer_report.json."
+        "Night 3's falsification report:\n"
+        "  PYTHONPATH=src .venv/bin/python -m theory_copilot.cli replay \\\n"
+        "    --flagship-artifacts results/night3 \\\n"
+        "    --transfer-dataset gse40435 \\\n"
+        "    --output-root results/night4\n"
+        "Or, equivalently with the installed console script: \n"
+        "  theory-copilot replay --flagship-artifacts results/night3 "
+        "--transfer-dataset gse40435 --output-root results/night4\n"
+        "Write transfer_report.json (AUC + 95% CI + replay verdict)."
     ),
 }
 

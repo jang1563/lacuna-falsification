@@ -99,12 +99,40 @@ def _cmd_compare(args: argparse.Namespace) -> int:
         config_data = json.loads(Path(args.config).read_text())
         flagship_card = next(
             (d for d in config_data if d.get("dataset_id") == args.flagship_dataset),
-            config_data[0] if config_data else {},
+            None,
         )
+        if flagship_card is None:
+            available_ids = [d.get("dataset_id", "<no-id>") for d in config_data]
+            print(
+                f"compare: flagship-dataset '{args.flagship_dataset}' not found in "
+                f"{args.config}. Available IDs: {available_ids}",
+                file=sys.stderr,
+            )
+            return 2
         local_path = flagship_card.get("local_path", f"data/{args.flagship_dataset}.csv")
         dataset_id_for_handoff = args.flagship_dataset
-        gene_list_for_handoff = "CA9,VEGFA,LDHA,AGXT,ALB,NDUFA4L2,SLC2A1,ENO2"
-        cov_list_for_handoff = "age,batch_index"
+        # Honest scope note: the legacy --config + --flagship-dataset path
+        # cannot infer a per-dataset gene list or covariate list automatically
+        # (DatasetCard does, hence the recommended path). Read these from the
+        # config entry when present; otherwise fall back to the documented
+        # KIRC default but PRINT the fallback so the user notices.
+        gene_list_for_handoff = flagship_card.get(
+            "gene_columns_csv",
+            "CA9,VEGFA,LDHA,AGXT,ALB,NDUFA4L2,SLC2A1,ENO2",
+        )
+        cov_list_for_handoff = flagship_card.get(
+            "covariate_columns_csv",
+            ",".join(flagship_card.get("allowed_covariates", []))
+            or "age,batch_index",
+        )
+        if "gene_columns_csv" not in flagship_card:
+            print(
+                "compare WARNING: --config path uses the KIRC default gene panel "
+                "(CA9,VEGFA,LDHA,AGXT,ALB,NDUFA4L2,SLC2A1,ENO2). For non-KIRC "
+                "cohorts use --dataset-card instead, OR add `gene_columns_csv` "
+                "and `covariate_columns_csv` fields to the config entry.",
+                file=sys.stderr,
+            )
 
     proposals = json.loads(Path(args.proposals).read_text())
     features = [p.get("name", p.get("symbolic_template", "")) for p in proposals]
