@@ -73,7 +73,7 @@ refutes the LLM-SRBench memorization concern.**
 
 ---
 
-## Claude Managed Agents usage (150 words, 119 counted)
+## Claude Managed Agents usage (150 words, 127 counted)
 
 **Verification-isolated Managed Agents orchestration.** Three separate
 public-beta sessions (Proposer / Skeptic / Interpreter = Opus 4.7;
@@ -94,7 +94,7 @@ compliant per the 2026-04-23 hackathon fairness rule; research-preview
 
 **Durability.** `persist_session_events` pages `sessions.events.list`
 to JSONL; `replay_session_from_log` re-injects user-origin events into
-a different session.
+a different session — any reviewer can replay the run end-to-end.
 
 ---
 
@@ -129,9 +129,10 @@ Repo has been public since 2026-04-23 19:32 ET.
 [to be pasted on 4/26 morning after Loom render]
 ```
 
-Canonical narration: `docs/loom_narration_final_90s.md` (194 words,
-83-97 s, six segments, opens with biomedical-researcher confirmation-
-bias hook + published-ccA/ccB-axis unseeded-rediscovery citation).
+Canonical narration: `docs/loom_narration_final_90s.md` (254 words,
+~109 s at 140 WPM / ~127 s at 120 WPM, seven segments incl. DIPG
+generalization tag, opens with problem-first "AI-for-science... built
+to say no" hook + published-ccA/ccB-axis unprompted-rediscovery citation).
 Shot-list / rehearsal assets: `docs/loom_script.md` (pre-narration
 shot list, 6 cuts, single terminal + browser, no overlays).
 

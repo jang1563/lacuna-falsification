@@ -2,7 +2,7 @@
 
 **Status:** submission-locked final script (updated 2026-04-24 post-DIPG-run; hook refined 2026-04-24 per Session 3 video advice).
 **Target:** ≤ 120 seconds end-to-end; soft 100 s target; hard 180 s cap.
-**Word count:** 253 words / ~108 s at 140 WPM / ~127 s at 120 WPM (see ledger below for per-segment breakdown).
+**Word count:** 254 words / ~109 s at 140 WPM / ~127 s at 120 WPM (see ledger below for per-segment breakdown).
 **Parent:** `docs/loom_narration_verbatim.md` (longer 246-word "six
 experiments once" variant). Use this file as the primary script for the
 final recording. Revert to the parent only if the user wants to restore
@@ -32,7 +32,7 @@ the Karpathy opening.
 **Cut to slide 1 — Architecture diagram.**
 
 > "Opus four-point-seven proposes seven compact law families for
-> see-see-R-C-C, including a housekeeping negative control. A
+> kidney cancer, including a housekeeping negative control. A
 > deterministic five-test Python gate rejects weak candidates
 > [breath] before any LLM judgement."
 
@@ -57,7 +57,7 @@ interpretation markdown.**
 > EE-pass-one — says proliferation running ahead of HIF-two-alpha
 > predicts metastasis. [breath] **That is the published see-see-A vs
 > see-see-B ccRCC subtype axis — Brannon twenty-ten, ClearCode
-> thirty-four. Our symbolic regression re-derived it unseeded."
+> thirty-four. Our symbolic regression rediscovered it unprompted."
 
 ## 1:05 – 1:20 — External validation + own-output kill (34 words)
 
@@ -101,17 +101,17 @@ with aggregate score 13/15.**
 | Segment | Words | Cumul | Time @ 140 WPM | Time @ 120 WPM |
 |---|---|---|---|---|
 | 0:00-0:10 Hook | 21 | 21 | 9 s | 11 s |
-| 0:10-0:25 Architecture | 30 | 52 | 13 s | 15 s |
+| 0:10-0:25 Architecture | 31 | 52 | 13 s | 16 s |
 | 0:25-0:45 Rejection | 38 | 90 | 16 s | 19 s |
 | 0:45-1:07 Survivor (with citation emphasis) | 52 | 142 | 22 s | 26 s |
 | 1:07-1:22 Validation + kill | 34 | 176 | 15 s | 17 s |
 | 1:22-1:30 Routine + close | 18 | 194 | 8 s | 9 s |
 | 1:30-2:00 DIPG generalization (NEW) | 60 | 254 | 26 s | 30 s |
-| **TOTAL** | **253** | — | **~108 s** | **~127 s** |
+| **TOTAL** | **254** | — | **~109 s** | **~127 s** |
 
 Budget (post-DIPG-tag): 120 s soft target, 180 s hard cap. At 140 WPM
-the full cut with the DIPG generalization tag runs 108 s (under the
-120 s soft cap — 12 s margin). At 120 WPM (slower, authoritative
+the full cut with the DIPG generalization tag runs 109 s (under the
+120 s soft cap — 11 s margin). At 120 WPM (slower, authoritative
 pace) it runs 127 s — 7 s over soft cap, 53 s under hard cap.
 
 **Budget controls at recording time:**
