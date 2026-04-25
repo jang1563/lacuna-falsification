@@ -148,10 +148,10 @@ At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) n
   skills explicitly preserve the role boundary: they apply the
   pre-registered thresholds and emit a verdict, but do NOT propose
   laws (the `proposer` subagent does that) or write mechanism
-  hypotheses (the `interpreter` subagent does that). Composability —
-  named directly by Boris Cherny as a Claude Code value — runs as
-  `pre-register-claim` → `falsification-gate`, with the second skill
-  reading the YAML the first emits.
+  hypotheses (the `interpreter` subagent does that). The two skills
+  compose: `pre-register-claim` → `falsification-gate`, with the
+  second skill reading the YAML the first emits — the same chain
+  pattern Claude Code surfaces explicitly in its skill system.
 - `src/pysr_sweep.py` — PySR 1.5.9 sweep with law-family injection,
   train/test split, novelty scoring.
 - `src/falsification_sweep.py` — BH-FDR batch falsification.

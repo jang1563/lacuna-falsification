@@ -82,6 +82,7 @@ Append one JSONL row to `results/live_evidence/skill_verdicts.jsonl`:
 
 ```json
 {
+  "event": "verdict",
   "timestamp_utc": "<iso8601>",
   "candidate_id": "<from input>",
   "equation": "<from input>",
@@ -100,6 +101,10 @@ Append one JSONL row to `results/live_evidence/skill_verdicts.jsonl`:
   "gate_source_sha": "<git rev-parse HEAD of src/theory_copilot/falsification.py>"
 }
 ```
+
+The `event` field is the schema discriminator for `skill_verdicts.jsonl`:
+this skill emits `event: "verdict"`; `pre-register-claim` emits
+`event: "preregistered"`. Downstream parsers should branch on `event`.
 
 Use `Bash` with `date -u +%Y-%m-%dT%H:%M:%SZ` for the timestamp and
 `git log -1 --format=%H -- src/theory_copilot/falsification.py` for
