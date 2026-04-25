@@ -191,6 +191,16 @@ call that could also rationalise its way to agreement. The system
 survive contact with pre-specified experimental reality before it is
 reported.
 
+In the framing that POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858))
+and FIRE-Bench ([arXiv 2602.02905](https://arxiv.org/abs/2602.02905))
+operationalise, **hypothesis-validation accuracy — not generation
+novelty — is the contribution this class of system ships first**. POPPER
+demonstrates falsification-driven validation at human-comparable
+accuracy with a 10× speedup; FIRE-Bench reports current SOTA agents at
+<50 F1 on rediscovering established findings. Theory Copilot is one
+worked instance of that paradigm, with the validation harness in plain
+Python rather than another LLM judge.
+
 This is what distinguishes an agentic loop from an agentic pipeline. The
 three structural requirements ([Karpathy autoresearch, 2026-03](https://karpathy.ai/posts/2026-03-autoresearch):
 630-line harness, 700 autonomous experiments, 11% benchmark improvement)

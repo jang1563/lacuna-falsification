@@ -6,6 +6,8 @@ Theory Copilot is a **verification-first** pipeline for biological law discovery
 
 > **Honest scoping note.** The 9 metastasis survivors clear 4 active tests of the 5-test gate — the `delta_confound` leg is null for all 9 because the metastasis task has no non-degenerate covariates after filtering. The gate design specifies this as "run the confound leg when covariates vary; otherwise skip." So "5-test gate" here is the *framework*; the *active* legs for metastasis are permutation, bootstrap CI lower-bound, sign-invariant single-feature baseline, and decoy null. See `docs/methodology.md §3` for the exact specification.
 
+> **On rediscovery as evaluation.** Re-deriving the published ccA/ccB axis under a pre-registered gate — without seeding the law family — is the evaluation paradigm formalised by FIRE-Bench ([arXiv 2602.02905](https://arxiv.org/abs/2602.02905)), where current SOTA agents score <50 F1 on rediscovering established findings. The contribution here is the workflow that produces that recovery deterministically, not a claim of novel biology.
+
 Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2026 · Claude Code did the plumbing; domain knowledge did the framing.
 
 ---
@@ -61,6 +63,12 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   [`results/track_b_gate_robustness/SUMMARY.md`](results/track_b_gate_robustness/SUMMARY.md)
   (6-axis robustness of the reject verdict). Every reported number
   has a JSON file behind it in the same directory.
+- **If you are time-boxed (5 minutes) and want to challenge the claims:**
+  read [`docs/judge_faq.md`](docs/judge_faq.md). It consolidates the
+  12 most-likely reviewer challenges (rediscovery vs discovery,
+  AUROC ceiling, cohort independence, Sonnet drop-in, memorisation
+  audit, `delta_confound` null caveat) with 30-second answers and
+  direct links to the load-bearing evidence file for each.
 
 ---
 

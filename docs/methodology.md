@@ -352,7 +352,7 @@ transfer. IMmotion150 is metastatic-only (Stage IV), so the
 cross-cohort comparison tests PFS stratification within metastatic
 disease, not M0→M1 prediction generalization.
 
-**Prior art and rigor-benchmark references.** ccA/ccB ccRCC subtype axis: Brannon 2010 ([PMID 20871783](https://pubmed.ncbi.nlm.nih.gov/20871783/)); ClearCode34 ([DOI 10.1016/j.eururo.2014.02.035](https://doi.org/10.1016/j.eururo.2014.02.035)); TOP2A in ccRCC 2024 ([PMID 38730293](https://pubmed.ncbi.nlm.nih.gov/38730293/)). Contemporary AI-for-Science rigor benchmarks this pipeline tracks: POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858)); Sakana AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066)); SPOT ([arXiv 2505.11855](https://arxiv.org/abs/2505.11855)).
+**Prior art and rigor-benchmark references.** ccA/ccB ccRCC subtype axis: Brannon 2010 ([PMID 20871783](https://pubmed.ncbi.nlm.nih.gov/20871783/)); ClearCode34 ([DOI 10.1016/j.eururo.2014.02.035](https://doi.org/10.1016/j.eururo.2014.02.035)); TOP2A in ccRCC 2024 ([PMID 38730293](https://pubmed.ncbi.nlm.nih.gov/38730293/)). Contemporary AI-for-Science rigor benchmarks this pipeline tracks: POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858)); Sakana AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066)); SPOT ([arXiv 2505.11855](https://arxiv.org/abs/2505.11855)); FIRE-Bench ([arXiv 2602.02905](https://arxiv.org/abs/2602.02905)) — formalises rediscovery of established findings as the evaluation paradigm and reports SOTA agents at <50 F1, the paradigm our ccA/ccB rediscovery instantiates.
 
 ## 7. Novelty accounting
 
