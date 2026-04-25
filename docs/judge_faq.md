@@ -339,10 +339,11 @@ incremental-AUC test on this task.
 
 ---
 
-## Q13 — "Does the framework validate itself — including the claims that don't hold?"
+## Q13 — "Is there cross-disease validation at the clinical-trial level — and what did it find?"
 
-Yes. A separate analysis strand (v3 scope-of-evidence audit) applied the same
-falsification posture to the framework itself: does the audit classification
+Yes. A companion analysis strand (v3 scope-of-evidence audit — a separate
+tool from Theory Copilot) applied the same pre-registered falsification
+posture at a different level: does classifying drug-target coupling evidence
 predict clinical trial outcomes across ccRCC, DIPG, and IPF?
 
 **Three convergent results:**

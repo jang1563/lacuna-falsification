@@ -259,7 +259,8 @@ public NegBioDB repository will be linked here at release.
 
 A companion analysis strand applies the same falsification posture to the
 audit framework itself — validating it against clinical trial outcomes across
-ccRCC, DIPG, and IPF (208 drug-target pairs, 9,943 Phase 3 trials). The
+ccRCC, DIPG, and IPF (104 drug-target pairs across three diseases, 9,943
+Phase 3 trials). The
 honest result: the framework discriminates curated panels from random targets
 (16/42 null-sampling tests BY-FDR significant at q < 0.10), but it does NOT
 predict trial failure (trial-level GEE NULL after Bonferroni × 5). The initial

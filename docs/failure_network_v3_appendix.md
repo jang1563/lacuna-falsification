@@ -35,9 +35,10 @@ target panels:
 | DIPG (diffuse intrinsic pontine glioma) | 27 pairs | 54 rows |
 | IPF (idiopathic pulmonary fibrosis) | 26 pairs | 52 rows |
 
-Each pair is assigned one of 10 verdict classes based on the availability and
-strength of functional evidence in LINCS L1000 CGS perturbation data, DepMap,
-and cross-species ortholog mapping:
+Each pair is assigned one of 7 observable verdict classes (spanning 10 priority
+branches in the v0.5 verdict function) based on the availability and strength
+of functional evidence in LINCS L1000 CGS perturbation data, DepMap, and
+cross-species ortholog mapping:
 
 | Class | Meaning |
 |---|---|
@@ -48,6 +49,7 @@ and cross-species ortholog mapping:
 | `untestable_secreted_drug_target` | Target is secreted; not amenable to expression-KD approach |
 | `absent_from_v3` | Target not present in the data |
 | `readout_only_by_design` | Target is a readout marker, not a perturbation target |
+| `untestable_context_uninformative` | Perturbation data present but context too noisy to interpret |
 
 **D1 verification (100% PASS).** Before any downstream analysis, the verdict
 function was verified against hand-curated gold standards:
@@ -55,7 +57,7 @@ ccRCC 102/102 matches, DIPG 54/54, IPF 52/52 — all 100%.
 
 ---
 
-## Finding 1 — The framework discriminates (null sampling, 16/42 by-FDR)
+## Finding 1 — The framework discriminates (null sampling, 16/42 BY-FDR)
 
 **Setup.** 1,000 permutations × 3 diseases × 2 null tiers (Tier 1: pan-genome
 random panels; Tier 2: class-matched random panels preserving target-class
@@ -64,18 +66,26 @@ the full v0.5 verdict function. Across 7 verdict classes × 6 arms = 42 tests,
 corrected with BY-FDR (Benjamini-Yekutieli, dependency-aware — the correct
 correction when verdict-space tests are not independent).
 
-**Result: 16/42 tests significant at q < 0.10.**
+**Result: 16/42 tests significant at q < 0.10** (all 16 shown below).
 
-Key reproducible signals across all 6 arms (Tier 1 and Tier 2, all 3 diseases):
-
-| Verdict class | Designed (curated) | Null mean [range] | q (BY-FDR) |
-|---|---|---|---|
-| `admitted_null_coupling` — ccRCC | 37 | 3.1–5.0 [0, 11] | ≈ 0 |
-| `admitted_null_coupling` — DIPG | 41 | 1.7–2.5 [0, 6] | ≈ 0 |
-| `admitted_null_coupling` — IPF | 21 | 1.6–1.9 [0, 6] | ≈ 0 |
-| `protected_positive_prior` — ccRCC | 21 | 0.0 [0, 0] | ≈ 0 |
-| `protected_positive_prior` — DIPG | 6 | 0.0 [0, 0] | ≈ 0 |
-| `protected_positive_prior` — IPF | 5 | 0.0 [0, 0] | ≈ 0 |
+| Verdict class | Arm | Designed | Null mean [range] | q (BY-FDR) |
+|---|---|---|---|---|
+| `admitted_null_coupling` | ccRCC Tier 1 | 37 | 3.1 [0, 8] | ≈ 0 |
+| `admitted_null_coupling` | ccRCC Tier 2 | 37 | 5.0 [0, 11] | ≈ 0 |
+| `admitted_null_coupling` | DIPG Tier 1 | 41 | 1.7 [0, 5] | ≈ 0 |
+| `admitted_null_coupling` | DIPG Tier 2 | 41 | 2.5 [0, 6] | ≈ 0 |
+| `admitted_null_coupling` | IPF Tier 1 | 21 | 1.6 [0, 5] | ≈ 0 |
+| `admitted_null_coupling` | IPF Tier 2 | 21 | 1.9 [0, 6] | ≈ 0 |
+| `protected_positive_prior` | ccRCC Tier 1 | 21 | 0.0 [0, 0] | ≈ 0 |
+| `protected_positive_prior` | ccRCC Tier 2 | 21 | 0.0 [0, 0] | ≈ 0 |
+| `protected_positive_prior` | DIPG Tier 1 | 6 | 0.0 [0, 0] | ≈ 0 |
+| `protected_positive_prior` | DIPG Tier 2 | 6 | 0.0 [0, 0] | ≈ 0 |
+| `protected_positive_prior` | IPF Tier 1 | 5 | 0.0 [0, 0] | ≈ 0 |
+| `protected_positive_prior` | IPF Tier 2 | 5 | 0.0 [0, 0] | ≈ 0 |
+| `raw_evidence_below_admission` | ccRCC Tier 1 | 16 | 3.0 [0, 8] | ≈ 0 |
+| `raw_evidence_below_admission` | IPF Tier 1 | 8 | 1.6 [0, 5] | 0.068 |
+| `untestable_context_uninformative` | DIPG Tier 1 | 1 | 0.0 [0, 0] | ≈ 0 |
+| `untestable_context_uninformative` | DIPG Tier 2 | 1 | 0.0 [0, 0] | ≈ 0 |
 
 **Interpretation.**
 
@@ -84,8 +94,8 @@ Key reproducible signals across all 6 arms (Tier 1 and Tier 2, all 3 diseases):
   evidence that random panels can't match by chance. This validates that the
   verdict function is operating correctly.
 - `admitted_null_coupling` enrichment is the key signal: designed panels test
-  targets whose biology v3 can evaluate as *null-coupled* at 10–20× higher
-  rates than chance. This is the framework operating as intended — catching
+  targets whose biology v3 can evaluate as *null-coupled* at 10–24× higher
+  rates than chance (DIPG reaches 41 designed vs 1.7–2.5 null mean ≈ 24×). This is the framework operating as intended — catching
   the systematic absence of coupling evidence in panels assembled by clinical
   judgment.
 
@@ -108,11 +118,15 @@ arm. The "failed" pool was split by failure mode:
 
 **Woolf OR homogeneity test (T1 vs T2):** Z = 19.97, p ≪ 1×10⁻⁸⁷.
 
-Track 1 (futility-terminated) and Track 2 (completed-missed-primary) show
-*opposite* directions of enrichment. The difference is not noise — the Woolf
-test decisively rejects OR homogeneity. Pooling the two arms (the default
-approach in trial-graveyard analyses) produces the false impression of a
-moderate enrichment (Combined OR = 2.19) when no such coherent signal exists.
+Neither arm achieves individual significance in the gene-level permutation
+null (T1 p = 0.234, T2 p = 0.154), which is the appropriate test controlling
+for edge non-independence in knowledge graphs (per MAGMA 2015, Guney 2016
+Nat Comm). That is not the key finding. The key finding is that Track 1 and
+Track 2 show *opposite* directions — the Woolf homogeneity test decisively
+rejects the assumption that both arms come from the same population. Pooling
+them (the default in trial-graveyard analyses) produces a spurious moderate
+enrichment (Combined OR = 2.19, p_perm = 0.469) when no coherent signal
+exists across the pooled population.
 
 **Why the initial 4.6× finding (v3.2.1) was wrong.** The original enrichment
 was computed on Track 1 only (early-terminated trials). Further investigation
@@ -131,7 +145,7 @@ for the sign-flip forest plot.
 
 ---
 
-## Finding 3 — Trial-level GLMM NULL = honest scope (v3.5)
+## Finding 3 — Trial-level GEE NULL = honest scope (v3.5)
 
 **Setup.** A generalized estimating equations (GEE) Binomial Exchangeable
 model, clustered on indication_mesh (631 clusters, 9,943 trials), tested
@@ -175,7 +189,7 @@ for the permutation null overlay.
 | Does v3 coupling predict trial failure? | **NO** — trial-level GLMM NULL after Bonferroni × 5 |
 | Is there case-mix heterogeneity between failure modes? | **YES** — Woolf Z = 19.97, p ≪ 10⁻⁸⁷ |
 | Was the initial 4.6× claim (v3.2.1) a real predictor? | **NO** — Track-1 selection-bias artifact |
-| What is v3 useful for? | **Scope-of-evidence audit**: catchs `untestable_no_kd`, `untestable_secreted_drug_target`, `absent_from_v3` systematically across diseases |
+| What is v3 useful for? | **Scope-of-evidence audit**: catches `untestable_no_kd`, `untestable_secreted_drug_target`, `absent_from_v3` systematically across diseases |
 
 **The scope-of-evidence auditor framing** is the honest answer. v3 reliably
 classifies what is testable vs. untestable, and what evidence exists or
