@@ -72,8 +72,20 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   (6-axis stress test of the `TOP2A − EPAS1` survivor, with the
   explicit caveat on the pair-with-interaction baseline), then
   [`results/track_b_gate_robustness/SUMMARY.md`](results/track_b_gate_robustness/SUMMARY.md)
-  (6-axis robustness of the reject verdict). Every reported number
-  has a JSON file behind it in the same directory.
+  (6-axis robustness of the reject verdict). The Phase G + I rigor
+  extensions add five pre-registered analyses on the same survivor
+  (12/13 of their own predictions PASS, 1 honest FAIL):
+  [`rigor_extension/SUMMARY.md`](results/track_a_task_landscape/rigor_extension/SUMMARY.md)
+  (G2: AUPRC 0.321 / 2.05× lift, Brier 0.122, calibration slope 0.54),
+  [`knockoff_v2/SUMMARY.md`](results/track_a_task_landscape/knockoff_v2/SUMMARY.md)
+  (G1: 0/45 individually selected — signal is genuinely compound),
+  [`rashomon_set/SUMMARY.md`](results/track_a_task_landscape/rashomon_set/SUMMARY.md)
+  (I2: rank 1/990 in 2-gene-difference class, tight set = 3 pairs),
+  [`clinical_utility/SUMMARY.md`](results/track_a_task_landscape/clinical_utility/SUMMARY.md)
+  (I3: Cohen's d 0.856, OR 2.07/SD; honest screening-FAIL on P3),
+  [`information_theory/SUMMARY.md`](results/track_a_task_landscape/information_theory/SUMMARY.md)
+  (I4: simple difference captures 98.1% of bivariate joint MI).
+  Every reported number has a JSON file behind it in the same directory.
 - **If you are time-boxed (5 minutes) and want to challenge the claims:**
   read [`docs/judge_faq.md`](docs/judge_faq.md). It consolidates the
   12 most-likely reviewer challenges (rediscovery vs discovery,
