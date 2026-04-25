@@ -1,0 +1,65 @@
+hypothesis_id: i3_clinical_utility_2026-04-25
+emitted_at_utc: 2026-04-25T19:03:01Z
+emitted_git_sha: ae97525
+retroactive: false
+gate_logic_changed: false
+extension_type: clinical_translation
+
+title: >
+  I3 — Clinical-utility translation of TOP2A−EPAS1 metastasis classifier:
+  Cohen's d, odds ratio per z-score, decision-curve / threshold metrics
+  (PPV, NPV, sensitivity, specificity at clinically interesting cutoffs).
+
+motivation: >
+  AUROC and AUPRC are correct mathematical objects but not directly
+  meaningful to a clinical reader. Translating them into Cohen's d
+  (effect size), odds ratio per 1-SD increase in score, and the
+  PPV/NPV/sensitivity/specificity profile at top-decile and top-quintile
+  cutoffs makes the survivor's strength legible to a domain expert
+  without changing any underlying claim.
+
+design:
+  inputs_pre_committed:
+    - data: data/kirc_metastasis_expanded.csv (n=505, prevalence 0.156)
+    - law: TOP2A − EPAS1 (committed; 2-gene difference, z-scored)
+    - anchor_auroc: 0.7275 (from rigor_extension JSON)
+  derivations:
+    cohens_d_from_auroc: "Cohen's d = sqrt(2) · Φ⁻¹(AUROC); standard
+      AUC-to-effect-size identity (Hanley & McNeil 1982; Pencina et al.
+      2008)."
+    odds_ratio_per_z: "Logistic regression of label ~ z-scored score;
+      OR = exp(β) per 1-SD increase in TOP2A−EPAS1."
+    threshold_metrics: "Top decile and top quintile of score → confusion
+      matrix → sensitivity, specificity, PPV, NPV, NNS = 1/PPV."
+  no_fitting_beyond_logistic: pure descriptive statistics + one logistic.
+
+pre_registered_predictions:
+  p1:
+    description: Cohen's d > 0.7 (medium-large effect by Cohen's convention).
+    falsification: If d ≤ 0.5, reframe as a small effect size.
+  p2:
+    description: Odds ratio per 1-SD increase in TOP2A−EPAS1 ≥ 2.0.
+    falsification: If OR < 1.5, the clinical-utility claim weakens.
+  p3:
+    description: Sensitivity at the top-quintile cutoff (top 20% of scores)
+      ≥ 0.50 and specificity ≥ 0.85, indicating practical screening
+      potential.
+    falsification: If either threshold misses, document the gap honestly.
+
+go_no_go:
+  go_criterion: All three metrics computable; per-prediction PASS/FAIL recorded.
+  no_go_fallback: Pure descriptive analysis; no real failure modes.
+
+output_files:
+  - src/track_a_clinical_utility.py
+  - results/track_a_task_landscape/clinical_utility/clinical_metrics.json
+  - results/track_a_task_landscape/clinical_utility/SUMMARY.md
+
+gate_logic_changed: false
+v1_v2_relationship: descriptive translation of v1-validated survivor.
+
+citations:
+  - "Hanley & McNeil 1982. The meaning and use of the AUROC. Radiology 143:29-36"
+  - "Pencina et al. 2008. Evaluating the added predictive ability of a new marker. Stat Med 27:157-172"
+  - "Cohen 1988. Statistical Power Analysis for the Behavioral Sciences (2nd ed)"
+  - "Vickers & Elkin 2006. Decision curve analysis. Med Decis Making 26:565-574"

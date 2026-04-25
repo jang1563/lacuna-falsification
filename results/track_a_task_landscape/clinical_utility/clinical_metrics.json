@@ -1,0 +1,62 @@
+{
+  "n_samples": 505,
+  "prevalence": 0.15643564356435644,
+  "auroc_sign_invariant": 0.7275212456171628,
+  "cohens_d": 0.856070670965477,
+  "odds_ratio_per_1sd": {
+    "estimate": 2.0706358384980197,
+    "log_or": 0.7278557284672679,
+    "se_log_or": 0.1148749501484064,
+    "ci_lower_95": 1.65318019895022,
+    "ci_upper_95": 2.593506006420237
+  },
+  "top_decile": {
+    "top_fraction": 0.1,
+    "n_flagged": 51,
+    "threshold": 1.6293585551771368,
+    "tp": 19,
+    "fp": 32,
+    "tn": 394,
+    "fn": 60,
+    "sensitivity": 0.24050632911392406,
+    "specificity": 0.9248826291079812,
+    "ppv": 0.37254901960784315,
+    "npv": 0.8678414096916299,
+    "nns": 2.6842105263157894
+  },
+  "top_quintile": {
+    "top_fraction": 0.2,
+    "n_flagged": 101,
+    "threshold": 0.9981235775819386,
+    "tp": 36,
+    "fp": 65,
+    "tn": 361,
+    "fn": 43,
+    "sensitivity": 0.45569620253164556,
+    "specificity": 0.8474178403755869,
+    "ppv": 0.3564356435643564,
+    "npv": 0.8935643564356436,
+    "nns": 2.805555555555556
+  },
+  "predictions": {
+    "p1_cohens_d_gt_0p7": {
+      "pass": true,
+      "value": 0.856070670965477,
+      "threshold": 0.7
+    },
+    "p2_or_per_sd_ge_2": {
+      "pass": true,
+      "value": 2.0706358384980197,
+      "threshold": 2.0
+    },
+    "p3_top_quintile_sens_ge_0p5_spec_ge_0p85": {
+      "pass": false,
+      "sensitivity": 0.45569620253164556,
+      "specificity": 0.8474178403755869,
+      "thresholds": {
+        "sensitivity": 0.5,
+        "specificity": 0.85
+      }
+    }
+  }
+}
