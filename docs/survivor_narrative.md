@@ -71,6 +71,37 @@ predicts 32% M1 and observes 35% — well-calibrated at the high
 dimension to the AUROC discrimination claim without changing any
 gate decision.
 
+**Information-theoretic compactness (I4).** A pre-registered
+histogram-based mutual-information analysis with Miller-Madow
+bias correction
+([`results/track_a_task_landscape/information_theory/`](../results/track_a_task_landscape/information_theory/SUMMARY.md))
+finds: I(joint; y) is **1.82×** larger than max individual MI
+(P1 PASS — genes work together, not separately); **synergy is
+positive** (+0.0014 nats; P2 PASS — genes are not redundant);
+and the linear `TOP2A − EPAS1` form captures **98.1%** of the
+bivariate joint information (P3 PASS — the difference is
+essentially lossless relative to any function of the pair).
+This is the information-theoretic version of the compactness
+claim: out of every possible quadratic, log-ratio, neural-net,
+or kernel function of (TOP2A, EPAS1), the best one could
+recover at most an additional 0.0006 nats — the simple
+1-line difference is near-optimal.
+
+**Clinical-language translation (I3).** AUROC 0.728 in clinician
+terms
+([`results/track_a_task_landscape/clinical_utility/`](../results/track_a_task_landscape/clinical_utility/SUMMARY.md)):
+**Cohen's d = 0.856** (medium-large effect by Cohen 1988; P1 PASS);
+**OR per 1-SD = 2.07** (95% CI 1.65–2.59; P2 PASS — each
+standard-deviation increase in `TOP2A − EPAS1` more than doubles
+M1 odds). At the top-quintile cutoff, sensitivity 0.456 /
+specificity 0.847 / NNS ≈ 2.81 — useful for **risk stratification**,
+not standalone screening; the screening-grade prediction P3
+(sens ≥ 0.50 at spec ≥ 0.85) **fails honestly by 0.044**, which
+is the framework biting on the I-phase claim. Comparable AUROC
+to the published 34-gene ClearCode34 panel, with 2 genes —
+operational simplicity is the specific clinical-translation
+contribution.
+
 **Rashomon set — how unique among 2-gene laws (I2).** A pre-registered
 enumeration of all `C(45, 2) = 990` two-gene differences on this panel
 ([`results/track_a_task_landscape/rashomon_set/`](../results/track_a_task_landscape/rashomon_set/SUMMARY.md))

@@ -1,0 +1,72 @@
+hypothesis_id: i4_information_theory_2026-04-25
+emitted_at_utc: 2026-04-25T19:05:52Z
+emitted_git_sha: c586484
+retroactive: false
+gate_logic_changed: false
+extension_type: descriptive_information_theory
+
+title: >
+  I4 — Information-theoretic analysis of TOP2A−EPAS1 vs. individual
+  genes: mutual information, synergy/redundancy decomposition, and
+  the compound's compactness in MDL terms.
+
+motivation: >
+  The Rashomon analysis (I2) shows the compound is rank 1/990 within
+  the 2-gene-difference class. The complementary question is
+  information-theoretic: does the (TOP2A, EPAS1) joint carry MORE
+  information about M-status than either gene alone, and how much
+  of that joint information is captured by the simple difference
+  TOP2A − EPAS1 (vs. requiring a fully nonlinear function of both)?
+
+design:
+  inputs_pre_committed:
+    - data: data/kirc_metastasis_expanded.csv (n=505, prevalence 0.156)
+    - genes: TOP2A, EPAS1
+  estimator: histogram-based MI on quartile-discretized features
+    (4 bins × 4 bins = 16 joint cells; n=505 / 16 ≈ 32 per cell).
+    Robust at this n, no bandwidth tuning needed. Bias correction:
+    Miller-Madow (subtract (k-1)/(2n) per estimate, where k = number
+    of cells with positive support).
+  metrics:
+    - I(TOP2A; y)
+    - I(EPAS1; y)
+    - I(TOP2A, EPAS1; y)         # joint
+    - I(TOP2A − EPAS1; y)        # compound score (8 quantile bins)
+    - synergy = I(joint; y) - I(TOP2A; y) - I(EPAS1; y)
+    - compactness = I(compound; y) / I(joint; y)
+  no_fitting: pure information-theoretic estimation; no model fit.
+
+pre_registered_predictions:
+  p1:
+    description: I(TOP2A, EPAS1; y) > max(I(TOP2A; y), I(EPAS1; y)) by
+      ≥ 25%. Joint must be strictly more informative than either individual.
+    falsification: If joint MI ≤ 1.25 × max(individual), the compound
+      claim is weaker.
+  p2:
+    description: Synergy is positive (I(joint; y) - I(TOP2A; y) - I(EPAS1; y) > 0).
+    falsification: If synergy is negative (redundant pair), a compound
+      score would just average two correlated views of the same axis.
+      (Either outcome is publishable; we lock the prediction.)
+  p3:
+    description: Compactness = I(TOP2A−EPAS1; y) / I(TOP2A, EPAS1; y) ≥ 0.70.
+      The compound difference captures ≥ 70% of the joint information.
+    falsification: If compactness < 0.70, the claim "TOP2A−EPAS1 is the
+      compact representation" needs a more complex form to fully capture
+      the bivariate signal.
+
+go_no_go:
+  go_criterion: All four MI estimates computable; per-prediction PASS/FAIL recorded.
+  no_go_fallback: Pure descriptive analysis; report whatever the data show.
+
+output_files:
+  - src/track_a_information_theory.py
+  - results/track_a_task_landscape/information_theory/info_metrics.json
+  - results/track_a_task_landscape/information_theory/SUMMARY.md
+
+gate_logic_changed: false
+
+citations:
+  - "Cover & Thomas 2006. Elements of Information Theory, 2nd ed., Wiley"
+  - "Miller 1955. Note on the bias of information estimates. Information Theory in Psychology"
+  - "Williams & Beer 2010. Nonnegative Decomposition of Multivariate Information. arXiv:1004.2515 (PID framework)"
+  - "Kraskov et al. 2004. Estimating mutual information. Phys. Rev. E 69:066138 (KSG estimator)"

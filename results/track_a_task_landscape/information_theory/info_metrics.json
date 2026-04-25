@@ -1,0 +1,40 @@
+{
+  "n_samples": 505,
+  "prevalence": 0.15643564356435644,
+  "n_bins_individual": 4,
+  "n_bins_compound": 8,
+  "bias_correction": "miller_madow",
+  "units": "nats",
+  "mi": {
+    "I_TOP2A_y_nats": 0.017657758212779776,
+    "I_EPAS1_y_nats": 0.013045997022835536,
+    "I_joint_y_nats": 0.03210981556491779,
+    "I_compound_y_nats": 0.031500323620176365,
+    "raw_uncorrected": {
+      "I_TOP2A_y": 0.024588451282086705,
+      "I_EPAS1_y": 0.019976690092142466,
+      "I_joint_y": 0.060822686852046504,
+      "I_compound_y": 0.046351808768691216
+    }
+  },
+  "synergy_nats": 0.0014060603293024818,
+  "compactness_ratio": 0.9810185161758656,
+  "predictions": {
+    "p1_joint_gt_1p25x_max_individual": {
+      "pass": true,
+      "joint_nats": 0.03210981556491779,
+      "max_individual_nats": 0.017657758212779776,
+      "ratio": 1.8184536891935899,
+      "threshold_ratio": 1.25
+    },
+    "p2_synergy_positive": {
+      "pass": true,
+      "synergy_nats": 0.0014060603293024818
+    },
+    "p3_compactness_ge_0p70": {
+      "pass": true,
+      "compactness": 0.9810185161758656,
+      "threshold": 0.7
+    }
+  }
+}
