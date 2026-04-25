@@ -60,13 +60,42 @@ and (2) the top-lead verdict structure.
 
 ## Honest scoping
 
-- **Same engine, different disease.** The DIPG rescue engine
-  re-implements the 4-role pattern from `theory_copilot_discovery`
-  (see `../dipg_rescue/prompts_kirc_reference/` for the KIRC prompts
-  used as templates). It is not a literal re-run of
-  `theory_copilot_discovery/src/` — the DIPG variant adds clinical-
-  rescue-specific grading axes (mechanism, stratification, clinical
-  feasibility, Perrin-criteria translation).
+- **Same role-separation pattern, different gate type.** The DIPG
+  rescue engine reuses the role-isolated 4-agent pattern from
+  `theory_copilot_discovery` (see `../dipg_rescue/prompts_kirc_reference/`
+  for the KIRC prompts used as templates) and the same pre-reg
+  discipline (YAMLs frozen at SHA `8a4ecc5` before any engine run).
+  But the gates are functionally different by design: KIRC's gate is a
+  deterministic 5-test Python gate on statistical fits (permutation,
+  bootstrap, baseline, confound, decoy), and the LLM cannot renegotiate
+  the criterion mid-session. The DIPG gate cannot be statistical
+  because rescue claims have no fittable features, so it is LLM-scored
+  on five Skeptic axes (`perrin_replication_score`,
+  `mechanism_concordance`, `stratifier_specificity`,
+  `clinical_plausibility`, `kill_or_confirm_feasibility`) with the
+  thresholds and AMX0035 hedging-language check still committed in
+  plain Python. The Skeptic-Interpreter separation enforces the same
+  role-isolation that makes KIRC gate-renegotiation impossible.
+- **Tier-1 statistical substrate is deferred.** Four candidates
+  (`02_avapritinib_PDGFRA`, `06_ACVR1i_H31_comut`,
+  `12_pembrolizumab_CMMRD`, `13_H3K27M_peptide_dual_ICB`) were
+  pre-registered as Tier-1 = OpenPedCan-v15-testable, intending a
+  retrospective subgroup-stratifier check on the public PBTA cohort
+  (~85-130 H3 K27M biospecimens). This 2026-04-24 run executed in
+  literature-only adjudication mode (`--skip-evidence-tools`) and the
+  Tier-1 statistical substrate was not actually queried. The next
+  run-tier deploys the OpenPedCan integration in
+  `../dipg_rescue/src/dmg_rescue/dipg_card.py` for the four Tier-1
+  candidates.
+- **Citation-error transparency.** Across all 15 candidates the
+  Skeptic logged citation-quality `perrin_flags` (wrong-PMID
+  attribution, unverified DOIs, originating-group-only replication).
+  These flags do not prevent a `RESCUE_SUPPORTED` verdict because the
+  gate's `perrin_replication_score` axis indexes lab-independence
+  rather than per-citation correctness; a future gate revision should
+  add a separate bibliographic-accuracy axis. The flagged citations
+  are recoverable in each candidate's `*.skeptic.json`
+  `perrin_flags` array.
 - **Research-grade hypotheses, not clinical advice.** All 15 candidates
   including the #1 top lead are research-use-only. The "pharmacokinetic-
   not-pharmacodynamic rescue of PBTC-047" framing is a published

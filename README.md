@@ -257,6 +257,18 @@ operationalizes NegBioDB's core thesis — falsification as the expensive,
 neglected half of scientific inference — on real cancer-genomics data. The
 public NegBioDB repository will be linked here at release.
 
+A companion analysis strand applies the same falsification posture to the
+audit framework itself — validating it against clinical trial outcomes across
+ccRCC, DIPG, and IPF (208 drug-target pairs, 9,943 Phase 3 trials). The
+honest result: the framework discriminates curated panels from random targets
+(16/42 null-sampling tests BY-FDR significant at q < 0.10), but it does NOT
+predict trial failure (trial-level GEE NULL after Bonferroni × 5). The initial
+4.6× enrichment claim was a Track-1 selection-bias artifact — corrected by the
+framework itself via proper failure-mode stratification (Track 1 futility-
+terminated OR = 6.41 vs Track 2 completed-missed-primary OR = 0.13, Woolf
+homogeneity Z = 19.97, p ≪ 10⁻⁸⁷). Rejection-as-product applied to the
+tool's own validation claims. See [`docs/failure_network_v3_appendix.md`](docs/failure_network_v3_appendix.md).
+
 ---
 
 ## Hackathon compliance notes

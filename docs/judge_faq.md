@@ -339,6 +339,42 @@ incremental-AUC test on this task.
 
 ---
 
+## Q13 — "Does the framework validate itself — including the claims that don't hold?"
+
+Yes. A separate analysis strand (v3 scope-of-evidence audit) applied the same
+falsification posture to the framework itself: does the audit classification
+predict clinical trial outcomes across ccRCC, DIPG, and IPF?
+
+**Three convergent results:**
+
+1. **YES, the framework discriminates.** 1,000-permutation null sampling across
+   42 tests (3 diseases × 2 tiers × 7 verdict classes) with BY-FDR correction
+   finds 16/42 significant at q < 0.10. Designed (curated) panels are enriched
+   10–20× over class-matched random panels for `admitted_null_coupling` (ccRCC
+   37 vs null mean 3–5) and `protected_positive_prior` (all 3 diseases:
+   designed 5–21 vs null 0). The verdict function is non-trivially informative.
+
+2. **NO, it does not predict trial failure.** Trial-level GEE (9,943 trials,
+   631 indication clusters, 5 coupling encodings × Bonferroni): best signal
+   is OR = 2.75, p = 0.092 → p\_Bonf = 0.46. No encoding survives correction.
+   The framework is a scope-of-evidence auditor, not a trial-failure predictor.
+
+3. **The prior 4.6× claim was wrong, and the framework caught it.** An initial
+   enrichment (v3.2.1) showed 4.6× more v3-coupled targets in failed vs
+   approved trials. Proper stratification by failure mode revealed this was a
+   Track-1 selection-bias artifact: trials *terminated early for futility*
+   (OR = 6.41) and trials *completed but missed primary endpoint*
+   (OR = 0.13) show *opposite* directions, Woolf Z = 19.97, p ≪ 10⁻⁸⁷.
+   Pooling destroyed the signal; the framework corrected its own overreach.
+
+This is rejection-as-product at the meta level: the same gate that kills
+molecular hypotheses also killed the tool's own overclaiming validation.
+
+**Evidence.** [`docs/failure_network_v3_appendix.md`](failure_network_v3_appendix.md)
+— full methodology, tables, and three figures.
+
+---
+
 ## What we explicitly do NOT claim
 
 (Pulled from `docs/CLAIM_LOCK.md` — the canonical lock list for narration and forms.)
