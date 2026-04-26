@@ -45,12 +45,10 @@ jobs:
         run: |
           mkdir -p _site
 
-          # ── Main pages (from web/) ──
-          cp web/index.html   _site/index.html
-          cp web/demo.html    _site/demo.html
-          cp web/story.html   _site/story.html
+          # ── Copy entire web/ tree (HTML + assets/ + images) ──
+          cp -r web/. _site/
 
-          # ── Rejection log (rendered from JSON) ──
+          # ── Rejection log (rendered from JSON, overrides web placeholder if any) ──
           cp results/rejection_log.html _site/rejection-log.html
 
           # ── IMmotion150 KM plot + verdict JSON ──
