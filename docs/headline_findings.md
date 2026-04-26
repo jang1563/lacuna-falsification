@@ -127,7 +127,7 @@ push to `main` via `.github/workflows/pages.yml`.
 ### What we found
 
 - **203 candidate evaluations under the 5-test TCGA classification
-  gate** (11 task × panel combinations): **194 rejected, 9 accepted**
+  gate** (7 task × panel configurations): **194 rejected, 9 accepted**
   — 95.6 % rejection rate. All 9 passing rows are on the
   `metastasis_expanded` task and clear 4 active legs (`perm_p`,
   `ci_lower`, `delta_baseline`, `decoy_p`) plus BH-FDR across
