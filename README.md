@@ -31,7 +31,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 
 | Metric | Value |
 |---|---|
-| Candidate evaluations (classification gate) | [**385** across 14 task × panel configs](results/track_a_task_landscape/SUMMARY.md) (KIRC: 194/203 reject · platform expansion: 61/101 reject · HPC expansion: 20/81 accept · 60 cross-disease survivors) |
+| Candidate evaluations (classification gate) | [**385** across 14 task × panel configs](results/track_a_task_landscape/SUMMARY.md) (KIRC: 194/203 reject · platform expansion: 61/101 reject · new disease tracks: 20/81 accept · 60 cross-disease survivors) |
 | 5-verdict replication chain | **3 PASS · 2 expected FAIL** · 4 cohorts · 2 platforms |
 | Rashomon rank within all C(45,2) = 990 two-gene pairs | **1 / 990** |
 | Memorization check: zero-shot TOP2A−EPAS1 retrieval rate | **0 / 10** probes |
@@ -372,7 +372,7 @@ architecture — 14 task × panel configurations, 385 total candidate evaluation
   Δbase +0.051. EMT-plasticity × proliferation interaction term
   ([results/track_a_task_landscape/gbm_idh/SUMMARY.md](results/track_a_task_landscape/gbm_idh/SUMMARY.md)).
 
-*HPC expansion runs (2026-04-26, SLURM 2812793, 16 CPUs, 500 iter):*
+*New disease tracks (2026-04-26, same pre-registered gate + thresholds):*
 - **TCGA-LIHC Microvascular Invasion** (19-gene, n=144): **6 / 29 survivors**.
   Top law `(TOP2A/CDH2/SOX9)/sqrt(SNAI1)`, AUROC 0.702, Δbase +0.076. Proliferation-over-EMT
   ratio in HCC ([results/track_a_task_landscape/lihc_mvi/SUMMARY.md](results/track_a_task_landscape/lihc_mvi/SUMMARY.md)).

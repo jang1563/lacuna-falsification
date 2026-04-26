@@ -58,9 +58,9 @@ Plus pre-Phase-L artefacts (Flagship + Tier 2 + Track A/B + Phase F preregs + G/
 - **PhL-6 third cohort (microarray):** TOP2A − EPAS1 stratifies stage 1-2 vs 3-4 with AUROC 0.714.
 - **Cross-cancer negative control (PhL-5 BRCA):** FAIL on `delta_baseline` as predicted; ccRCC-specificity reinforced.
 
-### 🌐 Platform generalization (2026-04-26 HPC expansion, same gate + thresholds)
+### 🌐 Platform generalization (2026-04-26, same gate + thresholds)
 
-All 4 tracks complete (job 2812758). Same pre-registered +0.05 delta_baseline threshold across all diseases.
+All tracks complete. Same pre-registered +0.05 delta_baseline threshold across all diseases.
 
 | Task | Cancer | Panel | n | Top law | AUROC | Survivors |
 |---|---|---|---|---|---|---|
