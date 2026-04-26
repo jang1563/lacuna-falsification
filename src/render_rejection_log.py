@@ -151,18 +151,20 @@ def main() -> None:
 <title>Lacuna — Rejection Log</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
-  html, body {{ margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1a1a1a; background:#fafafa; }}
+  html, body {{ margin:0; padding:0; overflow-x:hidden; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1a1a1a; background:#fafafa; }}
   header {{ background:#1a1a1a; color:white; padding:24px 32px; }}
   header h1 {{ margin:0 0 6px 0; font-size:1.8em; letter-spacing:-0.02em; }}
   header p {{ margin:4px 0; font-size:0.95em; color:#c0c0c0; }}
-  .counts {{ background:#2a2a2a; padding:12px 32px; display:flex; gap:32px; font-size:0.95em; color:#ddd; }}
+  .counts {{ background:#2a2a2a; padding:12px 32px; display:flex; flex-wrap:wrap; gap:16px 32px; font-size:0.95em; color:#ddd; }}
   .counts strong {{ color:#fff; font-size:1.15em; }}
+  .counts-bar {{ background:#f8f8f8; padding:8px 32px; border-bottom:1px solid #ddd; font-size:0.85em; color:#555; }}
   .filters {{ background:#f0f0f0; padding:12px 32px; font-size:0.9em; border-bottom:1px solid #ddd; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }}
   .filters label {{ cursor:pointer; display:flex; align-items:center; gap:4px; }}
   .filters select {{ padding:4px 8px; font-size:0.9em; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer; }}
   .filter-group {{ display:flex; align-items:center; gap:6px; }}
   .filter-group span {{ color:#666; font-size:0.85em; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; }}
-  table {{ border-collapse:collapse; width:100%; font-size:0.85em; }}
+  .table-wrap {{ max-width:100vw; overflow-x:auto; background:#fafafa; }}
+  table {{ border-collapse:collapse; width:100%; min-width:1280px; font-size:0.85em; }}
   th, td {{ padding:8px 12px; border-bottom:1px solid #e8e8e8; text-align:left; vertical-align:top; }}
   th {{ background:#fff; font-weight:600; font-size:0.9em; }}
   thead tr:first-child th {{ position:sticky; top:0; z-index:2; border-bottom:1px solid #ccc; }}
@@ -192,6 +194,18 @@ def main() -> None:
   .chip.external {{ background:#c0870f; color:#fff; }}
   .chip.threshold_edge {{ background:#888; color:#fff; }}
   footer {{ padding:18px 32px; color:#666; font-size:0.85em; border-top:1px solid #ddd; }}
+  @media (max-width: 760px) {{
+    header {{ padding:26px 32px; }}
+    header h1 {{ font-size:1.7em; line-height:1.06; }}
+    header p {{ font-size:0.92em; line-height:1.28; }}
+    .counts {{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px 20px; }}
+    .counts span {{ line-height:1.15; }}
+    .counts strong {{ display:block; margin-top:2px; }}
+    .counts-bar {{ padding:10px 32px; line-height:1.25; }}
+    table {{ min-width:1180px; }}
+    th, td {{ padding:8px 10px; }}
+    footer {{ padding:16px 32px; line-height:1.35; }}
+  }}
 </style>
 </head>
 <body>
@@ -207,9 +221,10 @@ def main() -> None:
   <span>External replay rows: <strong>{external_rows}</strong></span>
   <span>Reject rate: <strong>{reject_rate:.1%}</strong></span>
 </div>
-<div class="counts-bar" style="background:#f8f8f8; padding:8px 32px; border-bottom:1px solid #ddd; font-size:0.85em; color:#555;">
+<div class="counts-bar">
   Showing <span id="matchCount" style="font-weight:600; color:#1a1a1a;"></span> — use column filters below to narrow
 </div>
+<div class="table-wrap">
 <table>
 <thead>
 <tr>
@@ -237,6 +252,7 @@ def main() -> None:
 {body_rows}
 </tbody>
 </table>
+</div>
 <footer>
   Generated {_generation_timestamp()} by <code>src/render_rejection_log.py</code>.
   Raw data in <code>results/flagship_run/</code>, <code>results/opus_exante/</code>, <code>results/tier2_run/</code>, <code>results/track_a_task_landscape/</code>.
