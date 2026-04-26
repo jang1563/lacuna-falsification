@@ -220,7 +220,7 @@ def run_path_b(
     session = client.beta.sessions.create(
         agent=session_agent_arg,
         environment_id=environment.id,
-        title=title or f"Night {night} theory copilot sweep",
+        title=title or f"Night {night} lacuna sweep",
     )
 
     output_parts: list[str] = []
