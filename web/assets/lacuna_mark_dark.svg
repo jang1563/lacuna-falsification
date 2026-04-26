@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!--
+    LACUNA — mark v3 (split-L)
+    The L letterform is fractured into two fragments.
+    The void between them IS the lacuna — the gap in the damaged manuscript.
+
+    Geometry (500×500 canvas):
+      stroke_width : 88px  (17.6% of canvas — bold, survives 32px downscale)
+      x_left       : 132
+      x_vert_right : 220   (= 132 + 88)
+      x_horiz_right: 372   (= 132 + 240)
+
+      top_cap      : y=[76,  196]  120px tall  H:W = 1.36 → reads as vertical fragment
+      lacuna_gap   : y=[196, 288]   92px tall  26% of total height → unmistakably intentional
+      bottom_vert  : y=[288, 424]  136px tall  slightly larger than top_cap → L body dominates
+      horiz_foot   : y=[320, 424]  104px tall  x=[132,372] — foot of the L
+  -->
+
+  <!-- ── Background ── -->
+  <rect width="500" height="500" fill="#141413"/>
+
+  <!-- ── TOP FRAGMENT ──────────────────────────────────────────────────── -->
+  <!-- Upper portion of the vertical stroke: 88 × 120 px (H:W 1.36:1)    -->
+  <!-- Reads as a vertical column, not a square block                      -->
+  <rect x="132" y="76" width="88" height="120" fill="#faf9f5"/>
+
+  <!-- ── LACUNA ────────────────────────────────────────────────────────── -->
+  <!-- y=[196, 288] — 92 px of pure void. Ink background IS the lacuna.   -->
+  <!-- Nothing drawn here. The absence defines the mark.                   -->
+
+  <!-- ── BOTTOM L BODY ─────────────────────────────────────────────────── -->
+  <!-- Vertical stub: 88 × 136 px — slightly taller than top cap           -->
+  <rect x="132" y="288" width="88" height="136" fill="#faf9f5"/>
+
+  <!-- Horizontal foot: extends right, anchors the L reading               -->
+  <!-- Overlaps with bottom vert at [132-220, 320-424] — same color, fine  -->
+  <rect x="132" y="320" width="240" height="104" fill="#faf9f5"/>
+
+</svg>
