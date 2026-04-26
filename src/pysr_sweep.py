@@ -173,7 +173,10 @@ def _run_sweep(args: argparse.Namespace) -> list[dict[str, Any]]:
                 model = pysr.PySRRegressor(**kwargs)
             else:
                 raise
-        model.fit(X_train, y_train)
+        try:
+            model.fit(X_train, y_train, variable_names=gene_cols)
+        except TypeError:
+            model.fit(X_train, y_train)
 
         eqs: pd.DataFrame = model.equations_
         top = eqs.nlargest(min(10, len(eqs)), "score")
