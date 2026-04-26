@@ -211,10 +211,10 @@ inter-agent channels, $500 cap overage. None apply.
 | Stage | Date | Result |
 |---|---|---|
 | Stage 0 — audit doc | 2026-04-25 | This doc shipped |
-| Stage 1 — self-audit | _pending_ | _TBD_ |
-| Stage 2 — gap discussion | _pending_ | _TBD_ |
-| Stages 3-5 — gap fixes | _pending_ | _TBD_ |
-| Stage 6 — submission form 4-beat restructure + final QA | _pending_ | _TBD_ |
+| Stage 1 — self-audit | 2026-04-25 | `docs/stage1_self_audit.md` — compact table + Demo/Opus 4.7 deep dive + top-3 gaps |
+| Stage 2 — gap discussion | 2026-04-25 | Top-3 confirmed; deep research for Gap #3 metric narrative; additional gap found (secondary prizes not called out) |
+| Stages 3-5 — gap fixes | 2026-04-25 | Gap #1: 4-beat restructure (what / problem / how-built / how-Claude); Gap #3: "$58, 32 min" fabrication-catch embedded in Beat 4; Gap #4: Most Creative + Keep Thinking secondary prize sentence added to Opus 4.7 usage |
+| Stage 6 — submission form 4-beat restructure + final QA | _pending_ | Verify word counts, special-prize coverage, Lacuna rename consistency |
 | Stage 7 — Loom recording | 2026-04-26 AM (planned) | _TBD_ |
 | Stage 8 — final audit | _pending_ | _TBD_ |
 | Stage 9 — submit window | 2026-04-26 18:00-20:00 ET | _TBD_ |

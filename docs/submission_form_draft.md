@@ -69,54 +69,66 @@ AI for Science that says no: pre-registered gate rejects 194 of 203 cancer laws,
 
 The official rules require **one written description / summary
 (100–200 words)**. Use this version if the live form has only a
-single summary box. (Word count: 176; cap 200.)
+single summary box. (Word count: 184; cap 200.)
+**4-beat structure (what / problem / how-built / how-Claude) — Stage 3-5 restructure 2026-04-25.**
 
 ```
-AI-for-Science tools accelerate hypothesis generation — not rejection.
-Lacuna is the rejection step. Opus 4.7 plays Proposer (emits
-compact cancer-law families and the kill-test for each, before any
-fit), Skeptic (reviews gate output via a separate Managed Agents
-session — never the Proposer's reasoning), and Interpreter (explains
-only what survived). On TCGA-KIRC (n=505), a deterministic Python
-gate rejected 194 of 203 candidate evaluations across 11 task-panel
-combinations. The simplest survivor — TOP2A − EPAS1 — is the
-published ccA/ccB ccRCC subtype axis, rediscovered by symbolic
-regression unprompted, then replicated on the IMmotion150 Phase-2
-trial cohort (HR=1.36, log-rank p=0.0003) under a separately
-pre-registered survival gate. Our own LLM-SR loop's 3-gene extension
-was killed by that same survival gate. Same engine on H3 K27M DIPG:
-7/15 Tier-2 supported (top lead panobinostat-CED-MTX110), then Tier-1
-substrate gating on PBTA v15 returned 0/2/2 — the intended falsifier
-output. Same engine on IPF: 1/5 supported, Skeptic caught two
-Advocate fabrications about prior trial design — dual-role isolation
-working at runtime. Pre-registrations are git-tracked YAMLs; the
-frame is Kepler-style induction constrained by a falsification gate
-the LLM cannot renegotiate.
+Lacuna is a pre-registered falsification gate for biological law
+discovery, built on Opus 4.7 Managed Agents. Opus plays Proposer
+(emits compact law families and the kill-test for each, before any
+fit), Skeptic (reviews gate output in an isolated session — never
+the Proposer's reasoning), and Interpreter (explains only what
+survived).
+
+AI-for-Science tools accelerate hypothesis generation — not
+rejection. The result: automated confirmation bias; a high AUROC
+on one cohort is nearly free when you search enough candidates.
+
+A deterministic 5-test Python gate rejected 194 of 203 candidates
+on TCGA-KIRC (n=505). The simplest survivor — TOP2A − EPAS1 — is
+the published ccA/ccB ccRCC subtype axis, rediscovered by symbolic
+regression unprompted, then replicated on IMmotion150 (HR=1.36,
+p=0.0003) under a separately pre-registered survival gate. Our own
+LLM-SR 3-gene extension? Killed by that same gate. Same engine on
+pediatric brainstem cancer (DIPG): 7/15 hypotheses supported.
+
+Opus 4.7 (adaptive thinking, isolated Managed Agents sessions)
+holds the Skeptic stance without collapse — 10/60 PASS where
+Sonnet 4.6 = 0/60. IPF Run #1 ($58, 32 min): Skeptic caught two
+Advocate fabrications about prior trial design — context isolation
+working at runtime. Pre-registrations are git-tracked YAMLs; 3
+diseases evaluated.
 ```
 
 ---
 
 ## Project summary (150 words, 146 counted)
 
-AI-for-Science tools accelerate hypothesis generation — not rejection.
-Lacuna is the rejection step. Opus 4.7 plays Proposer (emits
-compact cancer-law families and the kill-test for each, before any
-fit), Skeptic (reviews gate output — never the Proposer's reasoning),
-and Interpreter (explains only what the gate failed to reject). On
-TCGA-KIRC (n=505), the gate rejected 194 of 203 candidate evaluations
-across 11 task-panel combinations. The simplest survivor — `TOP2A −
-EPAS1`, the published ccA/ccB ccRCC subtype axis — was rediscovered
-by PySR without being seeded. A separately pre-registered survival gate
-on IMmotion150 Phase-2 (n=263) confirmed it: log-rank p=0.0003,
-HR=1.36. Our own LLM-SR loop's 3-gene extension was killed by that
-same survival gate (PhL-1). **Same engine generalises to DIPG (7/15
-Tier-2 supported) and IPF (1/5 supported, Skeptic caught two Advocate
-fabrications about prior trial design — runtime demonstration of
-dual-role context isolation).** Pre-registrations are git-tracked YAMLs.
+Lacuna is a pre-registered falsification gate for biological law
+discovery, built on Opus 4.7 Managed Agents. Opus plays Proposer
+(emits compact law families + kill-test per family, before any
+fit), Skeptic (reviews gate output in an isolated session), and
+Interpreter (explains only what survived).
+
+AI-for-Science tools accelerate hypothesis generation — not
+rejection. The result: automated confirmation bias.
+
+A deterministic 5-test Python gate rejected 194 of 203 candidates
+on TCGA-KIRC (n=505). The simplest survivor — `TOP2A − EPAS1` —
+is the published ccA/ccB ccRCC subtype axis, rediscovered by
+symbolic regression unprompted. A separately pre-registered
+survival gate on IMmotion150 confirmed it: p=0.0003, HR=1.36.
+Our own LLM-SR 3-gene extension? Killed by that same gate.
+
+Opus 4.7 holds the Skeptic stance without collapse — 10/60 PASS
+where Sonnet 4.6 = 0/60. IPF Run #1 ($58, 32 min): Skeptic
+caught two Advocate fabrications about prior trial design —
+context isolation at runtime. Pre-registrations are git-tracked
+YAMLs.
 
 ---
 
-## Claude Opus 4.7 usage (150 words, 134 counted)
+## Claude Opus 4.7 usage (150 words, 150 counted)
 
 Four Opus 4.7 calls per loop with
 `thinking={"type":"adaptive","display":"summarized"}` and
@@ -133,7 +145,9 @@ zero-shot retrieval of TOP2A−EPAS1 = 0/10 (rebuts LLM-SRBench
 memorization concern).** **IPF Run #1 (2026-04-25): Skeptic caught
 two Advocate fabrications about prior trial design — RAINIER + Raghu
 2017 prespecified stratifiers Advocate claimed "never tested". Context
-isolation working at runtime.**
+isolation working at runtime.** **1M-context failure synthesis + PhL-17
+210-turn adversarial ablation — Most Creative + Keep Thinking secondary
+prize candidates.**
 
 ---
 
