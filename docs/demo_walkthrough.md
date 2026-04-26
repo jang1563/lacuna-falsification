@@ -16,7 +16,7 @@ python -c "import pysr"   # first run: 5–15 min Julia compilation
 export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-## Step 1 — Propose (Opus 4.7, Scientist role)
+## Step 1 — Propose (Opus 4.7, Proposer role)
 
 Opus 4.7 reads the dataset card + feature list and returns 3–5 compact
 law families with biological rationale and pre-registered skeptic

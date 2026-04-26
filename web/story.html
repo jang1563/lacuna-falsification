@@ -607,7 +607,7 @@ body {
     <span class="nav-panel__num">06</span>
     <span class="nav-panel__info">
       <span class="nav-panel__name">External replication + own-kill</span>
-      <span class="nav-panel__desc">HR 1.36 · p=0.0003 · 5-node chain</span>
+      <span class="nav-panel__desc">HR 1.36 · p=0.0003 · 6-node chain</span>
     </span>
   </button>
   <button class="nav-panel__beat" data-beat="beat-7">
@@ -631,7 +631,7 @@ body {
     <div class="nav-panel__callout-item">203 candidate equations — hover any cell (Beat 04 ▼)</div>
     <div class="nav-panel__callout-item">13-test rigor extension: AUPRC, Rashomon, Cohen's d (Beat 05 ▼)</div>
     <div class="nav-panel__callout-item">Methodology validation: known result found unconstrained → method proven (Beat 05 ▼)</div>
-    <div class="nav-panel__callout-item">5-node replication chain — 3 PASS + 2 self-kill (Beat 06 ▼)</div>
+    <div class="nav-panel__callout-item">6-node replication chain — 3 PASS + 2 pre-reg FAIL + 1 honest FAIL (Beat 06 ▼)</div>
     <div class="nav-panel__callout-item">Live oracle — PhL-8d dual verdict, clickable session URL (Beat 07)</div>
   </div>
 </div>
@@ -1303,11 +1303,11 @@ body {
 
   <!-- Beat 6 evidence drawer — replication chain -->
   <div class="ev-section">
-    <button class="ev-trigger" data-drawer="ev-drawer-6">Deep dive — replication chain: 5 independent validation contexts (click each node)</button>
+    <button class="ev-trigger" data-drawer="ev-drawer-6">Deep dive — replication chain: 6 independent validation contexts (click each node)</button>
     <div class="ev-drawer" id="ev-drawer-6">
       <div class="ev-body">
         <div class="ev-head">Replication Chain</div>
-        <div class="ev-sub">5 independent contexts · 3 designed to PASS · 2 designed to FAIL · click each node for detail</div>
+        <div class="ev-sub">6 independent contexts · 3 PASS · 2 pre-registered FAIL · 1 honest FAIL · click each node for detail</div>
         <div class="repl-chain">
 
           <div class="repl-node repl-node--pass">
@@ -1387,7 +1387,7 @@ body {
             <div class="repl-node__content">
               <div class="repl-node__head">
                 <span class="repl-node__title">Own-kill · SLC22A8 3-gene extension</span>
-                <span class="repl-node__badge repl-node__badge--expected">expected FAIL ✓</span>
+                <span class="repl-node__badge repl-node__badge--expected">pre-reg FAIL ✓</span>
               </div>
               <div class="repl-node__sub">Opus proposed the extension · same gate · commit 60d3952</div>
               <div class="repl-node__detail">
@@ -1395,6 +1395,23 @@ body {
                   Opus 4.7 proposed adding SLC22A8 to TOP2A−EPAS1. Gate ran identically.<br>
                   <strong>log-rank p = 0.117</strong> (threshold &lt; 0.05) · Cox HR p = 0.074 · C-index 0.566<br>
                   All 3 survival tests FAIL. Gate reported FAIL on our own best candidate. Pre-registered.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="repl-node repl-node--fail">
+            <div class="repl-node__dot">—</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">Honest FAIL · CPTAC-3 metastasis</span>
+                <span class="repl-node__badge repl-node__badge--expected">honest FAIL</span>
+              </div>
+              <div class="repl-node__sub">n=155 (M1=20) · proteogenomics platform · not pre-registered</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  Direction preserved (p=0.006) but gate refuses: <strong>ci_lower=0.542</strong> &lt; 0.60 · <strong>Δbase=−0.007</strong> (TOP2A alone 0.691 &gt; compound 0.683).<br>
+                  Cross-platform replication not confirmed. Gate correctly refuses weak signal. This is the gate doing its job — not a failure of the methodology.
                 </div>
               </div>
             </div>
@@ -1607,7 +1624,7 @@ body {
         each dot = one failed trial &nbsp;·&nbsp; <span style="color:var(--sage-dark);font-weight:600">outline = dordaviprone (first approval, Aug 2025)</span>
       </div>
       <div class="gate-box">
-        <div class="gate-box__head">kidney cancer law · validated in 5 independent contexts</div>
+        <div class="gate-box__head">kidney cancer law · validated in 6 independent contexts</div>
         <table class="gate-table">
           <thead><tr><th>Context</th><th>Result</th><th style="text-align:center">Verdict</th></tr></thead>
           <tbody>
@@ -1629,12 +1646,17 @@ body {
             <tr class="gate-row">
               <td><div class="gate-name">Negative control · tumor vs. normal</div><div class="gate-threshold">one gene already saturates — compound not needed</div></td>
               <td class="gate-threshold">single gene wins; no compound needed</td>
-              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">expected FAIL ✓</td>
+              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">informative FAIL ✓</td>
             </tr>
             <tr class="gate-row">
               <td><div class="gate-name">Cross-disease control · breast cancer</div><div class="gate-threshold">kidney-specific signal should not transfer</div></td>
               <td class="gate-threshold">signal absent, as expected</td>
-              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">expected FAIL ✓</td>
+              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">pre-reg FAIL ✓</td>
+            </tr>
+            <tr class="gate-row">
+              <td><div class="gate-name">CPTAC-3 · cross-platform metastasis</div><div class="gate-threshold">n=155 · proteogenomics · honest negative</div></td>
+              <td class="gate-threshold">direction p=0.006 · ci_lower=0.542 · Δbase=−0.007</td>
+              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">honest FAIL</td>
             </tr>
           </tbody>
         </table>

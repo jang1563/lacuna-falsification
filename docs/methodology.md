@@ -143,7 +143,7 @@ Notes on design choices:
   scale; the law must beat the 95th percentile. Catches overfit-to-noise.
 
 Multiple candidates are tested per run, so permutation p-values across
-candidates are adjusted with Benjamini-Hochberg FDR (α = 0.1). **The gate uses
+candidates are adjusted with Benjamini-Hochberg FDR (α = 0.05). **The gate uses
 the FDR-adjusted p, not the raw one.** A law whose raw p clears 0.05 but whose
 FDR-adjusted p does not is reported as a non-survivor with `fail_reason=perm_p`.
 
@@ -286,7 +286,7 @@ working correctly on a cohort where the law does not generalize.
 
 Applied to real TCGA-KIRC the gate accepts and rejects in complementary
 patterns, which is the behaviour the pre-registration was designed to
-produce. Six task × panel combinations were evaluated.
+produce. Seven task × panel configurations were evaluated (4 tasks on the 11-gene HIF-axis panel + 2 on the 45-gene expanded panel + 1 KIRC Stage 45-gene; see §6 table and SUMMARY.md).
 
 ### Rejections on the original 11-gene HIF-axis panel
 

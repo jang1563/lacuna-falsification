@@ -322,7 +322,7 @@ of evidence*.
 - Copy `.github/workflows/nightly_falsifier.yml` + the
   `run_path_c_routine` driver to your repo; set `ANTHROPIC_API_KEY`
   as a secret; edit the `invoke_fn` injection point for your
-  Proposer / Searcher / Falsifier roles.
+  Proposer / Searcher / Skeptic roles.
 - Regulatory teams: point to `preregistrations/` + `make prereg-audit`
   output as the concrete form-factor for your credibility assessment
   plan.

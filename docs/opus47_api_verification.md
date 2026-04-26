@@ -132,7 +132,7 @@ def propose_laws(context: str) -> dict:
     return {"thinking": thinking_text, "answer": answer_text}
 
 
-# --- Role: Falsifier ---
+# --- Role: Skeptic ---
 def falsify_law(law: str, evidence: str) -> dict:
     response = client.messages.create(
         model="claude-opus-4-7",

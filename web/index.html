@@ -476,17 +476,18 @@ tr:last-child td { border-bottom: none; }
   <!-- ── Replication chain ── -->
   <section class="section" id="replication">
     <div class="section__head">
-      <span class="eyebrow">5-verdict replication chain</span>
+      <span class="eyebrow">6-verdict replication chain</span>
       <h2>Where the law holds — and where it should not</h2>
-      <p class="section__sub">The same equation is tested across mixed endpoints and platforms. 3 PASS · 2 expected FAIL. The negative controls (saturation-expected) are the specificity story.</p>
+      <p class="section__sub">The same equation is tested across mixed endpoints and platforms. 3 PASS · 2 pre-registered FAIL · 1 honest FAIL. The negative controls (saturation-expected + cross-platform) are the specificity story.</p>
     </div>
 
     <div class="verdict-strip">
       <span class="v-badge v-badge--pass">✓ TCGA-KIRC metastasis</span>
       <span class="v-badge v-badge--pass">✓ IMmotion150 PFS</span>
       <span class="v-badge v-badge--pass">✓ GSE53757 stage</span>
-      <span class="v-badge v-badge--exp">∅ GSE53757 T-vs-N (expected FAIL)</span>
-      <span class="v-badge v-badge--exp">∅ TCGA-BRCA T-vs-N (expected FAIL)</span>
+      <span class="v-badge v-badge--exp">∅ GSE53757 T-vs-N (informative FAIL)</span>
+      <span class="v-badge v-badge--exp">∅ TCGA-BRCA T-vs-N (pre-reg FAIL)</span>
+      <span class="v-badge v-badge--exp">∅ CPTAC-3 metastasis (honest FAIL)</span>
     </div>
 
     <table>
@@ -519,15 +520,22 @@ tr:last-child td { border-bottom: none; }
           <td>GSE53757 · tumor vs normal</td>
           <td>~144</td>
           <td>AUROC 0.995 (saturation)</td>
-          <td><span class="verdict-exp-fail">EXP. FAIL</span></td>
-          <td>Single-gene saturation expected; Δbase mathematically unreachable. Confirms specificity.</td>
+          <td><span class="verdict-exp-fail">INFORMATIVE FAIL</span></td>
+          <td>Single-gene saturation (CA9 AUROC 0.995); Δbase mathematically unreachable. Confirms specificity.</td>
         </tr>
         <tr class="fail-row">
           <td>TCGA-BRCA · tumor vs normal</td>
           <td>—</td>
           <td>Δbase +0.009</td>
-          <td><span class="verdict-exp-fail">EXP. FAIL</span></td>
+          <td><span class="verdict-exp-fail">PRE-REG FAIL</span></td>
           <td>Cross-cancer negative control. Law is ccRCC-specific, not pan-cancer.</td>
+        </tr>
+        <tr class="fail-row">
+          <td>CPTAC-3 · metastasis M0/M1</td>
+          <td>155</td>
+          <td>ci_lower=0.542 · Δbase=−0.007 · direction p=0.006</td>
+          <td><span class="verdict-exp-fail">HONEST FAIL</span></td>
+          <td>Direction preserved (p=0.006) but gate refuses: ci_lower &lt; 0.60 and Δbase negative. Cross-platform replication not confirmed.</td>
         </tr>
       </tbody>
     </table>

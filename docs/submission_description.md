@@ -64,15 +64,15 @@ same thresholds, no seeds, is the artifact.
 - **Multi-role adversarial reasoning.** The same model authors both
   the proposal and the ex-ante skeptic test, then writes the
   post-hoc review of the statistical gate's verdict, then writes the
-  mechanism interpretation of the survivor — four Opus 4.7 calls
-  around one deterministic gate.
+  mechanism interpretation of the survivor — three Opus 4.7 calls
+  (Proposer, Skeptic, Interpreter) around one deterministic Python gate.
 - **Multi-step discovery loop.** Proposal → Search → Falsification
   → Survivor → Replay. The Proposer's output is the Skeptic's
   input; the Skeptic's per-metric critique is the Interpreter's
   input; the Interpreter's hypothesis is replayed on the held-out
   test split (and, where possible, an independent cohort).
 
-Live transcripts of all four roles at `results/live_evidence/`.
+Live transcripts of all three Opus roles at `results/live_evidence/`.
 
 ## Claude Managed Agents Usage
 
@@ -228,11 +228,11 @@ At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) n
   to the survivor (6 axes + 5-fold CV).
 - Track B robustness scripts (`src/gate_sensitivity.py`,
   `src/track_b_*.py`) — 6-axis stress test of the reject verdict.
-- Opus-proposed `config/law_proposals.json` (14 law family templates,
-  7 for KIRC + 2 ex-ante negative controls) used to seed PySR.
+- Opus-proposed `config/law_proposals.json` (16 law family templates:
+  7 for KIRC [including 2 ex-ante negative controls] + 4 LUAD + 5 generic) used to seed PySR.
 - Real public data pipeline: TCGA-KIRC (GDC star_tpm, 609 samples,
   with 11-gene and 45-gene derivatives) + GSE40435 (microarray,
-  202 paired samples).
+  101 paired tumor/normal samples, n=202).
 - Offline synthetic-data test suite so the pipeline reproduces
   without API credentials.
 
