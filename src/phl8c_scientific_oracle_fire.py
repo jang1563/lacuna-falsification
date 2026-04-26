@@ -11,7 +11,7 @@ Pre-requisites:
   - Or store them in ~/.api_keys and source that file first.
 
 Usage:
-    cd theory_copilot_discovery/
+    cd lacuna-falsification/
     export CLAUDE_ROUTINE_TRIG_ID=trig_01...
     export CLAUDE_ROUTINE_TOKEN=sk-ant-...
     PYTHONPATH=src .venv/bin/python src/phl8c_scientific_oracle_fire.py
