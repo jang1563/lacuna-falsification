@@ -44,11 +44,30 @@ Source data: `CLAUDE.md` execution-flow ASCII + `docs/methodology.md
 | Slot | Asset | Path | Fallback |
 |---|---|---|---|
 | Pane A (cross-task matrix) | `task_auroc_comparison.png` | `results/track_a_task_landscape/plots/task_auroc_comparison.png` | `results/plots/falsification_panel_all.png` |
+| Pane C (terminal cut, ~3 s) | `jq` query that surfaces the HIF-axis failing row live from the report JSON — proves the report is real, not a screenshot | repo root, command in §Pane C terminal cut below | drop terminal cut, fall through to Pane B static view |
 | Pane B (rejection log row) | `falsification_report.json` scrolled to a CA9-anchor failing row | `results/flagship_run/falsification_report.json` (or `track_a_task_landscape/tumor_normal/falsification_report.json`) | `delta_baseline_by_task.png` |
 
-**Cut at**: "Even the textbook HIF-axis law Opus itself proposed —
-log CA9 + log VEGFA − log AGXT — fails." — that's where the JSON row
-should be visible.
+**Cut sequence**:
+- 0:25–0:32 (matrix) → narrator says "194 of 203 ... across four tasks" (Pane A on screen)
+- 0:32–0:36 (**NEW terminal flash**) → narrator says "Even the textbook HIF-axis law Opus itself proposed — log CA9 plus log VEGFA minus log AGXT — fails" (Pane C terminal output of the `jq` command appears)
+- 0:36–0:45 (JSON) → narrator says "because CA9 alone already reaches AUROC 0.965" (Pane B with the row pre-scrolled)
+
+**Pane C terminal cut command** (paste, hit enter once recording starts; output ≤ 5 lines, fits one terminal frame):
+```bash
+jq '.candidates[] | select(.equation | contains("CA9") and contains("VEGFA") and contains("AGXT")) | {equation, fail_reason, delta_baseline}' \
+  results/track_a_task_landscape/tumor_normal/falsification_report.json
+```
+Expected output (must verify before recording — actual key names depend on the schema in this run):
+```json
+{
+  "equation": "log1p(CA9) + log1p(VEGFA) - log1p(AGXT)",
+  "fail_reason": "delta_baseline",
+  "delta_baseline": 0.019
+}
+```
+**Verify before recording**: run the command once at the repo root; if the schema differs, fall back to a simpler form `jq '.candidates[0] | {equation, fail_reason}' <path>` or drop the cut entirely (no narration changes needed).
+
+**Why this matters**: addresses the 4.6 hackathon "Remotion UI recreation" failure mode by making the rejection a live computation visible on screen — same JSON shown in Pane B, but produced by a real query in Pane C, three seconds before. Bumps terminal-execution coverage from ~7% (only the closing `make audit`) to ~12%, with no narration rewrite required.
 
 ---
 
@@ -133,8 +152,17 @@ Skeptic JSONs for 03 and 04 live in the private sibling repo
    - `immotion150_slc22a8/km_median_split.png`
 4. **Pane B incognito browser** preloaded to PhL-8 `claude.ai/code`
    session URL.
-5. **Pane C terminal** in repo root with `make audit` typed but not
-   pressed.
+5. **Pane C terminal** in repo root with two commands pre-prepared:
+   - **First (rejection-surface cut at 0:32):** the `jq` query from
+     §"0:25–0:45 Rejection surface" pre-typed but not yet pressed.
+     Verify it runs cleanly once before camera rolls — if the schema
+     differs from the example output, fall back to the simpler form
+     or drop the cut.
+   - **Second (Routine + close cut at 1:22):** `make audit` typed
+     but not pressed.
+   Switch terminal history with up-arrow between cuts; do NOT clear
+   the terminal between them (the `jq` output staying visible
+   underneath is fine — the narration moves on to other panes).
 6. Trim 1 s leading silence; trim trailing silence aggressively;
    1080p / 30 fps single take preferred.
 7. **NEW for IPF segment (2026-04-25): Pane G editor** has

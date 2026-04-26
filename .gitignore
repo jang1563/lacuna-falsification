@@ -58,3 +58,8 @@ results/live_evidence/phl4_persist_replay/phl4_state.json
 # OS
 *.DS_Store
 HANDOFF_to_*.md
+
+# IPF research notes (local-only — contain HPC infrastructure references)
+research/IPF_*.md
+research/ipf_*.md
+research/SESSION_HANDOFF_ipf*.md
