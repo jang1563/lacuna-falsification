@@ -55,7 +55,7 @@ README do not drift from the committed evidence when written in parallel.
 | Sonnet 4.6 PASS / 60 | **0 / 60** | same |
 | Memory chain lessons (PhL-12) | **8** | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
 | Local tests | **105 / 105** | `make test`, current local-runnable target; review/staging suites intentionally excluded |
-| PhL artefact count | **20** (PhL-1 to PhL-19 + PhL-9v2) | `STATUS.md` |
+| PhL artefact count | **24** (PhL-1 to PhL-19 + PhL-9v2 + PhL-8b/8c/8d + PhL-10 oracle) | `STATUS.md` |
 | Memorization audit (PhL-13): zero-shot TOP2A-EPAS1 exact top | **0 / 10** | `results/live_evidence/phl13_memorization_audit/SUMMARY.md` |
 | Memorization audit: literature-anchor rediscovery | **2 / 2** structurally-equivalent | same |
 | PhL-14 LLM-SR 10-iter: post-seed skeleton families tested | **18** (9 Opus + 9 Sonnet) | `results/overhang/llm_sr_10iter/SUMMARY.md` |

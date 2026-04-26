@@ -10,7 +10,7 @@
 
 ## 🎯 Submission-ready snapshot
 
-- **20 PhL artefacts** (PhL-1 to PhL-19 + PhL-9v2) all live, all committed. Newest 5 (PhL-15 to PhL-19) are capability-overhang measurements — aggregated at `docs/capability_overhang_measurements.md`.
+- **24 PhL artefacts** (PhL-1 to PhL-19 + PhL-9v2 + PhL-8b/8c/8d + PhL-10 oracle) all live, all committed. Newest 5 (PhL-15 to PhL-19) are capability-overhang measurements — aggregated at `docs/capability_overhang_measurements.md`.
 - **Review-handoff** processed: 12 of 20 findings fixed (P0 + P1 batch); 8 deferred with explicit rationale in commit messages.
 - **`make all`** one-command reproduction of tests + audit + prereg-audit + rejection-log + paper PDF (no API key required).
 - **`.devcontainer/devcontainer.json`** — judges can click "Open in GitHub Codespaces" and reach `make test` green in ~2 min.
