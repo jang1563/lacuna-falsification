@@ -262,3 +262,27 @@ Gate finds sparse survivors when ceiling is high but not absolute (LGG: MKI67 ~0
 Subdirectories: `stage_expanded/`, `lihc/`, `coad_msi/`, `gbm_idh/` — each with `SUMMARY.md`.
 
 (An expanded-panel cross-comparison plot is a natural next addition.)
+
+---
+
+## New disease tracks (2026-04-26 discovery session)
+
+Three new datasets built and falsification-tested. HPC sweep (SLURM 2812785) running for
+fuller PySR candidates; results below reflect hand-constructed / seed-1 candidates.
+
+| Cancer | Task | Panel | n | Pre-reg law | Pre-reg AUROC | Δbase | Survivors (initial) | Notes |
+|---|---|---|---|---|---|---|---|---|
+| PAAD | OS ≤15mo vs >15mo | 19-gene | 183 | `GATA6−VIM` | 0.563 | −0.066 | **0/13** | KRT17 ceiling 0.629; SMAD4+KRT17 best (Δ+0.004) |
+| LIHC | MVI Micro vs None | 19-gene | 144 | `EPCAM+CDK1` | 0.556 | −0.070 | **0/12** | CDK1 ceiling ~0.626; CDK1/SNAI1 best (Δ+0.014) |
+| IPF | CEP (death/FVC>10%) | 17-gene | 57 | `SPP1−CCL20` | 0.545 | −0.116 | **0/12** | Whole blood (not BAL); single-gene ceiling 0.661 |
+| DIPG | H3K27M vs WT | — | — | `OLIG2−UQCRC1` | — | — | **NOT RUN** | Data acquisition failed (OpenPedCan S3 404) |
+
+**Pre-reg predictions all fail on initial candidate set.** Three independent reasons:
+- PAAD: KRT17 captures most OS signal alone (>GATA6 additive contribution)
+- LIHC MVI: n=144 + 28% prevalence → bootstrap CI lower bounds constrained; EPCAM+CDK1 Δ negative
+- IPF: Tissue mismatch (whole blood not BAL); all compounds weaker than best single gene
+
+HPC sweep 2812785 (16 CPUs × 500 iter × 3 seeds per task) may find compound laws that clear
+the gate. Will update SUMMARY.md in each task directory when results arrive.
+
+Subdirectories: `paad_survival/`, `lihc_mvi/`, `ipf_lgrc/`, `dipg/` — each with `SUMMARY.md`.
