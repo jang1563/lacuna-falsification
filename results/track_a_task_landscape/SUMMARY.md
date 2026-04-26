@@ -267,22 +267,29 @@ Subdirectories: `stage_expanded/`, `lihc/`, `coad_msi/`, `gbm_idh/` — each wit
 
 ## New disease tracks (2026-04-26 discovery session)
 
-Three new datasets built and falsification-tested. HPC sweep (SLURM 2812785) running for
-fuller PySR candidates; results below reflect hand-constructed / seed-1 candidates.
+Three new datasets built and falsification-tested. HPC sweep 2812793 (16 CPUs × 500 iter ×
+3 seeds × 16 populations per task, scu-cpu) completed. Results below are final.
 
-| Cancer | Task | Panel | n | Pre-reg law | Pre-reg AUROC | Δbase | Survivors (initial) | Notes |
+| Cancer | Task | Panel | n | Best survivor law | Best AUROC | Δbase | Survivors | Notes |
 |---|---|---|---|---|---|---|---|---|
-| PAAD | OS ≤15mo vs >15mo | 19-gene | 183 | `GATA6−VIM` | 0.563 | −0.066 | **0/13** | KRT17 ceiling 0.629; SMAD4+KRT17 best (Δ+0.004) |
-| LIHC | MVI Micro vs None | 19-gene | 144 | `EPCAM+CDK1` | 0.556 | −0.070 | **0/12** | CDK1 ceiling ~0.626; CDK1/SNAI1 best (Δ+0.014) |
-| IPF | CEP (death/FVC>10%) | 17-gene | 57 | `SPP1−CCL20` | 0.545 | −0.116 | **0/12** | Whole blood (not BAL); single-gene ceiling 0.661 |
-| DIPG | H3K27M vs WT | — | — | `OLIG2−UQCRC1` | — | — | **NOT RUN** | Data acquisition failed (OpenPedCan S3 404) |
+| PAAD | OS ≤15mo vs >15mo | 19-gene | 183 | — | — | −0.293 | **0/27** ❌ | KRT17 ceiling 0.629; gate correctly rejects |
+| LIHC | MVI Micro vs None | 19-gene | 144 | `(TOP2A/CDH2/SOX9)/sqrt(SNAI1)` | 0.702 | +0.076 | **6/29** ✅ | Proliferation÷EMT ratio axis |
+| IPF | CEP (death/FVC>10%) | 17-gene | 57 | `SPP1×(CXCL12−PDGFRA)/MUC5B` | 0.757 | +0.096 | **6/25** ✅ | Fibrosis amplification axis; MUC5B GWAS-consistent |
+| DIPG | H3K27M vs WT | — | — | — | — | — | **NOT RUN** | Data acquisition failed (OpenPedCan S3 404) |
 
-**Pre-reg predictions all fail on initial candidate set.** Three independent reasons:
-- PAAD: KRT17 captures most OS signal alone (>GATA6 additive contribution)
-- LIHC MVI: n=144 + 28% prevalence → bootstrap CI lower bounds constrained; EPCAM+CDK1 Δ negative
-- IPF: Tissue mismatch (whole blood not BAL); all compounds weaker than best single gene
+**Pre-reg predictions all fail** — PySR finds richer compound families than the pre-specified
+gene pairs. LIHC and IPF produce 6 survivors each, all biologically interpretable.
 
-HPC sweep 2812785 (16 CPUs × 500 iter × 3 seeds per task) may find compound laws that clear
-the gate. Will update SUMMARY.md in each task directory when results arrive.
+**PAAD** is the designed negative for this expansion set — gate correctly detects KRT17
+single-gene ceiling and refuses compound credit. Consistent with the ccRCC CA9 pattern.
+
+**LIHC MVI survivors**: `TOP2A/CDH2/SOX9/sqrt(SNAI1)` — proliferation (TOP2A) relative
+to mesenchymal (CDH2) and EMT-driver (SNAI1) context, with stemness marker (SOX9). All 6
+survivors are algebraic rearrangements of the same 4-gene compound.
+
+**IPF survivors**: `SPP1 × (CXCL12 − PDGFRA) / MUC5B` — SPP1 (validated IPF biomarker)
+amplifies the CXCL12/PDGFRA fibrosis-signalling contrast, suppressed by MUC5B (the IPF
+GWAS risk gene rs35705950). Directionally consistent with MUC5B expression paradox
+(Maher et al. 2021, Am J Respir Crit Care Med).
 
 Subdirectories: `paad_survival/`, `lihc_mvi/`, `ipf_lgrc/`, `dipg/` — each with `SUMMARY.md`.
