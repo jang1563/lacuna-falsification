@@ -87,6 +87,8 @@ def main() -> None:
     rows = []
     idx = 1
     totals = {"total": 0, "pass": 0, "fail": 0}
+    external_rows = 0
+    external_pass = 0
 
     for rel, cohort, task, panel, source in SOURCES:
         path = ROOT / rel
@@ -126,8 +128,10 @@ def main() -> None:
             f'</tr>'
         )
         totals["total"] += 1
+        external_rows += 1
         if is_pass:
             totals["pass"] += 1
+            external_pass += 1
         else:
             totals["fail"] += 1
 
@@ -135,12 +139,17 @@ def main() -> None:
     accept_rows = [r for r in rows if "accept-row" in r]
     reject_rows = [r for r in rows if "accept-row" not in r]
     body_rows = "\n".join(accept_rows + reject_rows)
+    candidate_total = totals["total"] - external_rows
+    candidate_pass = totals["pass"] - external_pass
+    reject_rate = totals["fail"] / candidate_total if candidate_total else 0.0
 
     html_out = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lacuna — Rejection Log</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
   html, body {{ margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1a1a1a; background:#fafafa; }}
   header {{ background:#1a1a1a; color:white; padding:24px 32px; }}
@@ -192,10 +201,11 @@ def main() -> None:
   <p>Accepted rows are green at the top. The one external-cohort replay (PhF-3, IMmotion150 PFS) sits in amber.</p>
 </header>
 <div class="counts">
-  <span>Total candidates evaluated: <strong>{totals['total']}</strong></span>
-  <span>Passed the 5-test gate: <strong>{totals['pass']}</strong></span>
+  <span>Candidate evaluations: <strong>{candidate_total}</strong></span>
+  <span>Passed the 5-test gate: <strong>{candidate_pass}</strong></span>
   <span>Rejected: <strong>{totals['fail']}</strong></span>
-  <span>Reject rate: <strong>{totals['fail']/totals['total']:.1%}</strong></span>
+  <span>External replay rows: <strong>{external_rows}</strong></span>
+  <span>Reject rate: <strong>{reject_rate:.1%}</strong></span>
 </div>
 <div class="counts-bar" style="background:#f8f8f8; padding:8px 32px; border-bottom:1px solid #ddd; font-size:0.85em; color:#555;">
   Showing <span id="matchCount" style="font-weight:600; color:#1a1a1a;"></span> — use column filters below to narrow
@@ -302,7 +312,11 @@ def main() -> None:
 """
     out = RESULTS / "rejection_log.html"
     out.write_text(html_out)
-    print(f"Wrote {out}: {totals['total']} candidates ({totals['pass']} pass, {totals['fail']} fail)")
+    print(
+        f"Wrote {out}: {candidate_total} candidate evaluations + "
+        f"{external_rows} external replay row(s) "
+        f"({candidate_pass} 5-test pass, {totals['fail']} fail)"
+    )
 
 
 def _generation_timestamp() -> str:

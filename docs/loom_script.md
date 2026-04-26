@@ -1,13 +1,14 @@
 # Loom demo script — shot list (pre-narration planning)
 
 > **Canonical narration lives in [`docs/loom_narration_final_90s.md`](loom_narration_final_90s.md)**
-> (178 words, 76-89 s, opens with the biomedical-researcher confirmation-
-> bias hook). This file is the earlier 210-word shot-list / rehearsal
-> asset — kept for screen-cue + timing reference. When the two diverge,
-> the narration file wins. The Karpathy hook below is the *alternative*
-> opener; the canonical final cut uses the biomedical-pain hook instead.
+> (333 words, ~143–167 s at 120–140 WPM, eight segments including DIPG + IPF generalization tags).
+> This file is the earlier 210-word shot-list / rehearsal asset — kept for
+> screen-cue + timing reference. When the two diverge, the narration file wins.
+> The Karpathy hook below is the *alternative* opener; the canonical final cut
+> uses the biomedical-pain hook instead.
 
-Target length: **90 seconds, 210 spoken words max (≈ 140 WPM).**
+Target length (full cut): **~167 s (2:47) at 120 WPM · 143 s (2:23) at 140 WPM · well under 3-min hard cap.**
+Tier-3 fallback (90 s target): drop DIPG + IPF segments → ≤210 words.
 Voice: one take, first-person, no B-roll, plain walkthrough.
 Screen: single 1920 × 1080 terminal + browser split, no fancy overlays.
 

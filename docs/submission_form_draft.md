@@ -167,7 +167,7 @@ two Advocate fabrications about prior trial design — RAINIER + Raghu
 2017 prespecified stratifiers Advocate claimed "never tested". Context
 isolation working at runtime.** **1M-context synthesis + adversarial ablation (PhL-17) — Most Creative
 + Keep Thinking secondary prize candidates.** **Opus 4.6 vs 4.7 (60
-calls each): abstention-calibration rate 53.3%→66.7% (+13.3pp); 4.7 PASS 10/10 on clean survivors, NEEDS_MORE_TESTS 10/10 on 5-gene stress-test (zero over-commitment vs 4.6's 20%) — gap is in graded abstention, not binary correctness. Prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 new skeletons before gate run; 0/4 survived; all 4 predicted failures confirmed (examples: VEGFA redundancy on #1, CCNB1 insufficiency on #4).**
+calls each): abstention-calibration rate [G6 Opus 4.6 vs 4.7 ACR] 53.3%→66.7% (+13.3pp); 4.7 PASS 10/10 on clean survivors, NEEDS_MORE_TESTS 10/10 on 5-gene stress-test (zero over-commitment vs 4.6's 20%) — gap is in graded abstention, not binary correctness. Prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 new skeletons before gate run; 0/4 survived; all 4 predicted failures confirmed (examples: VEGFA redundancy on #1, CCNB1 insufficiency on #4).**
 
 ---
 

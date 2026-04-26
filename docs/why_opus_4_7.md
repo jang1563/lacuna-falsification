@@ -79,6 +79,17 @@ ran WITH thinking (23.1s and 15.9s latency respectively). The E2 comparison
 is therefore: **Opus 4.7 base calibration (no thinking)** vs **Sonnet 4.6
 with extended thinking (no thinking needed)**. Opus wins anyway.*
 
+> **Column note — `dissent_on_gate_PASS_pct`:** fraction of the 30 gate-PASS
+> candidate evaluations where the model returns FAIL or NEEDS_MORE_TESTS (i.e.,
+> the model disagrees with a gate verdict of PASS). Sonnet 4.6 at 100% = rejects
+> every survivor regardless of merit — permanent dissent, even with extended
+> thinking budget. Haiku 4.5 at 53.3% = agrees with the gate on 14 of 30 PASS
+> candidates — over-accepts relative to the task's signal-to-noise floor. Opus 4.7
+> at 66.7% = calibrated partial dissent: PASS when the gate metrics warrant it,
+> dissent when the margin is thin. The column is a measure of *calibration*,
+> not strictness: a well-calibrated Skeptic should disagree with some PASS
+> verdicts (the gate's threshold is not a truth oracle) but not all of them.
+
 **Sonnet 4.6 dissents on 100% of gate-PASS candidates — it cannot hold
 the judgement stance across the dual-role prompt and collapses into
 permanent rejection, even with extended thinking budget.** Opus 4.7

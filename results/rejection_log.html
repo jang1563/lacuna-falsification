@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lacuna — Rejection Log</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
   html, body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1a1a1a; background:#fafafa; }
   header { background:#1a1a1a; color:white; padding:24px 32px; }
@@ -54,10 +56,11 @@
   <p>Accepted rows are green at the top. The one external-cohort replay (PhF-3, IMmotion150 PFS) sits in amber.</p>
 </header>
 <div class="counts">
-  <span>Total candidates evaluated: <strong>204</strong></span>
-  <span>Passed the 5-test gate: <strong>10</strong></span>
+  <span>Candidate evaluations: <strong>203</strong></span>
+  <span>Passed the 5-test gate: <strong>9</strong></span>
   <span>Rejected: <strong>194</strong></span>
-  <span>Reject rate: <strong>95.1%</strong></span>
+  <span>External replay rows: <strong>1</strong></span>
+  <span>Reject rate: <strong>95.6%</strong></span>
 </div>
 <div class="counts-bar" style="background:#f8f8f8; padding:8px 32px; border-bottom:1px solid #ddd; font-size:0.85em; color:#555;">
   Showing <span id="matchCount" style="font-weight:600; color:#1a1a1a;"></span> — use column filters below to narrow
@@ -293,7 +296,7 @@
 </tbody>
 </table>
 <footer>
-  Generated 2026-04-26T19:54:55Z by <code>src/render_rejection_log.py</code>.
+  Generated 2026-04-26T21:55:47Z by <code>src/render_rejection_log.py</code>.
   Raw data in <code>results/flagship_run/</code>, <code>results/opus_exante/</code>, <code>results/tier2_run/</code>, <code>results/track_a_task_landscape/</code>.
   Pre-registrations in <code>preregistrations/</code>.
   Live external replay (IMmotion150 PFS, PhF-3) in <code>results/track_a_task_landscape/external_replay/immotion150_pfs/</code>.

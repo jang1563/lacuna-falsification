@@ -65,10 +65,13 @@ README do not drift from the committed evidence when written in parallel.
 
 | Claim | Number | Source |
 |---|---|---|
-| Total evaluations (all tasks + all disease panels) | **304** | 203 (original KIRC) + 101 (platform expansion) |
 | Platform expansion evaluations | **101** | KIRC Stage 28 + COAD 22 + LGG 25 + LIHC 26 |
+| New disease track evaluations (2026-04-26) | **81** | LIHC-MVI 29 + IPF-LGRC 25 + PAAD 27 |
+| Total evaluations (all tasks + all panels + new tracks) | **385** | 203 + 101 + 81 |
 | Disease contexts covered (all public evidence layers) | **7** | Expression gate: ccRCC, COAD, LGG (GBM IDH cohort), LIHC (2 tasks: T-vs-N designed-negative + MVI 6/29), PAAD. Role-separated review engine: DIPG, IPF |
-| Cross-disease survivors (platform expansion, excl. original KIRC 9) | **40** | KIRC Stage 23 + COAD 15 + LGG 2 + LIHC 0 |
+| Cross-disease survivors (platform expansion only, excl. original KIRC 9) | **40** | KIRC Stage 23 + COAD 15 + LGG 2 + LIHC 0 |
+| New disease track survivors | **20** | LIHC-MVI 6 + IPF-LGRC 6 + PAAD 8 |
+| Cross-disease survivors total (excl. original KIRC 9) | **60** | 40 platform expansion + 20 new disease tracks |
 | KIRC Stage I-II vs III-IV (45-gene): survivors | **23 / 28** | `results/track_a_task_landscape/stage_expanded/SUMMARY.md` |
 | KIRC Stage top AUROC | **0.689** | same (CXCR4/EPAS1) |
 | COAD Stage I-II vs III-IV (31-gene, n=484): survivors | **15 / 22** | `results/track_a_task_landscape/coad_msi/SUMMARY.md` |
@@ -83,7 +86,13 @@ README do not drift from the committed evidence when written in parallel.
 | PAAD OS ≤15 vs >15 mo (19-gene, n=183): survivors | **8 / 27** | `results/track_a_task_landscape/paad_survival/SUMMARY.md` |
 | PAAD best AUROC | **0.707** | same |
 
-**Arithmetic cross-check:** 28 + 22 + 25 + 26 = 101 ✓ | 203 + 101 = 304 ✓ | 23 + 15 + 2 + 0 = 40 ✓
+| IPF Composite Endpoint / GSE93606 (17-gene, n=57): survivors | **6 / 25** | `results/track_a_task_landscape/ipf_lgrc/SUMMARY.md` |
+| IPF-LGRC top AUROC | **0.757** | same (`(CXCL12−PDGFRA)×SPP1/MUC5B`) |
+| DIPG top-lead (panobinostat-CED-MTX110) aggregate score | **13 / 15** | `results/external_validation_dipg/top_lead_panobinostat_CED_MTX110/04_panobinostat_CED_MTX110.verdict.json` |
+
+**Arithmetic cross-check:** 28 + 22 + 25 + 26 = 101 ✓ | 29 + 25 + 27 = 81 ✓ | 203 + 101 + 81 = 385 ✓ | 23 + 15 + 2 + 0 = 40 ✓ | 6 + 6 + 8 = 20 ✓ | 40 + 20 = 60 ✓
+
+**HR rounding note:** `1.36` is the canonical rounded value locked above. Precise values: **1.361** (unadjusted Cox HR) and **1.365** (treatment-arm-adjusted Cox HR — signal increases after controlling for immunotherapy vs VEGF-inhibitor arm, confirming therapy-independence). Both round to 1.36; all three forms may appear in docs without contradiction.
 
 ---
 

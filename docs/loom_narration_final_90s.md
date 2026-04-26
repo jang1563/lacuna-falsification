@@ -1,5 +1,9 @@
 # Loom narration — final cut (includes DIPG + IPF generalization tags)
 
+> **Filename note:** The filename `loom_narration_final_90s.md` reflects the original 90 s target.
+> The current script is 333 words / ~143–167 s (2:23–2:47) — well under the 3-min hard cap.
+> See word-count ledger below for per-segment breakdown.
+
 **Status:** submission-locked final script (updated 2026-04-25 post-IPF-run; DIPG generalization tag added 2026-04-24; hook refined 2026-04-24 per Session 3 video advice).
 **Target:** ≤ 180 seconds (3-min hard cap per official rules); 2:30 acceptable; 120 s soft cap formally exceeded by IPF segment but well under hard cap.
 **Word count:** 333 words / ~143 s (2:23) at 140 WPM / ~167 s (2:47) at 120 WPM (see ledger below for per-segment breakdown).
@@ -91,7 +95,7 @@ with aggregate score 13/15.**
 > "Same engine on a structurally distant second disease. Pediatric
 > brainstem cancer — H-three K-twenty-seven-M diffuse midline glioma.
 > Fifteen pre-registered rescue hypotheses locked at git SHA
-> eight-A-four-E-C-C-five. Seven supported. Seven mixed. One rejected.
+> eight-A-four-E-C-C-five. Seven supported. Seven mixed. One insufficient evidence.
 > Top lead: CED-delivered MTX110 panobinostat — the
 > pharmacokinetic-not-pharmacodynamic rescue of the P-B-T-C-047
 > failure, score thirteen of fifteen. [breath] Same engine, separate
@@ -111,7 +115,7 @@ Advocate claims and the Skeptic-caught reality checks.**
 
 > "And one more — same engine, adult lung. Idiopathic pulmonary
 > fibrosis. Five rescue candidates. Thirty-two minutes. Fifty-eight
-> dollars. [breath] One survives. Four rejected. But here's the moment
+> dollars. [breath] One survives. Four insufficient evidence. But here's the moment
 > that matters: the Skeptic role caught two Advocate claims that prior
 > trials *never* tested a stratifier — both empirically false. RAY-near
 > pre-specified periostin. RAH-goo twenty-seventeen pre-specified

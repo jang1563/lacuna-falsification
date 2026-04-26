@@ -33,8 +33,8 @@ cross-cohort biology is not fully independent (same disease, same tissue); what
 transfers is *platform-invariant* signal, not *disease-invariant* biology. The
 Interpreter step is explicit about this scope.
 
-- **Flagship: TCGA-KIRC.** RNA-seq, ~446 samples (~110 paired tumor/normal +
-  singletons). Covariates: age, batch, sex.
+- **Flagship: TCGA-KIRC.** RNA-seq, 609 total samples (537 tumor + 72 normal for
+  T-vs-N; 505 for M-staging task; per-task n in §6 table). Covariates: age, batch, sex.
 - **Independent validation: GSE40435.** Microarray, 101 paired tumor/normal
   ccRCC samples. No sample overlap with TCGA. Different platform, different
   normalization. Per-cohort z-score standardization is applied at evaluation.
@@ -63,7 +63,7 @@ Key parameters (`src/pysr_sweep.py`):
 - **Law family injection:** `guesses=[...]` is seeded with Opus's gene-name
   `initial_guess` templates; `fraction_replaced_guesses=0.3`.
 - **Train/test split:** `train_test_split(test_size=0.3, stratify=y)` fit on
-  training half; both `train_auroc` and `test_auroc` are recorded per
+  training set (70%, stratified 70/30 split); both `train_auroc` and `test_auroc` are recorded per
   candidate and any candidate with `train_auroc >> test_auroc` is flagged as
   overfit before the falsification gate sees it.
 - **Standardization:** `--standardize` applies per-cohort z-score; recommended
@@ -293,7 +293,7 @@ produce. Six task × panel combinations were evaluated.
 Across four biologically distinct ccRCC tasks the 11-gene panel yielded
 zero survivors out of 100+ candidates:
 
-| Task | n | Dominant single gene | PySR candidates | Opus ex-ante | Survivors |
+| Task | n | Dominant single gene | PySR candidates | Opus ex-ante | Survivors (PySR + Opus ex-ante total) |
 |---|---|---|---|---|---|
 | Tumor vs Normal | 609 | CA9 (AUROC 0.965) | 26 | 7 | 0 / 33 |
 | Stage I-II vs III-IV | 534 | CUBN (0.610) | 27 | 7 | 0 / 34 |

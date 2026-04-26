@@ -14,7 +14,7 @@ separately pre-registered IMmotion150 survival gate. Our own
 downstream output, killed by our own gate on data it had never seen.
 
 Powered by Opus 4.7, Opus plays three roles around a deterministic
-statistical gate: a Scientist that proposes compact symbolic law
+statistical gate: a Proposer that proposes compact symbolic law
 families (with pathway-level rationale and an ex-ante negative
 control), a Skeptic that reviews each candidate's metric pattern
 after the gate has run, and an Interpreter that writes a mechanism
@@ -25,8 +25,8 @@ Benjamini-Hochberg FDR across candidates — is plain Python, so Opus
 4.7 cannot rationalize its own proposals into passing. The Skeptic
 runs as a sub-agent with isolated context; the 5-test gate is the
 shareable verification pattern; `make audit` + pre-registration
-YAMLs form the Stop hook that refuses to mark a task complete
-without proving it works.
+YAMLs form the programmatic completion barrier that refuses to mark
+a task complete without proving it works.
 
 At the 2026-04-23 *Claude Managed Agents* live session, Michael
 Cohen (Anthropic technical staff) described the upcoming `outcomes`
@@ -59,8 +59,8 @@ same thresholds, no seeds, is the artifact.
 
 - **Extended thinking** via `thinking={"type": "adaptive",
   "display": "summarized"}` plus `output_config={"effort": "high"}`
-  on every Scientist / Skeptic / Interpreter call. `budget_tokens`
-  removed (400 on Opus 4.7); `effort` is the control knob.
+  on every Proposer / Skeptic / Interpreter call. `budget_tokens`
+  not used (unsupported on Opus 4.7; `output_config={"effort":"high"}` is the control knob).
 - **Multi-role adversarial reasoning.** The same model authors both
   the proposal and the ex-ante skeptic test, then writes the
   post-hoc review of the statistical gate's verdict, then writes the
@@ -99,10 +99,11 @@ composition — not a single-product implementation — is what this
 section evidences. Full artefact table at
 [`docs/managed_agents_evidence_card.md`](managed_agents_evidence_card.md).
 
-- **Three-agent architecture:** `Proposer` (Opus 4.7, extended
-  thinking), `Searcher` (local PySR, no API), `Falsifier` (Opus 4.7,
+- **Three-role discovery chain:** `Proposer` (Opus 4.7, extended
+  thinking), `Searcher` (local PySR, no API), `Skeptic` (Opus 4.7,
   extended thinking). Clean role separation, structured
-  PASS / FAIL / NEEDS_MORE_TESTS verdicts.
+  PASS / FAIL / NEEDS_MORE_TESTS verdicts. (A separate `QA validator`
+  subagent runs on every commit; not part of the discovery loop.)
 - **Path B — public-beta, fully implemented and live-verified.**
   A single Managed Agent with `agent_toolset_20260401` drives the
   Night-2 / Night-3 / Night-4 tasks via structured tool calls. End-
@@ -148,8 +149,8 @@ section evidences. Full artefact table at
   Δbase=+0.062) in one session. **PhL-10** (stage oracle, new
   Routine per disease) — `CCNB1/PGK1` FAIL + `CXCR4/EPAS1` PASS
   (AUROC 0.696, Δbase=+0.051, n=512). Same gate, same thresholds,
-  different task. Session URLs: `claude.ai/code/session_01CgsJYAPdvhJJwTuBt7QZLZ`
-  (PhL-8d) · `claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t` (PhL-10). Local
+  different task. Session URLs: `https://claude.ai/code/session_01CgsJYAPdvhJJwTuBt7QZLZ`
+  (PhL-8d) · `https://claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t` (PhL-10). Local
   watch-dir / cadence loop runs when no token is configured, so the
   falsification watchdog ships regardless of whether the Routines
   research preview is available to the reviewer's account.
@@ -243,8 +244,8 @@ incentive — a proposal only counts if a pre-registered five-test
 gate fails to reject it, and the thresholds are written down before
 any fit. Confirmation bias is engineered out of the loop rather
 than hoped against. The Managed Agents implementation enforces this
-at the architecture level by making the Scientist, Searcher, and
-Falsifier literally separate agents with separate system prompts —
+at the architecture level by making the Proposer, Searcher, and
+Skeptic literally separate agents with separate system prompts —
 Opus 4.7 cannot let a proposal pass by rephrasing its defence.
 
 The twin outcome on the same infrastructure — the gate rejecting

@@ -11,9 +11,9 @@
 <img src="https://img.shields.io/badge/Built_with-Claude_Opus_4.7-1E3A8A?style=flat-square" alt="Built with Claude Opus 4.7" />
 <img src="https://img.shields.io/badge/Hackathon-Cerebral_Valley_2026-faf9f5?labelColor=141413&style=flat-square" alt="Cerebral Valley Hackathon 2026" />
 
-The gate rejected 194 of 203. What survived is `TOP2A − EPAS1`. A pre-registered deterministic falsification gate running under Opus 4.7 — it cannot be negotiated, rejects its own proposed laws, then interprets what remains. When the system's own best downstream output (a 3-gene extension) was tested on independent data, the same gate rejected it too.
+The gate rejected 194 of 203. What survived is `TOP2A − EPAS1`. A pre-registered deterministic falsification gate running under Opus 4.7 — it cannot be negotiated, rejects its own proposed laws, then interprets what remains. When the system's own best downstream output (a 3-gene extension) was tested on independent data, the independently pre-registered IMmotion150 survival gate also rejected it.
 
-**The rejections are the product working correctly.** A gate that rejects 0% is not falsification — it is a pipeline that reports every answer it generates. 194 rejections on tasks where a single gene already explains the signal (the gate refuses to call one-gene tasks multi-gene discoveries) + 9 acceptances on a harder 45-gene task where the signal is genuinely distributed = a gate that is calibrated, not permissive.
+**The rejections are the product working correctly.** A gate that rejects 0% is not falsification — it is a pipeline that reports every answer it generates. 194 rejections on tasks where a single gene already explains the signal (the gate refuses to call one-gene tasks multi-gene discoveries) + 9 acceptances on a harder 45-gene task where the signal is genuinely distributed = a gate that is calibrated, not permissive. Unlike AI-for-Science systems that use an LLM-as-judge (AI Scientist, POPPER, standard eval frameworks), this gate is plain Python — Opus 4.7 cannot renegotiate the threshold mid-run. In practice: on an independent IPF run the Skeptic (separate context, never sees Proposer tokens) caught 2 fabricated trial-design claims in 32 min for $58 — output a standard pipeline would have reported as findings.
 
 Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 2026 · **Demo companion:** [watch](https://jang1563.github.io/lacuna-falsification/demo.html) · **Interactive story:** [explore](https://jang1563.github.io/lacuna-falsification/story.html)
 
@@ -32,11 +32,11 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 | Metric | Value |
 |---|---|
 | Candidate evaluations (classification gate) | [**385** across 14 task × panel configs](results/track_a_task_landscape/SUMMARY.md) (KIRC: 194/203 reject · platform expansion: 61/101 reject · new disease tracks: 20/81 accept · 60 cross-disease survivors) |
-| 5-verdict replication chain | **3 PASS · 2 expected FAIL** · 4 cohorts · 2 platforms |
+| 6-verdict replication chain | **3 PASS · 2 pre-registered FAIL · 1 honest FAIL** · 5 cohorts · 2 platforms |
 | Rashomon rank within all C(45,2) = 990 two-gene pairs | **1 / 990** |
 | Memorization check: zero-shot TOP2A−EPAS1 retrieval rate | **0 / 10** probes |
 | G + I pre-registered analysis predictions passing | **12 / 13** |
-| Cross-model Skeptic ablation (180 calls): Opus / Haiku / Sonnet PASS | **10 / 60 · 14 / 60 · 0 / 60** — Haiku over-accepts; Opus calibrated |
+| Cross-model Skeptic ablation (180 calls) | **Opus 10/60 (calibrated) · Sonnet 0/60 (permanent dissent) · Haiku 14/60 (over-accepts)** — see ablation note below |
 | Interpreter ablation: Opus caveat rate / prediction rate | **100% / 100%** vs Sonnet 0% / Haiku 0% |
 | LLM-SR 10-iteration loop: post-seed proposals killed by gate | **18 / 18** |
 | Cross-model Proposer quality (PhL-16): LLM-proposed laws killed by gate | **48 / 48** (Opus 0/30, Sonnet 0/18) — gate is model-independent; Proposer's role is search navigation, not gate-passing |
@@ -50,7 +50,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 
 | Axis | Weight | Entry point |
 |---|---|---|
-| **Opus 4.7 use** | 25% | [`docs/methodology.md §4`](docs/methodology.md) — three isolated Managed Agents sessions · [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) — Path A/B/C · [PhL-8 Routines live](results/live_evidence/phl8_routine_fire/) · [180-call Skeptic ablation](results/ablation/SUMMARY.md): Opus 10/60 PASS (calibrated) · Haiku 14/60 (over-accepts) · Sonnet 0/60 (permanent dissent) |
+| **Opus 4.7 use** | 25% | [`docs/methodology.md §4`](docs/methodology.md) — three isolated Managed Agents sessions · [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) — Path A/B/C · [PhL-8 Routines live](results/live_evidence/phl8_routine_fire/) · [180-call Skeptic ablation](results/ablation/SUMMARY.md): Opus 10/60 PASS · Haiku 14/60 (over-accepts) · Sonnet 0/60 (permanent dissent even with extended thinking) · [PhL-15](results/live_evidence/phl15_adaptive_thinking/SUMMARY.md): gap is Opus base calibration, not thinking budget |
 | **Impact** | 30% | [IPF Run #1](results/external_validation_ipf/) — Skeptic caught 2 fabricated trial-design claims ($58 · 32 min) · **7 disease contexts** (ccRCC · COAD · LGG · LIHC · DIPG · IPF · PAAD) · platform generalization: [COAD 15/22](results/track_a_task_landscape/coad_msi/) · [LGG 2/25 AUROC 0.840](results/track_a_task_landscape/gbm_idh/) · [LIHC MVI 6/29 AUROC 0.702](results/track_a_task_landscape/lihc_mvi/) · [IPF CEP 6/25 AUROC 0.757](results/track_a_task_landscape/ipf_lgrc/) · [PAAD OS 8/27 AUROC 0.707](results/track_a_task_landscape/paad_survival/) · [`DatasetCard`](config/dataset_cards/) plug-in for any disease CSV |
 | **Demo** | 25% | Loom video (≤3 min) · `make venv && make smoke` (no API key; ~1 min) · [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) · [artefact index](docs/ARTIFACT_INDEX.md) |
 | **Depth & execution** | 20% | [12/13 G+I predictions PASS](results/track_a_task_landscape/rigor_extension/SUMMARY.md) · [own-output killed by own gate (PhL-1)](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md) · [14-question `judge_faq.md`](docs/judge_faq.md) |
@@ -84,9 +84,9 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 - IPF Run #1: Skeptic caught 2 fabricated claims about prior trial design (RAINIER, Raghu 2017). $58.28 · 32 min. See [`results/external_validation_ipf/`](results/external_validation_ipf/)
 
 **Scientific depth (domain expert)**
-- 5-verdict replication chain: TCGA-KIRC PASS (AUROC 0.726) → IMmotion150 PASS (HR 1.36; **treatment-arm controlled: HR 1.365** — signal increases, confirming therapy-independence) → GSE53757 stage PASS (AUROC 0.714) → GSE53757 T-vs-N exp. FAIL ✓ → TCGA-BRCA T-vs-N exp. FAIL ✓ — 3 platforms, 2 endpoint types
+- 6-verdict replication chain: TCGA-KIRC PASS (AUROC 0.726) → IMmotion150 PASS (HR 1.36; **treatment-arm controlled: HR 1.365** — signal increases, confirming therapy-independence) → GSE53757 stage PASS (AUROC 0.714) → GSE53757 T-vs-N informative FAIL (platform-saturation: best single gene 0.995) → TCGA-BRCA T-vs-N pre-registered FAIL ✓ → **CPTAC-3 metastasis honest FAIL** (direction preserved p=0.006; ci_lower=0.542, Δbase=−0.007 — gate correctly refuses cross-platform replication) — 3 platforms, 2 endpoint types · [full chain](results/track_a_task_landscape/external_replay/SUMMARY.md)
 - G + I rigor package (12 / 13 predictions PASS): [`rigor_extension`](results/track_a_task_landscape/rigor_extension/SUMMARY.md) (G2: AUPRC 0.321, Brier 0.122, calibration slope 0.979) · [`knockoff_v2`](results/track_a_task_landscape/knockoff_v2/SUMMARY.md) (G1: 0/45 genes selected — signal is genuinely compound) · [`rashomon_set`](results/track_a_task_landscape/rashomon_set/SUMMARY.md) (I2: rank 1/990) · [`clinical_utility`](results/track_a_task_landscape/clinical_utility/SUMMARY.md) (I3: Cohen's d 0.856, honest P3 FAIL retained) · [`information_theory`](results/track_a_task_landscape/information_theory/SUMMARY.md) (I4: 98.1% bivariate MI captured)
-- [Interpreter ablation PhL-19](results/live_evidence/phl19_interpreter_depth/SUMMARY.md): Opus 4.7 = 100% caveat rate, 100% prediction rate, avg 12 citations; Sonnet/Haiku = 0% on both
+- [Interpreter ablation PhL-19](results/live_evidence/phl19_interpreter_depth/SUMMARY.md): Opus 4.7 = 100% caveat rate, 100% prediction rate, avg 12 citations; Sonnet/Haiku = 0% on both (programmatic structural metrics; blind human rubric not completed)
 - Own-output falsification: H1-loop 3-gene extension (`TOP2A − EPAS1 − SLC22A8`) failed IMmotion150 survival replay ([PhL-1](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md))
 
 **5-minute challenge check → [`docs/judge_faq.md`](docs/judge_faq.md)** — 14 reviewer challenges (rediscovery vs discovery, AUROC ceiling, cohort independence, Sonnet drop-in, memorisation audit, `delta_confound` null) with direct evidence links
@@ -113,16 +113,17 @@ flowchart TB
     classDef adversary fill:#faf9f5,stroke:#d97757,stroke-width:2px,stroke-dasharray:4 2,color:#141413
     classDef gate      fill:#141413,stroke:#141413,color:#faf9f5
     classDef fail      fill:#fff0f0,stroke:#9b2c2c,color:#9b2c2c
+    classDef local     fill:#f0fdf4,stroke:#166534,stroke-width:2px,color:#141413
 
     Sk[Adversary · Opus 4.7 · writes kill tests before any fit]:::adversary
     P[Proposer · Opus 4.7 · emits 3-5 law families + negative controls]:::opus
-    Sr[Searcher · PySR · symbolic regression 203 candidates]:::opus
+    Sr[Searcher · PySR · symbolic regression · local, no API]:::local
     G[Falsification Gate · Python · 5 tests + BH-FDR pre-registered]:::gate
     F[194 REJECTED · perm-p / ci-lower / delta-baseline / decoy]:::fail
     I[Interpreter · Opus 4.7 · mechanism hypothesis + testable prediction]:::opus
 
     Sk -. "kill tests locked in" .-> G
-    Sk --> P
+    P -. "writes kill tests" .-> Sk
     P -- "law families" --> Sr
     Sr -- "203 candidates" --> G
     G -- "FAIL 194/203" --> F
@@ -225,7 +226,7 @@ Benjamini-Hochberg FDR across the family, and **the gate uses the FDR-adjusted p
 > deterministic threshold — this is the empirical answer to
 > "couldn't the model just try harder?"
 
-![Rejection landscape — 194/203 candidate evaluations rejected across 7 task × panel configurations](docs/figures/rejection_landscape.png)
+![Rejection landscape — 194/203 KIRC candidate evaluations rejected across 7 KIRC task × panel configurations (14 total with multi-disease expansion; see Broader Program)](docs/figures/rejection_landscape.png)
 
 > **Interactive version:** [`results/rejection_log.html`](results/rejection_log.html) — filterable by cohort, task, panel, and fail reason; every candidate's full metric bundle.
 
@@ -287,7 +288,7 @@ One API fire call → one autonomous session → the full falsification story:
 | PhL-8d Eq1 | `CA9 − AGXT` | tumor vs normal | ❌ **FAIL** | delta_baseline = +0.0145 (< 0.05; CA9 alone AUROC 0.9646) |
 | PhL-8d Eq2 | `CDK1 − EPAS1` | metastasis M0 vs M1 | ✅ **PASS** | delta_baseline = +0.0622, ci_lower = 0.662, perm_p = 0.0 |
 | PhL-10 Eq1 | `CCNB1 / PGK1` | stage I-II vs III-IV | ❌ **FAIL** | delta_baseline = +0.007 (< 0.05) |
-| PhL-10 Eq2 | `CXCR4 / EPAS1` | stage I-II vs III-IV | ✅ **PASS** | AUROC 0.696, ci_lower = 0.649, delta_baseline = +0.051 |
+| PhL-10 Eq2 | `CXCR4 / EPAS1` | stage I-II vs III-IV | ✅ **PASS** | AUROC 0.696, ci_lower = 0.649, delta_baseline = +0.051 (Routine oracle run; stage_expanded local PySR: 0.689) |
 
 PhL-8d fires both equations in **one trigger text**, one session, ~6 min.
 PhL-10 is a **second Routine** (new Routine per disease/task — existing Instructions
@@ -403,7 +404,7 @@ architecture — 14 task × panel configurations, 385 total candidate evaluation
 A companion analysis strand applies the same falsification posture to the
 audit framework itself — validating it against clinical trial outcomes across
 ccRCC, DIPG, and IPF (104 drug-target pairs across three diseases, 9,943
-Phase 3 trials). The
+Phase 3 trials from the AACT database; `docs/failure_network_v3_appendix.md`). The
 honest result: the framework discriminates curated panels from random targets
 (16/42 null-sampling tests BY-FDR significant at q < 0.10), but it does NOT
 predict trial failure (trial-level GEE NULL after Bonferroni × 5). The initial
@@ -449,7 +450,7 @@ accessible without authentication or email registration:
 | TCGA-KIRC (STAR TPM + clinical) | GDC (gdc.cancer.gov) open-access | `data/build_tcga_kirc*.py` |
 | GSE40435, GSE53757 | NCBI GEO | `data/build_gse*.py` |
 | IMmotion150 Phase-2 (Nat Med 2018, PMID 29867230) | cBioPortal REST API (`rcc_iatlas_immotion150_2018`) | `data/build_immotion150.py` |
-| CPTAC-3 ccRCC proteogenomic (Clark Cell 2019) | PDC GraphQL + cBioPortal mirror | `data/build_cptac3_ccrcc.py` |
+| CPTAC-3 ccRCC proteogenomic (Clark Cell 2019) | PDC GraphQL + cBioPortal mirror | `data/build_cptac3_ccrcc.py` (built; not gated — proposed follow-on cohort, `docs/survivor_narrative.md §What would make this claim stronger`) |
 | TCGA-BRCA, TCGA-LUAD | GDC open-access | `data/build_tcga_brca.py`, `build_tcga_luad.py` |
 
 No dataset requires an institutional-email login, dbGaP controlled-

@@ -34,8 +34,8 @@
 | **PhL-8c** | PASS — Upgraded `lacuna-scientific-oracle` Routine autonomously runs full falsification_sweep (1000/1000/100, n=505); structured PASS/FAIL verdict; `session_015ot5hkJgSiBoWNA51fjZ1k` | `results/live_evidence/phl8c_scientific_oracle/SUMMARY.md` |
 | **PhL-8d** | **FAIL+PASS** — Dual-verdict oracle: Eq1 `CA9−AGXT` FAIL (delta_baseline=0.0145) + Eq2 `CDK1−EPAS1` PASS (delta_baseline=0.0622, ci_lower=0.662) in one session; methodology proof in one URL; `session_01CgsJYAPdvhJJwTuBt7QZLZ` | `results/live_evidence/phl8d_dual_verdict/SUMMARY.md` |
 | **PhL-9** | OK — Path A sequential 3-session chain live (`delegation_mode=sequential_fallback`, 706 s) | `results/live_evidence/phl9_path_a_chain/SUMMARY.md` |
-| **PhL-10 (mem)** | PASS — Memory chain extended 3 → 5 lessons; ceiling-effect rule generalizes KIRC→LUAD | `results/live_evidence/phl10_memory_chain_extended/SUMMARY.md` |
-| **PhL-10 (oracle)** | **FAIL+PASS** — Stage oracle (second Routine, new per-disease): `CCNB1/PGK1` FAIL + `CXCR4/EPAS1` PASS (AUROC 0.696, ci_lower=0.649, Δbase=+0.051, n=512); `session_01XGse8XYFtv3C1aKLZeMH9t` | `results/live_evidence/phl10_stage_oracle/SUMMARY.md` |
+| **PhL-10** | PASS — Memory chain extended 3 → 5 lessons; ceiling-effect rule generalizes KIRC→LUAD | `results/live_evidence/phl10_memory_chain_extended/SUMMARY.md` |
+| **PhL-10 oracle** | **FAIL+PASS** — Stage oracle (second Routine, new per-disease, counted separately in artefact ledger): `CCNB1/PGK1` FAIL + `CXCR4/EPAS1` PASS (AUROC 0.696, ci_lower=0.649, Δbase=+0.051, n=512); `session_01XGse8XYFtv3C1aKLZeMH9t` | `results/live_evidence/phl10_stage_oracle/SUMMARY.md` |
 | **PhL-9v2** | OK — Path A on **real TCGA-KIRC** via `files.upload()` mount; Skeptic quotes `delta_baseline=+0.0587` on LF-PROLIF-minus-HIF2A | `results/live_evidence/phl9v2_path_a_real_data/SUMMARY.md` |
 | **PhL-11** | Mixed — Opus 4.7 vs Sonnet 4.6 3-turn adversarial: Opus literal per-attack rule following (5 vs 1 CRISPR KO); both 100% concede (Petri-2.0 consistent) | `results/live_evidence/phl11_adversarial_critique/SUMMARY.md` |
 | **PhL-12** | PASS — Memory chain deepened 5 → **8** lessons; agent quoted + applied prior meta-rules across 3 edge cases | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
@@ -69,10 +69,13 @@ All tracks complete. Same pre-registered +0.05 delta_baseline threshold across a
 | Tumor vs Normal | LIHC | 31-gene | 424 | — (ALB/TTR ~0.985 saturates) | — | **0/26** |
 | Stage I-II vs III-IV | COAD | 31-gene | 484 | `SLC2A1 + PDCD1LG2 + VIM − MYC` | 0.658 | **15/22 ✅** |
 | Grade II vs III | LGG | 30-gene | 384 | `log1p(TWIST1×MKI67+VIM) − CDH2/NES` | 0.840 | **2/25 ✅** |
+| MVI Micro vs None | LIHC | 19-gene | 144 | `(TOP2A/CDH2/SOX9)/sqrt(SNAI1)` | 0.702 | **6/29 ✅** |
+| Composite Endpoint | IPF/GSE93606 | 17-gene | 57 | `(CXCL12−PDGFRA)×SPP1/MUC5B` | 0.757 | **6/25 ✅** |
+| Overall Survival | PAAD | 19-gene | 183 | `sqrt((7.41/KRT17)/(CDH2×((CDKN2A+CD8A)/FOXP3)))` | 0.707 | **8/27 ✅** |
 
 Pattern: gate accepts when panel has distributed features (no single-gene saturator, moderate ceiling).
-Gate refuses when one gene dominates (LIHC: hepatic function marker ~0.985, same as KIRC CA9 ~0.965).
-Results: `results/track_a_task_landscape/{stage_expanded,lihc,coad_msi,gbm_idh}/`
+Gate refuses when one gene dominates (LIHC T-vs-N: hepatic function marker ~0.985, same as KIRC CA9 ~0.965).
+Results: `results/track_a_task_landscape/{stage_expanded,lihc,coad_msi,gbm_idh,lihc_mvi,ipf_lgrc,paad_survival}/`
 
 ## 🔧 Architecture surfaces (judge-facing)
 
