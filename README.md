@@ -9,7 +9,7 @@
 
 The gate rejected 194 of 203. What survived is `TOP2A − EPAS1`. A pre-registered deterministic falsification gate running under Opus 4.7 — it cannot be negotiated, rejects its own proposed laws, then interprets what remains. When the system's own best downstream output (a 3-gene extension) was tested on independent data, the same gate rejected it too.
 
-Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 2026
+Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 2026 · **[Demo video](LOOM_URL_PLACEHOLDER)**
 
 | **194 / 203 rejected** | **AUROC 0.726** | **HR 1.36** on IMmotion150 | **Rank 1 / 990** Rashomon |
 |---|---|---|---|

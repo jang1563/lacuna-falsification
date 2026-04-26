@@ -1,5 +1,16 @@
 # Submission Form Draft
 
+## ⚡ Final submission checklist (fill at form open time)
+
+- [ ] Paste Loom URL into "Demo video" field — also update `README.md` line 12 (`LOOM_URL_PLACEHOLDER` → real URL)
+- [ ] Select problem statement: **"Build From What You Know"**
+- [ ] Select prize category (if field exists): **"Best Use of Claude Managed Agents"**
+- [ ] Copy unified 200-word summary below into the description field
+- [ ] Verify repo is public: `https://github.com/jang1563/lacuna-falsification`
+- [ ] Submit before 20:00 ET
+
+---
+
 **Verified 2026-04-24** against the official Cerebral Valley × Anthropic
 [Built with Opus 4.7 participant resources page](https://cerebralvalley.ai/e/built-with-4-7-hackathon/details).
 Per official rules, the actual submission requires **only three items**:
@@ -76,15 +87,16 @@ space-split total is the authoritative count.)
 
 ```
 Lacuna is a pre-registered falsification gate for biological law
-discovery, built on Opus 4.7 Managed Agents. Opus plays Proposer
-(emits compact law families and the kill-test for each, before any
-fit), Skeptic (reviews gate output in an isolated session — never
-the Proposer's reasoning), and Interpreter (explains only what
-survived).
+discovery, built with Claude Code and Opus 4.7 Managed Agents. Opus
+plays Proposer (emits compact law families and the kill-test for
+each, before any fit), Skeptic (reviews gate output in an isolated
+session — never the Proposer's reasoning), and Interpreter (explains
+only what survived).
 
-AI-for-Science tools accelerate hypothesis generation — not
-rejection. The result: automated confirmation bias; a high AUROC
-on one cohort is nearly free when you search enough candidates.
+Existing AI-for-Science pipelines (Sakana AI Scientist, POPPER)
+optimize for hypothesis generation, not rejection. The result:
+automated confirmation bias; a high AUROC on one cohort is nearly
+free when you search enough candidates.
 
 A deterministic 5-test Python gate rejected 194 of 203 candidates
 on TCGA-KIRC (n=505). The simplest survivor — TOP2A − EPAS1 — is
@@ -93,12 +105,11 @@ regression unprompted, then replicated on IMmotion150 (HR=1.36,
 p=0.0003) under a separately pre-registered survival gate. Our own
 LLM-SR 3-gene extension? Killed by that same gate.
 
-Opus 4.7 (adaptive thinking, isolated Managed Agents sessions)
-holds the Skeptic stance without collapse — 10/60 PASS where
-Sonnet 4.6 = 0/60. IPF Run #1 ($58, 32 min): Skeptic caught two
-Advocate fabrications about prior trial design — context isolation
-working at runtime. Pre-registrations are git-tracked YAMLs; 3
-diseases (KIRC, DIPG, IPF) evaluated.
+Claude Code Managed Agents hold the Skeptic stance without collapse
+— Opus 4.7 10/60 PASS where Sonnet 4.6 = 0/60. IPF Run #1 ($58,
+32 min): Skeptic caught two Advocate fabrications about prior trial
+design. Any researcher with a disease CSV can run the same gate;
+3 diseases (ccRCC, DIPG, IPF) tested.
 ```
 
 ---
