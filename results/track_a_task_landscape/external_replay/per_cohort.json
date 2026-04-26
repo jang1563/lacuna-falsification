@@ -49,9 +49,28 @@
   },
   {
     "cohort_id": "cptac3_ccrcc",
-    "status": "csv_empty",
-    "csv_path": "data/cptac3_ccrcc.csv",
-    "task_label": "metastasis_preferred",
-    "message": "CSV is a header-only stub (see NOTE file)."
+    "status": "ran_metastasis",
+    "task_label": "metastasis_M0_vs_M1",
+    "data_source": "cBioPortal rcc_cptac_gdc RNA TPM + GDC API M-staging (pathologic preferred, clinical fallback)",
+    "script": "data/build_cptac3_m_stage.py",
+    "result_json": "results/track_a_task_landscape/external_replay/cptac3_gate_result.json",
+    "n": 155,
+    "n_m1": 20,
+    "n_m0": 135,
+    "metrics": {
+      "verdict": "FAIL",
+      "auroc": 0.6833,
+      "perm_p": 0.006,
+      "perm_p_pass": true,
+      "ci_lower": 0.5425,
+      "ci_upper": 0.8298,
+      "ci_lower_pass": false,
+      "delta_baseline": -0.0074,
+      "delta_baseline_pass": false,
+      "top2a_single_auroc": 0.6907,
+      "epas1_single_auroc": 0.5722,
+      "direction_preserved": true
+    },
+    "honest_caveat": "Direction preserved (high TOP2A-EPAS1 -> M1, p=0.006). Gate FAIL on ci_lower (0.54 < 0.60 threshold) and delta_baseline (-0.007; TOP2A alone 0.691 slightly outperforms compound 0.683). Power simulation confirms n_m1=20 is insufficient for ci_lower > 0.60 at AUROC 0.683; would need n_m1>=40. 75/155 known-M-stage patients have clinical (imaging-only) M designation. The compound law's direction generalizes; the delta advantage vs TOP2A alone does not survive the smaller cohort."
   }
 ]

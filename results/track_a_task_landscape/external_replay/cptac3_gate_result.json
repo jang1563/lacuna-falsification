@@ -1,0 +1,48 @@
+{
+  "cohort": "CPTAC-3 ccRCC (rcc_cptac_gdc via cBioPortal)",
+  "law": "TOP2A - EPAS1",
+  "transform": "log1p(TPM + 0.001)",
+  "m_staging_strategy": "GDC pathologic M preferred; fall back to clinical M if pathologic is MX/missing. MX excluded from analysis.",
+  "reference_tcga_kirc": {
+    "auroc": 0.726,
+    "perm_p": "<0.001",
+    "ci_lower": 0.665,
+    "delta_baseline": 0.069,
+    "n_m1": 81,
+    "n_m0": 424,
+    "n_total": 505
+  },
+  "gate_thresholds": {
+    "perm_p": "< 0.05",
+    "ci_lower": "> 0.6",
+    "delta_baseline": "> 0.05",
+    "n_m1_min": 10
+  },
+  "verdict": "FAIL",
+  "n_total": 155,
+  "n_m1": 20,
+  "n_m0": 135,
+  "auroc": 0.6833,
+  "auroc_raw": 0.6833,
+  "direction_preserved": true,
+  "perm_p": 0.006,
+  "perm_p_pass": true,
+  "ci_lower": 0.5425,
+  "ci_upper": 0.8298,
+  "ci_lower_pass": false,
+  "delta_baseline": -0.0074,
+  "delta_baseline_pass": false,
+  "best_single_gene_auroc": 0.6907,
+  "top2a_single_auroc": 0.6907,
+  "epas1_single_auroc": 0.5722,
+  "null_auroc_mean": 0.5576,
+  "null_auroc_95th": 0.6356,
+  "passes": [
+    "perm_p=0.0060 < 0.05"
+  ],
+  "fails": [
+    "ci_lower=0.542 <= 0.6",
+    "delta_baseline=-0.007 <= 0.05"
+  ],
+  "n_boot_valid": 500
+}
