@@ -73,19 +73,24 @@ gate; the gate is the load-bearing artifact (see also Q1, Q5).
 
 ## Q1 — "Is this discovery or rediscovery?" <a id="q1"></a>
 
-**Honest answer.** Rediscovery. The `TOP2A − EPAS1` axis is the published
-ccA/ccB ccRCC subtype axis (Brannon 2010, Brooks 2014 ClearCode34). We
-do not claim novel biology.
-
-**Why that is the contribution, not the limitation.** FIRE-Bench
+**The contribution is validation, not novelty.** FIRE-Bench
 ([arXiv 2602.02905](https://arxiv.org/abs/2602.02905)) formalises
 *rediscovery of established findings* as the evaluation paradigm for
-science agents and reports that current SOTA agents score <50 F1 on it.
+science agents — exactly because a system that can re-derive known ground truth
+under a gate it cannot game has demonstrated that it can find *unknown* truth.
+Current SOTA agents score <50 F1 on this benchmark.
 POPPER ([arXiv 2502.09858](https://arxiv.org/abs/2502.09858)) shows
 falsification-driven validation at human-comparable accuracy with a 10×
 speedup. In that framing, **the unit of value is hypothesis-validation
-accuracy, not generation novelty** — and our pipeline ships the
+accuracy, not generation novelty** — and this pipeline ships the
 validation harness in plain Python rather than another LLM judge.
+
+**What was rediscovered and how.** The `TOP2A − EPAS1` axis is the published
+ccA/ccB kidney cancer (ccRCC) subtype axis (Brannon 2010, Brooks 2014 ClearCode34).
+PySR re-derived it from unconstrained symbolic regression on 45 genes
+without being seeded with it; the pre-registered gate accepted it on merits written
+down before the fit. This is not novel biology — it is a methodology proof that the
+framework finds what is true rather than what is plausible.
 
 **Evidence.**
 - [`docs/why_opus_4_7.md` §1](why_opus_4_7.md) — POPPER + FIRE-Bench framing

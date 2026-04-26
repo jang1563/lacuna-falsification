@@ -11,9 +11,9 @@
 ## 🎯 Submission-ready snapshot
 
 - **24 PhL artefacts** (PhL-1 to PhL-19 + PhL-9v2 + PhL-8b/8c/8d + PhL-10 oracle) all live, all committed. Newest 5 (PhL-15 to PhL-19) are capability-overhang measurements — aggregated at `docs/capability_overhang_measurements.md`.
-- **Review-handoff** processed: 12 of 20 findings fixed (P0 + P1 batch); 8 deferred with explicit rationale in commit messages.
+- **QA pass complete:** 12 of 20 internal review findings resolved (all blocking + friction items); 8 deferred post-hackathon (non-blocking, rationale in commit messages).
 - **`make all`** one-command reproduction of tests + audit + prereg-audit + rejection-log + paper PDF (no API key required).
-- **`.devcontainer/devcontainer.json`** — judges can click "Open in GitHub Codespaces" and reach `make test` green in ~2 min.
+- **`.devcontainer/devcontainer.json`** — one-click dev container (VS Code Dev Containers or GitHub Codespaces); `make test` green in ~2 min after container start.
 - **`.claude/skills/falsification-gate/SKILL.md`** — Claude Code skill wrapping the gate as a discoverable, deterministic verification primitive.
 - GitHub repo renamed to **`jang1563/lacuna-falsification`** on 2026-04-26; old Theory Copilot URL redirects.
 - 107/107 local-runnable tests in the current `make test` target · 2026-04-26 `make smoke` OK · GitHub public, `make all` runnable end-to-end without credentials.

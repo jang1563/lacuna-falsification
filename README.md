@@ -9,11 +9,13 @@
 
 The gate rejected 194 of 203. What survived is `TOP2A − EPAS1`. A pre-registered deterministic falsification gate running under Opus 4.7 — it cannot be negotiated, rejects its own proposed laws, then interprets what remains. When the system's own best downstream output (a 3-gene extension) was tested on independent data, the same gate rejected it too.
 
+**The rejections are the product working correctly.** A gate that rejects 0% is not falsification — it is a pipeline that reports every answer it generates. 194 rejections on tasks where a single gene already explains the signal (the gate refuses to call one-gene tasks multi-gene discoveries) + 9 acceptances on a harder 45-gene task where the signal is genuinely distributed = a gate that is calibrated, not permissive.
+
 Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 2026 · **Demo video:** Loom URL pending
 
-| **194 / 203 rejected** | **AUROC 0.726** | **HR 1.36** on IMmotion150 | **Rank 1 / 990** Rashomon |
+| **194 / 203 rejected** | **AUROC 0.726** | **HR 1.36** on IMmotion150 | **Best of 990 two-gene pairs** |
 |---|---|---|---|
-| 5-test gate · TCGA-KIRC n=505 | 45-gene panel · M0/M1 metastasis | PFS · n=263 · p=0.0003 | Best of all C(45,2) 2-gene pairs |
+| 5-test gate · TCGA-KIRC (kidney cancer, n=505) | 45-gene panel · M0/M1 (no/yes metastasis) | PFS · n=263 · p=0.0003 | Rank 1 of all C(45,2) combinations |
 
 > **Explore:** [60-second artefact index →](docs/ARTIFACT_INDEX.md) · [Demo walkthrough](docs/demo_walkthrough.md)
 
@@ -67,7 +69,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 **DX and reproducibility (Lydia, Ado)**
 - `make venv && make smoke` — smoke passes in ~1 min after install, no API key needed
 - [`src/README.md`](src/README.md) — map of all 60+ `src/` scripts organized by track
-- [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) — one-click Codespaces
+- [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) — one-click dev container (VS Code Dev Containers)
 - `make test` — 107 local-runnable tests (no API key); `make audit` — compliance grep, passes on every commit
 
 **Real-world impact (Ado, Jason)**

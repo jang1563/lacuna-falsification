@@ -1,5 +1,14 @@
 # Managed Agents / Routines — Judge Evidence Card
 
+**TL;DR for a judge with 2 minutes:** Three live execution paths —
+- **Path B** (single Managed Agent + `agent_toolset_20260401`): running now, Path B log is committed.
+- **Path A** (sequential 3-session chain: Proposer → Skeptic → Interpreter on real TCGA-KIRC kidney cancer data): PhL-9v2, structured-JSON handoff, no shared context between sessions.
+- **Path C** (Claude Code Routines `/fire`): two live clickable sessions (PhL-8d, PhL-10) — the falsification oracle fires on demand without a human pressing a button.
+
+Plus **Memory** (server-side lesson chain, 8 entries across 5 sessions) and **MCP** (`validate_law` + `fetch_cohort_summary` tools, PhL-2). All committed, all with wall-clock times and API costs.
+
+---
+
 > Boris Cherny (Claude Code, kickoff 2026-04-21):
 > *"Loops running on the server. Laptop closed, they continue ...
 > Agent SDK on steroids ... no one has cracked yet at all."*

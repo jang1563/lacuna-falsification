@@ -55,6 +55,15 @@ string will fail the audit and block `git push`.
 See `.claude/agents/{proposer,skeptic-reviewer,interpreter,qa-validator}.md`
 for the individual prompts.
 
+**Agent execution sequence (for new hypotheses on a new dataset):**
+1. **Proposer** — reads dataset card + gene list → emits 3-5 law families + one kill-test per family (before any fit).
+2. **PySR** (no LLM) — symbolic regression produces concrete equation candidates from the seeded families.
+3. **5-test Python gate** (no LLM) — deterministic: permutation null, bootstrap CI, baseline comparison, confound incremental, decoy-feature null. BH-FDR across candidates.
+4. **Skeptic** — receives gate metric bundle only (never the Proposer's rationale); emits PASS / FAIL / NEEDS_MORE_TESTS with cited values.
+5. **Interpreter** — for gate-PASS survivors only: mechanism hypothesis + testable prediction + explicit "what this is not" caveat.
+
+Context isolation is load-bearing: steps 4 and 5 run in separate Managed Agents sessions from step 1. The Skeptic can never see the Proposer's reasoning tokens.
+
 ## Key commands
 
 | Command | What it does |

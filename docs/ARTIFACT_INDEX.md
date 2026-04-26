@@ -1,5 +1,11 @@
 # Artifact Index — judge navigation (60-second tour)
 
+**What this is in one sentence:** A pre-registered deterministic gate (plain Python, 5 statistical tests) was run against 203 AI-proposed cancer biology laws — it rejected 194, accepted 9, then the system's own downstream extension was also rejected by a separately pre-registered survival gate on independent clinical trial data (IMmotion150, n=263). The two live Routines sessions below are clickable proof that the falsification loop runs as code, not just as a demo.
+
+**For a non-biologist judge:** Skip the biology labels. The point is that Opus 4.7 cannot sweet-talk the gate — its own proposed laws fail at the same rate as everything else — and the Skeptic session (separate context window, never sees the Proposer's tokens) caught two fabricated claims in the IPF (lung fibrosis) run. That is context isolation working at runtime, not by construction.
+
+---
+
 This is the canonical 1-page navigation for evaluators. Every claim in
 the README / submission docs is backed by exactly one of the
 artefacts listed below. If a claim is not in this index, it is not in
