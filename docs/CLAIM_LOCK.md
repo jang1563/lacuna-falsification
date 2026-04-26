@@ -94,6 +94,19 @@ README do not drift from the committed evidence when written in parallel.
 
 **HR rounding note:** `1.36` is the canonical rounded value locked above. Precise values: **1.361** (unadjusted Cox HR) and **1.365** (treatment-arm-adjusted Cox HR — signal increases after controlling for immunotherapy vs VEGF-inhibitor arm, confirming therapy-independence). Both round to 1.36; all three forms may appear in docs without contradiction.
 
+**6-verdict replication chain (locked 2026-04-26):** 3 PASS · 2 pre-registered FAIL · 1 honest FAIL.
+
+| Verdict | Cohort | Key metric | Label |
+|---|---|---|---|
+| PASS | TCGA-KIRC metastasis | AUROC 0.726 | flagship |
+| PASS | IMmotion150 PFS | HR 1.36 p=0.0003 | survival replay |
+| PASS | GSE53757 stage | AUROC 0.714 | microarray platform |
+| informative FAIL | GSE53757 T-vs-N | CA9 saturates 0.995 | designed negative |
+| pre-reg FAIL | TCGA-BRCA | Δbase +0.009 | cross-cancer control |
+| honest FAIL | CPTAC-3 metastasis | ci_lower=0.542; Δbase=−0.007; direction p=0.006 | cross-platform (n=155, M1=20) |
+
+CPTAC-3 canonical numbers: **n=155** (M1=20), **AUROC 0.683**, **ci_lower=0.542**, **Δbase=−0.007**, **perm_p=0.006**. Gate refuses; direction preserved.
+
 ---
 
 ## Locked gate semantics
