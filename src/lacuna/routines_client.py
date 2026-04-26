@@ -88,9 +88,10 @@ def fire_routine(
     -------
     RoutineFireResult
 
-    Raises
-    ------
-    httpx.HTTPStatusError on non-2xx if the server returns a non-JSON body.
+    Returns
+    -------
+    RoutineFireResult with `http_status` set to the response code; non-2xx
+    responses are not raised — callers should check `result.http_status`.
     """
     url = ROUTINES_FIRE_URL.format(trig_id=trig_id)
     headers = {

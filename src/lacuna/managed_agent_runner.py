@@ -188,6 +188,11 @@ def run_path_b(
     -------
     dict : {"session_id", "agent_id", "agent_version", "output", "status"}
     """
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        raise RuntimeError(
+            "ANTHROPIC_API_KEY is not set. Export it before running: "
+            "export ANTHROPIC_API_KEY=sk-ant-..."
+        )
     client = anthropic.Anthropic()
 
     system = _NIGHT_SYSTEMS[night]

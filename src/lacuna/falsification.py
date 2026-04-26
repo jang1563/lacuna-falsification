@@ -25,6 +25,8 @@ def label_shuffle_null(
     if X.ndim == 1:
         X = X[:, np.newaxis]
     y = np.asarray(y)
+    if np.unique(y).size < 2:
+        raise ValueError("y must contain at least 2 distinct classes")
     scores = np.asarray(equation_fn(X)).reshape(-1)
     raw_auc = float(roc_auc_score(y, scores))
     observed_dist = abs(raw_auc - 0.5)
@@ -53,6 +55,8 @@ def bootstrap_stability(
         X = X[:, np.newaxis]
     y = np.asarray(y)
 
+    if np.unique(y).size < 2:
+        raise ValueError("y must contain at least 2 distinct classes")
     aucs: list[float] = []
     sample_count = y.shape[0]
     rng = np.random.default_rng(seed)
@@ -205,13 +209,13 @@ def run_falsification_suite(
     confound_delta = None
     confound_auc = None
     if X_covariates is not None:
-        confound_delta, law_auc, confound_auc = confound_only(X, X_covariates, y, equation_fn)
+        confound_delta, _, confound_auc = confound_only(X, X_covariates, y, equation_fn)
 
     decoy_p = None
     decoy_q95 = None
     if include_decoy:
         decoy_seed = seed if seed is not None else 0
-        decoy_p, decoy_q95, law_auc = decoy_feature_test(X, y, equation_fn, seed=decoy_seed)
+        decoy_p, decoy_q95, _ = decoy_feature_test(X, y, equation_fn, seed=decoy_seed)
 
     output = {
         "passes": passes_falsification(

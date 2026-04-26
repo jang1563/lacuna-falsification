@@ -87,7 +87,7 @@ def _extract_guesses(proposals: list[dict], genes: list[str]) -> list[str]:
 
 
 def _norm_eq(s: str) -> str:
-    return s.replace(" ", "")
+    return s.replace(" ", "").lower()
 
 
 def _match_law_family(equation: str, proposals: list[dict]) -> str:

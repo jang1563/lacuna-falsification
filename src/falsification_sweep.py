@@ -182,7 +182,7 @@ def main() -> None:
     # FDR across candidates (Benjamini–Hochberg). Gate on FDR-adjusted p.
     perm_ps = [r["perm_p"] for r in raw_results] or [1.0]
     if len(raw_results) > 1:
-        _, p_adj, _, _ = multipletests(perm_ps, alpha=0.1, method="fdr_bh")
+        _, p_adj, _, _ = multipletests(perm_ps, alpha=0.05, method="fdr_bh")
     else:
         p_adj = np.asarray(perm_ps)
 
