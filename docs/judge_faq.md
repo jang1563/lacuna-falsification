@@ -250,9 +250,9 @@ not a winning-submission requirement: the 1st-place Opus 4.6 winner
 CrossBeam ([github.com/mikeOnBreeze/cc-crossbeam](https://github.com/mikeOnBreeze/cc-crossbeam))
 ships with `.claude/skills/` only, no `commands/`.
 
-We ship 4 sub-agents (`agents/proposer.md`,
-`agents/skeptic-reviewer.md`, `agents/interpreter.md`,
-`agents/qa-validator.md`) plus the `falsification-gate` skill — both
+We ship 4 sub-agents (`.claude/agents/proposer.md`,
+`.claude/agents/skeptic-reviewer.md`, `.claude/agents/interpreter.md`,
+`.claude/agents/qa-validator.md`) plus the `falsification-gate` skill — both
 extension surfaces Boris validates in his
 [Pragmatic Engineer interview](https://newsletter.pragmaticengineer.com/p/building-claude-code-with-boris-cherny).
 

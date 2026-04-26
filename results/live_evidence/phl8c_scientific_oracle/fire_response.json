@@ -1,0 +1,15 @@
+{
+  "hypothesis_id": "phl8c_scientific_oracle",
+  "fire_timestamp_utc": "2026-04-26T15:05:53Z",
+  "routine_name": "lacuna-scientific-oracle",
+  "routine_trig_id_prefix": "trig_01S2NA3...",
+  "routine_trig_id_length": 29,
+  "trigger_type": "api",
+  "equation_submitted": "equation: CDK1 - EPAS1",
+  "http_status": 200,
+  "claude_code_session_id": "session_015ot5hkJgSiBoWNA51fjZ1k",
+  "claude_code_session_url": "https://claude.ai/code/session_015ot5hkJgSiBoWNA51fjZ1k",
+  "normalized_status": "completed",
+  "fire_elapsed_seconds": 8.376,
+  "narrative": "API-triggered fire of lacuna-scientific-oracle routine. Routine runs make venv + make audit + falsification_sweep.py on the submitted equation, then reports PASS/FAIL verdict with all 5 test metrics. Session output is the first autonomous scientific falsification run by a Claude Code Routine."
+}
