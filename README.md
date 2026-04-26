@@ -70,7 +70,7 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   never retrieved zero-shot. PySR found it; Opus did not recall it.
 - **If you are evaluating developer experience and reproducibility:** `make
   venv && make smoke && make audit` is the quickest no-key confidence
-  path (~30 s after install); `make test` runs the full local-runnable
+  path (~1 min after install on this laptop); `make test` runs the full local-runnable
   suite (118 tests, several minutes on a laptop, no API key needed). The
   `make demo` / `make
   demo-kirc` targets are scaffolding for the full pipeline (Opus call
@@ -119,7 +119,7 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   (I4: simple difference captures 98.1% of bivariate joint MI).
   Every reported number has a JSON file behind it in the same directory.
   **Interpreter role quality ablation
-  ([results/live_evidence/phl19_interpreter_ablation/](results/live_evidence/phl19_interpreter_ablation/SUMMARY.md)):**
+  ([results/live_evidence/phl19_interpreter_depth/](results/live_evidence/phl19_interpreter_depth/SUMMARY.md)):**
   Opus 4.7 achieves 100% caveat rate, 100% downstream-prediction
   rate, and averages 12 citations per interpretation; Sonnet 4.6 and
   Haiku 4.5 both reach 0% on caveat and prediction dimensions. The
