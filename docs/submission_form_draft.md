@@ -2,6 +2,7 @@
 
 ## ⚡ Final submission checklist (fill at form open time)
 
+- [ ] Open the submission form: https://cerebralvalley.ai/e/built-with-4-7-hackathon/hackathon/submit
 - [ ] Paste final Loom / YouTube / Google Drive URL into the submission form's "Demo video" field; hard cap is **3:00**, and shorter is allowed.
 - [ ] Select problem statement: **"Build From What You Know"**
 - [ ] Select prize category (if field exists): **"Best Use of Claude Managed Agents"**
@@ -16,6 +17,8 @@
 **Verified 2026-04-24** against the official Cerebral Valley × Anthropic
 [Built with Opus 4.7 participant resources page](https://cerebralvalley.ai/e/built-with-4-7-hackathon/details).
 **Updated 2026-04-26 from Discord announcements / mod answers.**
+**Submission form URL saved 2026-04-26**:
+https://cerebralvalley.ai/e/built-with-4-7-hackathon/hackathon/submit
 Per official rules, the actual submission requires **only three items**:
 
 | Required item | Cap |
