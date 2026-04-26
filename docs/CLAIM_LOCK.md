@@ -71,12 +71,12 @@ README do not drift from the committed evidence when written in parallel.
 | Cross-disease survivors (platform expansion, excl. original KIRC 9) | **40** | KIRC Stage 23 + COAD 15 + LGG 2 + LIHC 0 |
 | KIRC Stage I-II vs III-IV (45-gene): survivors | **23 / 28** | `results/track_a_task_landscape/stage_expanded/SUMMARY.md` |
 | KIRC Stage top AUROC | **0.689** | same (CXCR4/EPAS1) |
-| COAD Stage I-II vs III-IV (45-gene): survivors | **15 / 22** | `results/track_a_task_landscape/coad_msi/SUMMARY.md` |
+| COAD Stage I-II vs III-IV (31-gene, n=484): survivors | **15 / 22** | `results/track_a_task_landscape/coad_msi/SUMMARY.md` |
 | COAD best AUROC | **0.658** | same |
 | COAD Δ-baseline | **+0.107** | same (highest Δbaseline of any run) |
-| LGG Grade II vs III (45-gene): survivors | **2 / 25** | `results/track_a_task_landscape/gbm_idh/SUMMARY.md` |
+| LGG Grade II vs III (30-gene, n=384): survivors | **2 / 25** | `results/track_a_task_landscape/gbm_idh/SUMMARY.md` |
 | LGG top survivor AUROC | **0.840** | same (TWIST1×MKI67+VIM − CDH2/NES) |
-| LIHC Tumor vs Normal (45-gene): survivors | **0 / 26** | `results/track_a_task_landscape/lihc/SUMMARY.md` |
+| LIHC Tumor vs Normal (31-gene, n=424): survivors | **0 / 26** | `results/track_a_task_landscape/lihc/SUMMARY.md` |
 | LIHC designed-negative reason | **ALB saturation ~0.985** | same |
 
 **Arithmetic cross-check:** 28 + 22 + 25 + 26 = 101 ✓ | 203 + 101 = 304 ✓ | 23 + 15 + 2 + 0 = 40 ✓
