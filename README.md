@@ -55,6 +55,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 - [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) — Path A (sequential 3-session chain) · Path B (single agent, `agent_toolset_20260401`) · Path C (Routines `/fire` HTTP client)
 - [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log) — live agent/environment/session/stream trace
 - Two Skills: [`falsification-gate`](.claude/skills/falsification-gate/SKILL.md) (gate a candidate) + [`pre-register-claim`](.claude/skills/pre-register-claim/SKILL.md) (lock kill-tests before fit); compose in sequence
+- **Path C live runs:** PhL-8c ([`session_015ot5hkJgSiBoWNA51fjZ1k`](https://claude.ai/code/session_015ot5hkJgSiBoWNA51fjZ1k)) — oracle ran `make venv + make audit + falsification_sweep.py`, emitted `gate: PASS, perm_p=0.0, ci_lower=0.664, Δbase=+0.062` on `CDK1 − EPAS1`, no human action post-fire · PhL-8d (pending): dual-verdict, FAIL + PASS in one session
 - Brain/body decoupling: `lacuna persist-events` → `replay-events` — session event log survives harness crashes; re-injects client-originated events into a fresh session
 - [`docs/managed_agents_evidence_card.md`](docs/managed_agents_evidence_card.md) — 20 PhL experiments with per-session event counts, wall-clock times, and cost; cross-reference table for all 3 paths
 - **Context isolation in practice:** IPF Run #1 [`results/external_validation_ipf/`](results/external_validation_ipf/) — Skeptic (separate context, never sees Advocate tokens) caught 2 fabricated trial-design claims. $58.28 · 32 min.
@@ -255,6 +256,25 @@ Routines — Claude sessions that wake on a schedule and outlive the laptop — 
 the feature space "no one has cracked yet." Path C is Lacuna's answer.
 
 > **Product boundary:** Claude Code Routines (`code.claude.com`, beta header `experimental-cc-routine-2026-04-01`) and Managed Agents (`platform.claude.com`, beta header `managed-agents-2026-04-01`) are two separate Anthropic products. Path C bridges them; see [`docs/methodology.md §4`](docs/methodology.md) for the full distinction.
+
+### Gate symmetry — what the oracle actually does
+
+One API fire call → one autonomous session → the full falsification story:
+
+| Run | Equation | Task | Gate | Decisive metric |
+|---|---|---|---|---|
+| PhL-8c (live) | `CDK1 − EPAS1` | metastasis M0 vs M1 | ✅ **PASS** | delta_baseline = +0.062 (> 0.05 threshold) |
+| PhL-8d Eq1 (pending) | `log1p(CA9)+log1p(VEGFA)−log1p(AGXT)` | tumor vs normal | ❌ **FAIL** | delta_baseline ≈ +0.019 (< 0.05; CA9 alone = AUROC 0.965) |
+| PhL-8d Eq2 (pending) | `CDK1 − EPAS1` | metastasis M0 vs M1 | ✅ **PASS** | delta_baseline = +0.062 |
+
+PhL-8d fires both equations in **one trigger text**, one session, ~6 min.
+The Routine clones the repo, runs `make venv && make audit`, then runs
+`falsification_sweep.py` independently on each task/dataset pair, and emits
+structured verdict blocks + a dual summary — no human action after the fire call.
+
+Live session (PhL-8c): [`session_015ot5hkJgSiBoWNA51fjZ1k`](https://claude.ai/code/session_015ot5hkJgSiBoWNA51fjZ1k)
+Fire script: [`src/phl8d_dual_verdict_fire.py`](src/phl8d_dual_verdict_fire.py)
+
 a replication-watchdog driver that re-runs the Managed Agent on a cadence or
 when a watched directory changes.
 
