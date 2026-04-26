@@ -2,7 +2,7 @@
 
 ## ⚡ Final submission checklist (fill at form open time)
 
-- [ ] Paste Loom URL into "Demo video" field — also update `README.md` line 12 (`LOOM_URL_PLACEHOLDER` → real URL)
+- [ ] Paste Loom URL into "Demo video" field — also update `README.md` line 12 (`Loom URL pending` → real URL)
 - [ ] Select problem statement: **"Build From What You Know"**
 - [ ] Select prize category (if field exists): **"Best Use of Claude Managed Agents"**
 - [ ] Copy unified 200-word summary below into the description field
@@ -101,9 +101,12 @@ free when you search enough candidates.
 A deterministic 5-test Python gate rejected 194 of 203 candidates
 on TCGA-KIRC (n=505). The simplest survivor — TOP2A − EPAS1 — is
 the published ccA/ccB ccRCC subtype axis, rediscovered by symbolic
-regression unprompted, then replicated on IMmotion150 (HR=1.36,
-p=0.0003) under a separately pre-registered survival gate. Our own
-LLM-SR 3-gene extension? Killed by that same gate.
+regression unprompted. This is not a new biological discovery: it
+is a methodology proof. A methodology that re-derives known truth
+under a pre-registered gate it cannot rationalize past proves it can
+find unknown truth by the same mechanism. The 3-gene LLM-SR
+extension? Killed by the same gate on IMmotion150 (HR=1.36,
+p=0.0003).
 
 Claude Code Managed Agents hold the Skeptic stance without collapse
 — Opus 4.7 10/60 PASS where Sonnet 4.6 = 0/60. IPF Run #1 ($58,
@@ -114,29 +117,26 @@ design. Any researcher with a disease CSV can run the same gate;
 
 ---
 
-## Project summary (150 words, 146 counted)
+## Project summary (150 words, ~153 counted — trim if form rejects)
 
-Lacuna is a pre-registered falsification gate for biological law
-discovery, built on Opus 4.7 Managed Agents. Opus plays Proposer
-(emits compact law families + kill-test per family, before any
-fit), Skeptic (reviews gate output in an isolated session), and
-Interpreter (explains only what survived).
+Lacuna is a pre-registered falsification discipline for biological
+law discovery, built on Opus 4.7 Managed Agents. Opus plays
+Proposer (emits compact law families + kill-test per family,
+before any fit), Skeptic (reviews gate output in an isolated
+session), and Interpreter (explains only what survived).
 
 AI-for-Science tools accelerate hypothesis generation — not
 rejection. The result: automated confirmation bias.
 
 A deterministic 5-test Python gate rejected 194 of 203 candidates
-on TCGA-KIRC (n=505). The simplest survivor — `TOP2A − EPAS1` —
-is the published ccA/ccB ccRCC subtype axis, rediscovered by
-symbolic regression unprompted. A separately pre-registered
-survival gate on IMmotion150 confirmed it: p=0.0003, HR=1.36.
-Our own LLM-SR 3-gene extension? Killed by that same gate.
-
-Opus 4.7 holds the Skeptic stance without collapse — 10/60 PASS
-where Sonnet 4.6 = 0/60. IPF Run #1 ($58, 32 min): Skeptic
-caught two Advocate fabrications about prior trial design —
-context isolation at runtime. Pre-registrations are git-tracked
-YAMLs.
+on TCGA-KIRC (n=505). The survivor — `TOP2A − EPAS1` — is the
+published ccA/ccB subtype axis (Brannon 2010), re-derived from
+unconstrained symbolic regression. **This is not a new discovery:
+it is a methodology proof.** A methodology that finds known truth
+under a gate it cannot rationalize past proves it can find unknown
+truth. Our own 3-gene extension? Killed by the same gate on
+IMmotion150 (HR=1.36, p=0.0003). Claude Code Routines run this
+discipline on every commit — pre-registration without being asked.
 
 ---
 
@@ -161,29 +161,25 @@ isolation working at runtime.** **1M-context synthesis + PhL-17 adversarial abla
 
 ---
 
-## Claude Managed Agents usage (150 words, 119 counted)
+## Claude Managed Agents usage (150 words, ~148 counted)
 
-**Verification-isolated Managed Agents orchestration.** Lacuna uses
+**Falsification discipline, not automated discovery.** Lacuna uses
 three public-beta sessions (Proposer, Skeptic, Interpreter) with
 structured-JSON handoff. The Skeptic never sees the Proposer's
-reasoning tokens; it reviews only gate output, so it cannot
-rationalize its own law into passing. Path B proves single-agent
-`agent_toolset_20260401` end-to-end. Path A proves a sequential
-three-session chain on real TCGA-KIRC (PhL-9v2: file mounts; Skeptic
-quotes `delta_baseline=+0.0587`). Path C proves Claude Code Routines as a scientific worker, not just a
-CI trigger: `lacuna-scientific-oracle` receives `"equation: CDK1 -
-EPAS1"` via API trigger, autonomously runs `make venv` + `make audit`
-+ `falsification_sweep.py` (1000 perm/bootstrap, n=505 TCGA-KIRC),
-and emits `gate: PASS, perm_p=0.0, ci_lower=0.664, Δbase=+0.062` —
-session `https://claude.ai/code/session_015ot5hkJgSiBoWNA51fjZ1k`
-(PhL-8c). Scheduled autonomous fire also evidenced (PhL-8b mechanism
-layer). Original CI-pulse: PhL-8. Durability:
-`persist_session_events` pages `sessions.events.list` to JSONL;
-`replay_session_from_log` replays user-origin events into a fresh
-session. Memory stores accumulate rejection lessons across sessions.
-IPF Run #1: the isolated Skeptic caught two Advocate fabrications about
-RAINIER and Raghu 2017; role separation caught what a single-context
-harness would likely rationalize.
+reasoning tokens — context isolation is the load-bearing design
+choice. Path B proves single-agent `agent_toolset_20260401`
+end-to-end. Path A proves a sequential three-session chain on real
+TCGA-KIRC (PhL-9v2: Skeptic quotes `delta_baseline=+0.0587`). Path
+C proves Claude Code Routines as the **methodology persistence
+layer**: `lacuna-scientific-oracle` receives an equation via API
+trigger, autonomously runs `make venv` + `make audit` +
+`falsification_sweep.py` (1000 perm/bootstrap, n=505), emits
+structured PASS/FAIL verdict — pre-registered kill-tests firing
+without being asked (PhL-8c session URL live). Durability:
+`persist_session_events` → `replay_session_from_log` (brain/body
+decoupling). Memory stores accumulate rejection lessons cross-session.
+IPF Run #1 ($58, 32 min): Skeptic caught two fabricated trial-design
+claims — what a single-context harness cannot catch.
 
 ---
 

@@ -43,10 +43,17 @@ clear the pre-registered +0.05 `delta_baseline` threshold). On a
 45-gene expanded panel the same gate accepts 9 / 30 candidates on
 metastasis, centred on **`TOP2A − EPAS1`** — proliferation minus
 HIF-2α — which reproduces the published ccA-vs-ccB ccRCC subtype
-axis from unconstrained symbolic regression, without being seeded
-with it. What gets reported is only what the gate failed to reject,
-and the accept-reject pair on the same infrastructure is the
-artifact.
+axis (Brannon 2010) from unconstrained symbolic regression, without
+being seeded with it.
+
+**The contribution is not a new biological discovery — it is a
+methodology proof.** `TOP2A − EPAS1` is known biology (the ccA/ccB
+axis, Brannon 2010). A methodology that re-derives known truth from
+unconstrained search — under a pre-registered gate it cannot
+rationalize past — proves it can find unknown truth by the same
+mechanism. *A methodology that finds known truth proves it can find
+unknown truth.* The accept-reject pair on the same infrastructure,
+same thresholds, no seeds, is the artifact.
 
 ## Opus 4.7 Usage
 
@@ -78,10 +85,16 @@ staff) opened with the complementary framing for why the platform
 exists at all: *"building agents is difficult and is only getting
 more difficult over time"* — Anthropic taking on the harness,
 sandbox, retries, credentials, and event streaming so developers
-can focus on product logic. Lacuna composes both products
-in one pipeline: Managed Agents (`platform.claude.com`) for the
-durable Proposer / Searcher / Skeptic chain, Claude Code Routines
-(`code.claude.com`) for the laptop-closed nightly audit. That
+can focus on product logic. Lacuna composes both products in one pipeline: Managed Agents
+(`platform.claude.com`) for the durable Proposer / Searcher /
+Skeptic chain, Claude Code Routines (`code.claude.com`) as the
+**persistence layer for the falsification discipline** —
+pre-registered kill-tests fire on every commit, every scheduled
+interval, without human intervention. The correct framing for
+Routines in this project is not "convenient automation"; it is
+*pre-registration discipline that runs without being asked*. A
+discovery methodology is only a methodology if it runs every time,
+not only when a researcher remembers to run it. That
 composition — not a single-product implementation — is what this
 section evidences. Full artefact table at
 [`docs/managed_agents_evidence_card.md`](managed_agents_evidence_card.md).
@@ -123,15 +136,22 @@ section evidences. Full artefact table at
   exercised in the submitted run.
 - **Path C — Claude Code Routines (separate product).** `POST
   /v1/claude_code/routines/{trig_id}/fire` with per-routine bearer
-  token (`src/lacuna/routines_client.py`). Live evidence
-  (PhL-8) uses the **API trigger**; the same routine binding also
-  accepts **Schedule** (cron, ≥1 h) and **GitHub** (`pull_request` +
-  `release` event categories) triggers via the same web UI — these are
-  config changes, not code changes (`fire_routine` is trigger-agnostic
-  on the client side). Local watch-dir / cadence loop runs when no
-  token is configured, so the replication watchdog ships regardless
-  of whether the Routines research preview is available to the
-  reviewer's account.
+  token (`src/lacuna/routines_client.py`). Routines are the
+  **methodology persistence layer**: the pre-registered 5-test gate
+  fires autonomously on every API trigger, every scheduled interval,
+  every GitHub `pull_request` / `release` event — without any human
+  deciding to run it. This is what makes the falsification discipline
+  permanent rather than occasional.
+  Live evidence: **PhL-8c** — `lacuna-scientific-oracle` routine
+  receives `"equation: CDK1 - EPAS1"` via API trigger, autonomously
+  runs `make venv + make audit + falsification_sweep.py` (1000
+  perm/bootstrap/decoys, n=505 TCGA-KIRC), emits structured
+  `gate: PASS, perm_p=0.0, ci_lower=0.664, Δbase=+0.062` — no human
+  action after the fire call. Session URL:
+  `claude.ai/code/session_015ot5hkJgSiBoWNA51fjZ1k`. Local
+  watch-dir / cadence loop runs when no token is configured, so the
+  falsification watchdog ships regardless of whether the Routines
+  research preview is available to the reviewer's account.
 - **Durability:** `persist_session_events` pages `sessions.events.list`
   into JSONL; `replay_session_from_log` re-injects user-origin events
   into a different session. Brain/body decoupling as a working

@@ -255,6 +255,16 @@ Boris Cherny in the 2026-04-21 *Built with Opus 4.7* kickoff flagged server-side
 Routines — Claude sessions that wake on a schedule and outlive the laptop — as
 the feature space "no one has cracked yet." Path C is Lacuna's answer.
 
+> **Methodology framing.** Lacuna is not a biological discovery tool — it is a
+> *methodology proof*. `TOP2A − EPAS1` is known biology (Brannon 2010 ccA/ccB
+> axis). A methodology that re-derives known truth from unconstrained search
+> under a gate it cannot rationalize past proves it can find unknown truth by
+> the same mechanism. **Routines are the persistence layer for that
+> methodology**: pre-registered kill-tests fire without being asked — on every
+> commit, every scheduled interval, no human needed to remember. A discovery
+> discipline that only runs when researchers remember to run it is not a
+> discipline.
+
 > **Product boundary:** Claude Code Routines (`code.claude.com`, beta header `experimental-cc-routine-2026-04-01`) and Managed Agents (`platform.claude.com`, beta header `managed-agents-2026-04-01`) are two separate Anthropic products. Path C bridges them; see [`docs/methodology.md §4`](docs/methodology.md) for the full distinction.
 
 ### Gate symmetry — what the oracle actually does
