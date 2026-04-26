@@ -1,6 +1,7 @@
 # Lacuna
 
-> *Rejects 194 of 203 candidate laws on KIRC — including its own. (304 total across 11 task × panel configs; see Key Numbers.)*
+> *Rejects 194 of 203 candidate laws — including its own.*
+> *(304 total across 11 task × panel configs → [Key Numbers ↓](#key-numbers-at-a-glance))*
 
 <img src="https://img.shields.io/badge/Python-3.10--3.13-1E3A8A?style=flat-square" alt="Python 3.10-3.13" />
 <img src="https://img.shields.io/badge/Built_with-Claude_Opus_4.7-1E3A8A?style=flat-square" alt="Built with Claude Opus 4.7" />
@@ -31,7 +32,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 | Cross-model Skeptic ablation (180 calls): Opus / Haiku / Sonnet PASS | **10 / 60 · 14 / 60 · 0 / 60** — Haiku over-accepts; Opus calibrated |
 | Interpreter ablation: Opus caveat rate / prediction rate | **100% / 100%** vs Sonnet 0% / Haiku 0% |
 | LLM-SR 10-iteration loop: post-seed proposals killed by gate | **18 / 18** |
-| Cross-model Proposer quality (PhL-16): LLM-proposed laws killed by gate | **48 / 48** (Opus 0/30, Sonnet 0/18) — Proposer guides the symbolic search space; gate is the binding constraint |
+| Cross-model Proposer quality (PhL-16): LLM-proposed laws killed by gate | **48 / 48** (Opus 0/30, Sonnet 0/18) — gate is model-independent; Proposer's role is search navigation, not gate-passing |
 | Total API cost (all sweeps + ablation runs) | **< $65** |
 
 > *Ablation honest null: 2/3 pre-registered citation-specificity predictions were falsified — all three models cite ≥2 metrics in 100% of critiques. The meaningful signal is verdict distribution (PASS 10 vs 14 vs 0 / 60). Full prediction verification in [`results/ablation/SUMMARY.md`](results/ablation/SUMMARY.md).*
@@ -291,9 +292,6 @@ structured verdict blocks + a dual summary — no human action after the fire ca
 Live session PhL-8d: [`session_01CgsJYAPdvhJJwTuBt7QZLZ`](https://claude.ai/code/session_01CgsJYAPdvhJJwTuBt7QZLZ)
 Live session PhL-10: [`session_01XGse8XYFtv3C1aKLZeMH9t`](https://claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t)
 Fire script: [`src/phl8d_dual_verdict_fire.py`](src/phl8d_dual_verdict_fire.py)
-
-a replication-watchdog driver that re-runs the Managed Agent on a cadence or
-when a watched directory changes.
 
 ```bash
 # Fire once (equivalent to Path B, but with a JSONL verdict log)

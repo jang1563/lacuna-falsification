@@ -351,7 +351,7 @@ shows the pattern holds on additional diseases.
 
 1. [`docs/paper/paper.pdf`](paper/paper.pdf) — 6-page workshop paper.
 2. [`docs/paper/benchmark_vs_related.md`](paper/benchmark_vs_related.md) — positioning vs SPOT, Sakana v2, POPPER.
-3. [`results/rejection_log.html`](../results/rejection_log.html) — the 204-candidate table (open in a browser).
+3. [`results/rejection_log.html`](../results/rejection_log.html) — the 203-candidate KIRC classification log (open in a browser).
 4. [`results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md`](../results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md) — IMmotion150 replay write-up.
 5. [`preregistrations/`](../preregistrations/) — the 17 YAMLs; run `make prereg-audit` to see SHA + content hash per file.
 6. [`docs/methodology.md`](methodology.md) — full methods.
