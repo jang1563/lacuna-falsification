@@ -60,7 +60,7 @@ for the individual prompts.
 | Command | What it does |
 |---|---|
 | `make install` | Editable install into `.venv` (Python 3.10-3.13, Julia 1.10 for PySR). |
-| `make test` | pytest with pre-hackathon scaffold tests ignored. Current local-runnable suite: 120/120. |
+| `make test` | pytest with pre-hackathon scaffold tests ignored. Current local-runnable suite: 105/105. |
 | `make audit` | Compliance grep. Must print `OK`. |
 | `make demo` | Full synthetic-data end-to-end. |
 | `make demo-kirc` | KIRC-flavoured synthetic demo. |

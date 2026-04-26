@@ -69,7 +69,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 - `make venv && make smoke` — smoke passes in ~1 min after install, no API key needed
 - [`src/README.md`](src/README.md) — map of all 60+ `src/` scripts organized by track
 - [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) — one-click Codespaces
-- `make test` — 120 local-runnable tests (no API key); `make audit` — compliance grep, passes on every commit
+- `make test` — 105 local-runnable tests (no API key); `make audit` — compliance grep, passes on every commit
 
 **Real-world impact (Ado, Jason)**
 - **6 disease contexts** under the same falsification-first discipline: ccRCC / COAD / LGG / LIHC use the 5-test expression gate; DIPG and IPF use the same role-separated Advocate/Skeptic review engine. Entry points: ccRCC (flagship) · COAD ([`coad_msi/`](results/track_a_task_landscape/coad_msi/)) · LGG ([`gbm_idh/`](results/track_a_task_landscape/gbm_idh/)) · LIHC ([`lihc/`](results/track_a_task_landscape/lihc/)) · DIPG ([`results/external_validation_dipg/`](results/external_validation_dipg/)) · IPF ([`results/external_validation_ipf/`](results/external_validation_ipf/))
@@ -156,7 +156,7 @@ Use Python **3.10-3.13**. Lacuna intentionally excludes Python 3.14 for the subm
 > **Python 3.10-3.13 required.** `pyproject.toml` enforces this range so unsupported 3.14 environments fail fast instead of hanging during dependency installs. `make venv` creates the project-local virtualenv with `VENV_PYTHON` (default `python3`).
 
 ```bash
-# Full local-runnable test suite (120 tests, no API key, several minutes)
+# Full local-runnable test suite (105 tests, no API key, several minutes)
 make test
 
 # Generate synthetic KIRC-compatible demo data

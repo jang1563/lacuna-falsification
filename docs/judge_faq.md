@@ -270,7 +270,7 @@ that is the central artifact.
 The judge-facing surfaces we *do* ship:
 - 90-second Loom narration
 - `make demo` end-to-end (no API key needed; synthetic-data path)
-- `make smoke` (~1 min after install on this laptop) or `make test` (120 local-runnable tests,
+- `make smoke` (~1 min after install on this laptop) or `make test` (105 local-runnable tests,
   several minutes on a laptop; audit clean)
 - `lacuna persist-events` + `replay-events` CLI two-liner
 
