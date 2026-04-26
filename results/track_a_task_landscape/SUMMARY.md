@@ -1,14 +1,14 @@
 # Track A — Task Landscape Summary
 
-**Run date:** 2026-04-22
-**Scope:** four ccRCC classification tasks with the same 11-15-gene
-HIF-axis / metabolism / normal-kidney panel; PySR unconstrained search
-on the compute node; same pre-registered 5-test falsification gate
-as the flagship Tier-1 / Tier-2 runs.
+**Run date:** 2026-04-22; platform expansion appended 2026-04-26.
+**Scope:** original four ccRCC classification tasks plus the
+2026-04-26 expanded-panel/platform runs. All use PySR unconstrained
+search and the same pre-registered 5-test falsification gate as the
+flagship Tier-1 / Tier-2 runs.
 
 ---
 
-## Headline (updated 2026-04-22 after Option A expanded-gene-set run)
+## Headline (updated 2026-04-26 after platform expansion)
 
 With the **45-gene expanded HIF/Warburg/tubule/proliferation/metastasis
 panel**, the falsification gate emits **its first survivors**: 9 /30
@@ -30,9 +30,10 @@ The broader picture now holds in two layers:
   tumor/normal, CUBN for stage and survival, MKI67 for metastasis.
 - **With the 45-gene expanded panel,** the ceiling lifts to +0.069 on
   metastasis (9 passing laws, most reading as proliferation-over-
-  hypoxia), and to +0.019 on survival (still below threshold). The
-  expansion does **not** produce survivors on tumor/normal or stage —
-  consistent with those tasks being saturated by a single dominant gene.
+  hypoxia). The 2026-04-26 KIRC stage rerun also produces **23 / 28**
+  survivors on a 45-gene panel, led by `CXCR4 / EPAS1`. Survival
+  remains below threshold (0 / 29, best Δbaseline +0.019), while
+  tumor-vs-normal remains the designed single-gene-saturation case.
 
 This gives the artifact two complementary outcomes on the same
 infrastructure: (a) negative examples where pre-registration bites
@@ -48,13 +49,14 @@ threshold / baseline-definition / scaling perturbations.
 
 Two gene-panel sizes reported side-by-side — the 11-gene HIF-axis
 panel (original Tier-1 / Tier-2 / A4 config) and the 45-gene
-expanded panel (Option A6). n and label definitions are identical
-within each task.
+expanded panel (Option A6 plus the 2026-04-26 stage rerun). Expanded
+reruns can differ slightly in n after clinical filtering and are
+noted inline.
 
 | Task | n | Labels | Dominant gene (sign-inv AUC) | 11-gene gate | 11-gene best Δbase | 45-gene gate | 45-gene best Δbase |
 |---|---|---|---|---|---|---|---|
 | Tumor vs Normal (Tier 1) | 609 | 537 / 72 | **CA9 = 0.965** | 0 / 26 | +0.029 | not rerun | — |
-| Stage I-II vs III-IV (Tier 2) | 534 | 328 / 206 | CUBN = 0.610 | 0 / 27 | +0.029 | not rerun | — |
+| Stage I-II vs III-IV (Tier 2) | 534 | 328 / 206 | CUBN = 0.610 | 0 / 27 | +0.029 | **23 / 28** (n=512) | **+0.092** ✅ |
 | 5-year Survival | 301 | 149 / 152 | CUBN = 0.696 | 0 / 29 | +0.000 (best ≡ CUBN) | **0 / 29** | **+0.019** (still fails) |
 | Metastasis M0 vs M1 | 505 | 426 / 79 | MKI67 = 0.645 | 0 / 30 | −0.030 | **9 / 30** | **+0.069** ✅ |
 
@@ -65,10 +67,10 @@ lower bound > 0.6, sign-invariant best-single-feature baseline
 Δ > 0.05, incremental-covariate confound Δ > 0.03 when covariates
 available, decoy-feature null p < 0.05), BH-FDR across candidates.
 
-All four tasks used the same PySR config: 11 genes, niter=800,
-populations=12, seeds={1, 2, 3}, maxsize=15, per-cohort z-score
-standardisation. Falsification: two-sided permutation null, bootstrap
-CI lower bound, sign-invariant best-single-feature baseline,
+The original 2026-04-22 ccRCC tasks used the same PySR config: 11 genes,
+niter=800, populations=12, seeds={1, 2, 3}, maxsize=15, per-cohort
+z-score standardisation. Falsification: two-sided permutation null,
+bootstrap CI lower bound, sign-invariant best-single-feature baseline,
 decoy-feature null; covariate-only confound omitted on survival /
 metastasis because the surviving covariate (`batch_index`) has zero
 variance after tumor-only filtering.
@@ -126,19 +128,21 @@ functions of the best single gene for that task:
 The 5-test falsification gate catches this through `delta_baseline`:
 the "compound law" is compared to the best single-feature classifier
 with sign-invariant AUROC, and the compound must improve by at least
-+0.05. **Not once in 100+ attempts does any law clear that bar** —
-which is exactly the kind of discovery claim the gate was designed
-to *reject*.
++0.05. **In the original 11-gene layer, not once in 100+ attempts does
+any law clear that bar** — exactly the kind of discovery claim the gate
+was designed to *reject*. The expanded-panel/platform rows are the
+paired positive control: when the single-gene ceiling is lower and the
+panel contains distributed biology, the same bar admits survivors.
 
 ---
 
 ## Implications for the submission narrative
 
-1. **Pre-registration bites on 4 tasks, not 1.** The 0-survivor
-   result is not a quirk of tumor-vs-normal. It replicates on
-   biologically distinct tasks (saturated classification, ordinal
-   stage, prognostic survival, discrete metastasis), with different
-   dominant genes each time.
+1. **Pre-registration bites on the original 4-task layer, not 1.** The
+   0-survivor result is not a quirk of tumor-vs-normal. It replicates
+   across biologically distinct 11-gene tasks (saturated
+   classification, ordinal stage, prognostic survival, discrete
+   metastasis), with different dominant genes each time.
 2. **Opus ex-ante pathway laws fail too, for distinct reasons.**
    On tumor-vs-normal the pathway law AUROC was near 1.0 (saturated
    biology); on survival it was 0.569 (pathway signal is weaker than
@@ -194,11 +198,13 @@ search found this axis *without* being seeded with it, and the
 pre-registered gate accepted it only because its incremental AUROC
 over MKI67 alone is +0.069 — comfortably above the +0.05 threshold.
 
-This is the first candidate in the entire pipeline run (across 150+
-candidates and six task/panel combinations) that survives every
-falsification test. Track B (Gate Robustness) should specifically
-stress-test this survivor under threshold / baseline-definition /
-scaling perturbations before we over-commit to the narrative.
+At the time of the 2026-04-22 Track-A run, this was the first candidate
+in the pipeline (across 150+ candidates and six task/panel combinations)
+that survived every falsification test. The 2026-04-26 platform
+expansion later added KIRC stage, COAD, and LGG survivors under the same
+gate. Track B (Gate Robustness) should specifically stress-test this
+survivor under threshold / baseline-definition / scaling perturbations
+before we over-commit to the narrative.
 
 ## Numerical artifacts
 
