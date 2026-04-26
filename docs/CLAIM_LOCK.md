@@ -1,6 +1,6 @@
 # CLAIM LOCK — authoritative phrasing for the submission
 
-**Last locked:** 2026-04-26 (platform generalization numbers + 105/105 test count verified).
+**Last locked:** 2026-04-26 (platform generalization numbers + 107/107 test count verified).
 **Scope:** every judge-facing surface (README, submission form, Loom
 narration, demo script, paper, STATUS). Any rewrite in the final 48 hours
 must cross-check this file first.
@@ -54,7 +54,7 @@ README do not drift from the committed evidence when written in parallel.
 | Haiku 4.5 PASS / 60 | **14 / 60** | same |
 | Sonnet 4.6 PASS / 60 | **0 / 60** | same |
 | Memory chain lessons (PhL-12) | **8** | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
-| Local tests | **105 / 105** | `make test`, current local-runnable target; review/staging suites intentionally excluded |
+| Local tests | **107 / 107** | `make test`, current local-runnable target; review/staging suites intentionally excluded |
 | PhL artefact count | **24** (PhL-1 to PhL-19 + PhL-9v2 + PhL-8b/8c/8d + PhL-10 oracle) | `STATUS.md` |
 | Memorization audit (PhL-13): zero-shot TOP2A-EPAS1 exact top | **0 / 10** | `results/live_evidence/phl13_memorization_audit/SUMMARY.md` |
 | Memorization audit: literature-anchor rediscovery | **2 / 2** structurally-equivalent | same |
@@ -171,7 +171,7 @@ Triggered by `rg` in P0.1:
 | `5-session` (Path A) | PhL-9 = 3 sessions, not 5 | `sequential 3-session chain` |
 | `one flag-flip away` (Path A) | PhL-9 is LIVE | `live sequential Path A` |
 | `smaller models collapse to rubber-stamp` | strong form falsified by ablation | `Sonnet 4.6 dissents on 100% of gate-PASS candidates (0/60 PASS) while Opus 4.7 draws the gate's line (10/60 PASS)` |
-| `47/47` / `90/90` / `101/101` / `118/118` / `120/120` tests | current `make test` target collects 105 local-runnable tests | `105/105 local tests` |
+| `47/47` / `90/90` / `101/101` / `105/105` / `118/118` / `120/120` tests | current `make test` target collects 107 local-runnable tests | `107/107 local tests` |
 | `ci_width` as gate metric | replaced by `ci_lower > 0.6` | `ci_lower` |
 | `open-source data` | publicly available but not always open-source licensed | `public/no-login data` or `publicly accessible data` |
 | `diagnostic tool` | research-use only | `research-use-only compact law` |

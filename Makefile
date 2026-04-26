@@ -78,7 +78,7 @@ all: venv
 	@$(MAKE) paper
 	@echo ">>> make all complete. Reproduced: tests, audit, prereg chain, rejection log, paper."
 
-# Runs the local-runnable subset of the test suite: 105 tests (as of
+# Runs the local-runnable subset of the test suite: 107 tests (as of
 # 2026-04-26) across falsification gate, managed_agent_runner, routines
 # client, opus_client, PySR sweep, DatasetCard, CLI, MCP biology
 # validator, preregistration, and the Phase-H SR-loop harness.
