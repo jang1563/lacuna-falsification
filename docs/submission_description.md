@@ -253,8 +253,9 @@ fails on tumor-vs-normal because CA9 alone saturates at AUROC
 0.965) and the gate accepting an unseen compact law
 (`TOP2A − EPAS1` on metastasis, AUROC 0.726, `Δbase = +0.069`, cluster
 of 9 survivors reading as the published ccA/ccB subtype axis) — is
-the artifact. Both outcomes are reproducible end-to-end from the
-committed data + `make audit` + `make test` + `make demo-kirc`.
+the artifact. Both outcomes are reproducible from the committed data +
+`make audit` + `make test`; `make demo-kirc` is the API-backed guided
+handoff that prints the PySR/gate commands.
 
 ## Broader Program Context
 
