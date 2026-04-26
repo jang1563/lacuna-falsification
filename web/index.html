@@ -44,18 +44,21 @@ html, body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-body { display: grid; grid-template-columns: var(--rail-w) 1fr; min-height: 100vh; }
+body { min-height: 100vh; }
 a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--grid); }
 a:hover { border-bottom-color: var(--ink); }
 code { font-family: var(--f-mono); font-size: 0.92em; color: var(--indigo); }
 
 /* ── Rail ── */
 .rail {
-  position: sticky; top: 0; height: 100vh;
+  position: fixed; top: 0; left: 0;
+  width: var(--rail-w); height: 100vh;
   padding: 32px 24px;
   border-right: 1px solid var(--grid);
+  background: var(--bone);
   display: flex; flex-direction: column; gap: 20px;
   overflow-y: auto;
+  z-index: 10;
 }
 .rail__logo { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .rail__logo img { width: 28px; height: 28px; }
@@ -91,7 +94,11 @@ code { font-family: var(--f-mono); font-size: 0.92em; color: var(--indigo); }
 .rail__meta a:hover { color: var(--ink); }
 
 /* ── Content ── */
-.content { padding: 64px var(--gutter) 120px; max-width: calc(var(--content-w) + var(--gutter) * 2); }
+.content {
+  margin-left: var(--rail-w);
+  padding: 64px var(--gutter) 120px;
+  max-width: calc(var(--content-w) + var(--gutter) * 2);
+}
 .section { margin-bottom: 96px; scroll-margin-top: 32px; }
 .section__head { margin-bottom: 28px; }
 .eyebrow {
