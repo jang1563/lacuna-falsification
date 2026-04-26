@@ -141,7 +141,7 @@ discipline on every commit — pre-registration without being asked.
 
 ---
 
-## Claude Opus 4.7 usage (150 words, 150 counted)
+## Claude Opus 4.7 usage (~210 words — trim at form open if field has 150-word hard cap)
 
 Four Opus 4.7 calls per loop with
 `thinking={"type":"adaptive","display":"summarized"}` and
@@ -159,7 +159,7 @@ two Advocate fabrications about prior trial design — RAINIER + Raghu
 2017 prespecified stratifiers Advocate claimed "never tested". Context
 isolation working at runtime.** **1M-context synthesis + adversarial ablation (PhL-17) — Most Creative
 + Keep Thinking secondary prize candidates.** **Opus 4.6 vs 4.7 (60
-calls each): abstention-calibration rate 53.3%→66.7% (+13.3pp); 4.7 PASS 10/10 on clean survivors, NEEDS_MORE_TESTS 10/10 on 5-gene stress-test (zero over-commitment vs 4.6's 20%) — gap is in graded abstention, not binary correctness. Prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 new skeletons before gate run; 0/4 survived; both predicted failures confirmed (VEGFA redundancy, CCNB1 insufficiency).**
+calls each): abstention-calibration rate 53.3%→66.7% (+13.3pp); 4.7 PASS 10/10 on clean survivors, NEEDS_MORE_TESTS 10/10 on 5-gene stress-test (zero over-commitment vs 4.6's 20%) — gap is in graded abstention, not binary correctness. Prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 new skeletons before gate run; 0/4 survived; all 4 predicted failures confirmed (examples: VEGFA redundancy on #1, CCNB1 insufficiency on #4).**
 
 ---
 
