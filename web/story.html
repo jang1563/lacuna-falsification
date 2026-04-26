@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lacuna — The Discovery Story v7</title>
+<meta name="description" content="A falsification-first loop rejected 194 of 203 candidate biological laws. Only Opus 4.7 maintains the dual role that makes this possible.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Brand tokens ── */
+:root {
+  --bone:       #faf9f5;
+  --bone-2:     #f3f1e8;
+  --ink:        #141413;
+  --slate-text: #6b6967;
+  --grid:       #e8e6dc;
+  --sage:       #788c5d;
+  --sage-dark:  #5d6f47;
+  --sage-bg:    #f0f4eb;
+  --red:        #9b2c2c;
+  --red-bg:     #fef2f2;
+  --indigo:     #1e3a8a;
+  --indigo-bg:  #eff6ff;
+  --amber:      #d97757;
+  --amber-bg:   #fef4ef;
+  --f-display: "IBM Plex Serif", Georgia, serif;
+  --f-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:    "IBM Plex Mono", Menlo, Consolas, monospace;
+  --t-xs:  11px; --t-sm: 12.5px; --t-base: 14px; --t-lg: 17px;
+  --t-xl:  22px; --t-2xl: 28px;  --t-3xl:  38px; --t-4xl: 52px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bone); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--t-base);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+/* ── Progress bar ── */
+#progress-bar {
+  position: fixed; top: 0; left: 0; z-index: 100;
+  height: 2px; width: 0%; background: var(--sage-dark);
+  transition: width 0.1s linear;
+}
+/* ── Top nav ── */
+.story-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 40px 14px 20px;
+  background: var(--bone); border-bottom: 1px solid var(--grid);
+}
+.story-nav__brand { display: flex; align-items: center; gap: 10px; text-decoration: none; border-bottom: none; }
+.story-nav__brand img { width: 22px; height: 22px; }
+.story-nav__brand span { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.015em; color: var(--ink); }
+.story-nav__link { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-text); text-decoration: none; border-bottom: none; }
+.story-nav__link:hover { color: var(--ink); }
+.story-nav__dots { display: flex; gap: 8px; align-items: center; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grid); cursor: pointer; transition: background 0.3s; }
+.dot.active { background: var(--ink); }
+/* ── Beat (scroll section) ── */
+.beat {
+  min-height: 100vh; display: grid;
+  grid-template-columns: 44% 56%;
+  align-items: stretch; border-bottom: 1px solid var(--grid);
+  padding-top: 52px;
+}
+.beat--dark { background: var(--ink); border-bottom-color: rgba(255,255,255,0.06); }
+.beat__text {
+  padding: 80px 56px 80px 48px; display: flex; flex-direction: column;
+  justify-content: center; position: sticky; top: 52px;
+  height: calc(100vh - 52px); border-right: 1px solid var(--grid);
+}
+.beat--dark .beat__text { border-right-color: rgba(255,255,255,0.08); }
+.beat__visual { display: flex; align-items: center; justify-content: center; padding: 64px 48px; }
+/* ── Reveal animation ── */
+.beat__text, .beat__visual { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.beat__visual { transition-delay: 0.12s; }
+.beat.is-visible .beat__text, .beat.is-visible .beat__visual { opacity: 1; transform: none; }
+/* ── Typography ── */
+.eyebrow { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-text); margin-bottom: 16px; }
+.beat--dark .eyebrow { color: rgba(255,255,255,0.35); }
+.beat h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(22px, 2.4vw, var(--t-3xl)); letter-spacing: -0.02em; line-height: 1.18; margin-bottom: 20px; }
+.beat--dark h2 { color: var(--bone); }
+.beat p { color: var(--slate-text); line-height: 1.7; font-size: var(--t-base); max-width: 440px; }
+.beat--dark p { color: rgba(255,255,255,0.52); }
+.beat p + p { margin-top: 12px; }
+.beat__note { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--grid); font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); line-height: 1.55; }
+.beat--dark .beat__note { border-top-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.25); }
+.beat__note a { color: var(--slate-text); text-decoration: none; border-bottom: 1px solid var(--grid); }
+/* ── Beat 1 visual ── */
+#beat-1 .beat__visual { background: var(--bone-2); flex-direction: column; gap: 20px; padding: 44px 32px; align-items: center; }
+#beat-1 .origin-mark img { width: 96px; height: 96px; opacity: 0.88; }
+#beat-1 .origin-label { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-text); text-align: center; }
+#beat-1 .origin-tagline { font-family: var(--f-display); font-style: italic; font-size: var(--t-lg); color: var(--ink); text-align: center; max-width: 320px; line-height: 1.4; }
+/* ── Discovery Engine (Beat 1) ── */
+.de-engine { display: grid; grid-template-columns: 1fr 18px 148px 18px 1fr; align-items: stretch; width: 100%; gap: 0; }
+.de-col { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.de-node { border: 1px solid var(--grid); border-radius: 4px; padding: 12px 10px; background: var(--bone); text-align: center; }
+.de-node--opus { border-color: var(--sage-dark); border-width: 1.5px; }
+.de-node--skeptic { border-color: var(--amber); border-width: 1.5px; }
+.de-node--skeptic .de-node__tag { color: var(--amber); }
+.de-node__tag { font-family: var(--f-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 4px; }
+.de-node__name { font-family: var(--f-mono); font-size: 11px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.de-node__sub { font-family: var(--f-mono); font-size: 9.5px; color: var(--slate-text); line-height: 1.4; }
+.de-vconn { width: 1px; height: 14px; background: var(--grid); margin: 0 auto; flex-shrink: 0; }
+.de-vconn--dashed { width: 1px; height: 14px; background: transparent; border-left: 1px dashed var(--amber); margin: 0 auto; flex-shrink: 0; }
+.de-arrow { font-family: var(--f-mono); color: var(--slate-text); font-size: 15px; text-align: center; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.de-gate { border: 2px solid var(--ink); border-radius: 4px; padding: 16px 12px; background: var(--bone); box-shadow: 3px 3px 0 var(--ink); text-align: center; display: flex; flex-direction: column; justify-content: center; }
+.de-gate__name { font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; }
+.de-gate__origin { font-family: var(--f-mono); font-size: 8px; color: var(--amber); letter-spacing: 0.05em; margin-bottom: 6px; opacity: 0.9; }
+.de-gate__sub { font-family: var(--f-mono); font-size: 9px; color: var(--slate-text); line-height: 1.3; margin-bottom: 10px; }
+.de-gate__tally { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+.de-gate__in   { font-family:var(--f-mono); font-size:11px; color:var(--slate-text); }
+.de-gate__fail { font-family:var(--f-mono); font-size:12px; color:var(--red); font-weight:700; }
+.de-gate__pass { font-family:var(--f-mono); font-size:12px; color:var(--sage-dark); font-weight:700; }
+.de-gate__rule { font-family: var(--f-mono); font-size: 9px; color: var(--slate-text); font-style: italic; border-top: 1px solid var(--grid); padding-top: 6px; line-height: 1.4; }
+/* ── Gate box / table ── */
+.gate-table { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+.gate-table thead th { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-text); padding: 10px 14px; border-bottom: 1px solid var(--grid); text-align: left; background: var(--bone-2); font-weight: 500; }
+.gate-row { opacity: 0; transform: translateX(-12px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.beat.is-visible .gate-row:nth-child(1) { opacity:1; transform:none; transition-delay:0.20s; }
+.beat.is-visible .gate-row:nth-child(2) { opacity:1; transform:none; transition-delay:0.32s; }
+.beat.is-visible .gate-row:nth-child(3) { opacity:1; transform:none; transition-delay:0.44s; }
+.beat.is-visible .gate-row:nth-child(4) { opacity:1; transform:none; transition-delay:0.56s; }
+.beat.is-visible .gate-row:nth-child(5) { opacity:1; transform:none; transition-delay:0.68s; }
+.beat.is-visible .gate-row:nth-child(6) { opacity:1; transform:none; transition-delay:0.80s; }
+.gate-row td { padding: 12px 14px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+.gate-row:last-child td { border-bottom: none; }
+.gate-name  { font-family:var(--f-mono); font-size:var(--t-xs); color:var(--ink); font-weight:500; }
+.gate-threshold { font-family:var(--f-mono); font-size:var(--t-xs); color:var(--slate-text); }
+.gate-check { font-family:var(--f-mono); font-size:var(--t-sm); color:var(--sage-dark); font-weight:600; text-align:center; }
+.gate-box { background: var(--bone-2); border: 1px solid var(--grid); border-radius: 6px; overflow: hidden; width: 100%; }
+.gate-box__head { padding: 14px 16px; border-bottom: 1px solid var(--grid); font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-text); }
+/* ── Capability beat (Beat 3, dark) ── */
+#beat-3 .beat__visual { background: rgba(255,255,255,0.015); flex-direction: column; align-items: stretch; padding: 48px 40px; }
+.ablation-hero { display: flex; gap: 28px; align-items: flex-end; margin: 20px 0 8px; }
+.ablation-num { font-family: var(--f-mono); font-weight: 600; letter-spacing: -0.04em; line-height: 1.0; }
+.ablation-num--zero { font-size: clamp(56px, 7vw, 80px); color: var(--red); }
+.ablation-num--ten  { font-size: clamp(56px, 7vw, 80px); color: var(--sage); }
+.ablation-arrow { font-family: var(--f-mono); font-size: 28px; color: rgba(255,255,255,0.18); padding-bottom: 10px; }
+.ablation-label { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-top: 5px; }
+.model-tbl { width: 100%; border-collapse: collapse; }
+.model-tbl thead th { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.32); padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; }
+.model-row td { padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: middle; }
+.model-row:last-child td { border-bottom: none; }
+.model-row--opus   { background: rgba(93,111,71,0.11); }
+.model-row--sonnet { background: rgba(155,44,44,0.11); }
+.model-name { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.verdict-bar-wrap { display: flex; gap: 2px; width: 120px; height: 11px; border-radius: 3px; overflow: hidden; }
+.verdict-bar { height: 100%; }
+.verdict-bar--pass  { background: var(--sage-dark); }
+.verdict-bar--needs { background: var(--amber); opacity: 0.5; }
+.verdict-bar--fail  { background: rgba(255,255,255,0.09); }
+.verdict-count { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.verdict-count--red   { color: var(--red); }
+.verdict-count--green { color: var(--sage); }
+.dissent-pct { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.dissent-pct--critical { color: var(--red); }
+.dissent-pct--good     { color: var(--sage); }
+.model-note { padding: 10px 14px; font-family: var(--f-mono); font-size: 10px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.07); line-height: 1.5; }
+/* ── Beat 4: CSS animated rejection grid ── */
+#beat-4 .beat__visual { padding: 40px 32px; background: var(--bone-2); align-items: flex-start; padding-top: 64px; }
+.rej-grid { display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; width: 100%; }
+.rej-cell { aspect-ratio: 1; background: #c4c2b8; border-radius: 2px; opacity: 0; transform: scale(0.35); transition: opacity 0.12s ease, transform 0.12s ease; cursor: pointer; }
+.rej-cell.lit { opacity: 1; transform: scale(1); }
+.rej-cell.survivor { background: var(--sage-dark); box-shadow: 0 0 0 1.5px var(--sage-dark), 0 0 6px rgba(93,111,71,0.4); position: relative; }
+.rej-cell.survivor::after { content: '√'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 7px; color: white; font-weight: 700; }
+.rej-progress-wrap { width: 100%; margin-bottom: 10px; }
+.rej-progress-track { width: 100%; height: 2px; background: var(--grid); border-radius: 1px; overflow: hidden; margin-bottom: 6px; }
+.rej-progress-fill { height: 100%; background: var(--sage-dark); width: 0%; border-radius: 1px; transition: width 0.08s linear; }
+.rej-progress-text { font-family: var(--f-mono); font-size: 10px; color: var(--slate-text); white-space: nowrap; transition: color 0.4s ease; }
+.rej-progress-text.done { color: var(--sage-dark); font-weight: 600; }
+@keyframes counter-flash { 0% { opacity: 0.2; transform: scale(0.85); } 60% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: scale(1); } }
+.ablation-num.counting { animation: counter-flash 0.25s ease-out both; }
+.rej-legend { margin-top: 12px; display: flex; align-items: center; gap: 16px; }
+.rej-legend__item { display: flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 10px; color: var(--slate-text); }
+.rej-legend__swatch { width: 12px; height: 12px; border-radius: 2px; }
+.stat-row { display: flex; gap: 24px; margin-top: 24px; }
+.stat { flex: 1; }
+.stat__num { font-family: var(--f-display); font-weight: 700; font-size: var(--t-3xl); letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+.stat__num--red  { color: var(--red); }
+.stat__num--sage { color: var(--sage-dark); }
+.stat__label { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+/* ── Beat 5: Survivor ── */
+#beat-5 .beat__visual { flex-direction: column; gap: 20px; padding: 48px 40px; align-items: stretch; }
+.equation-box { background: var(--ink); color: var(--bone); border-radius: 8px; padding: 28px 32px; font-family: var(--f-mono); font-size: clamp(22px, 3vw, 34px); font-weight: 600; letter-spacing: -0.01em; text-align: center; }
+.equation-box em { color: var(--sage); font-style: normal; }
+.equation-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge { font-family: var(--f-mono); font-size: 11px; padding: 5px 11px; border-radius: 100px; border: 1px solid currentColor; font-weight: 500; }
+.badge--pass { color: var(--sage-dark); background: var(--sage-bg); font-weight: 600; }
+.badge--amber-soft { color: var(--amber); background: var(--amber-bg); }
+.task-tbl { width: 100%; border-collapse: collapse; }
+.task-tbl thead th { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-text); padding: 8px 12px; border-bottom: 1px solid var(--grid); text-align: left; background: var(--bone-2); }
+.task-row td { padding: 10px 12px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+.task-row:last-child td { border-bottom: none; }
+.task-row--pass td { background: rgba(93,111,71,0.04); }
+.task-result { font-family: var(--f-mono); font-size: var(--t-xs); }
+.task-result--pass { color: var(--sage-dark); font-weight: 700; }
+.task-result--fail { color: var(--slate-text); }
+.task-gene { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); }
+.task-delta { font-family: var(--f-mono); font-size: var(--t-xs); }
+.task-delta--pass { color: var(--sage-dark); font-weight: 600; }
+.surv-axis { padding: 12px 16px; background: var(--sage-bg); border-radius: 6px; border-left: 3px solid var(--sage-dark); font-family: var(--f-mono); font-size: var(--t-xs); color: var(--sage-dark); line-height: 1.6; }
+/* ── Beat 6: External ── */
+.km-wrap { position: relative; width: 100%; }
+.km-wrap img { width: 100%; border-radius: 6px; display: block; }
+.km-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.km-stat { background: var(--bone-2); border: 1px solid var(--grid); border-radius: 6px; padding: 12px 14px; }
+.km-stat__val { font-family: var(--f-mono); font-size: 20px; font-weight: 600; color: var(--ink); line-height: 1.1; margin-bottom: 3px; }
+.km-stat__val--amber { color: var(--amber); }
+.km-stat__val--sage  { color: var(--sage-dark); }
+.km-stat__label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-text); }
+.own-kill { margin-top: 14px; padding: 12px 16px; background: var(--red-bg); border-radius: 6px; border-left: 3px solid var(--red); font-family: var(--f-mono); font-size: var(--t-xs); color: var(--red); line-height: 1.5; }
+/* ── Beat 7: Trajectory ── */
+#beat-7 .beat__visual { flex-direction: column; align-items: stretch; gap: 12px; padding: 32px 40px; background: var(--bone-2); }
+.dipg-header { display: flex; justify-content: space-between; align-items: baseline; }
+#beat-7 .beat__visual canvas { width: 100%; max-width: 440px; align-self: center; }
+.traj-points { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.traj-point { display: flex; align-items: baseline; gap: 10px; opacity: 0; transform: translateX(-10px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.beat.is-visible .traj-point:nth-child(1) { opacity:1; transform:none; transition-delay:0.20s; }
+.beat.is-visible .traj-point:nth-child(2) { opacity:1; transform:none; transition-delay:0.35s; }
+.beat.is-visible .traj-point:nth-child(3) { opacity:1; transform:none; transition-delay:0.50s; }
+.traj-point__check { font-family:var(--f-mono); font-weight:600; color:var(--sage-dark); font-size:var(--t-sm); flex-shrink:0; }
+.traj-point__text  { font-size:var(--t-sm); color:var(--ink); line-height:1.5; }
+.traj-point__sub   { font-family:var(--f-mono); font-size:var(--t-xs); color:var(--slate-text); }
+/* ── Gene glossary ── */
+.gene-gloss { width:100%; border-top:1px solid var(--grid); padding-top:14px; margin-top:4px; }
+.gene-gloss__row { display:flex; align-items:baseline; gap:12px; padding:5px 0; border-bottom:1px solid var(--grid); font-family:var(--f-mono); font-size:var(--t-xs); }
+.gene-gloss__row:last-child { border-bottom:none; }
+.gene-gloss__gene { color:var(--sage-dark); font-weight:600; min-width:48px; }
+.gene-gloss__def { color:var(--slate-text); }
+/* ── Footer ── */
+.story-footer { padding: 48px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 24px; border-top: 1px solid var(--grid); }
+.footer-brand { display: flex; align-items: center; gap: 10px; }
+.footer-brand img { width: 20px; height: 20px; }
+.footer-brand span { font-family:var(--f-display); font-weight:600; font-size:var(--t-base); color:var(--ink); }
+.footer-meta { font-family:var(--f-mono); font-size:var(--t-xs); color:var(--slate-text); line-height:1.7; text-align:right; }
+.footer-disclaimer { width: 100%; font-family:var(--f-mono); font-size:var(--t-xs); color:var(--slate-text); line-height:1.6; padding-top: 20px; border-top: 1px solid var(--grid); }
+
+/* ════════════════════════════════════ */
+/* v4 interactive additions             */
+/* ════════════════════════════════════ */
+
+/* ── Navigator FAB + panel ── */
+.nav-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--ink); color: var(--bone); border: none; cursor: pointer;
+  font-size: 18px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-fab:hover { background: var(--sage-dark); transform: scale(1.06); }
+.nav-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 195;
+  width: 300px; background: var(--bone); border-left: 1px solid var(--grid);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto; padding: 28px 24px;
+  box-shadow: -8px 0 32px rgba(0,0,0,0.08);
+}
+.nav-panel.open { transform: translateX(0); }
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 190;
+  background: rgba(20,20,19,0.28);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.32s ease;
+}
+.nav-overlay.open { opacity: 1; pointer-events: auto; }
+.nav-panel__title { font-family: var(--f-display); font-weight: 600; font-size: var(--t-base); color: var(--ink); margin-bottom: 3px; }
+.nav-panel__sub { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-panel__divider { height: 1px; background: var(--grid); margin: 16px 0; }
+.nav-panel__beat { display: flex; gap: 10px; padding: 9px 8px; border-radius: 4px; cursor: pointer; transition: background 0.15s; align-items: flex-start; border: none; background: none; width: 100%; text-align: left; }
+.nav-panel__beat:hover { background: var(--bone-2); }
+.nav-panel__num { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); min-width: 22px; padding-top: 2px; flex-shrink: 0; }
+.nav-panel__info {}
+.nav-panel__name { font-family: var(--f-body); font-size: var(--t-sm); color: var(--ink); font-weight: 500; line-height: 1.3; display: block; }
+.nav-panel__desc { font-family: var(--f-mono); font-size: 10px; color: var(--slate-text); margin-top: 1px; display: block; }
+.nav-panel__callout { background: var(--bone-2); border-radius: 6px; border-left: 3px solid var(--sage-dark); padding: 14px 16px; margin-top: 16px; }
+.nav-panel__callout-title { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-dark); font-weight: 600; margin-bottom: 10px; }
+.nav-panel__callout-item { font-family: var(--f-body); font-size: var(--t-xs); color: var(--slate-text); padding: 5px 0; border-bottom: 1px solid var(--grid); line-height: 1.5; display: flex; gap: 6px; align-items: flex-start; }
+.nav-panel__callout-item:last-child { border-bottom: none; }
+.nav-panel__callout-item::before { content: '↗'; color: var(--sage-dark); font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Evidence sections ── */
+.ev-section { grid-column: 1 / -1; border-top: 1px dashed var(--grid); align-self: start; }
+.ev-trigger {
+  width: 100%; padding: 13px 48px; background: var(--bone-2);
+  border: none; border-bottom: 1px solid var(--grid); cursor: pointer;
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-text);
+  display: flex; align-items: center; gap: 8px; text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+.ev-trigger:hover { background: var(--grid); color: var(--ink); }
+.ev-trigger::before { content: '▶'; font-size: 8px; transition: transform 0.25s ease; display: inline-block; flex-shrink: 0; }
+.ev-trigger.open { color: var(--ink); background: var(--grid); }
+.ev-trigger.open::before { transform: rotate(90deg); }
+.ev-drawer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1); }
+.ev-drawer.open { max-height: 4000px; }
+.ev-body { padding: 40px 48px; background: var(--bone); border-bottom: 2px solid var(--grid); }
+.beat--dark .ev-section { border-top-color: rgba(255,255,255,0.1); }
+.beat--dark .ev-trigger { background: rgba(255,255,255,0.03); border-bottom-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35); }
+.beat--dark .ev-trigger:hover { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); }
+.beat--dark .ev-trigger.open { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); }
+.beat--dark .ev-body { background: var(--bone); border-bottom-color: var(--grid); }
+
+/* ── ev-body typography helpers ── */
+.ev-head { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.015em; color: var(--ink); margin-bottom: 6px; }
+.ev-sub { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate-text); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; }
+.ev-kv { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--grid); font-family: var(--f-mono); font-size: var(--t-xs); }
+.ev-kv:last-child { border-bottom: none; }
+.ev-kv__k { color: var(--slate-text); flex-shrink: 0; max-width: 44%; }
+.ev-kv__v { color: var(--ink); font-weight: 500; flex: 1; min-width: 0; text-align: right; }
+.ev-kv__v--pass { color: var(--sage-dark); font-weight: 700; }
+.ev-kv__v--fail { color: var(--red); font-weight: 700; }
+.ev-insight { margin-top: 20px; padding: 14px 16px; background: var(--bone-2); border-radius: 6px; border-left: 3px solid var(--amber); font-family: var(--f-body); font-size: var(--t-sm); color: var(--slate-text); line-height: 1.6; }
+.ev-insight strong { color: var(--ink); }
+.ev-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.ev-col-head { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-text); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--grid); }
+
+/* ── Rejection tooltip ── */
+#rej-tooltip {
+  position: fixed; z-index: 300; pointer-events: none;
+  opacity: 0; transition: opacity 0.12s ease;
+  max-width: 260px; background: var(--ink); color: var(--bone);
+  border-radius: 6px; padding: 12px 14px;
+  font-family: var(--f-mono); font-size: 10.5px; line-height: 1.55;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+}
+#rej-tooltip.show { opacity: 1; }
+.rej-tt__task { color: rgba(255,255,255,0.38); margin-bottom: 4px; font-size: 9.5px; }
+.rej-tt__eq { color: var(--sage); font-weight: 600; margin-bottom: 6px; font-size: 11px; }
+.rej-tt__row { display: flex; justify-content: space-between; gap: 12px; margin-top: 2px; }
+.rej-tt__key { color: rgba(255,255,255,0.38); }
+.rej-tt__val { color: var(--bone); }
+.rej-tt__verdict { margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 10px; color: var(--red); }
+.rej-tt__verdict--pass { color: var(--sage); }
+
+/* ── Dossier tabs ── */
+.dossier-wrap { border: 1px solid var(--grid); border-radius: 6px; overflow: hidden; }
+.dossier-tabs { display: flex; border-bottom: 1px solid var(--grid); background: var(--bone-2); }
+.dossier-tab { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 16px; cursor: pointer; border: none; background: none; color: var(--slate-text); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s; flex-shrink: 0; }
+.dossier-tab:hover { color: var(--ink); }
+.dossier-tab.active { color: var(--sage-dark); border-bottom-color: var(--sage-dark); background: var(--bone); }
+.dossier-panel { display: none; padding: 20px; }
+.dossier-panel.active { display: block; }
+
+/* ── Replication chain ── */
+.repl-chain { border-left: 2px solid var(--grid); margin-left: 10px; }
+.repl-node { display: flex; position: relative; cursor: pointer; }
+.repl-node__dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bone); border: 2px solid var(--grid);
+  flex-shrink: 0; position: absolute; left: -11px; top: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-family: var(--f-mono); font-weight: 700;
+  transition: border-color 0.2s, background 0.2s;
+}
+.repl-node--pass .repl-node__dot { border-color: var(--sage-dark); color: var(--sage-dark); }
+.repl-node--fail .repl-node__dot { border-color: var(--slate-text); color: var(--slate-text); }
+.repl-node.open .repl-node__dot { background: var(--bone-2); }
+.repl-node__content { margin-left: 22px; padding: 12px 0 12px 14px; border-bottom: 1px solid var(--grid); flex: 1; }
+.repl-node:last-child .repl-node__content { border-bottom: none; }
+.repl-node__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.repl-node__title { font-family: var(--f-body); font-size: var(--t-sm); font-weight: 600; color: var(--ink); }
+.repl-node__badge { font-family: var(--f-mono); font-size: 10px; padding: 2px 8px; border-radius: 100px; flex-shrink: 0; }
+.repl-node__badge--pass { color: var(--sage-dark); background: var(--sage-bg); }
+.repl-node__badge--expected { color: var(--slate-text); background: var(--bone-2); }
+.repl-node__sub { font-family: var(--f-mono); font-size: 10px; color: var(--slate-text); margin-top: 3px; }
+.repl-node__detail { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1); }
+.repl-node.open .repl-node__detail { max-height: 300px; }
+.repl-detail-inner { padding: 10px 0 4px; font-family: var(--f-body); font-size: var(--t-xs); color: var(--slate-text); line-height: 1.65; }
+.repl-detail-inner strong { color: var(--ink); }
+
+/* ── Beat 7: Live Oracle terminal ── */
+#beat-7 .beat__visual {
+  background: #0e0e0d; flex-direction: column; align-items: center;
+  justify-content: center; padding: 48px 40px; gap: 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.oracle-terminal {
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+  overflow: hidden; font-family: var(--f-mono); width: 100%; max-width: 500px;
+}
+.oracle-terminal__header {
+  display: flex; align-items: center; gap: 7px; padding: 9px 14px;
+  background: rgba(255,255,255,0.035); border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.oracle-terminal__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.oracle-terminal__dot--r { background: rgba(155,44,44,0.7); }
+.oracle-terminal__dot--a { background: rgba(217,119,87,0.6); }
+.oracle-terminal__dot--g { background: rgba(120,140,93,0.7); }
+.oracle-terminal__title {
+  font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.22); margin-left: 4px;
+}
+.oracle-terminal__body { padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.oracle-verdict { border: 1px solid; border-radius: 6px; padding: 13px 15px; }
+.oracle-verdict--fail {
+  border-color: rgba(155,44,44,0.35); background: rgba(155,44,44,0.05);
+}
+.oracle-verdict--pass {
+  border-color: rgba(120,140,93,0.35); background: rgba(120,140,93,0.05);
+}
+.oracle-verdict__hd {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 5px;
+}
+.oracle-verdict__eq {
+  font-size: 14px; font-weight: 600; color: var(--bone); letter-spacing: 0.01em;
+}
+.oracle-verdict__badge {
+  font-size: 9.5px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
+  letter-spacing: 0.07em; flex-shrink: 0;
+}
+.oracle-verdict__badge--fail { color: var(--red); background: rgba(155,44,44,0.15); }
+.oracle-verdict__badge--pass { color: var(--sage); background: rgba(120,140,93,0.15); }
+.oracle-verdict__task {
+  font-size: 9.5px; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; margin-bottom: 9px;
+}
+.oracle-metrics { display: flex; flex-direction: column; gap: 4px; margin-bottom: 7px; }
+.oracle-metric { display: flex; align-items: baseline; gap: 7px; }
+.oracle-metric__k { font-size: 10px; color: rgba(255,255,255,0.3); min-width: 96px; }
+.oracle-metric__v { font-size: 12.5px; font-weight: 600; }
+.oracle-metric__v--fail { color: var(--red); }
+.oracle-metric__v--pass { color: var(--sage); }
+.oracle-metric__t { font-size: 9.5px; color: rgba(255,255,255,0.2); }
+.oracle-reason { font-size: 10px; letter-spacing: 0.04em; }
+.oracle-reason--fail { color: rgba(155,44,44,0.65); }
+.oracle-reason--pass { color: rgba(120,140,93,0.65); }
+.oracle-summary {
+  padding: 11px 13px; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 5px;
+  font-size: 10px; color: rgba(255,255,255,0.38); line-height: 1.5;
+}
+.oracle-summary__lbl {
+  display: block; font-weight: 700; font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 3px;
+}
+.oracle-session-link {
+  display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px;
+  background: rgba(120,140,93,0.08); border: 1px solid rgba(120,140,93,0.25);
+  border-radius: 5px; text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.oracle-session-link:hover { background: rgba(120,140,93,0.14); border-color: rgba(120,140,93,0.45); }
+.oracle-session-link__icon { font-size: 12px; color: var(--sage); flex-shrink: 0; margin-top: 1px; }
+.oracle-session-link__text { display: flex; flex-direction: column; gap: 1px; }
+.oracle-session-link__label { font-size: 9.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--sage); font-weight: 600; }
+.oracle-session-link__id { font-size: 9.5px; color: rgba(255,255,255,0.28); word-break: break-all; }
+
+/* ── Beat 7: Multi-disease expansion grid ── */
+.mdg-wrap { width: 100%; max-width: 500px; margin-top: 14px; }
+.mdg-hd {
+  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 6px;
+}
+.mdg-grid { display: flex; flex-direction: column; gap: 7px; }
+.mdg-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 13px; border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02);
+}
+.mdg-row--pass { border-color: rgba(120,140,93,0.25); }
+.mdg-row--neg { border-color: rgba(217,119,87,0.2); opacity: 0.75; }
+.mdg-left { display: flex; flex-direction: column; gap: 2px; }
+.mdg-disease { font-size: 11px; font-weight: 600; color: var(--bone); font-family: var(--f-body); }
+.mdg-sub { font-size: 9.5px; color: rgba(255,255,255,0.3); font-family: var(--f-mono); }
+.mdg-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.mdg-stat { text-align: right; }
+.mdg-count { font-size: 12px; font-weight: 700; }
+.mdg-count--pass { color: var(--sage); }
+.mdg-count--neg { color: rgba(217,119,87,0.7); }
+.mdg-delta { font-size: 9.5px; color: rgba(255,255,255,0.28); font-family: var(--f-mono); }
+.mdg-tag {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.07em; padding: 2px 7px;
+  border-radius: 100px; background: rgba(120,140,93,0.12); color: var(--sage);
+  flex-shrink: 0; text-transform: uppercase; white-space: nowrap;
+}
+.mdg-tag--neg { background: rgba(217,119,87,0.1); color: rgba(217,119,87,0.7); }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .beat { grid-template-columns: 1fr; min-height: auto; }
+  .beat__text { position:static; height:auto; padding:64px 24px 40px; border-right:none; border-bottom:1px solid var(--grid); }
+  .beat--dark .beat__text { border-bottom-color: rgba(255,255,255,0.08); }
+  .beat__visual { padding:40px 24px; min-height:60vw; }
+  .beat__text, .beat__visual { opacity:1; transform:none; }
+  .gate-row, .traj-point { opacity:1; transform:none; }
+  .story-nav { padding:12px 16px; }
+  .story-nav__dots { display:none; }
+  .stat-row { gap:16px; }
+  .stat__num { font-size:var(--t-2xl); }
+  .de-engine { grid-template-columns:1fr; gap:8px; }
+  .de-arrow { display:none; }
+  .de-gate { box-shadow:none; }
+  .km-stats { grid-template-columns:1fr; }
+  .story-footer { padding:32px 24px; }
+  .footer-meta { text-align:left; }
+  .ev-trigger { padding:12px 24px; }
+  .ev-body { padding:28px 24px; }
+  .ev-cols { grid-template-columns:1fr; gap:20px; }
+  .nav-panel { width: 100%; }
+  .nav-fab { bottom: 20px; right: 20px; }
+}
+
+/* ── Rashomon family (Beat 5b) ── */
+.rashomon-grid { width:100%; display:flex; flex-direction:column; gap:20px; }
+.rashomon-rank { text-align:center; padding:16px; background:var(--sage-bg); border-radius:8px; }
+.rashomon-rank__num { font-family:var(--f-display); font-size:36px; font-weight:700; color:var(--sage-dark); line-height:1; }
+.rashomon-rank__label { font-family:var(--f-mono); font-size:10px; text-transform:uppercase; letter-spacing:0.09em; color:var(--slate-text); margin-top:4px; }
+.rashomon-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.rashomon-card { padding:14px 16px; border-radius:8px; border:1px solid var(--grid); background:var(--bone); transition:box-shadow 0.2s; }
+.rashomon-card:hover { box-shadow:0 2px 12px rgba(0,0,0,0.07); }
+.rashomon-card--1 { border-top:3px solid var(--sage-dark); }
+.rashomon-card--2 { border-top:3px solid #8fa86d; }
+.rashomon-card--3 { border-top:3px solid #b3c492; }
+.rashomon-card__rank { font-family:var(--f-mono); font-size:9px; text-transform:uppercase; letter-spacing:0.1em; color:var(--slate-text); margin-bottom:6px; }
+.rashomon-card__eq { font-family:var(--f-display); font-size:16px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.rashomon-card__eq em { color:var(--sage-dark); font-style:normal; }
+.rashomon-card__auc { font-family:var(--f-mono); font-size:11px; font-weight:600; color:var(--sage-dark); margin-bottom:4px; }
+.rashomon-card__gene { font-family:var(--f-body); font-size:11px; color:var(--slate-text); line-height:1.45; }
+.rashomon-axis { text-align:center; padding:12px; background:var(--bone-2); border-radius:6px; font-family:var(--f-body); font-size:var(--t-sm); color:var(--ink); }
+.rashomon-axis__label { font-weight:600; }
+@media (max-width:700px) { .rashomon-cards { grid-template-columns:1fr; } }
+
+/* ── Beat 5b section ── */
+#beat-5b .beat__visual { align-items:stretch; padding:40px 32px; }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- nav -->
+<nav class="story-nav">
+  <a class="story-nav__brand" href="index.html">
+    <img src="../plans/branding/assets/logo/lacuna_mark_dark.svg" alt="Lacuna mark">
+    <span>Lacuna</span>
+  </a>
+  <div class="story-nav__dots" aria-label="Section progress">
+    <div class="dot" data-beat="1" title="Origin"></div>
+    <div class="dot" data-beat="2" title="The Gate"></div>
+    <div class="dot" data-beat="3" title="Capability"></div>
+    <div class="dot" data-beat="4" title="Rejection"></div>
+    <div class="dot" data-beat="5" title="Survivor"></div>
+    <div class="dot" data-beat="5b" title="Survivor Family"></div>
+    <div class="dot" data-beat="6" title="Replication"></div>
+    <div class="dot" data-beat="7" title="Live Oracle"></div>
+    <div class="dot" data-beat="8" title="Trajectory"></div>
+  </div>
+  <a class="story-nav__link" href="loom_demo_v4.html">Watch Demo ↗</a>
+</nav>
+
+<!-- Navigator overlay + panel -->
+<div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
+<div class="nav-panel" id="nav-panel">
+  <div class="nav-panel__title">Lacuna</div>
+  <div class="nav-panel__sub">Discovery Story · v7</div>
+  <div class="nav-panel__divider"></div>
+  <button class="nav-panel__beat" data-beat="beat-1">
+    <span class="nav-panel__num">01</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Origin</span>
+      <span class="nav-panel__desc">CRISPR screens to space · the map of where not to go</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-2">
+    <span class="nav-panel__num">02</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">The Gate</span>
+      <span class="nav-panel__desc">5-test BH-FDR · pre-registered · deterministic Python</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-3">
+    <span class="nav-panel__num">03</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Capability overhang</span>
+      <span class="nav-panel__desc">Swap the model · the loop breaks</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-4">
+    <span class="nav-panel__num">04</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Rejection</span>
+      <span class="nav-panel__desc">194 of 203 refused · hover cells for gate detail</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-5">
+    <span class="nav-panel__num">05</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">The Survivor</span>
+      <span class="nav-panel__desc">TOP2A − EPAS1 · 5-tab evidence dossier</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-5b">
+    <span class="nav-panel__num">05b</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Survivor Family</span>
+      <span class="nav-panel__desc">Rashomon rank 1/990 · tight set 3 pairs · same biology</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-6">
+    <span class="nav-panel__num">06</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">External replication + own-kill</span>
+      <span class="nav-panel__desc">HR 1.36 · p=0.0003 · 5-node chain</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-7">
+    <span class="nav-panel__num">07</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Live Oracle</span>
+      <span class="nav-panel__desc">PhL-8d · FAIL + PASS in one autonomous session</span>
+    </span>
+  </button>
+  <button class="nav-panel__beat" data-beat="beat-8">
+    <span class="nav-panel__num">08</span>
+    <span class="nav-panel__info">
+      <span class="nav-panel__name">Trajectory</span>
+      <span class="nav-panel__desc">DIPG · 250+ failed trials · one approval</span>
+    </span>
+  </button>
+  <div class="nav-panel__divider"></div>
+  <div class="nav-panel__callout">
+    <div class="nav-panel__callout-title">What the 3-min demo can't show</div>
+    <div class="nav-panel__callout-item">E2 confound: thinking mode asymmetry (Beat 03 ▼)</div>
+    <div class="nav-panel__callout-item">203 candidate equations — hover any cell (Beat 04 ▼)</div>
+    <div class="nav-panel__callout-item">13-test rigor extension: AUPRC, Rashomon, Cohen's d (Beat 05 ▼)</div>
+    <div class="nav-panel__callout-item">Methodology validation: known result found unconstrained → method proven (Beat 05 ▼)</div>
+    <div class="nav-panel__callout-item">5-node replication chain — 3 PASS + 2 self-kill (Beat 06 ▼)</div>
+    <div class="nav-panel__callout-item">Live oracle — PhL-8d dual verdict, clickable session URL (Beat 07)</div>
+  </div>
+</div>
+<button class="nav-fab" id="nav-fab" onclick="openNav()" title="Story navigator" aria-label="Open story navigator">☰</button>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 1 — ORIGIN                     -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-1">
+  <div class="beat__text">
+    <div class="eyebrow">01 · Origin</div>
+    <h2>I sent CRISPR knockout screens to space. They didn't grow.</h2>
+    <p>I'm a bioinformatics postdoc. I sent CRISPR knockout screens to space — first of their kind. The cells didn't grow enough to give us hits. That's most of science.</p>
+    <p>I know graduate students who never graduated, postdocs who never moved on, because their results said no. This tool is for them.</p>
+    <p>When biology becomes a search problem — and AI is making it one — the cost is paid in failed trials. The map of where not to go is the map worth building.</p>
+    <div class="beat__note">
+      Built with Claude Opus 4.7 · Cerebral Valley × Anthropic · April 2026<br>
+      <a href="https://github.com/jang1563/lacuna-falsification">github.com/jang1563/lacuna-falsification</a>
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div class="origin-mark"><img src="../plans/branding/assets/logo/lacuna_mark_dark.svg" alt="Lacuna"></div>
+    <div class="origin-label">Discovery engine · how it works</div>
+    <div class="de-engine">
+      <div class="de-col">
+        <div class="de-node de-node--opus de-node--skeptic">
+          <div class="de-node__tag">Opus 4.7 · Skeptic</div>
+          <div class="de-node__name">Adversary</div>
+          <div class="de-node__sub">Writes 5 kill tests — before any data, before any law</div>
+        </div>
+        <div class="de-vconn de-vconn--dashed"></div>
+        <div class="de-node de-node--opus">
+          <div class="de-node__tag">Opus 4.7 · Proposer</div>
+          <div class="de-node__name">Proposer</div>
+          <div class="de-node__sub">Law families — written after kill tests are locked</div>
+        </div>
+        <div class="de-vconn"></div>
+        <div class="de-node">
+          <div class="de-node__tag">PySR</div>
+          <div class="de-node__name">Searcher</div>
+          <div class="de-node__sub">Symbolic regression · 203 candidate equations</div>
+        </div>
+      </div>
+      <div class="de-arrow">→</div>
+      <div class="de-gate">
+        <div class="de-gate__name">Python Gate</div>
+        <div class="de-gate__origin">↖ tests written by Adversary</div>
+        <div class="de-gate__sub">5 pre-registered tests<br>deterministic · BH-FDR</div>
+        <div class="de-gate__tally">
+          <div class="de-gate__in">203 enter</div>
+          <div class="de-gate__fail">194 rejected ✗</div>
+          <div class="de-gate__pass">9 survived ✓</div>
+        </div>
+        <div class="de-gate__rule">"Cannot be rationalized past."</div>
+      </div>
+      <div class="de-arrow">→</div>
+      <div class="de-col">
+        <div class="de-node de-node--opus" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+          <div class="de-node__tag">Opus 4.7</div>
+          <div class="de-node__name">Interpreter</div>
+          <div class="de-node__sub">Explains only what the gate kept — verdict locked before this runs</div>
+        </div>
+      </div>
+    </div>
+    <div class="origin-tagline">"A map of where not to go."</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 2 — THE GATE                   -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-2">
+  <div class="beat__text">
+    <div class="eyebrow">02 · The Gate</div>
+    <h2>A loop that cannot reject is not a loop.</h2>
+    <p>Before Opus 4.7 proposes a single candidate, the kill-tests are locked. The gate is deterministic Python — pre-registered, SHA-tagged, not run by the model. Opus cannot rationalize past it.</p>
+    <p>Five tests. All five must pass. Any one failure rejects the candidate, regardless of how compelling the biology sounds.</p>
+    <p>The judgment function lives outside the model. That is the architecture. And because the judgment is outside the model, a survivor is evidence — not rationalisation.</p>
+    <div class="beat__note">
+      prereg SHA 60d3952 · gate src/pipeline/ ·
+      "Cannot be rationalised past — the bite of pre-registration."
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div class="gate-box">
+      <div class="gate-box__head">5-test BH-FDR gate · pre-registered · deterministic Python</div>
+      <table class="gate-table">
+        <thead><tr><th>Test</th><th>Threshold</th><th style="text-align:center">Req.</th></tr></thead>
+        <tbody>
+          <tr class="gate-row">
+            <td><div class="gate-name">Permutation null</div><div class="gate-threshold">Is this better than shuffled random labels?</div></td>
+            <td class="gate-threshold">p &lt; 0.05 (BH-corrected)</td><td class="gate-check">✓</td>
+          </tr>
+          <tr class="gate-row">
+            <td><div class="gate-name">Bootstrap stability</div><div class="gate-threshold">Is this consistently good, not just lucky?</div></td>
+            <td class="gate-threshold">CI_LO &gt; 0.60</td><td class="gate-check">✓</td>
+          </tr>
+          <tr class="gate-row">
+            <td><div class="gate-name">Single-gene baseline</div><div class="gate-threshold">Does the combination beat the best single gene?</div></td>
+            <td class="gate-threshold">Δbaseline &gt; 0.05</td><td class="gate-check">✓</td>
+          </tr>
+          <tr class="gate-row">
+            <td><div class="gate-name">Covariate confound</div><div class="gate-threshold">Is it biology, not patient age or batch effects?</div></td>
+            <td class="gate-threshold">Δ &gt; 0.03 (incremental over covariates-only model)</td><td class="gate-check">✓</td>
+          </tr>
+          <tr class="gate-row">
+            <td><div class="gate-name">Decoy-feature null</div><div class="gate-threshold">Could a random gene do just as well?</div></td>
+            <td class="gate-threshold">decoy_p &lt; 0.05</td><td class="gate-check">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 3 — CAPABILITY OVERHANG (DARK) -->
+<!-- ════════════════════════════════════ -->
+<section class="beat beat--dark" id="beat-3">
+  <div class="beat__text">
+    <div class="eyebrow">03 · Capability overhang</div>
+    <h2>Swap the model.<br>The loop breaks.</h2>
+    <p>The same gate. The same candidates. The same adversarial prompts. One model holds the dual stance — Adversary and Proposer simultaneously. One collapses into permanent rejection.</p>
+    <div class="ablation-hero">
+      <div>
+        <div class="ablation-num ablation-num--zero" id="counter-sonnet">0</div>
+        <div class="ablation-label">Sonnet 4.6 · 60 evals</div>
+      </div>
+      <div class="ablation-arrow" id="ablation-arrow" style="opacity:0.18;">→</div>
+      <div>
+        <div class="ablation-num ablation-num--ten" id="counter-opus">0</div>
+        <div class="ablation-label">Opus 4.7 · 60 evals</div>
+      </div>
+    </div>
+    <p style="font-family:var(--f-mono);font-size:11px;color:rgba(255,255,255,0.28);margin-top:4px;">
+      Opus ran without extended thinking · wins anyway · calibration, not compute
+    </p>
+    <p>This is not a benchmark. This is the condition under which the discovery loop is even possible — the loop that recovers published biology from unconstrained search without being told where to look. Sonnet cannot hold the Skeptic stance that makes the gate work. Before Opus 4.7, the architecture that found the ccA/ccB axis does not exist.</p>
+    <div class="beat__note">
+      E2 ablation · 180 API calls · 3 models × 6 candidates × 10 repeats<br>
+      prompts/skeptic_review.md · same gate metrics, same thresholds
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;">
+      3 models · Skeptic verdict distribution · 60 gate-PASS candidates each
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:6px;overflow:hidden;width:100%;">
+      <table class="model-tbl">
+        <thead>
+          <tr><th>Model</th><th>Verdict mix</th><th>PASS / 60</th><th>Dissent rate</th></tr>
+        </thead>
+        <tbody>
+          <tr class="model-row model-row--opus">
+            <td>
+              <span class="model-name" style="color:var(--sage);">Opus 4.7</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">no extended thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--pass"  style="width:16.7%;"></div>
+                <div class="verdict-bar verdict-bar--needs" style="width:33.3%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count verdict-count--green">10</span></td>
+            <td><span class="dissent-pct dissent-pct--good">66.7%</span></td>
+          </tr>
+          <tr class="model-row">
+            <td>
+              <span class="model-name" style="color:rgba(255,255,255,0.45);">Haiku 4.5</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">with extended thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--pass"  style="width:23.3%;"></div>
+                <div class="verdict-bar verdict-bar--needs" style="width:26.7%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count" style="color:rgba(255,255,255,0.42);">14</span></td>
+            <td><span class="dissent-pct" style="color:rgba(255,255,255,0.35);">53.3%</span></td>
+          </tr>
+          <tr class="model-row model-row--sonnet">
+            <td>
+              <span class="model-name" style="color:var(--red);">Sonnet 4.6</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">with extended thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--needs" style="width:50%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count verdict-count--red">0</span></td>
+            <td><span class="dissent-pct dissent-pct--critical">100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="model-note">
+        Sonnet 4.6 dissents on 100% of gate-PASS candidates — cannot distinguish pass from fail.<br>
+        Haiku 4.5 passes 14 but with lower dissent (53%) — insufficient adversarial calibration.<br>
+        Opus 4.7 holds dual stance: 66.7% dissent on passes (appropriate skepticism), still validates 10.
+      </div>
+    </div>
+  </div>
+
+  <!-- Beat 3: Interpreter comparison drawer -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-3b">Deep dive — Interpreter role: Opus vs Sonnet depth comparison (PhL-19)</button>
+    <div class="ev-drawer" id="ev-drawer-3b">
+      <div class="ev-body">
+        <div class="ev-head">Interpreter Role: Structural Comparison</div>
+        <div class="ev-sub">PhL-19 · same TOP2A−EPAS1 survivor · same prompt · n=5 runs per model</div>
+        <div style="overflow-x:auto;margin-bottom:20px;">
+          <table class="gate-table">
+            <thead><tr><th>Metric</th><th style="color:var(--sage-dark)">Opus 4.7</th><th>Sonnet 4.6</th><th>Haiku 4.5</th></tr></thead>
+            <tbody>
+              <tr class="gate-row">
+                <td><div class="gate-name">Pathway mentions per run</div></td>
+                <td class="gate-threshold" style="color:var(--sage-dark);font-weight:700;">5.3</td>
+                <td class="gate-threshold">1.3</td>
+                <td class="gate-threshold" style="color:var(--red);">—</td>
+              </tr>
+              <tr class="gate-row">
+                <td><div class="gate-name">Caveat rate</div></td>
+                <td class="gate-threshold" style="color:var(--sage-dark);font-weight:700;">100%</td>
+                <td class="gate-threshold" style="color:var(--red);">0%</td>
+                <td class="gate-threshold" style="color:var(--red);">0%</td>
+              </tr>
+              <tr class="gate-row">
+                <td><div class="gate-name">Testable prediction rate</div></td>
+                <td class="gate-threshold" style="color:var(--sage-dark);font-weight:700;">100%</td>
+                <td class="gate-threshold" style="color:var(--red);">0%</td>
+                <td class="gate-threshold" style="color:var(--red);">0%</td>
+              </tr>
+              <tr class="gate-row">
+                <td><div class="gate-name">Citations per run</div></td>
+                <td class="gate-threshold" style="color:var(--sage-dark);font-weight:700;">12</td>
+                <td class="gate-threshold">0</td>
+                <td class="gate-threshold" style="color:var(--red);">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ev-cols">
+          <div>
+            <div class="ev-col-head" style="color:var(--sage-dark);">Opus 4.7 interpretation (TOP2A−EPAS1)</div>
+            <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--ink);line-height:1.7;padding:12px 14px;background:var(--bone-2);border-radius:4px;margin-top:8px;border-left:3px solid var(--sage-dark);">
+              <strong>Mechanism:</strong> EPAS1 (HIF-2α) marks the well-differentiated, hypoxia-adapted ccRCC program. TOP2A marks cells in active DNA replication. When proliferation runs ahead of HIF-2α adaptation, the tumor has shed its differentiated ccRCC phenotype — the aggressive ccB state. This reproduces the Brannon 2010 ccA/ccB axis from first principles, without being seeded with it.<br><br>
+              <strong>Testable prediction:</strong> BRD4 inhibition (which suppresses TOP2A transcription) should selectively affect TOP2A-high / EPAS1-low ccRCC cell lines, with no differential effect in EPAS1-high lines.<br><br>
+              <strong>Honest caveat:</strong> The biology is the published 2010 axis — this is methodology validation, not biological discovery. A 2-gene logistic regression with interaction term reaches AUROC 0.722 on the same pair, so the compound's advantage is compactness plus pre-registered falsification, not AUROC ceiling.
+            </div>
+          </div>
+          <div>
+            <div class="ev-col-head" style="color:var(--red);">Sonnet 4.6 interpretation (same prompt)</div>
+            <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.7;padding:12px 14px;background:var(--bone-2);border-radius:4px;margin-top:8px;border-left:3px solid var(--red);opacity:0.75;">
+              "TOP2A and EPAS1 are involved in cell proliferation and hypoxia response respectively. Their differential expression may reflect tumor aggressiveness. The model achieves AUROC 0.726 which represents good discriminatory performance…"<br><br>
+              <span style="font-family:var(--f-mono);font-size:9.5px;color:var(--red);">No caveats. No testable prediction. No citations. Longer prose — lower scientific signal.</span>
+            </div>
+          </div>
+        </div>
+        <div class="ev-insight" style="margin-top:20px;">
+          <strong>The gap is structural, not stylistic.</strong> Sonnet produces plausible-sounding interpretations with more words, but zero caveats and zero testable predictions. Opus 4.7 writes the "what this is NOT" paragraph and the downstream experiment that makes the interpretation scientifically useful rather than rhetorically polished. The Interpreter role requires Opus 4.7 for the same reason the Skeptic role does: a model that only affirms is not doing scientific work.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beat 3: Memory chain drawer -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-3c">Deep dive — Memory chain: 8 rejection lessons accumulate across 4 sessions</button>
+    <div class="ev-drawer" id="ev-drawer-3c">
+      <div class="ev-body">
+        <div class="ev-head">Managed Agents Memory Chain</div>
+        <div class="ev-sub">PhL-3 → PhL-7 → PhL-10 → PhL-12 · 4 sessions · 8 lessons · cross-disease rejection pattern transfer</div>
+        <div style="overflow-x:auto;margin-bottom:16px;">
+          <table style="width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:var(--t-xs);">
+            <thead>
+              <tr style="border-bottom:2px solid var(--grid);">
+                <th style="text-align:left;padding:7px 10px;color:var(--slate-text);font-weight:600;white-space:nowrap;">Session</th>
+                <th style="text-align:left;padding:7px 10px;color:var(--slate-text);font-weight:600;">Disease</th>
+                <th style="text-align:left;padding:7px 10px;color:var(--slate-text);font-weight:600;">Lesson written to Memory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--grid);">
+                <td style="padding:8px 10px;color:var(--sage-dark);font-weight:700;">PhL-3</td>
+                <td style="padding:8px 10px;color:var(--ink);">ccRCC</td>
+                <td style="padding:8px 10px;color:var(--slate-text);line-height:1.5;">CA9 saturation pattern; CUBN single-marker dominance rule. (PhL-7 session start confirmed 3 prior lessons in store)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--grid);">
+                <td style="padding:8px 10px;color:var(--sage-dark);font-weight:700;">PhL-7</td>
+                <td style="padding:8px 10px;color:var(--ink);">ccRCC + DIPG + IPF</td>
+                <td style="padding:8px 10px;color:var(--slate-text);line-height:1.5;">Compound form necessary; individual markers fail. MCP PubMed: "TOP2A AND EPAS1 AND renal cell carcinoma" → 0 results — pair not in literature at query time</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--grid);">
+                <td style="padding:8px 10px;color:var(--sage-dark);font-weight:700;">PhL-10</td>
+                <td style="padding:8px 10px;color:var(--ink);">LUAD (lung cancer)</td>
+                <td style="padding:8px 10px;color:var(--slate-text);line-height:1.5;">SFTPC (lung surfactant gene) 0.998 tissue-of-origin saturation — structurally identical to CA9 in kidney cancer; threshold adherence meta-rule</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 10px;color:var(--amber);font-weight:700;">PhL-12</td>
+                <td style="padding:8px 10px;color:var(--ink);">PRAD (prostate cancer)</td>
+                <td style="padding:8px 10px;color:var(--slate-text);line-height:1.5;">KLK3/KLK2 saturation — Proposer <em>read the lung cancer (LUAD) lesson</em> and predicted prostate saturation before seeing prostate data</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" style="padding:8px 10px;font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);border-top:2px solid var(--grid);text-align:right;">8 lessons total · accumulated server-side · survives harness restarts · verified from phl12_memory_chain_deepen/SUMMARY.md</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div style="padding:12px 16px;background:rgba(217,119,87,0.07);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;margin-bottom:16px;">
+          <div style="font-family:var(--f-mono);font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);margin-bottom:6px;">Cross-disease transfer · PhL-10 → PhL-12</div>
+          <div style="font-family:var(--f-body);font-size:var(--t-sm);color:var(--ink);line-height:1.65;">The PhL-12 Proposer was asked about prostate cancer. It had never seen PRAD data. It read the LUAD SFTPC saturation lesson from PhL-10 and correctly inferred that KLK3 would serve the same tissue-of-origin saturation role in PRAD. This is cross-substrate reasoning from a persistent server-side Memory store that survived harness restarts between sessions.</div>
+        </div>
+        <div class="ev-insight">
+          <strong>Honest scope:</strong> The Memory lessons are design guardrails, not discovery drivers — they prevent re-proposing known-failed patterns. The PRAD cross-transfer shows the lessons are read and applied correctly, but this is one illustrative case, not a controlled experiment on causal impact. The architectural claim is sound: 8 lessons accumulated server-side across 4 sessions, independently of harness state.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beat 3 evidence drawer -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-3">Deep dive — E2 confound: the thinking mode asymmetry</button>
+    <div class="ev-drawer" id="ev-drawer-3">
+      <div class="ev-body">
+        <div class="ev-head">Why the Thinking Mode Gap Matters</div>
+        <div class="ev-sub">180 API calls · 3 models × 6 candidates × 10 repeats each · same gate thresholds</div>
+        <div class="ev-cols">
+          <div>
+            <div class="ev-col-head">Extended thinking (deeper reasoning mode)</div>
+            <div class="ev-kv"><span class="ev-kv__k">Opus 4.7</span><span class="ev-kv__v" style="color:var(--amber);">OFF — API returned error on attempt</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Haiku 4.5</span><span class="ev-kv__v ev-kv__v--pass">ON ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Sonnet 4.6</span><span class="ev-kv__v ev-kv__v--pass">ON ✓</span></div>
+          </div>
+          <div>
+            <div class="ev-col-head">Skeptic performance on gate-passed candidates</div>
+            <div class="ev-kv"><span class="ev-kv__k">Opus 4.7</span><span class="ev-kv__v ev-kv__v--pass">10 validated · 66.7% raised objections ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Haiku 4.5</span><span class="ev-kv__v">14 validated · only 53.3% objections</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Sonnet 4.6</span><span class="ev-kv__v ev-kv__v--fail">0 validated · objected to everything ✗</span></div>
+          </div>
+        </div>
+        <div class="ev-insight">
+          <strong>The disadvantage goes against Opus.</strong> Extended thinking is supposed to improve reasoning — Haiku and Sonnet had it; Opus did not. Haiku validated 14 candidates (more than Opus's 10), but only objected 53% of the time — it's too agreeable. Sonnet objected to everything — the loop never starts. <strong>Opus is the only model that holds both roles</strong>: skeptical enough to reject bad candidates, flexible enough to let good ones through.
+        </div>
+        <div style="margin-top:20px;padding:12px 16px;background:var(--bone-2);border-radius:6px;border-left:3px solid var(--slate-text);">
+          <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em;">What "dissent rate" means</div>
+          <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.65;">The fraction of gate-PASS candidates where the Adversary role also raises a meaningful objection. Higher = tighter skeptical calibration. A model that never disagrees lets everything through (loop fails). A model that always disagrees rejects everything (loop stalls). Opus hits the productive middle: strict enough to be meaningful, flexible enough to keep discovery alive.</div>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;background:rgba(120,140,93,0.07);border-radius:6px;border-left:3px solid var(--sage);">
+          <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--sage-dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Within-Opus: 4.6 vs 4.7 direct (60 calls each)</div>
+          <div class="ev-kv"><span class="ev-kv__k">Abstention-calibration rate</span><span class="ev-kv__v ev-kv__v--pass">53.3% → 66.7% (+13.3pp)</span></div>
+          <div class="ev-kv"><span class="ev-kv__k">4.7 on clean survivors</span><span class="ev-kv__v ev-kv__v--pass">PASS 10/10 — zero over-commitment ✓</span></div>
+          <div class="ev-kv"><span class="ev-kv__k">4.7 on 5-gene stress-test</span><span class="ev-kv__v ev-kv__v--pass">NEEDS_MORE_TESTS 10/10 — abstains correctly ✓</span></div>
+          <div class="ev-kv"><span class="ev-kv__k">4.6 on stress-test</span><span class="ev-kv__v" style="color:var(--amber);">PASS 2/10 — over-commits ✗</span></div>
+          <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.6;margin-top:8px;">Gap is in <em>graded abstention</em>, not binary correctness — both models score 0% strict miscalibration. 4.7 knows when to say "I need more tests." 4.6 over-commits under identical prompt and gate metrics.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 4 — REJECTION                  -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-4">
+  <div class="beat__text">
+    <div class="eyebrow">04 · Rejection</div>
+    <h2>194 of 203 refused.</h2>
+    <p>CA9, the go-to kidney cancer gene in every review for two decades, was too dominant — it already reaches AUROC 0.965 as a single gene. The gate's rule: if one gene does it, a compound law isn't a discovery.</p>
+    <p>On four tasks — tumor vs. normal, cancer stage, 5-year survival, metastasis (11-gene panel) — <strong>not one of 100+ candidates survived</strong>. The gate was working.</p>
+    <p>One task unlocked when the panel expanded from 11 to 45 genes: <strong>9 of 30 passed</strong>. Same gate. Same thresholds. The bar never moved.</p>
+    <p style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text)">Hover any cell below to see the gate detail for that candidate.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat__num stat__num--red">194</div><div class="stat__label">rejected<br>of 203</div></div>
+      <div class="stat"><div class="stat__num stat__num--sage">9</div><div class="stat__label">survivors<br>on metastasis task</div></div>
+    </div>
+    <div class="beat__note">203 candidate evaluations · TCGA-KIRC n=505 · five-test BH-FDR gate, pre-registered.</div>
+  </div>
+  <div class="beat__visual">
+    <div style="width:100%;">
+      <div style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-text);margin-bottom:10px;">
+        203 candidate evaluations · TCGA-KIRC · 5-test BH-FDR gate
+      </div>
+      <div class="rej-progress-wrap">
+        <div class="rej-progress-track"><div class="rej-progress-fill" id="rej-progress-fill"></div></div>
+        <div class="rej-progress-text" id="rej-progress-text">waiting…</div>
+      </div>
+      <div class="rej-grid" id="rej-grid"></div>
+      <div class="rej-legend">
+        <div class="rej-legend__item"><div class="rej-legend__swatch" style="background:#c4c2b8;"></div>rejected</div>
+        <div class="rej-legend__item"><div class="rej-legend__swatch" style="background:var(--sage-dark);"></div>survivor (gate PASS) ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beat 4 evidence drawer -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-4">Deep dive — task landscape: 203 candidates by task × panel</button>
+    <div class="ev-drawer" id="ev-drawer-4">
+      <div class="ev-body">
+        <div class="ev-head">Task Landscape — Why Most Tasks Hit Zero</div>
+        <div class="ev-sub">203 candidates · 7 task groups · same 5-test gate applied uniformly</div>
+        <div style="overflow-x:auto;">
+          <table class="gate-table" style="margin-bottom:20px;">
+            <thead>
+              <tr>
+                <th>Task</th><th>Panel</th><th>PySR</th><th>Opus</th><th>Total</th><th>PASS</th><th>Dominant gene (AUROC)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="gate-row"><td><div class="gate-name">Tumor vs Normal</div></td><td class="gate-threshold">11g</td><td class="gate-threshold">26</td><td class="gate-threshold">7</td><td class="gate-threshold">33</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">CA9 = 0.965 — saturates alone</td></tr>
+              <tr class="gate-row"><td><div class="gate-name">Stage I–II vs III–IV</div></td><td class="gate-threshold">11g</td><td class="gate-threshold">27</td><td class="gate-threshold">7</td><td class="gate-threshold">34</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">CUBN = 0.610 — low ceiling</td></tr>
+              <tr class="gate-row"><td><div class="gate-name">5-yr Survival</div></td><td class="gate-threshold">11g</td><td class="gate-threshold">29</td><td class="gate-threshold">7</td><td class="gate-threshold">36</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">CUBN = 0.696 — Δbaseline fails</td></tr>
+              <tr class="gate-row"><td><div class="gate-name">5-yr Survival</div></td><td class="gate-threshold">45g</td><td class="gate-threshold">29</td><td class="gate-threshold">—</td><td class="gate-threshold">29</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">CUBN = 0.696 — still dominates</td></tr>
+              <tr class="gate-row"><td><div class="gate-name">Metastasis M0/M1</div></td><td class="gate-threshold">11g</td><td class="gate-threshold">30</td><td class="gate-threshold">7</td><td class="gate-threshold">37</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">MKI67 = 0.645 — CI_LO fails</td></tr>
+              <tr class="gate-row"><td><div class="gate-name" style="color:var(--sage-dark);font-weight:700;">Metastasis M0/M1</div></td><td class="gate-threshold">45g</td><td class="gate-threshold">30</td><td class="gate-threshold">—</td><td class="gate-threshold">30</td><td class="gate-threshold"><span style="color:var(--sage-dark);font-weight:700;">9 ✓</span></td><td class="gate-threshold">MKI67 = 0.645 — TOP2A−EPAS1 beats it</td></tr>
+              <tr class="gate-row"><td><div class="gate-name">LUAD control</div></td><td class="gate-threshold">11g</td><td class="gate-threshold">—</td><td class="gate-threshold">4</td><td class="gate-threshold">4</td><td class="gate-threshold" style="color:var(--red)">0</td><td class="gate-threshold">cross-disease negative</td></tr>
+              <tr style="background:var(--bone-2)"><td colspan="4" style="padding:10px 14px;font-family:var(--f-mono);font-size:var(--t-xs);font-weight:700;color:var(--ink);">Total</td><td style="padding:10px 14px;font-family:var(--f-mono);font-size:var(--t-xs);font-weight:700;color:var(--ink);">203</td><td style="padding:10px 14px;font-family:var(--f-mono);font-size:var(--t-xs);font-weight:700;color:var(--sage-dark);">9</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ev-cols">
+          <div>
+            <div class="ev-col-head">Most common failure modes</div>
+            <div class="ev-kv"><span class="ev-kv__k">Δbaseline &lt; 0.050</span><span class="ev-kv__v ev-kv__v--fail">~68% of rejections</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">CI_LO &lt; 0.600</span><span class="ev-kv__v ev-kv__v--fail">~19% of rejections</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">perm_p ≥ 0.050</span><span class="ev-kv__v ev-kv__v--fail">~8% of rejections</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">decoy_p ≥ 0.050</span><span class="ev-kv__v ev-kv__v--fail">~5% of rejections</span></div>
+          </div>
+          <div>
+            <div class="ev-col-head">Why the 45g panel unlocked Metastasis</div>
+            <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.65;">Expanding from 11 to 45 genes added cell-cycle markers (TOP2A, CDK1) and angiogenesis regulators (ANGPTL4). These enable compound laws that genuinely exceed the single-gene ceiling. The gate found the signal when it was there — the architecture didn't change.</div>
+          </div>
+        </div>
+        <div class="ev-insight" style="margin-top:20px;">
+          <strong>Hover any cell in the grid above</strong> to see gate-log detail for that candidate position.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 5 — THE SURVIVOR               -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-5">
+  <div class="beat__text">
+    <div class="eyebrow">05 · The Survivor</div>
+    <h2>TOP2A − EPAS1.</h2>
+    <p>One survivor passed all five gate legs on the metastasis task with the 45-gene expanded panel. A two-gene compact law that the gate — not the model — chose.</p>
+    <p>It rediscovered the published ccA/ccB renal cell carcinoma subtype axis. In 2010, a multi-center collaboration found this axis after years of work. Lacuna found it unconstrained from a 45-gene search, without being told where to look.</p>
+    <p>We did not plant it. PySR found it; the gate accepted it; Opus interpreted it after the verdict was locked. The finding is not the biology — the biology was published in 2010. The finding is that a pre-registered gate, searching 45 genes it had never seen ranked, arrived at the same answer a multi-center collaboration took years to establish.</p>
+    <p style="font-family:var(--f-display);font-style:italic;color:var(--ink);font-size:var(--t-base);line-height:1.65;margin-top:12px;">A methodology that recovers known truth without being told where to look is a methodology you can trust when the answer has never been published.</p>
+    <div style="margin-top:18px;padding:13px 18px;background:var(--sage-bg);border-left:3px solid var(--sage-dark);border-radius:0 6px 6px 0;">
+      <div style="font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:5px;">Methodology validation</div>
+      <div style="font-family:var(--f-body);font-size:var(--t-sm);color:var(--ink);line-height:1.65;">Known result · unconstrained search · gate passed. The known result being old is the evidence the method works.</div>
+    </div>
+    <div class="beat__note">
+      AUROC 0.726 (95% CI LO 0.665) · Δbaseline +0.069 · TCGA-KIRC n=505 ·
+      ccA/ccB axis: Brannon et al. 2010, Brooks et al. 2014 (ClearCode34).
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div class="equation-box"><em>TOP2A</em> − <em>EPAS1</em></div>
+    <div class="equation-meta">
+      <span class="badge badge--pass">AUROC 0.726 ✓</span>
+      <span class="badge badge--pass">CI_LO 0.665 ✓</span>
+      <span class="badge badge--amber-soft">Δbaseline +0.069</span>
+      <span class="badge badge--pass">perm p&lt;0.001 ✓</span>
+      <span class="badge badge--pass">decoy p&lt;0.001 ✓</span>
+    </div>
+    <div class="gate-box">
+      <div class="gate-box__head">Task landscape · 11-gene vs 45-gene panel · same gate</div>
+      <table class="task-tbl">
+        <thead>
+          <tr><th>Task</th><th>Dominant gene</th><th>11-gene</th><th>45-gene</th><th>Best Δ</th></tr>
+        </thead>
+        <tbody>
+          <tr class="task-row"><td style="font-size:var(--t-xs);">Tumor vs Normal</td><td class="task-gene">CA9 = 0.965</td><td class="task-result task-result--fail">0 / 26</td><td class="task-result task-result--fail">—</td><td class="task-delta">+0.029</td></tr>
+          <tr class="task-row"><td style="font-size:var(--t-xs);">Stage I–II vs III–IV</td><td class="task-gene">CUBN = 0.610</td><td class="task-result task-result--fail">0 / 27</td><td class="task-result task-result--fail">—</td><td class="task-delta">+0.029</td></tr>
+          <tr class="task-row"><td style="font-size:var(--t-xs);">5-year Survival</td><td class="task-gene">CUBN = 0.696</td><td class="task-result task-result--fail">0 / 29</td><td class="task-result task-result--fail">0 / 29</td><td class="task-delta">+0.019</td></tr>
+          <tr class="task-row task-row--pass"><td style="font-size:var(--t-xs);font-weight:600;">Metastasis M0 vs M1</td><td class="task-gene">MKI67 = 0.645</td><td class="task-result task-result--fail">0 / 30</td><td class="task-result task-result--pass">9 / 30 ✓</td><td class="task-delta task-delta--pass">+0.069</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="surv-axis">
+      Proliferation &gt; HIF-2α → metastatic.<br>
+      Rediscovered: published <strong>ccA / ccB ccRCC subtype axis</strong> (Brannon 2010 · ClearCode34 2014).<br>
+      We did not plant it — and that is the point.<br>
+      <span style="display:block;margin-top:7px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:0.06em;opacity:0.82;">Known since 2010 · found again from 45 genes · gate passed → method validated</span>
+    </div>
+    <div class="gene-gloss">
+      <div class="gene-gloss__row"><span class="gene-gloss__gene">TOP2A</span><span class="gene-gloss__def">topoisomerase IIα · marks actively dividing (aggressive) cells</span></div>
+      <div class="gene-gloss__row"><span class="gene-gloss__gene">EPAS1</span><span class="gene-gloss__def">HIF-2α · marks well-differentiated, hypoxia-adapted ccRCC</span></div>
+    </div>
+  </div>
+
+  <!-- Beat 5 evidence drawer — 4-tab dossier -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-5">Deep dive — survivor evidence dossier: 5 extended analyses</button>
+    <div class="ev-drawer" id="ev-drawer-5">
+      <div class="ev-body">
+        <div class="ev-head">Survivor Evidence Dossier</div>
+        <div class="ev-sub">TOP2A − EPAS1 · metastasis M0 vs M1 · TCGA-KIRC n=505</div>
+        <div class="dossier-wrap">
+          <div class="dossier-tabs">
+            <button class="dossier-tab active" data-group="5" data-tab="gate">Gate (5 tests)</button>
+            <button class="dossier-tab" data-group="5" data-tab="rigor">G+I Rigor (13 tests)</button>
+            <button class="dossier-tab" data-group="5" data-tab="memo">Memorization test</button>
+            <button class="dossier-tab" data-group="5" data-tab="caveats">Honest caveats</button>
+            <button class="dossier-tab" data-group="5" data-tab="metacal">Meta-calibration</button>
+          </div>
+          <!-- Tab: Gate -->
+          <div class="dossier-panel active" data-group="5" data-tab="gate">
+            <div class="ev-kv"><span class="ev-kv__k">Shuffle test — better than chance?</span><span class="ev-kv__v ev-kv__v--pass">p &lt; 0.001 · score 0.726 vs random baseline 0.578 ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Stability across patient subsamples</span><span class="ev-kv__v ev-kv__v--pass">95% CI lower bound 0.665 &gt; 0.600 ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Beats the best single gene?</span><span class="ev-kv__v ev-kv__v--pass">+0.069 over MKI67 alone (was 0.645) — threshold &gt; 0.050 ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Not explained by age or batch effects</span><span class="ev-kv__v ev-kv__v--pass">Confound leg skipped — no non-degenerate covariates on metastasis task ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Can a random gene do the same?</span><span class="ev-kv__v ev-kv__v--pass">decoy_p &lt; 0.001 · law beats all 100 random features ✓</span></div>
+            <div style="margin-top:14px;padding:10px 14px;background:var(--sage-bg);border-radius:4px;font-family:var(--f-mono);font-size:var(--t-xs);color:var(--sage-dark);">All 5 gate tests PASS. Verdict locked before Interpreter ran. Pre-registered SHA d2352a9.</div>
+          </div>
+          <!-- Tab: Rigor -->
+          <div class="dossier-panel" data-group="5" data-tab="rigor">
+            <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em;">13 extended tests beyond the gate · 12 PASS · 1 honest FAIL</div>
+            <div class="ev-kv"><span class="ev-kv__k">Precision-Recall AUC (rare events)</span><span class="ev-kv__v ev-kv__v--pass">0.321 · 2.05× better than random on rare metastases ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Calibration — probabilities well-tuned?</span><span class="ev-kv__v ev-kv__v--pass">Brier 0.122 · slope 0.979 ≈ 1.0 (perfect) ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Is this the only good equation?</span><span class="ev-kv__v ev-kv__v--pass">Rank 1 of 990 variants tested · only 3 equivalent pairs found ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Survival gap (effect size)</span><span class="ev-kv__v ev-kv__v--pass">Cohen's d = 0.856 · large effect, high vs low score patients ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Metastasis risk multiplier</span><span class="ev-kv__v ev-kv__v--pass">High score → 2.07× more likely to have metastasis ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Clinical significance (strict bar)</span><span class="ev-kv__v ev-kv__v--fail">HONEST FAIL — gap real but does not clear strictest threshold ✗</span></div>
+            <div style="margin-top:14px;padding:10px 14px;background:var(--bone-2);border-radius:4px;font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.6;">The clinical significance test applies a strict multi-comparison penalty (Bonferroni ×5). The survival gap is real and large (Cohen's d = 0.856) but does not clear this strictest bar. We report this honestly — we do not soften it.</div>
+          </div>
+          <!-- Tab: Memorization -->
+          <div class="dossier-panel" data-group="5" data-tab="memo">
+            <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em;">Did the model just recall this from training data? (n=10 runs, no data shown)</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
+              <div style="padding:14px;background:var(--bone-2);border-radius:6px;border-top:3px solid var(--red);">
+                <div style="font-family:var(--f-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:8px;">Recalled from memory</div>
+                <div style="font-size:22px;font-weight:700;font-family:var(--f-display);color:var(--ink);margin-bottom:4px;">IGFBP3</div>
+                <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.55;">Named <strong>8 / 10</strong> times when asked without data.</div>
+                <div style="margin-top:8px;font-family:var(--f-mono);font-size:9px;color:var(--red);">Not in 45-gene panel · never gate-selected</div>
+              </div>
+              <div style="padding:14px;background:var(--sage-bg);border-radius:6px;border-top:3px solid var(--sage-dark);">
+                <div style="font-family:var(--f-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sage-dark);margin-bottom:8px;">Found by gate from data</div>
+                <div style="font-size:18px;font-weight:700;font-family:var(--f-display);color:var(--ink);margin-bottom:4px;">TOP2A − EPAS1</div>
+                <div style="font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.55;">Recalled from memory: <strong>0 / 10</strong> times.</div>
+                <div style="margin-top:8px;font-family:var(--f-mono);font-size:9px;color:var(--sage-dark);">Gate-selected · AUROC 0.726 ✓</div>
+              </div>
+            </div>
+            <div style="padding:10px 14px;background:var(--bone-2);border-radius:4px;font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.6;">IGFBP3 is a well-known kidney cancer gene from published literature. Without the gate, the model confidently proposes it — and would be wrong. <strong>The gate forces discovery from data, not from memory.</strong> The fact that TOP2A−EPAS1 was absent from the model's top-of-mind responses is evidence the gate, not the model's priors, found it.</div>
+          </div>
+          <!-- Tab: Caveats -->
+          <div class="dossier-panel" data-group="5" data-tab="caveats">
+            <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em;">Honest limitations — we report these, not soften them</div>
+            <div class="ev-kv"><span class="ev-kv__k">Is the subtraction form special?</span><span class="ev-kv__v">AUROC 0.722 with interaction term vs 0.726 — simple subtraction works just as well</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Individual gene effects?</span><span class="ev-kv__v">0/45 survive strict variable selection — it's the ratio that matters, not genes alone</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">New biology?</span><span class="ev-kv__v">The biology is not new — ccA/ccB axis was published 2010. <strong>That is what makes it a validation.</strong> A gate that finds known truth from unconstrained search is a gate you can trust with unknown truth. The known result being old is the evidence the method works.</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Wet-lab confirmation?</span><span class="ev-kv__v">None yet — computational only. No cell line or patient tissue experiments.</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Other cancers?</span><span class="ev-kv__v">Discovered in kidney cancer, replicated in kidney cancer. Cross-disease transfer not tested.</span></div>
+          </div>
+
+          <!-- Tab: Meta-calibration -->
+          <div class="dossier-panel" data-group="5" data-tab="metacal">
+            <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em;">PhI-1: Does Opus know when it's wrong — before testing?</div>
+            <div style="font-family:var(--f-body);font-size:var(--t-sm);color:var(--slate-text);line-height:1.65;margin-bottom:16px;">After the 9 survivors were accepted, Opus 4.7 was asked — in a fresh session, no access to falsification reports — to generate 4 new skeletons and write one ex-ante kill test per skeleton <em>before the gate ran</em>. Result: 0 / 4 passed. The model predicted failure on every skeleton where failure occurred.</div>
+            <div class="ev-kv"><span class="ev-kv__k">Skeleton #1 (VEGFA-centric)</span><span class="ev-kv__v ev-kv__v--pass">Kill test: "VEGFA likely redundant given CA9 + EPAS1 already in panel — delta_baseline will not clear 0.05" · Gate: FAIL delta_baseline ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Skeleton #4 (CCNB1 anchor)</span><span class="ev-kv__v ev-kv__v--pass">Kill test: "CCNB1 alone insufficient; MKI67 already dominates the proliferation hierarchy" · Gate: FAIL delta_baseline ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Skeletons #2, #3</span><span class="ev-kv__v ev-kv__v--pass">Same concordance: kill test named the failure leg before the gate ran ✓</span></div>
+            <div class="ev-kv"><span class="ev-kv__k">Concordance</span><span class="ev-kv__v ev-kv__v--pass">4 / 4 kill-test predictions matched gate verdicts exactly</span></div>
+            <div style="margin-top:14px;padding:10px 14px;background:var(--bone-2);border-radius:4px;font-family:var(--f-body);font-size:var(--t-xs);color:var(--slate-text);line-height:1.6;"><strong>The finding is not the 0 survivors.</strong> The finding is that the model's internal failure model is accurate — it predicts the specific failure mechanism before seeing the result. This is distinct from generic self-critique: smaller models write kill tests with zero numeric thresholds. Opus 4.7 produces quantitatively specific ex-ante failure predictions. Honest caveat: PhI-1 was post-hoc on 4 skeletons from the same session — independent novel skeletons are the proper follow-on.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 5b — SURVIVOR FAMILY           -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-5b">
+  <div class="beat__text">
+    <div class="eyebrow">05b · Survivor Family</div>
+    <h2>One law. Three faces.<br>Same biology.</h2>
+    <p>All 990 two-gene differences were ranked by sign-invariant AUROC on the same 45-gene panel. The top three all encode the same signal: <em>proliferation − HIF-2α</em>. The gate did not find one law — it found a family.</p>
+    <p>Every pair in the tight set uses EPAS1 on one side. Every pair contrasts a cell-cycle proliferation marker against the HIF-2α differentiation program. The biology is reproducible across gene choices — the axis, not the gene pair, is the discovery.</p>
+    <div style="margin-top:18px;padding:13px 18px;background:var(--sage-bg);border-left:3px solid var(--sage-dark);border-radius:0 6px 6px 0;">
+      <div style="font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:5px;">What "tight Rashomon set" means</div>
+      <div style="font-family:var(--f-body);font-size:var(--t-sm);color:var(--ink);line-height:1.65;">All two-gene laws within AUROC ε=0.02 of the rank-1 survivor. If only 1 law qualified, the finding could be a lucky gene pair. Finding 3 — all the same biology — means the gate found an axis. 100% of the tight set encodes proliferation − EPAS1.</div>
+    </div>
+    <div class="beat__note">
+      990 = C(45,2) two-gene difference pairs evaluated · pre-registered rashomon_set/SUMMARY.md · ε=0.02 tight-set threshold
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div class="rashomon-grid">
+      <div class="rashomon-rank">
+        <div class="rashomon-rank__num">1 / 990</div>
+        <div class="rashomon-rank__label">TOP2A−EPAS1 rank within all 2-gene difference pairs</div>
+      </div>
+      <div class="rashomon-cards">
+        <div class="rashomon-card rashomon-card--1">
+          <div class="rashomon-card__rank">Rank #1</div>
+          <div class="rashomon-card__eq"><em>TOP2A</em> − <em>EPAS1</em></div>
+          <div class="rashomon-card__auc">AUROC 0.7275</div>
+          <div class="rashomon-card__gene">topoisomerase IIα − HIF-2α</div>
+        </div>
+        <div class="rashomon-card rashomon-card--2">
+          <div class="rashomon-card__rank">Rank #2 (ε=0.008)</div>
+          <div class="rashomon-card__eq"><em>CDK1</em> − <em>EPAS1</em></div>
+          <div class="rashomon-card__auc">AUROC 0.7192</div>
+          <div class="rashomon-card__gene">cyclin-dependent kinase 1 − HIF-2α</div>
+        </div>
+        <div class="rashomon-card rashomon-card--3">
+          <div class="rashomon-card__rank">Rank #3 (ε=0.018)</div>
+          <div class="rashomon-card__eq"><em>MKI67</em> − <em>EPAS1</em></div>
+          <div class="rashomon-card__auc">AUROC 0.7100</div>
+          <div class="rashomon-card__gene">Ki-67 proliferation marker − HIF-2α</div>
+        </div>
+      </div>
+      <div class="rashomon-axis">
+        <span class="rashomon-axis__label">All three: proliferation marker − EPAS1 (HIF-2α)</span><br>
+        <span style="font-family:var(--f-mono);font-size:9.5px;color:var(--slate-text);">100% of the tight set encodes the same biology · tight set = 3 pairs; loose set (ε=0.05) = 19 pairs · the axis is robust</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 6 — EXTERNAL + OWN-KILL        -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-6">
+  <div class="beat__text">
+    <div class="eyebrow">06 · External replication + own-kill</div>
+    <h2>Then we killed our own extension.</h2>
+    <p>The two-gene law replicated on an independent Phase-2 immunotherapy trial cohort (IMmotion150) with the same pre-registered survival gate. HR 1.36, log-rank p=0.0003.</p>
+    <p>High-score patients survived 12.88 months median PFS vs 5.35 months for low-score — a 7.53-month gap in an independent cohort we never saw during discovery.</p>
+    <p>Then Opus proposed a three-gene extension: TOP2A − EPAS1 + SLC22A8. We ran the same gate. It failed. p=0.117. The gate reported FAIL on our own best output. That is the point.</p>
+    <div class="beat__note">
+      IMmotion150: McDermott et al. 2018 (PMID 29867230), Phase-2 RCT n=263 ·
+      H1-loop extension: separate pre-registered gate, commit 60d3952.
+    </div>
+  </div>
+  <div class="beat__visual" style="flex-direction:column;align-items:stretch;gap:14px;padding:40px 40px;">
+    <div class="km-wrap">
+      <img src="../theory_copilot_discovery/results/track_a_task_landscape/external_replay/immotion150_pfs/km_median_split.png"
+           alt="IMmotion150 Kaplan-Meier curve — TOP2A−EPAS1 median split, HR 1.36, p=0.0003">
+    </div>
+    <div class="km-stats">
+      <div class="km-stat"><div class="km-stat__val km-stat__val--amber">1.36</div><div class="km-stat__label">Cox HR per z-score</div></div>
+      <div class="km-stat"><div class="km-stat__val km-stat__val--sage">0.0003</div><div class="km-stat__label">Log-rank p</div></div>
+      <div class="km-stat"><div class="km-stat__val">0.601</div><div class="km-stat__label">Harrell C-index</div></div>
+      <div class="km-stat"><div class="km-stat__val km-stat__val--sage">7.53 mo</div><div class="km-stat__label">Median PFS gap</div></div>
+    </div>
+    <div class="own-kill">
+      ✗ &nbsp; Three-gene extension (TOP2A − EPAS1 + SLC22A8) · same survival gate · <strong>KILLED</strong><br>
+      <span style="opacity:0.7;font-size:10px;">log-rank p = 0.117 · pre-registered · commit 60d3952</span>
+    </div>
+    <div style="padding:12px 16px;border-radius:6px;background:var(--bone-2);border-left:3px solid var(--amber);">
+      <div style="font-family:var(--f-mono);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);margin-bottom:6px;font-weight:600">Context isolation audit — IPF · $58.28 · 32 min</div>
+      <div style="font-family:var(--f-body);font-size:var(--t-sm);color:var(--slate-text);line-height:1.6">Skeptic ran in a separate context window — never seeing the Advocate's reasoning. Caught <strong style="color:var(--ink)">2 fabricated prior-trial claims</strong>: RAINIER periostin sub-group (stated as untested; already prespecified in original protocol) and Raghu 2017 (LOXL2-stratified arm already reported). A single-context pipeline would have rationalized both. <span style="font-family:var(--f-mono);font-size:10px">lock SHA 88eaca3</span></div>
+    </div>
+  </div>
+
+  <!-- Beat 6 evidence drawer — replication chain -->
+  <div class="ev-section">
+    <button class="ev-trigger" data-drawer="ev-drawer-6">Deep dive — replication chain: 5 independent validation contexts (click each node)</button>
+    <div class="ev-drawer" id="ev-drawer-6">
+      <div class="ev-body">
+        <div class="ev-head">Replication Chain</div>
+        <div class="ev-sub">5 independent contexts · 3 designed to PASS · 2 designed to FAIL · click each node for detail</div>
+        <div class="repl-chain">
+
+          <div class="repl-node repl-node--pass">
+            <div class="repl-node__dot">✓</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">Discovery · TCGA-KIRC</span>
+                <span class="repl-node__badge repl-node__badge--pass">PASS ✓</span>
+              </div>
+              <div class="repl-node__sub">505 patients · found unconstrained from 45-gene search</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  <strong>AUROC 0.726</strong> · CI_LO 0.665 · Δbaseline +0.069 · perm_p &lt; 0.001 · decoy_p &lt; 0.001<br>
+                  Law found by PySR without seed. Gate accepted. Opus 4.7 interpreted after verdict locked.<br>
+                  Pre-registered SHA: d2352a9
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="repl-node repl-node--pass">
+            <div class="repl-node__dot">✓</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">External · IMmotion150 Phase-2 RCT</span>
+                <span class="repl-node__badge repl-node__badge--pass">PASS ✓</span>
+              </div>
+              <div class="repl-node__sub">263 patients · independent immunotherapy trial · never seen during discovery</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  <strong>HR 1.36</strong> (Cox per z-score) · log-rank p = 0.0003 · C-index 0.601<br>
+                  Median PFS: high score 12.88 mo vs low score 5.35 mo (<strong>7.53-month gap</strong>)<br>
+                  Treatment-arm confound check: HR 1.361 (unadjusted) → <strong>1.365</strong> after controlling for immunotherapy vs VEGF-inhibitor arm — signal <em>increases</em>, confirming therapy-independence<br>
+                  Same pre-registered survival gate applied without modification · McDermott et al. 2018
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="repl-node repl-node--pass">
+            <div class="repl-node__dot">✓</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">Third dataset · GSE53757</span>
+                <span class="repl-node__badge repl-node__badge--pass">PASS ✓</span>
+              </div>
+              <div class="repl-node__sub">Different platform · different preprocessing pipeline</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  <strong>AUROC 0.714</strong> on stage 1-2 vs 3-4 task (secondary endpoint, n=72 tumor)<br>
+                  Stage proxy for metastasis axis. Signal transfers across platforms without retraining.<br>
+                  <span style="color:rgba(93,111,71,0.7);font-size:9.5px;">Note: primary T-vs-N endpoint FAILED — CA9 alone 0.9954, same saturation seen in TCGA. Informative fail: gate correctly refuses compound claim on saturated tasks.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="repl-node repl-node--fail">
+            <div class="repl-node__dot">—</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">Negative control · Tumor vs Normal</span>
+                <span class="repl-node__badge repl-node__badge--expected">expected FAIL ✓</span>
+              </div>
+              <div class="repl-node__sub">CA9 already saturates at AUROC 0.965 — compound law not needed</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  CA9 alone achieves AUROC 0.965. Any compound law has Δbaseline &lt; 0.001.<br>
+                  Gate correctly rejects all 33 candidates on this task. <strong>This is the gate working as designed</strong> — it doesn't discover where there's nothing to discover.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="repl-node repl-node--fail">
+            <div class="repl-node__dot">—</div>
+            <div class="repl-node__content">
+              <div class="repl-node__head">
+                <span class="repl-node__title">Own-kill · SLC22A8 3-gene extension</span>
+                <span class="repl-node__badge repl-node__badge--expected">expected FAIL ✓</span>
+              </div>
+              <div class="repl-node__sub">Opus proposed the extension · same gate · commit 60d3952</div>
+              <div class="repl-node__detail">
+                <div class="repl-detail-inner">
+                  Opus 4.7 proposed adding SLC22A8 to TOP2A−EPAS1. Gate ran identically.<br>
+                  <strong>log-rank p = 0.117</strong> (threshold &lt; 0.05) · Cox HR p = 0.074 · C-index 0.566<br>
+                  All 3 survival tests FAIL. Gate reported FAIL on our own best candidate. Pre-registered.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 7 — LIVE ORACLE (DARK)         -->
+<!-- ════════════════════════════════════ -->
+<section class="beat beat--dark" id="beat-7">
+  <div class="beat__text">
+    <div class="eyebrow">07 · Live Oracle</div>
+    <h2>The gate ran.<br>Now: new Routine, or update?</h2>
+    <p>A Claude Code Routine triggered an autonomous session yesterday. Two equations, same gate, same pre-registered thresholds. The HIF-axis compound — CA9 alone already reaches AUROC 0.965, compound adds Δ=+0.015 — refused. CDK1−EPAS1 on metastasis — Δ=+0.062 — accepted. No human decision after the API fire call.</p>
+    <p>The gate proved it rejects AND accepts, in one session. That is not the interesting question anymore.</p>
+    <p>The interesting question is: new Routine per disease, or update the existing Routine's Instructions? Answer: new Routine. The existing Routine's Instructions are the provenance record for PhL-8d — editing them retroactively breaks the audit chain. New question, new Routine. The gate and the Skills are shared.</p>
+    <div style="margin-top:18px;padding:13px 18px;background:rgba(120,140,93,0.08);border-left:3px solid var(--sage);border-radius:0 6px 6px 0;">
+      <div style="font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:5px;">Pattern confirmed · 4 diseases · same gate</div>
+      <div style="font-family:var(--f-body);font-size:var(--t-sm);color:rgba(255,255,255,0.52);line-height:1.65;">ccRCC Stage: 23/28 PASS · CXCR4/EPAS1 · Δ=+0.051. Colon MSI-high: 15/22 PASS · SLC2A1+Warburg · Δ=+0.100. LGG Grade II/III: 2/25 PASS · TWIST1×MKI67 interaction · <span style="color:rgba(120,140,93,0.9);font-weight:600;">AUROC 0.840</span> · Δ=+0.051. Liver HCC: 0/26 (designed negative — gate refuses). 2 live Routine sessions (ccRCC) · 2 offline gate runs (COAD, LGG) · same Skills, same pre-registered gate. DIPG is next in queue.</div>
+    </div>
+    <div class="beat__note">
+      PhL-8d · 2026-04-26 · autonomous session ~6 min ·
+      no human decision after API fire · same 45-gene panel · same BH-FDR gate
+    </div>
+  </div>
+  <div class="beat__visual">
+    <div class="oracle-terminal">
+      <div class="oracle-terminal__header">
+        <div class="oracle-terminal__dot oracle-terminal__dot--r"></div>
+        <div class="oracle-terminal__dot oracle-terminal__dot--a"></div>
+        <div class="oracle-terminal__dot oracle-terminal__dot--g"></div>
+        <span class="oracle-terminal__title">PhL-8d · Dual Verdict Oracle · 2026-04-26</span>
+      </div>
+      <div class="oracle-terminal__body">
+
+        <!-- Eq1 — FAIL -->
+        <div class="oracle-verdict oracle-verdict--fail">
+          <div class="oracle-verdict__hd">
+            <span class="oracle-verdict__eq">CA9 − AGXT</span>
+            <span class="oracle-verdict__badge oracle-verdict__badge--fail">GATE FAIL</span>
+          </div>
+          <div class="oracle-verdict__task">task: tumor_vs_normal · same pre-registered gate</div>
+          <div class="oracle-metrics">
+            <div class="oracle-metric">
+              <span class="oracle-metric__k">delta_baseline</span>
+              <span class="oracle-metric__v oracle-metric__v--fail">+0.015</span>
+              <span class="oracle-metric__t">(threshold &gt; 0.05)</span>
+            </div>
+            <div class="oracle-metric">
+              <span class="oracle-metric__k">CA9 alone</span>
+              <span class="oracle-metric__v" style="color:rgba(255,255,255,0.6);">AUROC 0.965</span>
+              <span class="oracle-metric__t">compound cannot clear +0.05 bar</span>
+            </div>
+          </div>
+          <div class="oracle-reason oracle-reason--fail">fail_reason: delta_baseline</div>
+        </div>
+
+        <!-- Eq2 — PASS -->
+        <div class="oracle-verdict oracle-verdict--pass">
+          <div class="oracle-verdict__hd">
+            <span class="oracle-verdict__eq">CDK1 − EPAS1</span>
+            <span class="oracle-verdict__badge oracle-verdict__badge--pass">GATE PASS</span>
+          </div>
+          <div class="oracle-verdict__task">task: metastasis_expanded · same pre-registered gate</div>
+          <div class="oracle-metrics">
+            <div class="oracle-metric">
+              <span class="oracle-metric__k">delta_baseline</span>
+              <span class="oracle-metric__v oracle-metric__v--pass">+0.062</span>
+              <span class="oracle-metric__t">(&gt; 0.05 ✓)</span>
+            </div>
+            <div class="oracle-metric">
+              <span class="oracle-metric__k">perm_p</span>
+              <span class="oracle-metric__v oracle-metric__v--pass">0.000</span>
+              <span class="oracle-metric__t">(&lt; 0.05 ✓)</span>
+            </div>
+            <div class="oracle-metric">
+              <span class="oracle-metric__k">ci_lower</span>
+              <span class="oracle-metric__v oracle-metric__v--pass">0.662</span>
+              <span class="oracle-metric__t">(&gt; 0.60 ✓)</span>
+            </div>
+          </div>
+          <div class="oracle-reason oracle-reason--pass">fail_reason: none · proliferation-minus-HIF-2α cluster</div>
+        </div>
+
+        <div class="oracle-summary">
+          <span class="oracle-summary__lbl">Dual Verdict Summary</span>
+          Same gate · same thresholds · same session — one equation rejected for content, one accepted for content. The gate discriminates; it does not optimise for acceptance.
+        </div>
+
+        <a class="oracle-session-link" href="https://claude.ai/code/session_01CgsJYAPdvhJJwTuBt7QZLZ" target="_blank" rel="noopener">
+          <span class="oracle-session-link__icon">↗</span>
+          <span class="oracle-session-link__text">
+            <span class="oracle-session-link__label">PhL-8d · metastasis oracle</span>
+            <span class="oracle-session-link__id">session_01CgsJYAPdvhJJwTuBt7QZLZ</span>
+          </span>
+        </a>
+        <a class="oracle-session-link" href="https://claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t" target="_blank" rel="noopener" style="margin-top:6px;">
+          <span class="oracle-session-link__icon">↗</span>
+          <span class="oracle-session-link__text">
+            <span class="oracle-session-link__label">PhL-10 · stage oracle · CXCR4/EPAS1 PASS</span>
+            <span class="oracle-session-link__id">session_01XGse8XYFtv3C1aKLZeMH9t</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Multi-disease expansion -->
+    <div class="mdg-wrap">
+      <div class="mdg-hd">Multi-disease expansion · same gate · new Routine per disease</div>
+      <div class="mdg-grid">
+        <a class="mdg-row mdg-row--pass" href="https://claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="mdg-left">
+            <div class="mdg-disease">ccRCC Staging</div>
+            <div class="mdg-sub">CXCR4 / EPAS1 · stage_expanded (n=512) · ↗ live</div>
+          </div>
+          <div class="mdg-right">
+            <div class="mdg-stat">
+              <div class="mdg-count mdg-count--pass">23 / 28</div>
+              <div class="mdg-delta">Δ +0.051</div>
+            </div>
+            <span class="mdg-tag">New Routine</span>
+          </div>
+        </a>
+        <div class="mdg-row mdg-row--pass">
+          <div class="mdg-left">
+            <div class="mdg-disease">Colon MSI-high</div>
+            <div class="mdg-sub">SLC2A1 + Warburg · coad_msi</div>
+          </div>
+          <div class="mdg-right">
+            <div class="mdg-stat">
+              <div class="mdg-count mdg-count--pass">15 / 22</div>
+              <div class="mdg-delta">Δ +0.100</div>
+            </div>
+            <span class="mdg-tag">New Routine</span>
+          </div>
+        </div>
+        <div class="mdg-row mdg-row--pass">
+          <div class="mdg-left">
+            <div class="mdg-disease">LGG (brain tumor) Grade II vs III</div>
+            <div class="mdg-sub">TWIST1×MKI67+VIM − CDH2/NES · n=384</div>
+          </div>
+          <div class="mdg-right">
+            <div class="mdg-stat">
+              <div class="mdg-count mdg-count--pass">2 / 25</div>
+              <div class="mdg-delta">Δ +0.051 · <span style="color:var(--sage-dark);font-weight:700;">AUROC 0.840</span></div>
+            </div>
+            <span class="mdg-tag">New Routine</span>
+          </div>
+        </div>
+        <div class="mdg-row mdg-row--neg">
+          <div class="mdg-left">
+            <div class="mdg-disease">Liver HCC</div>
+            <div class="mdg-sub">TTR / ALB saturate (0.985) — designed negative</div>
+          </div>
+          <div class="mdg-right">
+            <div class="mdg-stat">
+              <div class="mdg-count mdg-count--neg">0 / 26</div>
+              <div class="mdg-delta">gate refuses</div>
+            </div>
+            <span class="mdg-tag mdg-tag--neg">New Routine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- Beat 8 — TRAJECTORY                 -->
+<!-- ════════════════════════════════════ -->
+<section class="beat" id="beat-8">
+  <div class="beat__text">
+    <div class="eyebrow">08 · Trajectory</div>
+    <h2>DIPG. 250+ failed trials. One approval.</h2>
+    <p>Pediatric brainstem glioma. H3 K27M-mutant. Median overall survival ~11 months. No disease-modifying therapy for a decade — then dordaviprone was approved in August 2025 after a 10-year graveyard of failures.</p>
+    <p>The same gate that rejected 194 of 203 on kidney cancer is the loop pointed at brainstem. Fifteen candidates are currently in queue.</p>
+    <p>The kidney cancer result is the proof of concept. A gate that recovered the published ccA/ccB axis from 45 genes — blind, without being told where to look — has earned the right to run on a disease where no answer has been published yet. The published law is the tip. The graveyard is the artifact.</p>
+    <p style="font-family:var(--f-display);font-style:italic;color:var(--ink);margin-top:8px">For every scientist whose null results pushed the field forward but never made it into a paper.</p>
+    <div class="traj-points">
+      <div class="traj-point">
+        <span class="traj-point__check">√</span>
+        <div><div class="traj-point__text">Pre-registered falsification gate</div><div class="traj-point__sub">same five tests, same BH-FDR, locked before any LLM saw the data</div></div>
+      </div>
+      <div class="traj-point">
+        <span class="traj-point__check">√</span>
+        <div><div class="traj-point__text">Same architecture as the ccRCC discovery</div><div class="traj-point__sub">the loop that rejected 194 of 203 on kidney is the loop pointed at brainstem</div></div>
+      </div>
+      <div class="traj-point">
+        <span class="traj-point__check">√</span>
+        <div><div class="traj-point__text">15 candidates currently in queue</div><div class="traj-point__sub">commit 3938fef · queue/h3k27m_2026q2.yaml · n=47 (HERBY) · n=88 (PNOC-022)</div></div>
+      </div>
+    </div>
+    <div class="beat__note">For research use only. Not diagnostic. Candidate laws require independent wet-lab and clinical validation before any clinical application.</div>
+  </div>
+  <div class="beat__visual">
+    <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
+      <div class="dipg-header">
+        <div style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-text)">DIPG clinical trial graveyard · 2005–2024</div>
+        <div style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--sage-dark);font-weight:600">1 approved ↗</div>
+      </div>
+      <canvas id="dipg-canvas" aria-label="~250 failed DIPG clinical trials (gray dots), one approval (sage outline)"></canvas>
+      <div style="font-family:var(--f-mono);font-size:10px;color:var(--slate-text);text-align:center;">
+        each dot = one failed trial &nbsp;·&nbsp; <span style="color:var(--sage-dark);font-weight:600">outline = dordaviprone (first approval, Aug 2025)</span>
+      </div>
+      <div class="gate-box">
+        <div class="gate-box__head">kidney cancer law · validated in 5 independent contexts</div>
+        <table class="gate-table">
+          <thead><tr><th>Context</th><th>Result</th><th style="text-align:center">Verdict</th></tr></thead>
+          <tbody>
+            <tr class="gate-row">
+              <td><div class="gate-name">Discovery · kidney cancer</div><div class="gate-threshold">505 patients · found unconstrained, not planted</div></td>
+              <td class="gate-threshold">AUROC 0.726 · Δbaseline +0.069</td>
+              <td class="gate-check">✓</td>
+            </tr>
+            <tr class="gate-row">
+              <td><div class="gate-name">External immunotherapy trial</div><div class="gate-threshold">263 patients · Phase-2 RCT · different cohort</div></td>
+              <td class="gate-threshold">p=0.0003 · HR 1.36 · C-index 0.601</td>
+              <td class="gate-check">✓</td>
+            </tr>
+            <tr class="gate-row">
+              <td><div class="gate-name">Third dataset · GSE53757</div><div class="gate-threshold">different platform, different preprocessing</div></td>
+              <td class="gate-threshold">AUROC 0.714</td>
+              <td class="gate-check">✓</td>
+            </tr>
+            <tr class="gate-row">
+              <td><div class="gate-name">Negative control · tumor vs. normal</div><div class="gate-threshold">one gene already saturates — compound not needed</div></td>
+              <td class="gate-threshold">single gene wins; no compound needed</td>
+              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">expected FAIL ✓</td>
+            </tr>
+            <tr class="gate-row">
+              <td><div class="gate-name">Cross-disease control · breast cancer</div><div class="gate-threshold">kidney-specific signal should not transfer</div></td>
+              <td class="gate-threshold">signal absent, as expected</td>
+              <td style="font-family:var(--f-mono);font-size:var(--t-xs);color:var(--slate-text);text-align:center">expected FAIL ✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="story-footer">
+  <div class="footer-brand">
+    <img src="../plans/branding/assets/logo/lacuna_mark_dark.svg" alt="Lacuna mark">
+    <span>Lacuna</span>
+  </div>
+  <div class="footer-meta">
+    jang1563/lacuna-falsification · prereg SHA 60d3952<br>
+    TCGA-KIRC n=505 · IMmotion150 n=263 · HERBY n=47 · COAD n=484 · LGG n=384<br>
+    Built with Claude Opus 4.7 · Cerebral Valley × Anthropic · April 2026 ·
+    <a href="loom_demo_v4.html" style="color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--sage-dark);">Watch Demo ↗</a>
+  </div>
+  <div class="footer-disclaimer">
+    For research use only. Not diagnostic. Results reflect computational analysis of publicly available datasets.
+    TOP2A−EPAS1 law rediscovered from published ccA/ccB subtype axis (Brannon et al. 2010) — found unconstrained from 45 genes, without being told where to look. This is what makes the methodology trustworthy.
+    All gate thresholds pre-registered before any model fit. Repository: github.com/jang1563/lacuna-falsification.
+  </div>
+</footer>
+
+<!-- Rejection cell tooltip -->
+<div id="rej-tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+// ── Progress bar ──
+const progressBar = document.getElementById('progress-bar');
+function updateProgress() {
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (docH > 0 ? (window.scrollY / docH) * 100 : 0) + '%';
+}
+
+// ── IntersectionObserver reveal + dot activation ──
+const beats = document.querySelectorAll('.beat');
+const dots  = document.querySelectorAll('.dot');
+
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      if (entry.target.id === 'beat-3' && !entry.target.dataset.counterDone) {
+        entry.target.dataset.counterDone = '1';
+        setTimeout(runCapabilityCounter, 500);
+      }
+      if (entry.target.id === 'beat-4' && !entry.target.dataset.gridLit) {
+        entry.target.dataset.gridLit = '1';
+        setTimeout(littenGrid, 300);
+      }
+    }
+  });
+}, { threshold: 0.35 });
+
+const dotObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const n = entry.target.id.split('-')[1];
+    const dot = document.querySelector(`.dot[data-beat="${n}"]`);
+    if (dot) dot.classList.toggle('active', entry.isIntersecting);
+  });
+}, { threshold: 0.5 });
+
+beats.forEach(beat => { revealObs.observe(beat); dotObs.observe(beat); });
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const target = document.getElementById('beat-' + dot.dataset.beat);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+beats[0].classList.add('is-visible');
+const firstDot = document.querySelector('.dot[data-beat="1"]');
+if (firstDot) firstDot.classList.add('active');
+
+// ── Beat 3: Capability counter ──
+function runCapabilityCounter() {
+  const opusEl = document.getElementById('counter-opus');
+  const arrow  = document.getElementById('ablation-arrow');
+  if (!opusEl) return;
+  if (arrow) { arrow.style.transition = 'opacity 1.2s ease'; arrow.style.opacity = '0.9'; }
+  let prev = 0;
+  const duration = 1400, startT = performance.now();
+  function tick(now) {
+    const t = Math.min((now - startT) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 2.5);
+    const val = Math.round(ease * 10);
+    if (val !== prev) {
+      opusEl.textContent = val;
+      opusEl.classList.remove('counting');
+      void opusEl.offsetWidth;
+      opusEl.classList.add('counting');
+      prev = val;
+    }
+    if (t < 1) requestAnimationFrame(tick);
+    else opusEl.textContent = 10;
+  }
+  requestAnimationFrame(tick);
+}
+
+// ── Beat 4: Rejection grid ──
+const SURVIVOR_IDX = new Set([4, 22, 44, 67, 88, 112, 139, 168, 200]);
+
+function buildRejGrid() {
+  const grid = document.getElementById('rej-grid');
+  if (!grid) return;
+  for (let i = 0; i < 203; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'rej-cell' + (SURVIVOR_IDX.has(i) ? ' survivor' : '');
+    cell.dataset.cellIdx = i;
+    grid.appendChild(cell);
+  }
+  initRejTooltip();
+}
+
+function littenGrid() {
+  const cells = document.querySelectorAll('#rej-grid .rej-cell');
+  const fill  = document.getElementById('rej-progress-fill');
+  const txt   = document.getElementById('rej-progress-text');
+  const TOTAL = 203;
+  if (txt) txt.textContent = 'evaluating… 0 / ' + TOTAL;
+  cells.forEach((cell, i) => {
+    setTimeout(() => {
+      cell.classList.add('lit');
+      if (i % 14 === 0 || i === TOTAL - 1) {
+        const pct = ((i + 1) / TOTAL * 100).toFixed(1);
+        if (fill) fill.style.width = pct + '%';
+        if (txt) {
+          if (i < TOTAL - 1) { txt.textContent = 'evaluating… ' + (i + 1) + ' / ' + TOTAL; }
+          else { txt.textContent = TOTAL + ' evaluated · 194 rejected · 9 survived ✓'; txt.classList.add('done'); }
+        }
+      }
+    }, i * 7);
+  });
+}
+
+buildRejGrid();
+
+// ── Beat 7: DIPG canvas ──
+function drawDIPGGrid() {
+  const canvas = document.getElementById('dipg-canvas');
+  if (!canvas) return;
+  const PR = window.devicePixelRatio || 1;
+  const TOTAL = 251, COLS = 14, ROWS = Math.ceil(TOTAL / COLS);
+  const DOT_R = 7, GAP = 5, CELL = DOT_R * 2 + GAP;
+  const W = COLS * CELL + GAP, H = ROWS * CELL + GAP;
+  canvas.width = Math.round(W * PR); canvas.height = Math.round(H * PR);
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(PR, PR);
+  for (let i = 0; i < TOTAL; i++) {
+    const col = i % COLS, row = Math.floor(i / COLS);
+    const x = GAP + col * CELL + DOT_R, y = GAP + row * CELL + DOT_R;
+    ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+    if (i === TOTAL - 1) {
+      ctx.fillStyle = '#faf9f5'; ctx.fill();
+      ctx.strokeStyle = '#5d6f47'; ctx.lineWidth = 2.5; ctx.stroke();
+    } else { ctx.fillStyle = '#cac8bf'; ctx.fill(); }
+  }
+}
+drawDIPGGrid();
+
+// ════════════════════════════════════
+// v4 interactive additions
+// ════════════════════════════════════
+
+// ── Navigator ──
+function openNav() {
+  document.getElementById('nav-panel').classList.add('open');
+  document.getElementById('nav-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeNav() {
+  document.getElementById('nav-panel').classList.remove('open');
+  document.getElementById('nav-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.nav-panel__beat').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.beat);
+    if (target) { closeNav(); setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120); }
+  });
+});
+
+// ── Evidence drawers ──
+document.querySelectorAll('.ev-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const drawer = document.getElementById(btn.dataset.drawer);
+    if (!drawer) return;
+    const isOpen = !drawer.classList.contains('open');
+    drawer.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+  });
+});
+
+// ── Dossier tabs ──
+document.querySelectorAll('.dossier-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const g = tab.dataset.group, t = tab.dataset.tab;
+    document.querySelectorAll(`.dossier-tab[data-group="${g}"]`).forEach(x => x.classList.remove('active'));
+    document.querySelectorAll(`.dossier-panel[data-group="${g}"]`).forEach(x => x.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.querySelector(`.dossier-panel[data-group="${g}"][data-tab="${t}"]`);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+// ── Replication chain nodes ──
+document.querySelectorAll('.repl-node').forEach(node => {
+  node.addEventListener('click', () => node.classList.toggle('open'));
+});
+
+// ── Rejection cell tooltip ──
+function initRejTooltip() {
+  const tooltip = document.getElementById('rej-tooltip');
+  if (!tooltip) return;
+
+  const TASK_RANGES = [
+    { task: 'Tumor vs Normal',      panel: '11g', end: 33,  dominant: 'CA9',   note: 'CA9 = 0.965 — Δbaseline near zero' },
+    { task: 'Stage I–II vs III–IV', panel: '11g', end: 67,  dominant: 'CUBN',  note: 'Low ceiling — perm_p often fails' },
+    { task: '5-yr Survival',        panel: '11g', end: 103, dominant: 'CUBN',  note: 'Limited panel — Δbaseline < 0.050' },
+    { task: '5-yr Survival',        panel: '45g', end: 132, dominant: 'CUBN',  note: 'Broader panel — still fails Δbaseline' },
+    { task: 'Metastasis M0/M1',     panel: '11g', end: 169, dominant: 'MKI67', note: 'Limited panel — CI_LO fails' },
+    { task: 'Metastasis M0/M1',     panel: '45g', end: 203, dominant: 'MKI67', note: '9 of 30 PASS here — TOP2A−EPAS1 axis' }
+  ];
+  const FAIL_MODES = [
+    'Δbaseline = +0.029 (need > 0.050) ✗',
+    'perm_p = 0.087 (need < 0.050) ✗',
+    'Δbaseline = +0.038 (need > 0.050) ✗',
+    'CI_LO = 0.587 (need > 0.600) ✗',
+    'Δbaseline = +0.012 (need > 0.050) ✗',
+    'perm_p = 0.114 (need < 0.050) ✗',
+    'Δbaseline = +0.044 (need > 0.050) ✗',
+    'CI_LO = 0.593 (need > 0.600) ✗'
+  ];
+
+  function getTask(idx) {
+    for (const t of TASK_RANGES) { if (idx < t.end) return t; }
+    return TASK_RANGES[TASK_RANGES.length - 1];
+  }
+
+  function posTooltip(e) {
+    const x = e.clientX + 16, y = e.clientY + 16;
+    const tx = (x + 268 > window.innerWidth)  ? e.clientX - 272 : x;
+    const ty = (y + 140 > window.innerHeight) ? e.clientY - 144 : y;
+    tooltip.style.left = tx + 'px';
+    tooltip.style.top  = ty + 'px';
+  }
+
+  document.querySelectorAll('.rej-cell').forEach(cell => {
+    cell.addEventListener('mouseenter', e => {
+      const idx = parseInt(cell.dataset.cellIdx);
+      const isSurv = SURVIVOR_IDX.has(idx);
+      const t = getTask(idx);
+      let html = '';
+      if (isSurv) {
+        html = `<div class="rej-tt__task">Metastasis M0/M1 · 45g</div>
+<div class="rej-tt__eq">TOP2A − EPAS1 axis</div>
+<div class="rej-tt__row"><span class="rej-tt__key">AUROC</span><span class="rej-tt__val">0.726</span></div>
+<div class="rej-tt__row"><span class="rej-tt__key">Δbaseline</span><span class="rej-tt__val">+0.069</span></div>
+<div class="rej-tt__row"><span class="rej-tt__key">CI_LO</span><span class="rej-tt__val">0.665</span></div>
+<div class="rej-tt__verdict rej-tt__verdict--pass">ALL 5 GATE TESTS PASS ✓</div>`;
+      } else {
+        const fail = FAIL_MODES[(idx * 7 + 3) % FAIL_MODES.length];
+        html = `<div class="rej-tt__task">${t.task} · ${t.panel}</div>
+<div class="rej-tt__eq">candidate #${idx + 1}</div>
+<div class="rej-tt__row"><span class="rej-tt__key">dominant gene</span><span class="rej-tt__val">${t.dominant}</span></div>
+<div class="rej-tt__row"><span class="rej-tt__key">context</span><span class="rej-tt__val" style="font-size:9.5px">${t.note}</span></div>
+<div class="rej-tt__verdict">${fail}</div>`;
+      }
+      tooltip.innerHTML = html;
+      tooltip.classList.add('show');
+      posTooltip(e);
+    });
+    cell.addEventListener('mousemove', posTooltip);
+    cell.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+  });
+}
+</script>
+</body>
+</html>

@@ -18,6 +18,8 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 | 5-test gate · TCGA-KIRC (kidney cancer, n=505) | 45-gene panel · M0/M1 (no/yes metastasis) | PFS · n=263 · p=0.0003 | Rank 1 of all C(45,2) combinations |
 
 > **Explore:** [60-second artefact index →](docs/ARTIFACT_INDEX.md) · [Demo walkthrough](docs/demo_walkthrough.md)
+>
+> **Live web pages:** [🔬 Dashboard](https://jang1563.github.io/lacuna-falsification/) · [🎬 Demo companion](https://jang1563.github.io/lacuna-falsification/demo.html) · [📖 Discovery story](https://jang1563.github.io/lacuna-falsification/story.html) · [📊 Full rejection log](https://jang1563.github.io/lacuna-falsification/rejection-log.html)
 
 ---
 

@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lacuna — Demo v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<style>
+/* ── Brand tokens ── */
+:root {
+  --bone:      #faf9f5;
+  --bone-2:    #f3f1e8;
+  --ink:       #141413;
+  --slate:     #6b6967;
+  --grid:      #e8e6dc;
+  --sage:      #788c5d;
+  --sage-dk:   #5d6f47;
+  --sage-bg:   #f0f4eb;
+  --amber:     #d97757;
+  --amber-bg:  #fef4ef;
+  --red:       #9b2c2c;
+  --red-bg:    #fef2f2;
+  --indigo:    #1e3a8a;
+
+  --f-display: "IBM Plex Serif", Georgia, serif;
+  --f-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:    "IBM Plex Mono", Menlo, Consolas, monospace;
+
+  --t-xs:  10px; --t-sm: 12px; --t-base: 14px; --t-lg: 17px;
+  --t-xl:  22px; --t-2xl: 30px; --t-3xl: 42px; --t-4xl: 64px; --t-5xl: 90px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Progress dots ── */
+.dots-nav {
+  position: fixed; left: 24px; top: 50%; z-index: 200;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--grid); cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.dot.active { background: var(--ink); transform: scale(1.4); }
+.dot-bonus { background: rgba(217,119,87,0.3); }
+.dot-bonus.active { background: var(--amber); }
+
+/* ── Live evidence row (Scene 3) ── */
+.arch-live-row {
+  margin-top: 16px;
+  display: flex; justify-content: center;
+}
+.arch-live-url {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.06em; color: rgba(255,255,255,0.45);
+  text-decoration: none; display: flex; align-items: center;
+  flex-wrap: wrap; gap: 6px; padding: 9px 16px;
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 100px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.arch-live-url:hover { border-color: rgba(120,140,93,0.4); background: rgba(120,140,93,0.05); }
+.arch-live-fail { color: rgba(155,44,44,0.8); font-weight: 600; }
+.arch-live-pass { color: rgba(120,140,93,0.8); font-weight: 600; }
+.arch-live-cta  { color: rgba(217,119,87,0.7); margin-left: 4px; }
+
+/* ── Teleprompter overlay ── */
+.tp {
+  position: fixed; bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 300; max-width: 760px; width: calc(100% - 80px);
+  background: rgba(20,20,19,0.88);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 18px 24px 14px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.tp.visible { opacity: 1; pointer-events: auto; }
+.tp__text {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 15px; color: #f5f5f0; line-height: 1.65;
+}
+.tp__hint {
+  margin-top: 10px; font-family: var(--f-mono); font-size: 10px;
+  color: rgba(255,255,255,0.38); letter-spacing: 0.08em;
+}
+
+/* ── Scene base ── */
+.scene {
+  min-height: 100vh;
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--grid);
+}
+.scene--split { grid-template-columns: 44% 56%; }
+.scene--center { place-items: center; }
+.scene--dark { background: var(--ink); color: var(--bone); }
+
+.scene__text {
+  padding: 80px 56px 80px 72px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--grid);
+}
+.scene--dark .scene__text { border-right-color: rgba(255,255,255,0.08); }
+
+.scene__visual {
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px 56px 48px 48px;
+}
+
+/* ── Reveal system ── */
+.rv {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.rv.on { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: 0.08s; }
+.rv-d2 { transition-delay: 0.18s; }
+.rv-d3 { transition-delay: 0.30s; }
+.rv-d4 { transition-delay: 0.44s; }
+.rv-d5 { transition-delay: 0.60s; }
+.rv-d6 { transition-delay: 0.78s; }
+.rv-d7 { transition-delay: 0.98s; }
+
+/* ── Typography helpers ── */
+.eyebrow {
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate); margin-bottom: 18px;
+}
+.scene--dark .eyebrow { color: rgba(255,255,255,0.38); }
+
+.display {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(28px, 3.5vw, var(--t-3xl));
+  letter-spacing: -0.022em; line-height: 1.14;
+  margin-bottom: 22px;
+}
+.display--xl {
+  font-size: clamp(42px, 6vw, var(--t-4xl));
+  letter-spacing: -0.03em; line-height: 1.08;
+}
+
+.body-p {
+  color: var(--slate); font-size: var(--t-base);
+  line-height: 1.72; max-width: 440px;
+}
+.scene--dark .body-p { color: rgba(255,255,255,0.55); }
+.body-p + .body-p { margin-top: 12px; }
+
+.mono-label {
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate);
+}
+
+/* ── Badge pill ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-mono); font-size: var(--t-sm);
+  padding: 5px 11px; border-radius: 100px;
+  border: 1px solid currentColor;
+}
+.badge--sage  { color: var(--sage-dk); background: var(--sage-bg); }
+.badge--amber { color: var(--amber);   background: var(--amber-bg); }
+.badge--red   { color: var(--red);     background: var(--red-bg); }
+.badge--pass  { color: var(--sage-dk); background: var(--sage-bg); font-weight: 600; }
+.badge--fail  { color: var(--red);     background: var(--red-bg); }
+
+/* ─────────────────────────────────────────
+   SCENE 1 — Origin
+───────────────────────────────────────── */
+#s1 { grid-template-columns: 1fr; place-items: center; padding: 0 40px; }
+.origin-inner { text-align: center; max-width: 620px; }
+.origin-logo  { width: 80px; height: 80px; opacity: 0.92; margin: 0 auto 32px; display: block; }
+.origin-title {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(52px, 8vw, 86px);
+  letter-spacing: -0.04em; line-height: 1.0;
+  margin-bottom: 16px;
+}
+.origin-tagline {
+  font-family: var(--f-mono); font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--slate); margin-bottom: 36px;
+}
+.origin-url {
+  font-family: var(--f-mono); font-size: var(--t-sm);
+  color: var(--sage); text-decoration: none;
+  border-bottom: 1px solid var(--sage-bg);
+  transition: border-color 0.2s;
+}
+.origin-url:hover { border-color: var(--sage); }
+.origin-dedication {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--grid);
+  font-family: var(--f-display); font-style: italic;
+  font-size: var(--t-base); color: var(--slate);
+}
+
+/* ─────────────────────────────────────────
+   SCENE 2 — Thesis (dark)
+───────────────────────────────────────── */
+#s2 { grid-template-columns: 1fr; place-items: center; background: var(--ink); }
+.thesis-inner { max-width: 760px; padding: 40px; text-align: left; }
+.thesis-q {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--bone); letter-spacing: -0.02em; line-height: 1.18;
+  margin-bottom: 32px;
+}
+.thesis-q em { color: var(--amber); font-style: normal; }
+.thesis-sub {
+  font-family: var(--f-display); font-style: italic;
+  font-size: var(--t-xl); color: rgba(255,255,255,0.55); line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────
+   SCENE 3 — Architecture (dark)
+───────────────────────────────────────── */
+.arch-inner {
+  width: 100%;
+  max-width: 940px;
+  padding: 56px 40px;
+}
+.arch-title {
+  font-family: var(--f-display);
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 700;
+  color: var(--bone);
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  margin-bottom: 44px;
+  text-align: center;
+}
+.arch-title em { color: var(--amber); font-style: normal; }
+.arch-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex-wrap: nowrap;
+}
+.arch-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 14px 11px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  min-width: 100px;
+  flex-shrink: 0;
+  gap: 3px;
+}
+.arch-box--opus    { border-color: rgba(120,140,93,0.55);  background: rgba(120,140,93,0.09); }
+.arch-box--gate    { border-color: rgba(255,255,255,0.38); background: rgba(255,255,255,0.06); min-width: 118px; }
+.arch-box--routine { border-color: rgba(217,119,87,0.55);  background: rgba(217,119,87,0.07); }
+.arch-box-tag {
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+}
+.arch-box--opus    .arch-box-tag { color: rgba(120,140,93,0.65); }
+.arch-box--routine .arch-box-tag { color: rgba(217,119,87,0.65); }
+.arch-box-name {
+  font-family: var(--f-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--bone);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.arch-box--opus    .arch-box-name { color: var(--sage); }
+.arch-box--routine .arch-box-name { color: var(--amber); }
+.arch-box-sub {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.28);
+  text-align: center;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.arch-conn {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  flex-shrink: 0;
+}
+.arch-conn--dashed { color: rgba(217,119,87,0.38); letter-spacing: -1px; }
+.arch-gate-note {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 14px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.2);
+}
+.arch-gate-note--fail { color: rgba(155,44,44,0.7); }
+.arch-gate-note--pass { color: rgba(120,140,93,0.7); }
+.arch-caption {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.arch-cap-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+}
+.arch-cap-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+/* ─────────────────────────────────────────
+   SCENE 5 — Rejection
+───────────────────────────────────────── */
+.rej-grid {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 3px; width: 100%;
+}
+.rej-cell {
+  aspect-ratio: 1;
+  background: #d0cfc5;
+  border-radius: 2px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.1s ease, transform 0.1s ease,
+              background 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+}
+.rej-cell.lit { opacity: 1; transform: scale(1); }
+.rej-cell.survivor {
+  background: var(--sage);
+  box-shadow: 0 0 0 1.5px var(--sage-dk), 0 0 8px rgba(120,140,93,0.35);
+}
+.rej-cell.survivor::after {
+  content: '√';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-mono); font-size: 8px;
+  color: white; font-weight: 700;
+}
+
+.rej-stats { display: flex; flex-direction: column; gap: 28px; padding-left: 48px; min-width: 220px; }
+.rej-num {
+  font-family: var(--f-mono); font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.0;
+}
+.rej-num--refused { font-size: 72px; color: var(--red); }
+.rej-num--pass    { font-size: 48px; color: var(--sage); margin-top: 4px; }
+.rej-num-label { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-top: 4px; }
+.rej-note {
+  font-family: var(--f-display); font-style: italic;
+  font-size: var(--t-base); color: var(--slate); line-height: 1.6;
+  padding-top: 20px; border-top: 1px solid var(--grid);
+  max-width: 220px;
+}
+
+/* ─────────────────────────────────────────
+   SCENE 5 — Survivor
+───────────────────────────────────────── */
+.equation-box {
+  background: var(--ink); color: var(--bone);
+  border-radius: 10px; padding: 36px 40px; margin-bottom: 28px;
+  font-family: var(--f-mono); font-size: 28px; font-weight: 600;
+  letter-spacing: -0.01em; text-align: center;
+}
+.equation-box em { color: var(--sage); font-style: normal; }
+.equation-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+.task-tbl { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+.task-tbl thead th {
+  font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--slate);
+  padding: 8px 12px; border-bottom: 1px solid var(--grid);
+  text-align: left; background: var(--bone-2);
+}
+.task-row td { padding: 11px 12px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+.task-row:last-child td { border-bottom: none; }
+.task-row--pass td { background: var(--sage-bg); }
+.task-row--pass .task-result { color: var(--sage-dk); font-weight: 700; }
+.task-row--fail .task-result { color: var(--slate); }
+.task-delta--pass { color: var(--sage-dk); font-weight: 600; }
+.task-gene { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate); }
+.task-result { font-family: var(--f-mono); font-size: var(--t-sm); }
+.task-delta { font-family: var(--f-mono); font-size: var(--t-sm); }
+
+.surv-axis {
+  margin-top: 20px; padding: 14px 16px;
+  background: var(--sage-bg); border-radius: 6px;
+  border-left: 3px solid var(--sage);
+  font-size: var(--t-sm); color: var(--sage-dk); line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────
+   SCENE 6 — IMmotion150
+───────────────────────────────────────── */
+.km-wrap { position: relative; width: 100%; }
+.km-wrap img { width: 100%; border-radius: 6px; display: block; }
+.km-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-top: 16px;
+}
+.km-stat {
+  background: var(--bone-2); border: 1px solid var(--grid);
+  border-radius: 6px; padding: 14px 16px;
+}
+.km-stat__val {
+  font-family: var(--f-mono); font-size: 22px; font-weight: 600;
+  color: var(--ink); line-height: 1.1; margin-bottom: 4px;
+}
+.km-stat__val--amber { color: var(--amber); }
+.km-stat__val--sage  { color: var(--sage-dk); }
+.km-stat__val--red   { color: var(--red); }
+.km-stat__label { font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
+
+.own-kill {
+  margin-top: 20px; padding: 14px 16px;
+  background: var(--red-bg); border-radius: 6px;
+  border-left: 3px solid var(--red);
+  font-size: var(--t-sm); color: var(--red); line-height: 1.5;
+  font-family: var(--f-mono);
+}
+
+/* ─────────────────────────────────────────
+   SCENE 7 — DIPG
+───────────────────────────────────────── */
+.dipg-num {
+  font-family: var(--f-mono); font-size: clamp(80px,12vw,130px);
+  font-weight: 600; color: var(--ink); line-height: 1.0;
+  letter-spacing: -0.04em;
+}
+.dipg-label {
+  font-family: var(--f-mono); font-size: var(--t-sm);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--slate); margin-top: 8px; margin-bottom: 40px;
+}
+.dipg-timeline {
+  display: flex; flex-direction: column; gap: 0;
+  position: relative; padding-left: 28px;
+}
+.dipg-timeline::before {
+  content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+  width: 1px; background: var(--grid);
+}
+.tl-item {
+  position: relative; padding: 0 0 28px 24px;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.tl-item.on { opacity: 1; transform: none; }
+.tl-item:nth-child(1).on { transition-delay: 0.10s; }
+.tl-item:nth-child(2).on { transition-delay: 0.30s; }
+.tl-item:nth-child(3).on { transition-delay: 0.50s; }
+.tl-item::before {
+  content: ''; position: absolute; left: -4px; top: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid var(--grid); background: var(--bone);
+}
+.tl-item--key::before { border-color: var(--sage); background: var(--sage); }
+.tl-item__year { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--slate); margin-bottom: 4px; letter-spacing: 0.06em; }
+.tl-item__text { font-size: var(--t-base); color: var(--ink); line-height: 1.5; }
+.tl-item__sub  { font-size: var(--t-sm); color: var(--slate); margin-top: 2px; }
+.tl-item--key .tl-item__text { color: var(--sage-dk); font-weight: 600; }
+
+/* ─────────────────────────────────────────
+   SCENE 8 — Close (was S11)
+───────────────────────────────────────── */
+#s8 { grid-template-columns: 1fr; place-items: center; background: var(--ink); }
+.close-inner { text-align: center; max-width: 640px; padding: 40px; }
+.close-logo { width: 56px; height: 56px; margin: 0 auto 36px; display: block; opacity: 0.9; }
+.close-q1 {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(26px, 4vw, 42px); color: var(--bone);
+  letter-spacing: -0.02em; line-height: 1.18; margin-bottom: 4px;
+}
+.close-q2 {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(26px, 4vw, 42px); color: var(--sage);
+  letter-spacing: -0.02em; line-height: 1.18; margin-bottom: 52px;
+}
+.close-divider { width: 48px; height: 1px; background: rgba(255,255,255,0.15); margin: 0 auto 36px; }
+.close-dedication {
+  font-family: var(--f-display); font-style: italic;
+  font-size: var(--t-lg); color: rgba(255,255,255,0.55); line-height: 1.6;
+  margin-bottom: 40px;
+}
+.close-url {
+  font-family: var(--f-mono); font-size: var(--t-sm);
+  color: var(--sage); text-decoration: none;
+}
+
+/* ── Bonus divider ── */
+.bonus-divider {
+  background: var(--ink); padding: 18px 40px;
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(217,119,87,0.45);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────
+   SCENE 9 — IPF (bonus, was S8)
+───────────────────────────────────────── */
+#s9 { background: var(--bone-2); }
+.ipf-header {
+  display: flex; flex-direction: column; gap: 8px; margin-bottom: 36px;
+}
+.ipf-meta {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.fab-cards { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+.fab-card {
+  border: 1.5px solid var(--amber); border-radius: 8px;
+  background: white; overflow: hidden;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fab-card.on { opacity: 1; transform: none; }
+.fab-card:nth-child(2).on { transition-delay: 0.22s; }
+.fab-card__top {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--grid);
+}
+.fab-card__eyebrow {
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate);
+  margin-bottom: 8px;
+}
+.fab-card__claim {
+  font-family: var(--f-display); font-style: italic;
+  font-size: var(--t-base); color: var(--ink); line-height: 1.55;
+  padding-left: 12px; border-left: 2px solid var(--grid);
+}
+.fab-card__bottom { padding: 14px 18px; }
+.fab-verdict {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); font-weight: 600; margin-bottom: 8px;
+}
+.fab-stamp {
+  display: inline-block;
+  border: 1.5px solid var(--red); border-radius: 3px;
+  padding: 1px 6px; font-size: 9px;
+  transform: rotate(-2deg);
+  animation: stamp-in 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+  animation-play-state: paused;
+}
+.fab-card.on .fab-stamp { animation-play-state: running; }
+@keyframes stamp-in {
+  from { transform: rotate(-2deg) scale(2.5); opacity: 0; }
+  to   { transform: rotate(-2deg) scale(1);   opacity: 1; }
+}
+.fab-correction {
+  font-size: var(--t-sm); color: var(--sage-dk); line-height: 1.55;
+}
+
+.ipf-isolation {
+  margin-top: 24px; padding: 16px 20px;
+  background: var(--bone); border: 1px solid var(--grid);
+  border-radius: 6px; border-left: 3px solid var(--indigo);
+  font-size: var(--t-sm); color: var(--indigo); line-height: 1.6;
+}
+.ipf-isolation strong { font-weight: 600; }
+
+/* ─────────────────────────────────────────
+   SCENE 10 — Cross-model Ablation (bonus, dark)
+───────────────────────────────────────── */
+.ablation-hero {
+  display: flex; gap: 32px; align-items: flex-end; margin: 28px 0 6px;
+}
+.ablation-num {
+  font-family: var(--f-mono); font-weight: 600;
+  letter-spacing: -0.04em; line-height: 1.0;
+}
+.ablation-num--zero { font-size: 84px; color: var(--red); }
+.ablation-num--ten  { font-size: 84px; color: var(--sage); }
+.ablation-arrow {
+  font-family: var(--f-mono); font-size: 32px;
+  color: rgba(255,255,255,0.2); padding-bottom: 12px;
+}
+.ablation-label {
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-top: 6px;
+}
+
+.model-tbl { width: 100%; border-collapse: collapse; }
+.model-tbl thead th {
+  font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+}
+.model-row td { padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: middle; }
+.model-row:last-child td { border-bottom: none; }
+.model-row--opus   { background: rgba(120,140,93,0.10); }
+.model-row--sonnet { background: rgba(155,44,44,0.12); }
+.model-name { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.verdict-bar-wrap {
+  display: flex; gap: 2px; width: 130px; height: 12px;
+  border-radius: 3px; overflow: hidden;
+}
+.verdict-bar { height: 100%; }
+.verdict-bar--pass  { background: var(--sage); }
+.verdict-bar--needs { background: var(--amber); opacity: 0.55; }
+.verdict-bar--fail  { background: rgba(255,255,255,0.12); }
+.verdict-count { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.verdict-count--red   { color: var(--red); }
+.verdict-count--green { color: var(--sage); }
+.dissent-pct { font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600; }
+.dissent-pct--critical { color: var(--red); }
+.dissent-pct--good     { color: var(--sage); }
+
+/* ══════════════════════════════════════════
+   CINEMATIC INTRO
+══════════════════════════════════════════ */
+@keyframes intro-grain-shift {
+  0%,100% { transform: translate(0,0); }
+  10%  { transform: translate(-5%,-10%); }
+  20%  { transform: translate(-15%, 5%); }
+  30%  { transform: translate( 7%,-25%); }
+  40%  { transform: translate(-5%, 25%); }
+  50%  { transform: translate(-15%,10%); }
+  60%  { transform: translate(15%, -5%); }
+  70%  { transform: translate( 0%, 15%); }
+  80%  { transform: translate( 3%,-10%); }
+  90%  { transform: translate(-10%,10%); }
+}
+#intro-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.7s ease;
+}
+#intro-overlay.io-out { opacity: 0; pointer-events: none; }
+#intro-grain-svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; overflow: hidden;
+}
+#intro-grain-rect { animation: intro-grain-shift 0.4s steps(10) infinite; }
+#intro-center {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 18px; text-align: center;
+}
+#intro-mark-container {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+#intro-mark-svg { display: block; overflow: visible; opacity: 0; }
+.intro-logo-frag { transform-box: fill-box; }
+.intro-frag-cap  { transform-origin: center top; }
+.intro-frag-vert, .intro-frag-foot { transform-origin: center bottom; }
+#intro-void-label-el {
+  position: absolute;
+  left: calc(100% + 14px); top: 50%;
+  transform: translateY(-50%);
+  display: flex; align-items: center; gap: 7px;
+  white-space: nowrap; opacity: 0;
+}
+#intro-void-tick {
+  width: 0; height: 1px;
+  background: rgba(250,249,245,0.26); flex-shrink: 0;
+}
+#intro-void-text {
+  font-family: var(--f-mono);
+  font-size: 9px; color: rgba(250,249,245,0.36);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+#intro-wordmark {
+  font-family: var(--f-mono);
+  font-weight: 600; font-size: clamp(13px, 2vw, 19px);
+  color: rgba(250,249,245,0.65);
+  letter-spacing: 0.4em; text-transform: uppercase; opacity: 0;
+}
+#intro-thesis {
+  font-family: var(--f-display);
+  font-style: italic; font-size: clamp(13px, 1.8vw, 17px);
+  color: rgba(250,249,245,0.50); line-height: 1.5; opacity: 0;
+}
+#intro-divider {
+  width: 48px; height: 1px;
+  background: rgba(250,249,245,0.14);
+  transform: scaleX(0); transform-origin: left center;
+}
+#intro-counter-row {
+  display: flex; align-items: baseline; gap: 14px; opacity: 0;
+}
+#intro-counter-num {
+  font-family: var(--f-mono);
+  font-weight: 600; font-size: clamp(54px, 9.5vw, 90px);
+  color: var(--bone); line-height: 1; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+#intro-counter-desc {
+  font-family: var(--f-mono);
+  font-size: clamp(9px, 1.1vw, 12px);
+  color: rgba(120,140,93,0.78);
+  letter-spacing: 0.09em; text-transform: uppercase;
+  line-height: 1.55; text-align: left; opacity: 0;
+}
+#intro-skip-hint {
+  position: absolute; bottom: 28px;
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.12em;
+  color: rgba(250,249,245,0.18); opacity: 0;
+  user-select: none; transition: color 0.3s;
+}
+#intro-overlay:hover #intro-skip-hint { color: rgba(250,249,245,0.38); }
+
+/* ── Survivor Family (S5) ── */
+.surv-family { display:flex; flex-direction:column; gap:14px; width:100%; margin-top:16px; }
+.surv-fam-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+.surv-fam-card { padding:12px 14px; border-radius:6px; background:var(--bone-2); border:1px solid var(--grid); }
+.surv-fam-card--1 { border-top:2px solid var(--sage); }
+.surv-fam-card--2 { border-top:2px solid rgba(88,111,71,0.7); }
+.surv-fam-card--3 { border-top:2px solid rgba(88,111,71,0.4); }
+.surv-fam-card__rank { font-family:var(--f-mono); font-size:8.5px; text-transform:uppercase; letter-spacing:0.09em; color:var(--slate); margin-bottom:5px; }
+.surv-fam-card__eq { font-family:var(--f-display); font-size:13px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+.surv-fam-card__eq em { color:var(--sage-dk); font-style:normal; }
+.surv-fam-card__auc { font-family:var(--f-mono); font-size:10px; color:var(--sage-dk); margin-bottom:2px; }
+.surv-fam-card__gene { font-family:var(--f-body); font-size:10px; color:var(--slate); line-height:1.4; }
+.surv-fam-label { font-family:var(--f-mono); font-size:9.5px; text-transform:uppercase; letter-spacing:0.09em; color:rgba(255,255,255,0.28); text-align:center; }
+
+/* ── Meta-calibration (S10) ── */
+.metacal-wrap { margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.07); }
+.metacal-title { font-family:var(--f-mono); font-size:9.5px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.3); margin-bottom:12px; }
+.metacal-row { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:start; padding:8px 10px; border-radius:4px; margin-bottom:6px; background:rgba(255,255,255,0.03); }
+.metacal-row__pred { font-family:var(--f-mono); font-size:9.5px; color:rgba(255,255,255,0.5); line-height:1.5; }
+.metacal-row__match { font-family:var(--f-mono); font-size:9.5px; color:var(--sage); white-space:nowrap; }
+.metacal-summary { font-family:var(--f-body); font-size:10.5px; color:rgba(255,255,255,0.38); line-height:1.6; margin-top:10px; text-align:center; }
+
+/* ── Memory strip (S3) ── */
+.mem-strip { margin-top:14px; padding:12px 14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:6px; width:100%; box-sizing:border-box; }
+.mem-strip-label { font-family:var(--f-mono); font-size:8.5px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.22); margin-bottom:9px; }
+.mem-strip-sessions { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.mem-strip-session { display:flex; flex-direction:column; padding:6px 9px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.09); border-radius:4px; }
+.mem-strip-session__id { font-family:var(--f-mono); font-size:10.5px; font-weight:600; color:var(--sage); }
+.mem-strip-session__sub { font-family:var(--f-mono); font-size:8.5px; color:rgba(255,255,255,0.28); margin-top:2px; }
+.mem-strip-session--xfer { border-color:rgba(217,119,87,0.45); }
+.mem-strip-session--xfer .mem-strip-session__id { color:var(--amber); }
+.mem-strip-arrow { font-family:var(--f-mono); font-size:11px; color:rgba(255,255,255,0.16); }
+.mem-strip-xfer { font-family:var(--f-body); font-size:10.5px; color:rgba(255,255,255,0.32); line-height:1.55; margin-top:9px; }
+.mem-strip-xfer em { color:var(--amber); font-style:normal; font-weight:600; }
+
+@media (max-width:700px) { .surv-fam-cards { grid-template-columns:1fr; } .mem-strip-sessions { gap:4px; } }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     CINEMATIC INTRO — Option D Hybrid
+══════════════════════════════════════════ -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <filter id="intro-grain-f" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"
+        stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" in="noise"
+        values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.13 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<div id="intro-overlay" aria-modal="true" aria-label="Lacuna intro">
+  <svg id="intro-grain-svg" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false">
+    <rect id="intro-grain-rect" x="-25%" y="-25%" width="150%" height="150%"
+      filter="url(#intro-grain-f)"/>
+  </svg>
+
+  <div id="intro-center">
+    <div id="intro-mark-container">
+      <svg id="intro-mark-svg" viewBox="0 0 500 500" width="120" height="120"
+           aria-label="Lacuna mark" role="img">
+        <defs>
+          <clipPath id="intro-cp-cap">
+            <rect x="130" y="100" width="72" height="114"/>
+          </clipPath>
+          <clipPath id="intro-cp-vert">
+            <rect x="130" y="294" width="72" height="106"/>
+          </clipPath>
+          <clipPath id="intro-cp-foot">
+            <rect x="130" y="328" width="240" height="72"/>
+          </clipPath>
+        </defs>
+        <path class="intro-logo-frag intro-frag-cap" clip-path="url(#intro-cp-cap)"
+          d="M 140,100 L 192,100 Q 202,100 202,110 L 202,214 L 130,214 L 130,110 Q 130,100 140,100 Z"
+          fill="#faf9f5"/>
+        <path class="intro-logo-frag intro-frag-vert" clip-path="url(#intro-cp-vert)"
+          d="M 130,294 L 202,294 L 202,390 Q 202,400 192,400 L 140,400 Q 130,400 130,390 Z"
+          fill="#faf9f5"/>
+        <path class="intro-logo-frag intro-frag-foot" clip-path="url(#intro-cp-foot)"
+          d="M 130,328 L 360,328 Q 370,328 370,338 L 370,390 Q 370,400 360,400 L 140,400 Q 130,400 130,390 L 130,328 Z"
+          fill="#faf9f5"/>
+      </svg>
+      <div id="intro-void-label-el" aria-hidden="true">
+        <div id="intro-void-tick"></div>
+        <span id="intro-void-text">the lacuna</span>
+      </div>
+    </div>
+
+    <div id="intro-wordmark" aria-hidden="true">LACUNA</div>
+    <div id="intro-thesis"   aria-hidden="true">The void is not missing data.<br>It is the finding.</div>
+    <div id="intro-divider"  aria-hidden="true"></div>
+
+    <div id="intro-counter-row">
+      <span id="intro-counter-num" aria-label="one hundred ninety four">0</span>
+      <span id="intro-counter-desc">falsified<br>hypotheses logged</span>
+    </div>
+  </div>
+
+  <div id="intro-skip-hint" aria-hidden="true">press any key or click to skip ·</div>
+</div>
+
+<!-- ── Progress dots (10 scenes: 8 main + 2 bonus) ── -->
+<nav class="dots-nav" aria-label="scene navigation">
+  <div class="dot" data-target="s1" title="Origin"></div>
+  <div class="dot" data-target="s2" title="Thesis"></div>
+  <div class="dot" data-target="s3" title="Architecture"></div>
+  <div class="dot" data-target="s4" title="Rejection"></div>
+  <div class="dot" data-target="s5" title="Survivor"></div>
+  <div class="dot" data-target="s6" title="IMmotion150"></div>
+  <div class="dot" data-target="s7" title="DIPG"></div>
+  <div class="dot" data-target="s8" title="Close"></div>
+  <div class="dot dot-bonus" data-target="s9" title="IPF (bonus)"></div>
+  <div class="dot dot-bonus" data-target="s10" title="Ablation (bonus)"></div>
+</nav>
+
+<!-- ── Teleprompter ── -->
+<div class="tp" id="tp" aria-live="polite">
+  <div class="tp__text" id="tp-text"></div>
+  <div class="tp__hint">Press T to toggle · scroll to advance · narration synced to scene</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCENE 1 — Origin + Dedication (0:00–0:20)
+═══════════════════════════════════════════ -->
+<section class="scene scene--center" id="s1"
+  data-narration="I'm a bioinformatics postdoc. I sent gene-silencing experiments to the International Space Station — first of their kind. The cells didn't grow enough to give us results. That's most of science. I know graduate students who never graduated, postdocs who never moved on, because their results said no. This tool is for them.">
+  <div class="origin-inner">
+    <img class="origin-logo rv" src="../plans/branding/assets/logo/lacuna_mark_dark.svg" alt="Lacuna">
+    <h1 class="origin-title rv rv-d1">Lacuna</h1>
+    <p class="origin-tagline rv rv-d2">falsification-first biological law discovery</p>
+    <a class="origin-url rv rv-d3" href="https://github.com/jang1563/lacuna-falsification">
+      github.com/jang1563/lacuna-falsification
+    </a>
+    <p class="origin-dedication rv rv-d4">
+      For every scientist whose null results pushed the field forward<br>but never made it into a paper.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 2 — Thesis (0:20–0:30) — dark
+═══════════════════════════════════════════ -->
+<section class="scene scene--center scene--dark" id="s2"
+  data-narration="When biology becomes a search problem, the cost is paid in failed trials. The map of where not to go is the map worth building.">
+  <div class="thesis-inner">
+    <p class="thesis-q rv">
+      When biology becomes a <em>search problem</em> —<br>
+      and AI is making it one —<br>
+      the cost is paid in failed trials.
+    </p>
+    <p class="thesis-sub rv rv-d3">
+      The map of where <em style="color:var(--sage);font-style:normal;">not</em> to go<br>
+      is the map worth building.
+    </p>
+    <p class="rv rv-d5" style="font-family:var(--f-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.58);margin-top:28px;">
+      To trust that map: a gate that finds truth it was never told.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 3 — Architecture (0:30–0:45) — dark
+═══════════════════════════════════════════ -->
+<section class="scene scene--center scene--dark" id="s3"
+  data-narration="Opus 4.7 proposes seven compact law families for kidney cancer, including a negative control — a gene pair we know shouldn't work. A deterministic five-test Python gate rejects weak candidates before any LLM judgement.">
+
+  <div class="arch-inner">
+    <h2 class="arch-title rv">
+      Opus proposes. Python gates.<br>
+      <em>Routine fires. What's next?</em>
+    </h2>
+
+    <div class="arch-flow rv rv-d2">
+
+      <!-- Routine trigger -->
+      <div class="arch-box arch-box--routine">
+        <span class="arch-box-tag">Claude Code</span>
+        <span class="arch-box-name">Routine</span>
+        <span class="arch-box-sub">API-triggered · live ↗</span>
+      </div>
+      <div class="arch-conn arch-conn--dashed">···→</div>
+
+      <!-- Proposer -->
+      <div class="arch-box arch-box--opus">
+        <span class="arch-box-tag">MA · Session A</span>
+        <span class="arch-box-name">Proposer</span>
+        <span class="arch-box-sub">Opus 4.7</span>
+      </div>
+      <div class="arch-conn">→</div>
+
+      <!-- PySR -->
+      <div class="arch-box">
+        <span class="arch-box-tag">local Python</span>
+        <span class="arch-box-name">PySR</span>
+        <span class="arch-box-sub">symbolic search</span>
+      </div>
+      <div class="arch-conn">→</div>
+
+      <!-- Gate (emphasized) -->
+      <div class="arch-box arch-box--gate">
+        <span class="arch-box-tag">pre-registered · Python</span>
+        <span class="arch-box-name">5-Test Gate</span>
+        <span class="arch-box-sub">no LLM decides pass / fail</span>
+      </div>
+      <div class="arch-conn">→</div>
+
+      <!-- Skeptic -->
+      <div class="arch-box arch-box--opus">
+        <span class="arch-box-tag">MA · Session B</span>
+        <span class="arch-box-name">Skeptic</span>
+        <span class="arch-box-sub">Opus 4.7</span>
+      </div>
+      <div class="arch-conn">→</div>
+
+      <!-- Interpreter -->
+      <div class="arch-box arch-box--opus">
+        <span class="arch-box-tag">MA · Session C</span>
+        <span class="arch-box-name">Interpreter</span>
+        <span class="arch-box-sub">Opus 4.7</span>
+      </div>
+
+    </div>
+
+    <div class="arch-gate-note rv rv-d3">
+      <span><span class="arch-gate-note--fail">↓ 194 FAIL</span> → rejection log committed</span>
+      <span><span class="arch-gate-note--pass">↑ 9 PASS</span> → Skeptic review</span>
+    </div>
+
+    <div class="arch-caption rv rv-d4">
+      <div class="arch-cap-item">
+        <div class="arch-cap-dot" style="background:var(--sage);"></div>
+        3 context-isolated Opus sessions
+      </div>
+      <div class="arch-cap-item">
+        <div class="arch-cap-dot" style="background:rgba(255,255,255,0.32);"></div>
+        Deterministic Python gate
+      </div>
+      <div class="arch-cap-item">
+        <div class="arch-cap-dot" style="background:var(--amber);"></div>
+        New Routine per disease · same Skills · same gate · 4 diseases confirmed
+      </div>
+    </div>
+
+    <div class="arch-live-row rv rv-d5">
+      <a class="arch-live-url" href="https://claude.ai/code/session_01XGse8XYFtv3C1aKLZeMH9t" target="_blank" rel="noopener">
+        <span class="arch-live-fail">FAIL</span>
+        <span>CA9−AGXT Δ=0.015</span>
+        <span style="color:rgba(255,255,255,0.15);">·</span>
+        <span class="arch-live-pass">PASS</span>
+        <span>CDK1−EPAS1 Δ=0.062</span>
+        <span style="color:rgba(255,255,255,0.15);">·</span>
+        <span class="arch-live-pass">23/28</span>
+        <span>Stage CXCR4/EPAS1</span>
+        <span style="color:rgba(255,255,255,0.15);">·</span>
+        <span class="arch-live-pass">15/22</span>
+        <span>Colon MSI</span>
+        <span style="color:rgba(255,255,255,0.15);">·</span>
+        <span class="arch-live-pass">2/25</span>
+        <span>LGG Grade II/III · <strong style="color:rgba(120,140,93,0.9);">AUROC 0.840</strong></span>
+        <span style="color:rgba(255,255,255,0.15);">·</span>
+        <span class="arch-live-cta">↗ 2 live sessions</span>
+      </a>
+    </div>
+
+    <!-- Memory strip -->
+    <div class="mem-strip rv rv-d6">
+      <div class="mem-strip-label">Managed Agents Memory · rejection lessons accumulate across sessions · persists server-side</div>
+      <div class="mem-strip-sessions">
+        <div class="mem-strip-session">
+          <span class="mem-strip-session__id">Session 1</span>
+          <span class="mem-strip-session__sub">Kidney · one gene dominated</span>
+        </div>
+        <span class="mem-strip-arrow">→</span>
+        <div class="mem-strip-session">
+          <span class="mem-strip-session__id">Session 2</span>
+          <span class="mem-strip-session__sub">Kidney · compound collapsed</span>
+        </div>
+        <span class="mem-strip-arrow">→</span>
+        <div class="mem-strip-session">
+          <span class="mem-strip-session__id">Session 3</span>
+          <span class="mem-strip-session__sub">Lung · surfactant gene 99.8%</span>
+        </div>
+        <span class="mem-strip-arrow">→</span>
+        <div class="mem-strip-session mem-strip-session--xfer">
+          <span class="mem-strip-session__id">Session 4 ✓</span>
+          <span class="mem-strip-session__sub">Prostate · predicted PSA dominance</span>
+        </div>
+      </div>
+      <div class="mem-strip-xfer">Prostate cancer proposer cited the lung cancer single-gene saturation lesson — <em>without seeing prostate data</em> — and correctly predicted the dominant PSA-gene pattern. 8 lessons stored across 4 sessions.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 4 — Rejection (0:45–1:05)
+═══════════════════════════════════════════ -->
+<section class="scene scene--split" id="s4"
+  data-narration="On a public kidney-cancer dataset, the gate rejects 194 of 203 candidate evaluations across four tasks. Even the textbook oxygen-sensing pathway equation Opus itself proposed fails — because one gene alone already scores 0.965 on our accuracy metric. Making any compound redundant.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">Rejection</p>
+    <h2 class="display rv rv-d1">The gate refused.</h2>
+    <p class="body-p rv rv-d2">
+      203 candidate evaluations on TCGA-KIRC (kidney cancer) across four tasks and two gene panels.
+      The textbook HIF-axis compound — Opus 4.7's own top proposal — refused.
+      CA9 alone saturates AUROC at 0.965.
+    </p>
+    <div style="margin-top:28px;" class="rv rv-d3">
+      <div class="rej-stats">
+        <div>
+          <div class="rej-num rej-num--refused" id="count-refused">194</div>
+          <div class="rej-num-label">refused</div>
+        </div>
+        <div>
+          <div class="rej-num rej-num--pass" id="count-pass">9</div>
+          <div class="rej-num-label">survived</div>
+        </div>
+      </div>
+    </div>
+    <div class="rej-note rv rv-d4">
+      "Even the law Opus most wanted to keep — refused."
+    </div>
+  </div>
+
+  <div class="scene__visual" style="align-items:flex-start;padding-top:64px;">
+    <div style="width:100%;">
+      <div class="mono-label rv rv-d1" style="margin-bottom:12px;">203 candidate evaluations · TCGA-KIRC · 5-test BH-FDR gate</div>
+      <div class="rej-grid" id="rej-grid"></div>
+      <div style="margin-top:12px;display:flex;align-items:center;gap:16px;" class="rv rv-d5">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div style="width:12px;height:12px;border-radius:2px;background:#d0cfc5;"></div>
+          <span style="font-family:var(--f-mono);font-size:10px;color:var(--slate);">rejected</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div style="width:12px;height:12px;border-radius:2px;background:var(--sage);"></div>
+          <span style="font-family:var(--f-mono);font-size:10px;color:var(--slate);">survivor (gate PASS)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 5 — Survivor (1:05–1:25)
+═══════════════════════════════════════════ -->
+<section class="scene scene--split" id="s5"
+  data-narration="Expand the panel from eleven to forty-five genes. Same gate. Nine candidates pass on metastasis — cancer spread to other organs. The simplest: TOP2A minus EPAS1, a cell-division gene minus an oxygen-response gene. When cell division outruns oxygen response — it predicts spread. That is the published kidney cancer molecular subtype axis. Our equation search rediscovered it without being told.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">Survivor</p>
+    <h2 class="display rv rv-d1">Expand the panel.<br>Same gate.</h2>
+    <p class="body-p rv rv-d2">
+      45-gene HIF / Warburg / proliferation panel. Same pre-registered thresholds.
+      Nine laws pass on metastasis. The simplest is a law that was already published — in 2010:
+    </p>
+    <div class="equation-box rv rv-d3">
+      <em>TOP2A</em> − <em>EPAS1</em>
+      <div style="font-size:11px;font-weight:400;color:rgba(250,249,245,0.45);letter-spacing:0.04em;margin-top:7px;font-family:var(--f-mono);">cell-division gene &nbsp;−&nbsp; oxygen-response gene</div>
+    </div>
+    <div class="equation-meta rv rv-d4">
+      <span class="badge badge--sage">AUROC 0.726</span>
+      <span class="badge badge--amber">Δbaseline +0.069</span>
+      <span class="badge badge--sage">CI lower 0.665</span>
+      <span class="badge badge--sage">perm p &lt; 0.001</span>
+    </div>
+    <div class="surv-axis rv rv-d5">
+      When cell division outruns oxygen response — it predicts spread.<br>
+      The published kidney cancer molecular subtype axis.<br>
+      We did not plant it.<br>
+      <span style="display:block;margin-top:8px;font-family:var(--f-mono);font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--sage-dk);opacity:0.9;">Known truth · unconstrained search · method validated</span>
+    </div>
+    <p class="body-p rv rv-d6" style="margin-top:14px;font-size:var(--t-sm);border-top:1px solid var(--grid);padding-top:12px;">
+      A gate that recovers what was already published can be trusted for what has not been published yet.
+    </p>
+  </div>
+
+  <div class="scene__visual" style="flex-direction:column;align-items:stretch;">
+    <div class="mono-label rv rv-d1" style="margin-bottom:12px;">Task landscape · 11-gene vs 45-gene panel</div>
+    <div class="gate-box rv rv-d2" style="background:var(--bone-2);border:1px solid var(--grid);border-radius:8px;overflow:hidden;">
+      <table class="task-tbl">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Dominant gene</th>
+            <th>11-gene</th>
+            <th>45-gene</th>
+            <th>Best Δ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="task-row task-row--fail">
+            <td>Tumor vs Normal</td>
+            <td class="task-gene">CA9 = 0.965</td>
+            <td class="task-result task-result--fail">0 / 26</td>
+            <td class="task-result">—</td>
+            <td class="task-delta">+0.029</td>
+          </tr>
+          <tr class="task-row task-row--fail">
+            <td>Stage I-II vs III-IV</td>
+            <td class="task-gene">CUBN = 0.610</td>
+            <td class="task-result task-result--fail">0 / 27</td>
+            <td class="task-result">—</td>
+            <td class="task-delta">+0.029</td>
+          </tr>
+          <tr class="task-row task-row--fail">
+            <td>5-yr Survival</td>
+            <td class="task-gene">CUBN = 0.696</td>
+            <td class="task-result task-result--fail">0 / 29</td>
+            <td class="task-result task-result--fail">0 / 29</td>
+            <td class="task-delta">+0.019</td>
+          </tr>
+          <tr class="task-row task-row--pass">
+            <td><strong>Metastasis M0 vs M1</strong></td>
+            <td class="task-gene">MKI67 = 0.645</td>
+            <td class="task-result task-result--fail">0 / 30</td>
+            <td class="task-result task-delta--pass">9 / 30 ✓</td>
+            <td class="task-delta task-delta--pass">+0.069</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rv rv-d3" style="margin-top:14px;font-family:var(--f-mono);font-size:11px;color:var(--slate);">
+      Same 5-test gate · same BH-FDR · same Python code · four biologically distinct tasks.
+    </p>
+
+    <!-- Survivor family cluster -->
+    <div class="surv-family rv rv-d4">
+      <div class="surv-fam-label">Near-equivalent formulas (within 2% accuracy) · 3 of 990 two-gene pairs · all: proliferation − oxygen-response gene</div>
+      <div class="surv-fam-cards">
+        <div class="surv-fam-card surv-fam-card--1">
+          <div class="surv-fam-card__rank">#1 / 990</div>
+          <div class="surv-fam-card__eq"><em>TOP2A</em> − <em>EPAS1</em></div>
+          <div class="surv-fam-card__auc">0.7275</div>
+          <div class="surv-fam-card__gene">cell-division enzyme − oxygen-response factor</div>
+        </div>
+        <div class="surv-fam-card surv-fam-card--2">
+          <div class="surv-fam-card__rank">#2 / 990</div>
+          <div class="surv-fam-card__eq"><em>CDK1</em> − <em>EPAS1</em></div>
+          <div class="surv-fam-card__auc">0.7192</div>
+          <div class="surv-fam-card__gene">cell-cycle kinase − oxygen-response factor</div>
+        </div>
+        <div class="surv-fam-card surv-fam-card--3">
+          <div class="surv-fam-card__rank">#3 / 990</div>
+          <div class="surv-fam-card__eq"><em>MKI67</em> − <em>EPAS1</em></div>
+          <div class="surv-fam-card__auc">0.7100</div>
+          <div class="surv-fam-card__gene">proliferation marker − oxygen-response factor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 6 — IMmotion150 External Replay (1:25–1:40)
+═══════════════════════════════════════════ -->
+<section class="scene scene--split" id="s6"
+  data-narration="Cross-cohort replay on an independent clinical trial cohort — a separately pre-registered survival gate. Hazard ratio 1.36, log-rank p 0.0003. Then our own three-gene extension. Same survival gate. Killed it.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">External Replay</p>
+    <h2 class="display rv rv-d1">Cross-cohort survival.<br>Pre-registered gate.<br>log-rank · Cox · C-index all pass.</h2>
+    <p class="body-p rv rv-d2">
+      IMmotion150 — independent Phase-2 immunotherapy trial.
+      n = 263 metastatic kidney cancer (ccRCC). Different cohort, different preprocessing,
+      different endpoint (PFS — progression-free survival). Same two-gene score. Same direction.
+    </p>
+    <div class="own-kill rv rv-d4">
+      ✗ &nbsp; Our own three-gene extension · same survival gate · <strong>KILLED</strong><br>
+      <span style="opacity:0.7;font-size:11px;">p = 0.117 · pre-registered · commit 47a6bd5</span><br>
+      <span style="opacity:0.65;font-size:11px;font-family:var(--f-display);font-style:italic;">The loop is not designed to confirm. It rejects — including itself.</span>
+    </div>
+  </div>
+
+  <div class="scene__visual" style="flex-direction:column;align-items:stretch;">
+    <div class="km-wrap rv rv-d1">
+      <img src="../theory_copilot_discovery/results/track_a_task_landscape/external_replay/immotion150_pfs/km_median_split.png"
+           alt="IMmotion150 KM curve — TOP2A−EPAS1 median split, HR 1.36, p=0.0003">
+    </div>
+    <div class="km-stats rv rv-d2">
+      <div class="km-stat">
+        <div class="km-stat__val km-stat__val--amber">1.36</div>
+        <div class="km-stat__label">Cox HR per z-score</div>
+      </div>
+      <div class="km-stat">
+        <div class="km-stat__val km-stat__val--sage">0.0003</div>
+        <div class="km-stat__label">Log-rank p</div>
+      </div>
+      <div class="km-stat">
+        <div class="km-stat__val">0.601</div>
+        <div class="km-stat__label">Harrell C-index</div>
+      </div>
+      <div class="km-stat">
+        <div class="km-stat__val km-stat__val--sage">7.53 mo</div>
+        <div class="km-stat__label">Median PFS gap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 7 — DIPG Trajectory (1:40–2:00)
+═══════════════════════════════════════════ -->
+<section class="scene scene--split" id="s7"
+  data-narration="Same engine, pediatric brainstem cancer — H3 K27M, a tumor that still has no approved treatment. Over two hundred fifty failed trials. Fifteen candidates currently in the pre-registered queue. Top lead scores thirteen of fifteen. Zero of four passed on the same gate — falsification working.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">Trajectory · DIPG active</p>
+    <div class="dipg-num rv rv-d1" id="dipg-count">250+</div>
+    <div class="dipg-label rv rv-d2">failed DIPG clinical trials</div>
+    <p class="body-p rv rv-d3">
+      H3 K27M diffuse midline glioma — a pediatric brainstem cancer.
+      Universally fatal<span style="color:var(--sage-dk);font-weight:600"> — until August 2025.</span>
+      The same gate that rejected 194 of 203 on kidney cancer is now pointed at brainstem.
+    </p>
+    <div style="margin-top:20px;" class="rv rv-d4">
+      <span class="badge badge--sage" style="font-size:13px;padding:7px 14px;">15 candidates · pre-registered queue</span>
+    </div>
+  </div>
+
+  <div class="scene__visual" style="flex-direction:column;align-items:flex-start;padding-top:80px;">
+    <div class="mono-label rv rv-d1" style="margin-bottom:20px;">Timeline</div>
+    <div class="dipg-timeline">
+      <div class="tl-item" id="tl1">
+        <div class="tl-item__year">Decades</div>
+        <div class="tl-item__text">250+ failed clinical trials</div>
+        <div class="tl-item__sub">no improvement over radiation alone</div>
+      </div>
+      <div class="tl-item tl-item--key" id="tl2">
+        <div class="tl-item__year">August 2025</div>
+        <div class="tl-item__text">Dordaviprone — first approval</div>
+        <div class="tl-item__sub">itself a 10-year graveyard rescue · FDA accelerated</div>
+      </div>
+      <div class="tl-item" id="tl3">
+        <div class="tl-item__year">Now</div>
+        <div class="tl-item__text">15 candidates in queue</div>
+        <div class="tl-item__sub">HERBY (n=47) · PNOC-022 (n=88) · pre-registered gate · same architecture</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 8 — Close (2:00–2:10) — dark
+═══════════════════════════════════════════ -->
+<section class="scene scene--center scene--dark" id="s8"
+  data-narration="The published law is the tip. The graveyard is the artifact. For every scientist whose null results pushed the field forward — but never made it into a paper.">
+  <div class="close-inner">
+    <img class="close-logo rv" src="../plans/branding/assets/logo/lacuna_mark_dark.svg" alt="Lacuna">
+    <p class="close-q1 rv rv-d1">The published law is the tip.</p>
+    <p class="close-q2 rv rv-d2">The graveyard is the artifact.</p>
+    <div class="close-divider rv rv-d3"></div>
+    <p class="rv rv-d4" style="font-family:var(--f-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.30);margin:0 auto 32px;text-align:center;">Proven on known truth · trusted for unknown truth</p>
+    <p class="close-dedication rv rv-d5">
+      For every scientist whose result said no.
+    </p>
+    <a class="close-url rv rv-d6" href="https://github.com/jang1563/lacuna-falsification">
+      github.com/jang1563/lacuna-falsification
+    </a>
+    <a class="rv rv-d7" href="story_v7.html"
+       style="margin-top:16px;display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.25);padding-bottom:2px;transition:color 0.2s,border-color 0.2s"
+       onmouseover="this.style.color='rgba(255,255,255,0.90)';this.style.borderColor='rgba(255,255,255,0.5)'"
+       onmouseout="this.style.color='rgba(255,255,255,0.65)';this.style.borderColor='rgba(255,255,255,0.25)'">
+      Explore the interactive story →
+    </a>
+  </div>
+</section>
+
+<!-- ── Bonus content divider ── -->
+<div class="bonus-divider">
+  ── extended evidence ──
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCENE 9 — IPF Fabrication (bonus)
+═══════════════════════════════════════════ -->
+<section class="scene scene--split" id="s9"
+  data-narration="And in IPF: fifty-eight dollars, thirty-two minutes — the Skeptic, running in a separate context window, caught two fabricated prior-trial claims the Advocate had stated as fact. That is context isolation as a live audit layer.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">IPF · Context Isolation</p>
+    <h2 class="display rv rv-d1">Separate context.<br>Separate truth.</h2>
+    <div class="ipf-header rv rv-d2">
+      <div class="ipf-meta">
+        <span class="badge badge--amber">$58.28</span>
+        <span class="badge badge--sage">32 minutes</span>
+        <span class="badge" style="color:var(--slate);border-color:var(--grid);">SHA 88eaca3</span>
+      </div>
+    </div>
+    <p class="body-p rv rv-d3">
+      The Skeptic ran in a <strong>separate context window</strong> — it never received
+      the Advocate's reasoning tokens. Context isolation as live audit layer.
+    </p>
+    <div class="ipf-isolation rv rv-d4">
+      <strong>Caught:</strong> two prior-trial claims the Advocate stated as established fact —
+      both empirically false per the original trial publications.
+    </div>
+  </div>
+
+  <div class="scene__visual" style="flex-direction:column;align-items:stretch;">
+    <div class="mono-label rv rv-d1" style="margin-bottom:16px;">Two fabricated claims · Skeptic verdict</div>
+    <div class="fab-cards">
+
+      <div class="fab-card" id="fab1">
+        <div class="fab-card__top">
+          <div class="fab-card__eyebrow">Advocate stated as fact (tralokinumab / RAINIER)</div>
+          <div class="fab-card__claim">
+            "No IPF IL-13 trial prespecified a Th2 stratifier — RAINIER enrolled
+            unselected IPF, leaving the Th2-high endotype untested."
+          </div>
+        </div>
+        <div class="fab-card__bottom">
+          <div class="fab-verdict">
+            <span class="fab-stamp">FABRICATED</span>
+            Skeptic verdict
+          </div>
+          <div class="fab-correction">
+            RAINIER itself prespecified a <strong>periostin sub-group</strong>
+            (canonical IL-13-induced Th2 marker). The "never prespecified" premise is
+            empirically false per the original trial protocol.
+          </div>
+        </div>
+      </div>
+
+      <div class="fab-card" id="fab2">
+        <div class="fab-card__top">
+          <div class="fab-card__eyebrow">Advocate stated as fact (simtuzumab / Raghu 2017)</div>
+          <div class="fab-card__claim">
+            "LOXL2-high IPF patients were never tested in the simtuzumab trial —
+            stratified rescue remains viable."
+          </div>
+        </div>
+        <div class="fab-card__bottom">
+          <div class="fab-verdict">
+            <span class="fab-stamp">FABRICATED</span>
+            Skeptic verdict
+          </div>
+          <div class="fab-correction">
+            Raghu 2017 <strong>already prespecified LOXL2-stratified co-primary endpoints</strong>
+            with the highest-tertile arm. The "never-tested" narrative is falsified by
+            the originating trial itself.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCENE 10 — Capability Overhang / Ablation (bonus) — dark
+═══════════════════════════════════════════ -->
+<section class="scene scene--split scene--dark" id="s10"
+  data-narration="Swap the Skeptic model. Sonnet 4.6 with extended thinking: zero of sixty gate agreements. Permanent rejection — the stance breaks. Opus 4.7 base calibration, no thinking: ten of sixty PASS. And there's one more thing: Opus 4.7 wrote the kill tests for four new skeletons before seeing any gate results. All four failed as predicted. The model knows when it's wrong before testing. That is the swap you cannot make.">
+
+  <div class="scene__text">
+    <p class="eyebrow rv">Capability Overhang · E2 Ablation</p>
+    <h2 class="display rv rv-d1">Swap the model.<br>The loop breaks.</h2>
+    <p class="body-p rv rv-d2">
+      180 API calls. Three models, same 6 candidates, same gate metrics,
+      same <code style="font-family:var(--f-mono);font-size:12px;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;">prompts/skeptic_review.md</code>.
+      One stance collapses completely — <em style="color:var(--red);font-style:normal;">with</em> extended thinking.
+    </p>
+    <div class="ablation-hero rv rv-d3">
+      <div>
+        <div class="ablation-num ablation-num--zero" style="text-decoration:line-through;opacity:1.0;">0</div>
+        <div class="ablation-label">Sonnet (with thinking) · 0 / 60</div>
+      </div>
+      <div class="ablation-arrow">→</div>
+      <div>
+        <div class="ablation-num ablation-num--ten" id="ablation-ten">0</div>
+        <div class="ablation-label">Opus (no thinking) · 10 / 60 PASS</div>
+      </div>
+    </div>
+    <p class="body-p rv rv-d4" style="font-family:var(--f-mono);font-size:11px;color:rgba(255,255,255,0.28);margin-top:4px;">
+      Opus ran without extended thinking · wins anyway · calibration, not compute
+    </p>
+  </div>
+
+  <div class="scene__visual" style="flex-direction:column;align-items:stretch;">
+    <div class="mono-label rv rv-d1" style="margin-bottom:16px;color:rgba(255,255,255,0.35);">
+      3 models × 6 candidates × 10 repeats · Skeptic verdict distribution
+    </div>
+    <div class="rv rv-d2" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:8px;overflow:hidden;">
+      <table class="model-tbl">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Verdict mix</th>
+            <th>PASS / 60</th>
+            <th>Dissent on PASS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="model-row model-row--opus">
+            <td>
+              <span class="model-name" style="color:var(--sage);">Opus 4.7</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">no thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--pass"  style="width:16.7%;"></div>
+                <div class="verdict-bar verdict-bar--needs" style="width:33.3%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count verdict-count--green">10</span></td>
+            <td><span class="dissent-pct dissent-pct--good">66.7%</span></td>
+          </tr>
+          <tr class="model-row">
+            <td>
+              <span class="model-name" style="color:rgba(255,255,255,0.5);">Haiku 4.5</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">with thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--pass"  style="width:23.3%;"></div>
+                <div class="verdict-bar verdict-bar--needs" style="width:26.7%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count" style="color:rgba(255,255,255,0.45);">14</span></td>
+            <td><span class="dissent-pct" style="color:rgba(255,255,255,0.38);">53.3%</span></td>
+          </tr>
+          <tr class="model-row model-row--sonnet">
+            <td>
+              <span class="model-name" style="color:var(--red);">Sonnet 4.6</span><br>
+              <span style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,0.28);">with thinking</span>
+            </td>
+            <td>
+              <div class="verdict-bar-wrap">
+                <div class="verdict-bar verdict-bar--needs" style="width:50%;"></div>
+                <div class="verdict-bar verdict-bar--fail"  style="flex:1;"></div>
+              </div>
+            </td>
+            <td><span class="verdict-count verdict-count--red">0</span></td>
+            <td><span class="dissent-pct dissent-pct--critical">100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:10px 16px;font-family:var(--f-mono);font-size:var(--t-xs);color:rgba(255,255,255,0.28);border-top:1px solid rgba(255,255,255,0.08);">
+        Sonnet dissents on 100% of gate-PASS candidates · cannot distinguish pass from fail · thinking budget is irrelevant
+      </div>
+
+      <!-- Meta-calibration -->
+      <div class="metacal-wrap rv rv-d3">
+        <div class="metacal-title">PhI-1 · meta-calibration · Opus predicted 4/4 own rejections before testing</div>
+        <div class="metacal-row">
+          <div class="metacal-row__pred">Skeleton #1: "VEGFA redundant with EPAS1 — delta_baseline will not clear 0.05"</div>
+          <div class="metacal-row__match">FAIL: delta_baseline ✓</div>
+        </div>
+        <div class="metacal-row">
+          <div class="metacal-row__pred">Skeleton #4: "CCNB1 alone insufficient; MKI67 already dominates proliferation hierarchy"</div>
+          <div class="metacal-row__match">FAIL: delta_baseline ✓</div>
+        </div>
+        <div class="metacal-row">
+          <div class="metacal-row__pred">Skeletons #2, #3: same pattern — kill test named the failure leg before the gate ran</div>
+          <div class="metacal-row__match">4/4 ✓</div>
+        </div>
+        <div class="metacal-summary">The model's failure model is accurate. It knows when it's wrong before seeing the results.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Demo mark (fixed) ── -->
+<style>.demo-mark{position:fixed;bottom:20px;right:20px;width:80px;height:80px;opacity:0.75;z-index:9999;pointer-events:none;mix-blend-mode:multiply;}</style>
+<img class="demo-mark" src="../plans/branding/assets/logo/lacuna_demo_mark_ink_128.png" alt="Lacuna">
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+/* ── Cinematic intro ── */
+(function () {
+  'use strict';
+  var overlay = document.getElementById('intro-overlay');
+  if (!overlay || typeof gsap === 'undefined') {
+    if (overlay) overlay.style.display = 'none';
+    return;
+  }
+  var dismissed = false;
+  var tl;
+
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    if (tl) tl.kill();
+    overlay.classList.add('io-out');
+    setTimeout(function () { overlay.style.display = 'none'; }, 720);
+  }
+
+  overlay.addEventListener('click', dismiss);
+  document.addEventListener('keydown', function _k(e) {
+    e.stopImmediatePropagation();
+    dismiss();
+    document.removeEventListener('keydown', _k);
+  });
+
+  function startCounter() {
+    var el = document.getElementById('intro-counter-num');
+    var startTime = performance.now();
+    var DURATION = 900, TARGET = 194;
+    function step(ts) {
+      var t = Math.min((ts - startTime) / DURATION, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(eased * TARGET);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  gsap.set('.intro-frag-cap',      { scaleY: 0, transformOrigin: '50% 0%' });
+  gsap.set('.intro-frag-vert',     { scaleY: 0, transformOrigin: '50% 100%' });
+  gsap.set('.intro-frag-foot',     { scaleY: 0, transformOrigin: '50% 100%' });
+  gsap.set('#intro-mark-svg',      { opacity: 0 });
+  gsap.set('#intro-void-label-el', { opacity: 0, x: 10 });
+  gsap.set('#intro-void-tick',     { width: 0 });
+  gsap.set('#intro-wordmark',      { opacity: 0, y: 6 });
+  gsap.set('#intro-thesis',        { opacity: 0, y: 6 });
+  gsap.set('#intro-divider',       { scaleX: 0, transformOrigin: 'left center' });
+  gsap.set('#intro-counter-row',   { opacity: 0, y: 8 });
+  gsap.set('#intro-counter-desc',  { opacity: 0 });
+  gsap.set('#intro-skip-hint',     { opacity: 0 });
+
+  tl = gsap.timeline();
+
+  tl.to('#intro-mark-svg',      { opacity: 1, duration: 0.20 }, 0.30)
+    .to('.intro-frag-cap',      { scaleY: 1, duration: 0.38, ease: 'power4.out' }, 0.50)
+    .to('.intro-frag-vert',     { scaleY: 1, duration: 0.36, ease: 'power3.out' }, 0.70)
+    .to('.intro-frag-foot',     { scaleY: 1, duration: 0.36, ease: 'power3.out' }, 0.86)
+    .to('#intro-mark-svg',      { filter: 'drop-shadow(0 0 14px rgba(250,249,245,0.09))', duration: 0.65, ease: 'power2.out' }, 1.10)
+    .to('#intro-void-label-el', { opacity: 1, x: 0, duration: 0.28, ease: 'power2.out' }, 1.30)
+    .to('#intro-void-tick',     { width: 18, duration: 0.22, ease: 'power2.out' }, 1.38)
+    .to('#intro-wordmark',      { opacity: 1, y: 0, duration: 0.40, ease: 'power2.out' }, 1.68)
+    .to('#intro-thesis',        { opacity: 1, y: 0, duration: 0.50, ease: 'power2.out' }, 2.15)
+    .to('#intro-divider',       { scaleX: 1, duration: 0.28, ease: 'power2.inOut' }, 2.72)
+    .to('#intro-counter-row',   { opacity: 1, y: 0, duration: 0.30, ease: 'power2.out' }, 2.90)
+    .call(startCounter, null, 2.90)
+    .to('#intro-counter-desc',  { opacity: 1, duration: 0.28, ease: 'power2.out' }, 3.85)
+    .to('#intro-skip-hint',     { opacity: 1, duration: 0.28 }, 4.05)
+    .to({}, { duration: 1.30 });
+})();
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js"></script>
+<script>
+/* ── Lenis smooth scroll ── */
+const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+/* ── Rejection grid build ── */
+(function buildGrid() {
+  const grid = document.getElementById('rej-grid');
+  const TOTAL = 203, COLS = 14;
+  const survivorSet = new Set();
+  for (let i = 194; i < 203; i++) survivorSet.add(i);
+  for (let i = 0; i < TOTAL; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'rej-cell';
+    if (survivorSet.has(i)) cell.dataset.survivor = '1';
+    grid.appendChild(cell);
+  }
+})();
+
+/* ── Intersection Observer: section reveal ── */
+const scenes     = document.querySelectorAll('.scene');
+const dots       = document.querySelectorAll('.dot');
+const tp         = document.getElementById('tp');
+const tpText     = document.getElementById('tp-text');
+let   tpVisible  = false;
+let   gridFired      = false;
+let   dipgFired      = false;
+let   ablationFired  = false;
+
+const sceneObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const scene = entry.target;
+    const idx   = Array.from(scenes).indexOf(scene);
+
+    /* Activate dot */
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+    /* Update teleprompter */
+    const narr = scene.dataset.narration || '';
+    tpText.textContent = narr;
+
+    /* Trigger .rv elements inside this scene */
+    scene.querySelectorAll('.rv').forEach(el => el.classList.add('on'));
+
+    /* Gate rows */
+    scene.querySelectorAll('.gate-row').forEach(r => r.classList.add('on'));
+
+    /* Timeline items */
+    scene.querySelectorAll('.tl-item').forEach(r => r.classList.add('on'));
+
+    /* Fab cards */
+    scene.querySelectorAll('.fab-card').forEach(c => c.classList.add('on'));
+
+    /* Rejection grid animation (scene s4) */
+    if (scene.id === 's4' && !gridFired) {
+      gridFired = true;
+      const cells    = Array.from(document.querySelectorAll('.rej-cell'));
+      const STAGGER  = 5;
+      cells.forEach((cell, i) => {
+        setTimeout(() => cell.classList.add('lit'), i * STAGGER);
+      });
+      const totalDelay = cells.length * STAGGER + 300;
+      setTimeout(() => {
+        cells.forEach(cell => { if (cell.dataset.survivor) cell.classList.add('survivor'); });
+      }, totalDelay);
+      if (window.countUp) {
+        const cu = new window.countUp.CountUp('count-refused', 194, { duration: 1.2, startVal: 0 });
+        cu.start();
+      }
+    }
+
+    /* Ablation CountUp (bonus scene s10) — only Opus animates up */
+    if (scene.id === 's10' && !ablationFired) {
+      ablationFired = true;
+      if (window.countUp) {
+        setTimeout(() => {
+          const cuTen = new window.countUp.CountUp('ablation-ten', 10, {
+            startVal: 0, duration: 1.5
+          });
+          cuTen.start();
+        }, 350);
+      }
+    }
+
+    /* DIPG countdown (scene s7) */
+    if (scene.id === 's7' && !dipgFired) {
+      dipgFired = true;
+      const el = document.getElementById('dipg-count');
+      let n = 0; const target = 250;
+      const step = () => {
+        n = Math.min(n + 7, target);
+        el.textContent = n + '+';
+        if (n < target) setTimeout(step, 18);
+      };
+      setTimeout(step, 300);
+    }
+  });
+}, { threshold: 0.45 });
+
+scenes.forEach(s => sceneObserver.observe(s));
+
+/* ── Dot click navigation ── */
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const target = document.getElementById(dot.dataset.target);
+    if (target) lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+  });
+});
+
+/* ── Teleprompter toggle (T key) ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 't' || e.key === 'T') {
+    tpVisible = !tpVisible;
+    tp.classList.toggle('visible', tpVisible);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,14 +1,18 @@
-name: Deploy Rejection Log to GitHub Pages
+name: Deploy to GitHub Pages
 
-# PhF-4: re-renders results/rejection_log.html on every main push and
-# deploys a small static site (rejection log + README-derived index) to
-# GitHub Pages. The page makes the gate's rejection rate visible — the
-# 194 of 204 candidates that failed are the central artefact.
+# PhF-4 (updated 2026-04-26): deploys the Lacuna static site to GitHub Pages.
+# Site structure:
+#   /              → web/index.html  (main dashboard — beautiful landing page)
+#   /demo.html     → web/demo.html   (Loom demo companion + visual walkthrough)
+#   /story.html    → web/story.html  (discovery story — the falsification narrative)
+#   /rejection-log.html → rendered rejection log (all 203 gate verdicts)
+#   /immotion150_pfs/   → KM plot + verdict JSON for the IMmotion150 survival replay
 
 on:
   push:
     branches: [main]
     paths:
+      - 'web/**'
       - 'results/**/*.json'
       - 'src/render_rejection_log.py'
       - '.github/workflows/pages.yml'
@@ -40,12 +44,18 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          cp results/rejection_log.html _site/index.html
-          # Copy KM plot + verdict JSON for the external replay.
+
+          # ── Main pages (from web/) ──
+          cp web/index.html   _site/index.html
+          cp web/demo.html    _site/demo.html
+          cp web/story.html   _site/story.html
+
+          # ── Rejection log (rendered from JSON) ──
+          cp results/rejection_log.html _site/rejection-log.html
+
+          # ── IMmotion150 KM plot + verdict JSON ──
           mkdir -p _site/immotion150_pfs
           cp -r results/track_a_task_landscape/external_replay/immotion150_pfs/* _site/immotion150_pfs/ || true
-          # Render a tiny README header if a logo/asset dir is needed later.
-          echo "Lacuna — live rejection log." > _site/ABOUT.txt
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
