@@ -129,7 +129,7 @@ independent on our corpus.
 | `decoy_feature_test` | p-value against 100 random features at matched scale | `p < 0.05` |
 
 Permutation p-values across candidates are adjusted with Benjamini-
-Hochberg FDR (α = 0.1); the gate uses the FDR-adjusted p. A
+Hochberg FDR (α = 0.05); the gate uses the FDR-adjusted p. A
 two-sided null was chosen because symbolic regression can return a
 sign-flipped winner, and the sign-invariant baseline (AGXT in ccRCC
 has raw AUC 0.03 but is a perfectly usable classifier at
