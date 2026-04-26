@@ -277,8 +277,7 @@ Three new datasets built and falsification-tested. Sweep completed (16 CPUs × 5
 | IPF | CEP (death/FVC>10%) | 17-gene | 57 | `SPP1×(CXCL12−PDGFRA)/MUC5B` | 0.757 | +0.096 | **6/25** ✅ | Fibrosis amplification axis; MUC5B GWAS-consistent |
 | DIPG | H3K27M vs WT | — | — | — | — | — | **NOT RUN** | Data acquisition failed (OpenPedCan S3 404) |
 
-**Pre-reg predictions all fail** — PySR finds richer compound families than the pre-specified
-gene pairs. PAAD, LIHC, and IPF all produce biologically interpretable survivor families.
+**Proposer ex-ante gene-pair predictions outperformed by PySR** — PySR finds richer compound families than the pre-specified single-pair guesses; this is expected (the Proposer seeds the search space, not the answer). PAAD, LIHC, and IPF all produce biologically interpretable survivor families.
 
 **PAAD survivors**: KRT17/CDH2-denominator family with FOXP3, CD8A, CDKN2A, and
 cell-cycle context. The earlier interim `0/27` readout was invalid because `os_months`

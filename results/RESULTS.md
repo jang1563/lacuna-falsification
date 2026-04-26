@@ -1,4 +1,4 @@
-# Real-Data Results — 3-Tier Falsification Run
+# Real-Data Results — 2-Tier Falsification Run (Tier 1: Tumor vs Normal · Tier 2: Stage; full task landscape in `track_a_task_landscape/SUMMARY.md`)
 
 **Run date:** 2026-04-22
 **Pipeline:** Opus 4.7 Proposer → PySR Search (unconstrained) → pre-registered 5-test gate → BH-FDR across candidates.

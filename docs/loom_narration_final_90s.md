@@ -39,8 +39,8 @@ the Karpathy opening.
 **Cut to slide 1 — Architecture diagram.**
 
 > "Opus four-point-seven proposes seven compact law families for
-> kidney cancer, including a housekeeping negative control. A
-> deterministic five-test Python gate rejects weak candidates
+> kidney cancer, including two ex-ante negative controls it expects
+> to fail. A deterministic five-test Python gate rejects weak candidates
 > [breath] before any LLM judgement."
 
 ## 0:25 – 0:45 — Rejection surface (38 words)
