@@ -6,7 +6,7 @@ TOP2A − EPAS1's 0.726. Pre-registered in
 preregistrations/20260425T185717Z_i2_rashomon_set.yaml.
 
 Usage:
-    cd lacuna_discovery
+    cd lacuna-falsification
     source .venv/bin/activate
     python src/track_a_rashomon_set.py
 """

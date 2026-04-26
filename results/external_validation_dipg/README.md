@@ -9,7 +9,7 @@ Evidence Retriever / Skeptic / Interpreter** — the clinical-rescue
 analogue of the KIRC flagship's Proposer / Searcher / Skeptic /
 Interpreter pipeline. This mirror exists so submission materials
 (Loom narration, submission form) can reference the result without
-leaving the `lacuna_discovery` tree.
+leaving the public `lacuna-falsification` checkout.
 
 ## Source
 
@@ -62,7 +62,7 @@ and (2) the top-lead verdict structure.
 
 - **Same role-separation pattern, different gate type.** The DIPG
   rescue engine reuses the role-isolated 4-agent pattern from
-  `lacuna_discovery` (see `../dipg_rescue/prompts_kirc_reference/`
+  the public `lacuna-falsification` checkout (see `../dipg_rescue/prompts_kirc_reference/`
   for the KIRC prompts used as templates) and the same pre-reg
   discipline (YAMLs frozen at SHA `8a4ecc5` before any engine run).
   But the gates are functionally different by design: KIRC's gate is a

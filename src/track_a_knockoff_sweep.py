@@ -4,7 +4,7 @@ Compares v1 decoy gate survivors against v2 knockoff-selected genes.
 Pre-registered in preregistrations/20260425T170647Z_g1_knockoff_v2.yaml.
 
 Usage:
-    cd lacuna_discovery
+    cd lacuna-falsification
     source .venv/bin/activate
     python src/track_a_knockoff_sweep.py
 """

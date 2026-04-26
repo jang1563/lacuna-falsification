@@ -134,7 +134,7 @@ Write `results/track_b_gate_robustness/SUMMARY.md` answering:
 ### Step B1 — Pull + start
 
 ```bash
-cd lacuna_discovery
+cd lacuna-falsification
 git pull --rebase origin main
 git status --short       # expect: nothing under src/gate_* or results/track_b_*
 make audit

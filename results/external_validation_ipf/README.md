@@ -9,7 +9,7 @@ DIPG variant — **Advocate / Evidence Retriever / Skeptic / Interpreter**
 slope, AE-IPF, MMP-7 / CXCL13 / KL-6 / CTGF / LOXL2 / CCL18 / TNIK /
 PDE4B mechanism map). This mirror exists so submission materials
 (Loom narration, submission form, judge_faq) can reference the result
-without leaving the `lacuna_discovery` tree.
+without leaving the public `lacuna-falsification` checkout.
 
 ## Source
 

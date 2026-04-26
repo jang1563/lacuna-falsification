@@ -65,7 +65,7 @@ open `HANDOFF_to_shared.md` rather than editing directly.
 
 ### Step A1 — Pull latest + verify tool chain
 ```bash
-cd lacuna_discovery
+cd lacuna-falsification
 git pull --rebase origin main
 git status --short         # expect: nothing under src/task_* or data/kirc_survival*
 make audit                 # must pass
