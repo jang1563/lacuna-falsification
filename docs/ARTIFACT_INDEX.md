@@ -117,4 +117,4 @@ the submission.
 1. `README.md` opening paragraph
 2. `docs/headline_findings.md` Finding 1 (the survivor story)
 3. PhL-8d SUMMARY.md (live dual-verdict Routine oracle — open + watch; `results/live_evidence/phl8d_dual_verdict/SUMMARY.md`)
-4. `docs/loom_script.md` (90-second video transcript)
+4. `docs/loom_narration_final_90s.md` (submission-locked final narration, 333 words / ~2:23) · `docs/loom_script.md` (screen-cue shot list with per-shot timing)
