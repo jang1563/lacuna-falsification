@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
 <style>
 :root {
@@ -68,19 +67,19 @@ code { font-family: var(--f-mono); font-size: 0.92em; color: var(--indigo); }
   font-family: var(--f-mono); font-size: var(--t-xs);
   color: var(--slate-text); line-height: 1.5;
 }
-.rail nav ol { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-.rail nav li > span {
+.rail ol { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.rail li > span {
   display: block; padding: 4px 0;
   font-family: var(--f-mono); font-size: var(--t-xs);
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--slate-text); margin-top: 12px;
 }
-.rail nav a {
+.rail a {
   display: block; padding: 5px 0;
   border-bottom: none; color: var(--slate-text);
   font-size: var(--t-sm); letter-spacing: 0.01em;
 }
-.rail nav a:hover { color: var(--ink); }
+.rail a:hover { color: var(--ink); }
 .rail__meta {
   margin-top: auto; padding-top: 16px;
   border-top: 1px solid var(--grid);
@@ -727,7 +726,7 @@ tr:last-child td { border-bottom: none; }
     <div class="section__head">
       <span class="eyebrow">Claude Design · 6 slides · 4K UHD</span>
       <h2>Visual evidence</h2>
-      <p class="section__sub">Click any slide to expand. S3 and S4 have pending cosmetic fixes (grid bottom clip · footer overlap).</p>
+      <p class="section__sub">Click any slide to expand the judge-facing visual proof of the loop, the gate, the survivor, and the replication chain.</p>
     </div>
 
     <div class="slide-grid">
@@ -741,11 +740,11 @@ tr:last-child td { border-bottom: none; }
       </div>
       <div class="slide-card" onclick="openLightbox('assets/slides/03_landscape_immotion.png')">
         <img src="assets/slides/03_landscape_immotion.png" alt="Rejection landscape + IMmotion150" loading="lazy">
-        <div class="slide-card__cap">03 · Landscape × IMmotion150 <span style="color:var(--amber)">·fix pending</span></div>
+        <div class="slide-card__cap">03 · Landscape × IMmotion150</div>
       </div>
       <div class="slide-card" onclick="openLightbox('assets/slides/04_km_close.png')">
         <img src="assets/slides/04_km_close.png" alt="KM curve close" loading="lazy">
-        <div class="slide-card__cap">04 · KM close <span style="color:var(--amber)">·fix pending</span></div>
+        <div class="slide-card__cap">04 · KM close</div>
       </div>
       <div class="slide-card" onclick="openLightbox('assets/slides/05_architecture.png')">
         <img src="assets/slides/05_architecture.png" alt="Architecture" loading="lazy">
@@ -876,6 +875,7 @@ tr:last-child td { border-bottom: none; }
 
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <script>
 /* Plotly rejection surface chart */
 (function() {

@@ -17,7 +17,17 @@
   .filter-group span { color:#666; font-size:0.85em; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; }
   table { border-collapse:collapse; width:100%; font-size:0.85em; }
   th, td { padding:8px 12px; border-bottom:1px solid #e8e8e8; text-align:left; vertical-align:top; }
-  th { background:#fff; position:sticky; top:0; border-bottom:2px solid #333; font-weight:600; font-size:0.9em; }
+  th { background:#fff; font-weight:600; font-size:0.9em; }
+  thead tr:first-child th { position:sticky; top:0; z-index:2; border-bottom:1px solid #ccc; }
+  thead tr:nth-child(2) th { position:sticky; top:33px; z-index:2; background:#f5f5f5; padding:4px 6px; border-bottom:2px solid #333; }
+  thead tr:nth-child(2) th input,
+  thead tr:nth-child(2) th select {
+    width:100%; box-sizing:border-box; padding:3px 5px; font-size:0.82em;
+    border:1px solid #ccc; border-radius:3px; background:#fff;
+    color:#1a1a1a; min-width:0;
+  }
+  thead tr:nth-child(2) th.num-th { min-width:72px; }
+  thead tr:nth-child(2) th input[type=number] { text-align:right; width:72px; }
   td.num { font-variant-numeric:tabular-nums; text-align:right; font-size:0.85em; }
   td.eq code { font-size:0.88em; color:#2060a0; }
   tr.accept-row { background:#e8f5e8; border-left:4px solid #2a9d3f; }
@@ -49,32 +59,8 @@
   <span>Rejected: <strong>194</strong></span>
   <span>Reject rate: <strong>95.1%</strong></span>
 </div>
-<div class="filters">
-  <div class="filter-group">
-    <span>Search</span>
-    <input type="text" id="filterBox" placeholder="equation, gene, reason…" style="padding:4px 8px; width:260px; border:1px solid #ccc; border-radius:4px;">
-  </div>
-  <div class="filter-group">
-    <span>Cohort</span>
-    <select id="cohortSel"><option value="">All</option></select>
-  </div>
-  <div class="filter-group">
-    <span>Task</span>
-    <select id="taskSel"><option value="">All</option></select>
-  </div>
-  <div class="filter-group">
-    <span>Panel</span>
-    <select id="panelSel"><option value="">All</option></select>
-  </div>
-  <div class="filter-group">
-    <span>Verdict</span>
-    <select id="verdictSel">
-      <option value="">All</option>
-      <option value="pass">Passed ✓</option>
-      <option value="fail">Failed ✗</option>
-    </select>
-  </div>
-  <label style="margin-left:8px; color:#666; font-size:0.85em;" id="matchCount"></label>
+<div class="counts-bar" style="background:#f8f8f8; padding:8px 32px; border-bottom:1px solid #ddd; font-size:0.85em; color:#555;">
+  Showing <span id="matchCount" style="font-weight:600; color:#1a1a1a;"></span> — use column filters below to narrow
 </div>
 <table>
 <thead>
@@ -83,6 +69,20 @@
 <th>Equation</th>
 <th>AUROC</th><th>Δbaseline</th><th>CI lower</th><th>perm p (FDR)</th><th>decoy p</th>
 <th>Failure reason(s)</th>
+</tr>
+<tr>
+<th></th>
+<th><select id="f-cohort"><option value="">All</option></select></th>
+<th><select id="f-task"><option value="">All</option></select></th>
+<th><select id="f-panel"><option value="">All</option></select></th>
+<th><select id="f-source"><option value="">All</option></select></th>
+<th><input type="text" id="f-eq" placeholder="search…"></th>
+<th class="num-th"><input type="number" id="f-auroc" placeholder="≥" step="0.01" min="0" max="1"></th>
+<th class="num-th"><input type="number" id="f-dbase" placeholder="≥" step="0.01"></th>
+<th class="num-th"><input type="number" id="f-cilower" placeholder="≥" step="0.01"></th>
+<th class="num-th"><input type="number" id="f-permp" placeholder="≤" step="0.001" min="0" max="1"></th>
+<th class="num-th"><input type="number" id="f-decp" placeholder="≤" step="0.001" min="0" max="1"></th>
+<th><input type="text" id="f-reason" placeholder="search…"></th>
 </tr>
 </thead>
 <tbody>
@@ -293,13 +293,13 @@
 </tbody>
 </table>
 <footer>
-  Generated 2026-04-26T19:37:03Z by <code>src/render_rejection_log.py</code>.
+  Generated 2026-04-26T19:54:55Z by <code>src/render_rejection_log.py</code>.
   Raw data in <code>results/flagship_run/</code>, <code>results/opus_exante/</code>, <code>results/tier2_run/</code>, <code>results/track_a_task_landscape/</code>.
   Pre-registrations in <code>preregistrations/</code>.
   Live external replay (IMmotion150 PFS, PhF-3) in <code>results/track_a_task_landscape/external_replay/immotion150_pfs/</code>.
 </footer>
 <script>
-  // Populate dropdowns dynamically from data attributes
+  // Populate column-header dropdowns from data attributes
   function populateSelect(selId, attr) {
     const sel = document.getElementById(selId);
     const vals = new Set();
@@ -310,42 +310,57 @@
       const o = document.createElement("option"); o.value = v; o.textContent = v; sel.appendChild(o);
     });
   }
-  populateSelect("cohortSel", "cohort");
-  populateSelect("taskSel", "task");
-  populateSelect("panelSel", "panel");
+  populateSelect("f-cohort", "cohort");
+  populateSelect("f-task",   "task");
+  populateSelect("f-panel",  "panel");
+  populateSelect("f-source", "source");
 
-  const box       = document.getElementById("filterBox");
-  const cohortSel = document.getElementById("cohortSel");
-  const taskSel   = document.getElementById("taskSel");
-  const panelSel  = document.getElementById("panelSel");
-  const verdictSel= document.getElementById("verdictSel");
-  const matchCount= document.getElementById("matchCount");
+  function parseNum(s) { const n = parseFloat(s); return isNaN(n) ? null : n; }
+  function colText(tr, i) { const td = tr.querySelectorAll("td")[i]; return td ? td.innerText.trim() : ""; }
 
   function applyFilter() {
-    const q       = box.value.toLowerCase();
-    const cohort  = cohortSel.value;
-    const task    = taskSel.value;
-    const panel   = panelSel.value;
-    const verdict = verdictSel.value;
+    const cohortV = document.getElementById("f-cohort").value;
+    const taskV   = document.getElementById("f-task").value;
+    const panelV  = document.getElementById("f-panel").value;
+    const sourceV = document.getElementById("f-source").value;
+    const eqQ     = document.getElementById("f-eq").value.toLowerCase();
+    const aurocMin = parseNum(document.getElementById("f-auroc").value);
+    const dbaseMin = parseNum(document.getElementById("f-dbase").value);
+    const cilMin   = parseNum(document.getElementById("f-cilower").value);
+    const permpMax = parseNum(document.getElementById("f-permp").value);
+    const decpMax  = parseNum(document.getElementById("f-decp").value);
+    const reasonQ  = document.getElementById("f-reason").value.toLowerCase();
+
     let shown = 0;
     document.querySelectorAll("tbody tr").forEach(tr => {
-      const passes = tr.dataset.passes === "true";
+      const auroc = parseNum(colText(tr, 6));
+      const dbase = parseNum(colText(tr, 7));
+      const cil   = parseNum(colText(tr, 8));
+      const permp = parseNum(colText(tr, 9));
+      const decp  = parseNum(colText(tr, 10));
       const ok =
-        (!q      || tr.innerText.toLowerCase().includes(q)) &&
-        (!cohort || tr.dataset.cohort === cohort) &&
-        (!task   || tr.dataset.task   === task)   &&
-        (!panel  || tr.dataset.panel  === panel)  &&
-        (!verdict || (verdict === "pass" ? passes : !passes));
+        (!cohortV || tr.dataset.cohort  === cohortV) &&
+        (!taskV   || tr.dataset.task    === taskV)   &&
+        (!panelV  || tr.dataset.panel   === panelV)  &&
+        (!sourceV || tr.dataset.source  === sourceV) &&
+        (!eqQ     || colText(tr, 5).toLowerCase().includes(eqQ)) &&
+        (aurocMin === null || auroc === null || auroc >= aurocMin) &&
+        (dbaseMin === null || dbase === null || dbase >= dbaseMin) &&
+        (cilMin   === null || cil   === null || cil   >= cilMin)   &&
+        (permpMax === null || permp === null || permp <= permpMax) &&
+        (decpMax  === null || decp  === null || decp  <= decpMax)  &&
+        (!reasonQ || colText(tr, 11).toLowerCase().includes(reasonQ));
       tr.style.display = ok ? "" : "none";
       if (ok) shown++;
     });
-    matchCount.textContent = shown + " rows";
+    document.getElementById("matchCount").textContent = shown + " of 204";
   }
 
-  [box, cohortSel, taskSel, panelSel, verdictSel].forEach(el =>
-    el.addEventListener(el.tagName === "SELECT" ? "change" : "input", applyFilter)
-  );
-  applyFilter(); // show initial count
+  document.querySelectorAll("#f-cohort,#f-task,#f-panel,#f-source").forEach(s =>
+    s.addEventListener("change", applyFilter));
+  document.querySelectorAll("#f-eq,#f-auroc,#f-dbase,#f-cilower,#f-permp,#f-decp,#f-reason").forEach(i =>
+    i.addEventListener("input", applyFilter));
+  applyFilter();
 </script>
 </body>
 </html>
