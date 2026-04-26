@@ -10,8 +10,11 @@
   header p { margin:4px 0; font-size:0.95em; color:#c0c0c0; }
   .counts { background:#2a2a2a; padding:12px 32px; display:flex; gap:32px; font-size:0.95em; color:#ddd; }
   .counts strong { color:#fff; font-size:1.15em; }
-  .filters { background:#f0f0f0; padding:10px 32px; font-size:0.9em; border-bottom:1px solid #ddd; }
-  .filters label { margin-right:16px; cursor:pointer; }
+  .filters { background:#f0f0f0; padding:12px 32px; font-size:0.9em; border-bottom:1px solid #ddd; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .filters label { cursor:pointer; display:flex; align-items:center; gap:4px; }
+  .filters select { padding:4px 8px; font-size:0.9em; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer; }
+  .filter-group { display:flex; align-items:center; gap:6px; }
+  .filter-group span { color:#666; font-size:0.85em; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; }
   table { border-collapse:collapse; width:100%; font-size:0.85em; }
   th, td { padding:8px 12px; border-bottom:1px solid #e8e8e8; text-align:left; vertical-align:top; }
   th { background:#fff; position:sticky; top:0; border-bottom:2px solid #333; font-weight:600; font-size:0.9em; }
@@ -47,9 +50,31 @@
   <span>Reject rate: <strong>95.1%</strong></span>
 </div>
 <div class="filters">
-  Filter: <input type="text" id="filterBox" placeholder="type to filter equations, cohorts, tasks, reasons…" style="padding:4px 8px; width:360px;">
-  <label><input type="checkbox" id="onlyFailed"> Only failed</label>
-  <label><input type="checkbox" id="onlyPassed"> Only passed</label>
+  <div class="filter-group">
+    <span>Search</span>
+    <input type="text" id="filterBox" placeholder="equation, gene, reason…" style="padding:4px 8px; width:260px; border:1px solid #ccc; border-radius:4px;">
+  </div>
+  <div class="filter-group">
+    <span>Cohort</span>
+    <select id="cohortSel"><option value="">All</option></select>
+  </div>
+  <div class="filter-group">
+    <span>Task</span>
+    <select id="taskSel"><option value="">All</option></select>
+  </div>
+  <div class="filter-group">
+    <span>Panel</span>
+    <select id="panelSel"><option value="">All</option></select>
+  </div>
+  <div class="filter-group">
+    <span>Verdict</span>
+    <select id="verdictSel">
+      <option value="">All</option>
+      <option value="pass">Passed ✓</option>
+      <option value="fail">Failed ✗</option>
+    </select>
+  </div>
+  <label style="margin-left:8px; color:#666; font-size:0.85em;" id="matchCount"></label>
 </div>
 <table>
 <thead>
@@ -268,28 +293,59 @@
 </tbody>
 </table>
 <footer>
-  Generated 2026-04-23T04:56:38Z by <code>src/render_rejection_log.py</code>.
+  Generated 2026-04-26T19:37:03Z by <code>src/render_rejection_log.py</code>.
   Raw data in <code>results/flagship_run/</code>, <code>results/opus_exante/</code>, <code>results/tier2_run/</code>, <code>results/track_a_task_landscape/</code>.
   Pre-registrations in <code>preregistrations/</code>.
   Live external replay (IMmotion150 PFS, PhF-3) in <code>results/track_a_task_landscape/external_replay/immotion150_pfs/</code>.
 </footer>
 <script>
-  const box = document.getElementById("filterBox");
-  const onlyFailed = document.getElementById("onlyFailed");
-  const onlyPassed = document.getElementById("onlyPassed");
-  function applyFilter() {
-    const q = box.value.toLowerCase();
+  // Populate dropdowns dynamically from data attributes
+  function populateSelect(selId, attr) {
+    const sel = document.getElementById(selId);
+    const vals = new Set();
     document.querySelectorAll("tbody tr").forEach(tr => {
-      const t = tr.innerText.toLowerCase();
-      const passes = tr.dataset.passes === "true";
-      const txt = !q || t.includes(q);
-      const passFilter = (onlyFailed.checked && passes) || (onlyPassed.checked && !passes);
-      tr.style.display = (txt && !passFilter) ? "" : "none";
+      const v = tr.dataset[attr]; if (v) vals.add(v);
+    });
+    [...vals].sort().forEach(v => {
+      const o = document.createElement("option"); o.value = v; o.textContent = v; sel.appendChild(o);
     });
   }
-  box.addEventListener("input", applyFilter);
-  onlyFailed.addEventListener("change", applyFilter);
-  onlyPassed.addEventListener("change", applyFilter);
+  populateSelect("cohortSel", "cohort");
+  populateSelect("taskSel", "task");
+  populateSelect("panelSel", "panel");
+
+  const box       = document.getElementById("filterBox");
+  const cohortSel = document.getElementById("cohortSel");
+  const taskSel   = document.getElementById("taskSel");
+  const panelSel  = document.getElementById("panelSel");
+  const verdictSel= document.getElementById("verdictSel");
+  const matchCount= document.getElementById("matchCount");
+
+  function applyFilter() {
+    const q       = box.value.toLowerCase();
+    const cohort  = cohortSel.value;
+    const task    = taskSel.value;
+    const panel   = panelSel.value;
+    const verdict = verdictSel.value;
+    let shown = 0;
+    document.querySelectorAll("tbody tr").forEach(tr => {
+      const passes = tr.dataset.passes === "true";
+      const ok =
+        (!q      || tr.innerText.toLowerCase().includes(q)) &&
+        (!cohort || tr.dataset.cohort === cohort) &&
+        (!task   || tr.dataset.task   === task)   &&
+        (!panel  || tr.dataset.panel  === panel)  &&
+        (!verdict || (verdict === "pass" ? passes : !passes));
+      tr.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    matchCount.textContent = shown + " rows";
+  }
+
+  [box, cohortSel, taskSel, panelSel, verdictSel].forEach(el =>
+    el.addEventListener(el.tagName === "SELECT" ? "change" : "input", applyFilter)
+  );
+  applyFilter(); // show initial count
 </script>
 </body>
 </html>
