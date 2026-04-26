@@ -1,6 +1,6 @@
 # CLAIM LOCK — authoritative phrasing for the submission
 
-**Last locked:** 2026-04-26 (platform generalization numbers + 107/107 test count verified).
+**Last locked:** 2026-04-26 (platform generalization numbers + 107/107 test count + PAAD/LIHC-MVI/disease-count-7 added).
 **Scope:** every judge-facing surface (README, submission form, Loom
 narration, demo script, paper, STATUS). Any rewrite in the final 48 hours
 must cross-check this file first.
@@ -67,7 +67,7 @@ README do not drift from the committed evidence when written in parallel.
 |---|---|---|
 | Total evaluations (all tasks + all disease panels) | **304** | 203 (original KIRC) + 101 (platform expansion) |
 | Platform expansion evaluations | **101** | KIRC Stage 28 + COAD 22 + LGG 25 + LIHC 26 |
-| Disease contexts covered (all public evidence layers) | **6** | Expression gate: ccRCC, COAD, LGG (GBM IDH cohort), LIHC. Role-separated review engine: DIPG, IPF |
+| Disease contexts covered (all public evidence layers) | **7** | Expression gate: ccRCC, COAD, LGG (GBM IDH cohort), LIHC (2 tasks: T-vs-N designed-negative + MVI 6/29), PAAD. Role-separated review engine: DIPG, IPF |
 | Cross-disease survivors (platform expansion, excl. original KIRC 9) | **40** | KIRC Stage 23 + COAD 15 + LGG 2 + LIHC 0 |
 | KIRC Stage I-II vs III-IV (45-gene): survivors | **23 / 28** | `results/track_a_task_landscape/stage_expanded/SUMMARY.md` |
 | KIRC Stage top AUROC | **0.689** | same (CXCR4/EPAS1) |
@@ -78,6 +78,10 @@ README do not drift from the committed evidence when written in parallel.
 | LGG top survivor AUROC | **0.840** | same (TWIST1×MKI67+VIM − CDH2/NES) |
 | LIHC Tumor vs Normal (31-gene, n=424): survivors | **0 / 26** | `results/track_a_task_landscape/lihc/SUMMARY.md` |
 | LIHC designed-negative reason | **ALB saturation ~0.985** | same |
+| LIHC MVI Micro vs None (19-gene, n=144): survivors | **6 / 29** | `results/track_a_task_landscape/lihc_mvi/SUMMARY.md` |
+| LIHC MVI top AUROC | **0.702** | same (`(TOP2A/CDH2/SOX9)/sqrt(SNAI1)` cluster) |
+| PAAD OS ≤15 vs >15 mo (19-gene, n=183): survivors | **8 / 27** | `results/track_a_task_landscape/paad_survival/SUMMARY.md` |
+| PAAD best AUROC | **0.707** | same |
 
 **Arithmetic cross-check:** 28 + 22 + 25 + 26 = 101 ✓ | 203 + 101 = 304 ✓ | 23 + 15 + 2 + 0 = 40 ✓
 

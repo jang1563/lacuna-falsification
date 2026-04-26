@@ -1,6 +1,6 @@
 # Track — TCGA-LIHC Microvascular Invasion
 
-**Run date:** 2026-04-26 (HPC PySR sweep 2812793_2; 16 CPUs, 500 iter, 3 seeds, 16 populations)
+**Run date:** 2026-04-26 (PySR sweep; 16 CPUs, 500 iter, 3 seeds, 16 populations)
 **Data:** `data/lihc_mvi.csv` (n=144; MVI present=41, MVI absent=103)
 **Panel:** 19-gene (proliferation, stemness/EpCAM, EMT, HIF/hypoxia, HCC markers)
 

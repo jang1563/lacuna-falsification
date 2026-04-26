@@ -1,6 +1,6 @@
 # Track — IPF Survival / Composite Endpoint (GSE93606)
 
-**Run date:** 2026-04-26 (HPC PySR sweep 2812793_3; 16 CPUs, 500 iter, 3 seeds, 16 populations)
+**Run date:** 2026-04-26 (PySR sweep; 16 CPUs, 500 iter, 3 seeds, 16 populations)
 **Data:** `data/ipf_bal_gse93606.csv` (n=57 IPF patients; CEP=1: 34, CEP=0: 23)
 **Tissue:** Whole blood (Affymetrix GPL11532), composite endpoint: death OR FVC decline >10%
 **Panel:** 17-gene (fibrosis markers, alveolar type II, neutrophil, ECM remodeling)

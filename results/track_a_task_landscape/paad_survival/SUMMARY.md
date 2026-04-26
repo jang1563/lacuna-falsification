@@ -1,6 +1,6 @@
 # Track — TCGA-PAAD Survival (OS ≤15 months vs >15 months)
 
-**Run date:** 2026-04-26 (HPC PySR sweep 2812793_1; 16 CPUs, 500 iter, 3 seeds, 16 populations)
+**Run date:** 2026-04-26 (PySR sweep; 16 CPUs, 500 iter, 3 seeds, 16 populations)
 **Data:** `data/paad_survival.csv` (n=183; short-OS=91, long-OS=92, median split ≈15.2 mo)
 **Panel:** 19-gene (EMT, proliferation, TGF-β/SMAD, Warburg, stromal markers)
 
