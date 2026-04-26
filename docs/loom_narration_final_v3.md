@@ -36,7 +36,7 @@
 
 ### 1:45–2:05 — Trajectory: DIPG active
 
-> *"The same engine is running now on pediatric brainstem cancer. H-three K-twenty-seven-M diffuse midline glioma. One hundred thirty failed trials. Universally fatal until August 2025 — when dordaviprone, itself a ten-year graveyard rescue, became the first approval. That pattern is what this engine systematizes. Fifteen candidates currently in the pre-registered queue."*
+> *"The same engine is running now on pediatric brainstem cancer. H-three K-twenty-seven-M diffuse midline glioma. Over two hundred fifty failed trials. Universally fatal until August 2025 — when dordaviprone, itself a ten-year graveyard rescue, became the first approval. That pattern is what this engine systematizes. Fifteen candidates currently in the pre-registered queue."*
 
 ### 2:05–2:15 — Close
 
@@ -87,6 +87,7 @@ If pace slips past 2:50: drop DIPG trajectory beat. New total ~101 s @ 140 WPM.
 - ✅ "Nine survivors on metastasis" — does NOT claim full 5-test pass
 - ✅ "Did not plant" / "rediscovered" — never "novel kidney biology"
 - ✅ "194 of 203" — never 194/204
+- ✅ "Over two hundred fifty failed trials" — literature cites >250 DIPG clinical trials; do NOT say "130" (no source for that number)
 - ✅ "Currently in the pre-registered queue" — never "DIPG cured"
 - ✅ "Itself a ten-year graveyard rescue" — Dordaviprone, Aug 2025 approval
 - ✅ "Fabricated prior-trial claims" — verified: RAINIER + Raghu 2017 both false per IPF Run #1 SHA 88eaca3

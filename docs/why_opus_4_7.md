@@ -199,9 +199,8 @@ threshold on one split. **This is p-hacking at computational speed.** The
 search space is wide enough that a high AUROC on a single cohort is nearly
 free, and confirmation bias moves from a time-limited failure of individual
 scientists to a cheap, scalable pipeline output. The empirical record
-already shows the cost: Sakana's AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066))
-had 42% of its proposed experiments fail on coding errors alone, and
-several of its "novel" ideas were rediscoveries of well-known techniques;
+already shows the cost: an independent evaluation of Sakana's AI Scientist v1 (Baumann et al., [arXiv 2502.14297](https://arxiv.org/abs/2502.14297)) found 42% of proposed experiments failing on coding errors alone, and
+several of its "novel" ideas were rediscoveries of well-known techniques; Sakana's AI Scientist v2 ([arXiv 2504.08066](https://arxiv.org/abs/2504.08066)) raised the engineering bar but the evaluation-rigor gap remains live;
 the 2025 LLM-hacking survey ([arXiv 2509.08825](https://arxiv.org/abs/2509.08825))
 measures a 31% false-conclusion rate across 13M machine-generated labels
 used as downstream evidence.
