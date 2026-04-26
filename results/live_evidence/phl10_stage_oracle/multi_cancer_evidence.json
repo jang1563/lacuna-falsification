@@ -28,5 +28,17 @@
     "top_law": "TTR \u2014 saturates single-gene baseline",
     "note": "designed negative \u2014 gate correctly refuses",
     "results_dir": "results/track_a_task_landscape/lihc/"
+  },
+  "lgg_grade": {
+    "disease": "Brain (LGG)",
+    "task": "Grade II vs Grade III",
+    "n_samples": 384,
+    "n_pass": 2,
+    "n_total": 25,
+    "top_law": "log1p(TWIST1 \u00d7 MKI67 + VIM) \u2212 CDH2/NES",
+    "top_auroc": 0.840,
+    "top_delta_baseline": 0.051,
+    "note": "HPC run 2026-04-26 (SLURM job 2812758); results_dir uses gbm_idh label",
+    "results_dir": "results/track_a_task_landscape/gbm_idh/"
   }
 }

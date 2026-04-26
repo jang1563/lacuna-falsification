@@ -30,6 +30,25 @@ from lacuna.falsification import (
 
 _DISEASE_TOKENS = {"disease", "tumor", "case", "cancer", "1", "true"}
 _NUMPY_FUNCS = ["log", "log1p", "exp", "abs", "sqrt", "sin", "cos"]
+_DEFAULT_NON_GENE_COLUMNS = {
+    "sample_id",
+    "label",
+    "age",
+    "batch_index",
+    "sex",
+    "gender",
+    "stage",
+    "m_stage",
+    "grade",
+    "time",
+    "event",
+    "os_time",
+    "os_event",
+    "survival_months",
+    "vital_status",
+    "disease_type",
+    "fvc_decline",
+}
 
 
 def _parse_labels(series: pd.Series) -> np.ndarray:
@@ -44,6 +63,14 @@ def _zscore_within_cohort(X: np.ndarray) -> np.ndarray:
     std = X.std(axis=0, keepdims=True)
     std = np.where(std < 1e-8, 1.0, std)
     return (X - mean) / std
+
+
+def _infer_gene_columns(df: pd.DataFrame, covariate_cols: list[str]) -> list[str]:
+    exclude_cols = _DEFAULT_NON_GENE_COLUMNS | set(covariate_cols)
+    return [
+        c for c in df.select_dtypes(include=[np.number]).columns
+        if c not in exclude_cols
+    ]
 
 
 def make_equation_fn(equation_str: str, col_names: list[str]):
@@ -125,8 +152,6 @@ def main() -> None:
     df = pd.read_csv(args.data)
     covariate_cols = [c.strip() for c in args.covariate_cols.split(",") if c.strip()]
     label_col = "label"
-    exclude_cols = {label_col, "sample_id"} | set(covariate_cols)
-
     if args.genes:
         requested = [g.strip() for g in args.genes.split(",") if g.strip()]
         gene_cols = [g for g in requested if g in df.columns]
@@ -142,10 +167,7 @@ def main() -> None:
                 file=sys.stderr,
             )
     else:
-        gene_cols = [
-            c for c in df.select_dtypes(include=[np.number]).columns
-            if c not in exclude_cols
-        ]
+        gene_cols = _infer_gene_columns(df, covariate_cols)
 
     if not gene_cols:
         raise ValueError(f"No gene columns resolved from data file {args.data}")

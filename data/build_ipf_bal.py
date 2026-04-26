@@ -70,6 +70,18 @@ TARGET_GENE_SYMBOLS = [
 ]
 
 
+def _characteristics_lines(meta: dict) -> list[str]:
+    raw = meta.get("characteristics_ch1", [])
+    if isinstance(raw, dict):
+        values = raw.values()
+    else:
+        values = raw
+    return [
+        item[0] if isinstance(item, list) and item else str(item)
+        for item in values
+    ]
+
+
 def _load_geoparse(accession: str) -> object:
     try:
         import GEOparse
@@ -128,12 +140,8 @@ def _parse_metadata_93606(gse: object) -> pd.DataFrame:
     records = []
     for gsm_id, gsm in gse.gsms.items():
         meta = gsm.metadata
-        chars = {k: (v[0] if isinstance(v, list) else v) for k, v in meta.get("characteristics_ch1", {}).items()}
-        # Flatten list-of-lists
-        char_str = " ".join(
-            (v[0] if isinstance(v, list) else str(v))
-            for v in meta.get("characteristics_ch1", {}).values()
-        )
+        char_lines = _characteristics_lines(meta)
+        char_str = " ".join(char_lines)
         # Disease vs control
         source = (meta.get("source_name_ch1", [""])[0] if isinstance(
             meta.get("source_name_ch1"), list) else meta.get("source_name_ch1", ""))
@@ -146,8 +154,8 @@ def _parse_metadata_93606(gse: object) -> pd.DataFrame:
         fvc_decline = None
         survival_months = None
 
-        for line in meta.get("characteristics_ch1", []):
-            l = (line[0] if isinstance(line, list) else str(line)).lower()
+        for line in char_lines:
+            l = line.lower()
             if "fvc" in l and "decline" in l:
                 # e.g. "fvc decline at 6 months: 15.2"
                 m = re.search(r"fvc.*?decline.*?:\s*([-\d.]+)", l)
@@ -178,12 +186,13 @@ def _parse_metadata_70867(gse: object) -> pd.DataFrame:
     records = []
     for gsm_id, gsm in gse.gsms.items():
         meta = gsm.metadata
+        char_lines = _characteristics_lines(meta)
         survival_months = None
         vital_status = None
         disease_type = "IPF"  # GSE70867 is all IPF
 
-        for line in meta.get("characteristics_ch1", []):
-            l = (line[0] if isinstance(line, list) else str(line)).lower()
+        for line in char_lines:
+            l = line.lower()
             if "survival" in l and "month" in l:
                 m = re.search(r":\s*([\d.]+)", l)
                 if m:

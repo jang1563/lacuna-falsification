@@ -51,10 +51,10 @@ official rules):
 
 | Criterion | Weight | Our load-bearing evidence |
 |---|---|---|
-| Impact (problem-statement fit, real-world potential) | 30% | **Platform generalization (2026-04-26 HPC, same gate + thresholds):** COAD 15/22 survivors (Δ+0.107 — highest of any run); LGG 2/25 survivors (**AUROC 0.840** — TWIST1×MKI67 interaction term); LIHC 0/26 (designed negative, gate refuses correctly); KIRC Stage 23/28 survivors. 6 cancer types total. DIPG generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF Run #1 (2026-04-25): same engine, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017) — runtime demonstration of dual-role context isolation; $58, 32 min**; DatasetCard CLI = 30-min plug-in for any disease cohort |
+| Impact (problem-statement fit, real-world potential) | 30% | **Platform generalization (2026-04-26 HPC, same gate + thresholds):** COAD 15/22 survivors (Δ+0.107 — highest of any run); LGG 2/25 survivors (**AUROC 0.840** — TWIST1×MKI67 interaction term); LIHC 0/26 (designed negative, gate refuses correctly); KIRC Stage 23/28 survivors. 6 disease contexts total. DIPG generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF Run #1 (2026-04-25): same engine, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017) — runtime demonstration of dual-role context isolation; $58, 32 min**; DatasetCard CLI = 30-min plug-in for any disease cohort |
 | Demo (working, holds up live, cool to watch) | 25% | 3-minute Loom (current 2:23-2:47 cut with KIRC + DIPG + IPF tags), 24 reproducible plots, `make demo` end-to-end, Path C Routine session URL live |
 | Opus 4.7 use (creative, beyond basic, surprises) | 25% | 180-call cross-model ablation (10/60 vs 0/60 PASS gap); PhL-15 thinking-mode confound resolution; PhL-13 memorization audit (0/10 zero-shot retrieval); 1M-context cross-reasoning synthesis on full failure history |
-| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 118/118 local tests + audit clean on package review; **IMmotion150 treatment-arm confound control: HR 1.361 (unadjusted) → 1.365 after controlling for immunotherapy vs VEGF-inhibitor arm — signal increases, confirming therapy-independence** |
+| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 101/101 current `make test` target + audit clean on package review; **IMmotion150 treatment-arm confound control: HR 1.361 (unadjusted) → 1.365 after controlling for immunotherapy vs VEGF-inhibitor arm — signal increases, confirming therapy-independence** |
 
 ---
 
@@ -108,7 +108,7 @@ Claude Code Managed Agents hold the Skeptic stance without collapse
 — Opus 4.7 10/60 PASS where Sonnet 4.6 = 0/60. IPF Run #1 ($58,
 32 min): Skeptic caught two Advocate fabrications about prior trial
 design. Any researcher with a disease CSV can run the same gate;
-**6 cancer types** tested (ccRCC, COAD, LGG, LIHC, DIPG, IPF) —
+**6 disease contexts** tested (ccRCC, COAD, LGG, LIHC, DIPG, IPF) —
 LGG AUROC 0.840 is the most striking new survivor.
 ```
 
