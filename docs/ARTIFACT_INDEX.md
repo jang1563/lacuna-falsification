@@ -75,9 +75,6 @@ the submission.
 | **Platform** | TCGA-COAD Stage I-II vs III-IV (31-gene, n=484): **15 / 22 survivors**, Δ+0.107 (highest of any run) | `results/track_a_task_landscape/coad_msi/SUMMARY.md` |
 | **Platform** | LGG Grade II vs III (30-gene, n=384): **2 / 25 survivors**, top AUROC **0.840** (TWIST1×MKI67 interaction) | `results/track_a_task_landscape/gbm_idh/SUMMARY.md` |
 | **Platform** | TCGA-LIHC Tumor vs Normal (31-gene, n=424): **0 / 26 survivors** (designed negative — ALB saturates ~0.985) | `results/track_a_task_landscape/lihc/SUMMARY.md` |
-| **Platform** | TCGA-LIHC Microvascular Invasion (19-gene, n=144): **6 / 29 survivors**, AUROC 0.702 | `results/track_a_task_landscape/lihc_mvi/SUMMARY.md` |
-| **Platform** | IPF Composite Endpoint / GSE93606 (17-gene, n=57): **6 / 25 survivors**, AUROC 0.757 | `results/track_a_task_landscape/ipf_lgrc/SUMMARY.md` |
-| **Platform** | TCGA-PAAD Overall Survival (19-gene, n=183): **8 / 27 survivors**, AUROC 0.707 | `results/track_a_task_landscape/paad_survival/SUMMARY.md` |
 | PhI-1 | Opus's own H2 proposals fail gate per Opus's own ex-ante skeptic tests | `results/overhang/phi1_h2_prospective/SUMMARY.md` |
 | PhI-2 | Auditable thinking trace — 4.7 display="omitted" → "summarized" change | `src/phi2_thinking_artefact.py`, `results/overhang/phi2_auditable_thinking/VERIFY.md` |
 | PhI-3 | LAB-Bench LitQA2 reproduction on 4.6 vs 4.7 (honest reversal: -10.5pp on closed-book recall — narrower task than the gate's output surface; intentionally excluded from main narrative with rationale in SUMMARY.md; included here for transparency) | `src/phi3_labbench_reproduce.py`, `results/overhang/phi3_labbench/SUMMARY.md` |
