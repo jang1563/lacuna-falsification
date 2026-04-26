@@ -111,8 +111,8 @@ Results: `results/track_a_task_landscape/{stage_expanded,lihc,coad_msi,gbm_idh,l
 
 | Time | Task | Owner |
 |---|---|---|
-| 2026-04-26 early AM | Record/upload Loom, then paste public URL into `docs/submission_form_draft.md` | user |
-| 2026-04-26 after Loom | Run `make smoke` + `make audit`; verify GitHub URL and demo URL both open without sign-in | both |
+| 2026-04-26 ✅ | Demo video uploaded — **https://youtu.be/ZfFD84JmdQg** | user |
+| 2026-04-26 ✅ | README + index.html + story.html + submission_form_draft.md updated with YouTube URL | both |
 | 2026-04-26 ~19:30 ET | Final pre-submit check: repo public, video public, 100-200 word summary pasted exactly | user |
 | 2026-04-26 **20:00 ET** | Submit form | user |
 

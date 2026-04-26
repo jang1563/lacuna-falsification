@@ -21,7 +21,7 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 |---|---|---|---|
 | Original 11-gene HIF-axis layer | 45-gene panel · M0/M1 · AUROC 0.726 | PFS · n=263 · p=0.0003 | Rank 1 of all C(45,2) combinations |
 
-> **Judge path:** [1. Watch demo companion →](https://jang1563.github.io/lacuna-falsification/demo.html) · [2. Read discovery story](https://jang1563.github.io/lacuna-falsification/story.html) · [3. Verify evidence](docs/ARTIFACT_INDEX.md) · [4. Run smoke](#quick-start)
+> **Judge path:** [1. ▶ Watch demo (YouTube)](https://youtu.be/ZfFD84JmdQg) · [2. Read discovery story](https://jang1563.github.io/lacuna-falsification/story.html) · [3. Verify evidence](docs/ARTIFACT_INDEX.md) · [4. Run smoke](#quick-start)
 >
 > **Evidence surfaces:** [Dashboard](https://jang1563.github.io/lacuna-falsification/) · [Full rejection log](https://jang1563.github.io/lacuna-falsification/rejection-log.html) · [FMAI paper](docs/paper/paper_fmai.md) · [Demo walkthrough](docs/demo_walkthrough.md)
 
