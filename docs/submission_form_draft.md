@@ -52,9 +52,9 @@ official rules):
 | Criterion | Weight | Our load-bearing evidence |
 |---|---|---|
 | Impact (problem-statement fit, real-world potential) | 30% | **Platform generalization (2026-04-26 HPC, same gate + thresholds):** COAD 15/22 survivors (Δ+0.107 — highest of any run); LGG 2/25 survivors (**AUROC 0.840** — TWIST1×MKI67 interaction term); LIHC 0/26 (designed negative, gate refuses correctly); KIRC Stage 23/28 survivors. 6 disease contexts total. DIPG generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF Run #1 (2026-04-25): same engine, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017) — runtime demonstration of dual-role context isolation; $58, 32 min**; DatasetCard CLI = 30-min plug-in for any disease cohort |
-| Demo (working, holds up live, cool to watch) | 25% | 3-minute Loom (current 2:23-2:47 cut with KIRC + DIPG + IPF tags), 24 reproducible plots, `make demo` end-to-end, Path C Routine session URL live |
-| Opus 4.7 use (creative, beyond basic, surprises) | 25% | 180-call cross-model ablation (10/60 vs 0/60 PASS gap); PhL-15 thinking-mode confound resolution; PhL-13 memorization audit (0/10 zero-shot retrieval); 1M-context cross-reasoning synthesis on full failure history |
-| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 101/101 current `make test` target + audit clean on package review; **IMmotion150 treatment-arm confound control: HR 1.361 (unadjusted) → 1.365 after controlling for immunotherapy vs VEGF-inhibitor arm — signal increases, confirming therapy-independence** |
+| Demo (working, holds up live, cool to watch) | 25% | 3-minute Loom (current 2:23-2:47 cut with KIRC + DIPG + IPF tags), 24 reproducible plots, `make demo` end-to-end, **2 live Routine session URLs** (PhL-8d `session_01CgsJYAP…` + PhL-10 `session_01XGse8X…`) |
+| Opus 4.7 use (creative, beyond basic, surprises) | 25% | 180-call cross-model ablation (10/60 vs 0/60 PASS gap); **Opus 4.6 vs 4.7 ACR: 53.3%→66.7% (+13.3pp, G6)** — 4.7 PASS 10/10 clean survivors, NEEDS_MORE_TESTS 10/10 stress-test, zero over-commitment; **prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 skeletons before gate; 0/4 survived; all 4 predicted failures confirmed**; PhL-15 thinking-mode confound resolution; PhL-13 memorization audit (0/10 zero-shot retrieval); 1M-context cross-reasoning synthesis on full failure history |
+| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 120/120 current `make test` target + audit clean on package review; **IMmotion150 treatment-arm confound control: HR 1.361 (unadjusted) → 1.365 after controlling for immunotherapy vs VEGF-inhibitor arm — signal increases, confirming therapy-independence** |
 
 ---
 
@@ -148,9 +148,7 @@ The test is executed by plain Python, not Opus. (3) Skeptic reviews
 the specific metric pattern (`perm_p=0.049` is weaker than `0.001`;
 `ci_lower=0.61` is marginal) and emits PASS / FAIL / NEEDS_MORE_TESTS.
 (4) Interpreter writes the mechanism hypothesis and the "what this is
-not" paragraph. **180-call cross-model ablation: Sonnet 4.6 = 0/60
-PASS on gate-PASS candidates (full dissent collapse); Opus 4.7 =
-10/60 — pre-training calibration gap, not thinking budget**. **Memorization audit (PhL-13): 0/10 zero-shot retrieval of TOP2A−EPAS1 — rebuts
+not" paragraph. **180-call cross-model ablation: Sonnet 4.6 = 0/60 PASS on gate-PASS candidates (full dissent collapse); Opus 4.7 = 10/60. Confound-resolved: Opus ran WITHOUT extended thinking (HTTP 400 on `enabled` type; retried base) vs Sonnet WITH extended thinking — Opus wins anyway. Gap is pre-training calibration, not thinking budget.**. **Memorization audit (PhL-13): 0/10 zero-shot retrieval of TOP2A−EPAS1 — rebuts
 memorization concern.** **IPF Run #1 (2026-04-25): Skeptic caught
 two Advocate fabrications about prior trial design — RAINIER + Raghu
 2017 prespecified stratifiers Advocate claimed "never tested". Context
@@ -174,7 +172,7 @@ layer**: `lacuna-scientific-oracle` receives an equation via API
 trigger, autonomously runs `make venv` + `make audit` +
 `falsification_sweep.py` (1000 perm/bootstrap, n=505), emits
 structured PASS/FAIL verdict — pre-registered kill-tests firing
-without being asked (PhL-8d: `session_01CgsJYAPdvhJJwTuBt7QZLZ`; PhL-10 stage: `session_01XGse8XYFtv3C1aKLZeMH9t`). Durability:
+without being asked (PhL-8d: `session_01CgsJYAPdvhJJwTuBt7QZLZ`; PhL-10 stage: `session_01XGse8XYFtv3C1aKLZeMH9t` — static evidence in SUMMARY.md if URLs expire). Durability:
 `persist_session_events` → `replay_session_from_log` (brain/body
 decoupling). Memory stores accumulate rejection lessons cross-session.
 IPF Run #1 ($58, 32 min): Skeptic caught two fabricated trial-design
@@ -182,7 +180,7 @@ claims — what a single-context harness cannot catch.
 
 ---
 
-## Prize category justification (100 words, 99 counted)
+## Prize category justification (100 words, **106 counted** — ~6 over inferred cap; trim at paste time)
 
 **Best use of Claude Managed Agents ($5K).** Public-beta-only Managed
 Agents orchestration with isolated sessions: three live paths — B

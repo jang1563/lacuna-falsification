@@ -16,7 +16,7 @@
 - **`.devcontainer/devcontainer.json`** — judges can click "Open in GitHub Codespaces" and reach `make test` green in ~2 min.
 - **`.claude/skills/falsification-gate/SKILL.md`** — Claude Code skill wrapping the gate as a discoverable, deterministic verification primitive.
 - GitHub repo renamed to **`jang1563/lacuna-falsification`** on 2026-04-26; old Theory Copilot URL redirects.
-- 101/101 local-runnable tests in the current `make test` target · 2026-04-26 `make smoke` OK · GitHub public, `make all` runnable end-to-end without credentials.
+- 120/120 local-runnable tests in the current `make test` target · 2026-04-26 `make smoke` OK · GitHub public, `make all` runnable end-to-end without credentials.
 
 ## 🧪 Phase L artefact ledger (this hackathon's contributions)
 
@@ -82,7 +82,7 @@ Results: `results/track_a_task_landscape/{stage_expanded,lihc,coad_msi,gbm_idh}/
 
 ## 🛠 Code health
 
-- 101/101 local-runnable tests pass via `make test` (review/staging suites are intentionally ignored by that target).
+- 120/120 local-runnable tests pass via `make test` (review/staging suites are intentionally ignored by that target).
 - 2026-04-26 `make smoke` OK after final packaging review; the smoke target now runs critical imports, a tiny deterministic gate sanity check, compliance audit, and artefact-presence checks.
 - `make audit` OK — institutional-identifier scan + API-key-shape regex (`sk-ant-api{2}-{6}`) clean.
 - `make all` (no API key) reproduces: tests + audit + prereg-audit + rejection-log + paper PDF.

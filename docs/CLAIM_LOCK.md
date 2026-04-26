@@ -54,7 +54,7 @@ README do not drift from the committed evidence when written in parallel.
 | Haiku 4.5 PASS / 60 | **14 / 60** | same |
 | Sonnet 4.6 PASS / 60 | **0 / 60** | same |
 | Memory chain lessons (PhL-12) | **8** | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
-| Local tests | **118 / 118** | `.venv/bin/python -m pytest`, 2026-04-25 package review |
+| Local tests | **120 / 120** | `make test`, current local-runnable target; review/staging suites intentionally excluded |
 | PhL artefact count | **20** (PhL-1 to PhL-19 + PhL-9v2) | `STATUS.md` |
 | Memorization audit (PhL-13): zero-shot TOP2A-EPAS1 exact top | **0 / 10** | `results/live_evidence/phl13_memorization_audit/SUMMARY.md` |
 | Memorization audit: literature-anchor rediscovery | **2 / 2** structurally-equivalent | same |
@@ -67,7 +67,7 @@ README do not drift from the committed evidence when written in parallel.
 |---|---|---|
 | Total evaluations (all tasks + all disease panels) | **304** | 203 (original KIRC) + 101 (platform expansion) |
 | Platform expansion evaluations | **101** | KIRC Stage 28 + COAD 22 + LGG 25 + LIHC 26 |
-| Disease types tested (classification gate) | **6** | ccRCC, COAD, LGG (GBM IDH cohort), LIHC, DIPG, IPF |
+| Disease contexts covered (all public evidence layers) | **6** | Expression gate: ccRCC, COAD, LGG (GBM IDH cohort), LIHC. Role-separated review engine: DIPG, IPF |
 | Cross-disease survivors (platform expansion, excl. original KIRC 9) | **40** | KIRC Stage 23 + COAD 15 + LGG 2 + LIHC 0 |
 | KIRC Stage I-II vs III-IV (45-gene): survivors | **23 / 28** | `results/track_a_task_landscape/stage_expanded/SUMMARY.md` |
 | KIRC Stage top AUROC | **0.689** | same (CXCR4/EPAS1) |
