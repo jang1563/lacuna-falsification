@@ -62,11 +62,12 @@ HANDOFF_to_*.md
 # Playwright CLI session snapshots (local browser test artifacts)
 .playwright-cli/
 
-# IPF research notes + HPC briefings (local-only — contain infrastructure references)
+# IPF research notes + HPC briefings + internal track planning (local-only)
 research/IPF_*.md
 research/ipf_*.md
 research/SESSION_HANDOFF_ipf*.md
 research/HPC_*.md
+research/TRACK_*.md
 
 # Internal session-coordination and authoring docs (not judge-facing)
 SESSION_COORDINATION.md
@@ -77,3 +78,7 @@ docs/loom_recording_guide.md
 docs/narrative_candidates_*.md
 docs/judging_criteria_audit.md
 docs/stage1_self_audit.md
+docs/capability_overhang_measurements.md
+docs/capability_overhang_summary.md
+docs/hpc_session_prompt_platform_generalization.md
+docs/clinical_utility.md
