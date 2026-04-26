@@ -240,7 +240,7 @@ scaling perturbations before we over-commit to the narrative.
 ## Platform generalization (2026-04-26 HPC expansion)
 
 Same pre-registered gate extended to 3 additional cancer types. All runs use conda env `lacuna-pysr`
-on Cayuga HPC (20 CPUs, SLURM job 2812758): 20 populations × 50 pop_size × 1000 iterations × 3 seeds.
+on HPC (20 CPUs): 20 populations × 50 pop_size × 1000 iterations × 3 seeds.
 
 | Cancer | Task | Panel | n | Top law | AUROC | Δbase | Survivors |
 |---|---|---|---|---|---|---|---|
