@@ -51,7 +51,7 @@ official rules):
 
 | Criterion | Weight | Our load-bearing evidence |
 |---|---|---|
-| Impact (problem-statement fit, real-world potential) | 30% | **Platform generalization (2026-04-26 HPC, same gate + thresholds):** COAD 15/22 survivors (Δ+0.107 — highest of any run); LGG 2/25 survivors (**AUROC 0.840** — TWIST1×MKI67 interaction term); LIHC 0/26 (designed negative, gate refuses correctly); KIRC Stage 23/28 survivors. 6 disease contexts total. DIPG generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF Run #1 (2026-04-25): same engine, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017) — runtime demonstration of dual-role context isolation; $58, 32 min**; DatasetCard CLI = 30-min plug-in for any disease cohort |
+| Impact (problem-statement fit, real-world potential) | 30% | **Platform generalization (2026-04-26 HPC, same gate + thresholds):** COAD (colon) 15/22 survivors (Δ+0.107 — highest of any run); LGG (brain glioma) 2/25 survivors (**AUROC 0.840** — TWIST1×MKI67 interaction term); LIHC (liver) 0/26 (designed negative, gate refuses correctly); KIRC (kidney) Stage 23/28 survivors. 6 disease contexts total. DIPG (pediatric brain cancer) generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (pediatric brain tumor atlas, n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF (lung fibrosis) Run #1 (2026-04-25): same engine, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017) — runtime demonstration of dual-role context isolation; $58, 32 min**; DatasetCard CLI = 30-min plug-in for any disease cohort |
 | Demo (working, holds up live, cool to watch) | 25% | 3-minute Loom (current 2:23-2:47 cut with KIRC + DIPG + IPF tags), 24 reproducible plots, `make demo` end-to-end, **2 live Routine session URLs** (PhL-8d `session_01CgsJYAP…` + PhL-10 `session_01XGse8X…`) |
 | Opus 4.7 use (creative, beyond basic, surprises) | 25% | 180-call cross-model ablation (10/60 vs 0/60 PASS gap); **Opus 4.6 vs 4.7 ACR: 53.3%→66.7% (+13.3pp, G6)** — 4.7 PASS 10/10 clean survivors, NEEDS_MORE_TESTS 10/10 stress-test, zero over-commitment; **prospective meta-calibration (PhI-1): Opus wrote kill-tests for 4 skeletons before gate; 0/4 survived; all 4 predicted failures confirmed**; PhL-15 thinking-mode confound resolution; PhL-13 memorization audit (0/10 zero-shot retrieval); 1M-context cross-reasoning synthesis on full failure history |
 | Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 120/120 current `make test` target + audit clean on package review; **IMmotion150 treatment-arm confound control: HR 1.361 (unadjusted) → 1.365 after controlling for immunotherapy vs VEGF-inhibitor arm — signal increases, confirming therapy-independence** |
@@ -128,15 +128,15 @@ AI-for-Science tools accelerate hypothesis generation — not
 rejection. The result: automated confirmation bias.
 
 A deterministic 5-test Python gate rejected 194 of 203 candidates
-on TCGA-KIRC (n=505). The survivor — `TOP2A − EPAS1` — is the
-published ccA/ccB subtype axis (Brannon 2010), re-derived from
+on kidney cancer data (TCGA-KIRC, n=505). The survivor — `TOP2A − EPAS1` — is the
+published kidney-cancer subtype axis (Brannon 2010), re-derived from
 unconstrained symbolic regression. **This is not a new discovery:
 it is a methodology proof.** A methodology that finds known truth
 under a gate it cannot rationalize past proves it can find unknown
 truth. The survivor passed a separately pre-registered survival gate
-on IMmotion150 (HR=1.36, p=0.0003); our own 3-gene extension?
-Killed by that same survival gate. Claude Code Routines run this
-discipline on every commit — pre-registration without being asked.
+on IMmotion150 (a kidney cancer clinical trial; HR=1.36, p=0.0003);
+our own 3-gene extension? Killed by that same survival gate. Claude Code
+Routines run this discipline on every commit — pre-registration without being asked.
 
 ---
 
@@ -167,8 +167,8 @@ three public-beta sessions (Proposer, Skeptic, Interpreter) with
 structured-JSON handoff. The Skeptic never sees the Proposer's
 reasoning tokens — context isolation is the load-bearing design
 choice. Path B proves single-agent `agent_toolset_20260401`
-end-to-end. Path A proves a sequential three-session chain on real
-TCGA-KIRC (PhL-9v2: Skeptic quotes `delta_baseline=+0.0587`). Path
+end-to-end. Path A proves a sequential three-session chain on real kidney cancer
+data (TCGA-KIRC; PhL-9v2: Skeptic quotes `delta_baseline=+0.0587`). Path
 C proves Claude Code Routines as the **methodology persistence
 layer**: `lacuna-scientific-oracle` receives an equation via API
 trigger, autonomously runs `make venv` + `make audit` +
@@ -187,7 +187,7 @@ claims — what a single-context harness cannot catch.
 **Best use of Claude Managed Agents ($5K).** Public-beta-only Managed
 Agents orchestration with isolated sessions: three live paths — B
 (single-agent `agent_toolset_20260401`), A (PhL-9 sequential
-three-session chain on real TCGA-KIRC, structured-JSON handoff), C
+three-session chain on real kidney cancer data, structured-JSON handoff), C
 (PhL-8d metastasis FAIL+PASS `session_01CgsJYAP…`; PhL-10 stage FAIL+PASS `session_01XGse8X…` — 2 live sessions). Plus Memory public beta (integrated
 2026-04-23 day-of): Skeptic writes rejection lessons; fresh sessions
 read, quote, refine them; server-side persistence verified via raw
@@ -229,11 +229,11 @@ assets: `docs/loom_script.md` (pre-narration shot list) +
 
 Opus 4.7 proof-of-concept of a larger program (NegBioDB + failure
 network + rescue engine for prematurely-rejected clinical hypotheses).
-Same 4-role engine re-run on 15 H3 K27M DMG rescue hypotheses
+Same 4-role engine re-run on 15 H3 K27M DMG (pediatric brainstem cancer) rescue hypotheses
 (locked-before-output git SHA 8a4ecc5): 7 supported, 7 mixed, 1
-insufficient; top lead CED-delivered MTX110 panobinostat (13/15
+insufficient; top lead: panobinostat via CED (direct brain tumor drug delivery, 13/15
 delivery class). Tier-1 prognostic-substrate gate then re-tested 4
-candidates on PBTA v15 (n=192 survival-evaluable, 182 events): 0
-PASS, 2 FAIL, 2 UNDERPOWERED — intended falsifier output. **IPF Run
+candidates on PBTA v15 (pediatric brain tumor atlas, n=192 survival-evaluable, 182 events): 0
+PASS, 2 FAIL, 2 UNDERPOWERED — intended falsifier output. **IPF (lung fibrosis) Run
 #1: 1/5 supported, two Advocate fabrications caught (2026-04-25).**
 Research-grade hypotheses; prospective validation required.
