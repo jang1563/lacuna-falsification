@@ -97,6 +97,19 @@ section evidences. Full artefact table at
   `results/live_evidence/04_managed_agents_e2e.log`
   (`agents.create` → `environments.create` → `sessions.create` →
   `stream` → `send` → `session.status_idle`).
+  Two substrate details that map directly to the kickoff guidance:
+  (a) optional `pin_version=True` (`run_path_b` in
+  `managed_agent_runner.py`) binds each session to an immutable
+  `{type:'agent', version:N}` reference — the V1 / V2 versioned-resource
+  pattern Michael Cohen described as Managed Agents' core auditability
+  primitive at the 2026-04-23 session;
+  (b) `agent_toolset_20260401` is an auto-execute bundle (bash + read
+  + write + edit + glob + grep + web), the substrate-level analogue of
+  Boris Cherny's *"auto mode for permissions"* (kickoff 2026-04-21).
+  This is what lets the 706 s Path-A chain (PhL-9) complete in one
+  transcript without per-tool approval pauses; risky destructive scope
+  remains bounded by the workspace's API-key permissions, not the
+  toolset.
 - **Path A — sequential falsification chain.** Per the hackathon fairness
   rule (2026-04-23, Anthropic: Agent Teams / `callable_agents` multi-agent
   research-preview access is disabled for participants, only public-beta
@@ -110,11 +123,15 @@ section evidences. Full artefact table at
   exercised in the submitted run.
 - **Path C — Claude Code Routines (separate product).** `POST
   /v1/claude_code/routines/{trig_id}/fire` with per-routine bearer
-  token (`src/theory_copilot/routines_client.py`). GitHub trigger
-  categories: `pull_request` + `release`. Local watch-dir / cadence
-  loop runs when no token is configured, so the replication watchdog
-  ships regardless of whether the Routines research preview is
-  available to the reviewer's account.
+  token (`src/theory_copilot/routines_client.py`). Live evidence
+  (PhL-8) uses the **API trigger**; the same routine binding also
+  accepts **Schedule** (cron, ≥1 h) and **GitHub** (`pull_request` +
+  `release` event categories) triggers via the same web UI — these are
+  config changes, not code changes (`fire_routine` is trigger-agnostic
+  on the client side). Local watch-dir / cadence loop runs when no
+  token is configured, so the replication watchdog ships regardless
+  of whether the Routines research preview is available to the
+  reviewer's account.
 - **Durability:** `persist_session_events` pages `sessions.events.list`
   into JSONL; `replay_session_from_log` re-injects user-origin events
   into a different session. Brain/body decoupling as a working
