@@ -6,13 +6,13 @@
 <img src="https://img.shields.io/badge/Built_with-Claude_Opus_4.7-1E3A8A?style=flat-square" alt="Built with Claude Opus 4.7" />
 <img src="https://img.shields.io/badge/Hackathon-Cerebral_Valley_2026-faf9f5?labelColor=141413&style=flat-square" alt="Cerebral Valley Hackathon 2026" />
 
-Lacuna is a **falsification-first** pipeline for biological law discovery, built around Opus 4.7. A verification-isolated three-session loop (Proposer / Skeptic / Interpreter, each in its own Managed Agents session with separate context windows) proposes compact symbolic laws; a pre-registered five-test Python gate — running **before** any LLM judgement — rejects the ones that can't survive contact with held-out biology. On real TCGA-KIRC the gate **rejects 194 of 203 candidate evaluations under the 5-test classification gate** across 11 task × panel combinations; **9 candidates pass on metastasis** (45-gene expanded panel), led by `TOP2A − EPAS1` — the published ccA/ccB ccRCC subtype axis, rediscovered from unconstrained symbolic regression. The 2-gene law then **replicates on the independent IMmotion150 Phase-2 trial cohort** (n=263, log-rank p=0.0003, Cox HR=1.36, 7.5-month median-PFS gap) under **three separately pre-registered survival kill tests** (log-rank on median split, Cox HR per z-score, Harrell C-index) — a different gate, not the same 5-test classification gate, committed before the survival analysis ran. When the system's own H1 LLM-SR loop later proposed a 3-gene extension (adding `SLC22A8`), that **extension failed the same separately pre-registered IMmotion150 survival replay** ([PhL-1, commit 60d3952](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md)) — **our own downstream best output, killed by our own gate on independent data**. That is what a verification loop looks like when the judgment function is outside the model.
+The gate rejected 194 of 203. What survived is `TOP2A − EPAS1`. A pre-registered deterministic falsification gate running under Opus 4.7 — it cannot be negotiated, rejects its own proposed laws, then interprets what remains. When the system's own best downstream output (a 3-gene extension) was tested on independent data, the same gate rejected it too.
 
-> **Honest scoping note.** The 9 metastasis survivors clear 4 active tests of the 5-test gate — the `delta_confound` leg is null for all 9 because the metastasis task has no non-degenerate covariates after filtering. The gate design specifies this as "run the confound leg when covariates vary; otherwise skip." So "5-test gate" here is the *framework*; the *active* legs for metastasis are permutation, bootstrap CI lower-bound, sign-invariant single-feature baseline, and decoy null. See `docs/methodology.md §3` for the exact specification.
+Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 2026
 
-> **On rediscovery as evaluation.** Re-deriving the published ccA/ccB axis under a pre-registered gate — without seeding the law family — is the evaluation paradigm formalised by FIRE-Bench ([arXiv 2602.02905](https://arxiv.org/abs/2602.02905)), where current SOTA agents score <50 F1 on rediscovering established findings. The contribution here is the workflow that produces that recovery deterministically, not a claim of novel biology.
-
-Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2026 · Claude Code did the plumbing; domain knowledge did the framing.
+| **194 / 203 rejected** | **AUROC 0.726** | **HR 1.36** on IMmotion150 | **Rank 1 / 990** Rashomon |
+|---|---|---|---|
+| 5-test gate · TCGA-KIRC n=505 | 45-gene panel · M0/M1 metastasis | PFS · n=263 · p=0.0003 | Best of all C(45,2) 2-gene pairs |
 
 ---
 
@@ -32,114 +32,49 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
 
 ---
 
-## Read first (by persona)
+## Judging criteria
 
-- **If you are evaluating the agentic / Claude-Code architecture:**
-  start with [`docs/methodology.md §4`](docs/methodology.md) (three
-  Managed Agents sessions with verification isolation and a verified
-  Path B run) and
-  [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py).
-  Live agent / environment / session / stream trace is at
-  [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log).
-  Submission run uses public-beta features only: Path B (single agent,
-  `agent_toolset_20260401`), Path A as a sequential chain of three Path
-  B sessions with structured-JSON handoff, Path C via Claude Code
-  Routines `/fire` with local watch-dir fallback.
-  Brain/body-decouple demo: `lacuna persist-events` +
-  `replay-events` CLI two-liner.
-  Two Agent Skills wrap the methodology as natural-language entry
-  points: [`.claude/skills/falsification-gate/SKILL.md`](.claude/skills/falsification-gate/SKILL.md)
-  applies the pre-registered 5-test gate to a candidate, and
-  [`.claude/skills/pre-register-claim/SKILL.md`](.claude/skills/pre-register-claim/SKILL.md)
-  locks a claim's kill-tests into a tamper-evident YAML before any
-  fit runs. Compose them as `pre-register-claim` → `falsification-gate`;
-  the second skill reads the YAML the first emits.
-  **Context isolation in practice (IPF Run #1,
-  [`results/external_validation_ipf/`](results/external_validation_ipf/)):**
-  the same isolation architecture applied to idiopathic pulmonary
-  fibrosis. The Skeptic session (separate context window, never
-  seeing Advocate tokens) caught **2 fabricated prior-trial claims**
-  — the Advocate stated RAINIER and Raghu 2017 had never tested
-  specific patient stratifiers; both were false. $58.28 · 32 minutes.
-  A single-context pipeline rationalises its own framing; isolation
-  makes fabrication visible.
-  **Memorization audit
-  ([results/live_evidence/phl13_memorization_audit/](results/live_evidence/phl13_memorization_audit/SUMMARY.md)):**
-  in 10 zero-shot retrieval probes, Opus 4.7 named IGFBP3 as its
-  most probable ccRCC metastasis law 8/10 times. `TOP2A−EPAS1` was
-  never retrieved zero-shot. PySR found it; Opus did not recall it.
-- **If you are evaluating developer experience and reproducibility:** `make
-  venv && make smoke && make audit` is the quickest no-key confidence
-  path (~1 min after install on this laptop); `make test` runs the full local-runnable
-  suite (118 tests, several minutes on a laptop, no API key needed). The
-  `make demo` / `make
-  demo-kirc` targets are scaffolding for the full pipeline (Opus call
-  + PySR sweep + falsification sweep + replay) and require an
-  ANTHROPIC_API_KEY plus the multi-step manual handoff that `compare`
-  prints; treat them as a guided walkthrough of the Night-2 / Night-3
-  / Night-4 sequence rather than a single one-shot end-to-end target.
-  all judge-facing docs in `docs/` are ≤ 400 lines, all figures in
-  `results/plots/` and `results/track_a_task_landscape/plots/` are
-  reproducible from `src/make_plots.py`, `src/plot_track_a.py`,
-  `src/track_a_survivor_plots.py`. `make audit` returns `OK` on
-  every commit — the compliance check runs against a pattern file
-  in `.audit-patterns`.
-- **If you are evaluating real-world impact and accessibility:**
-  the project started as a bioinformatics-postdoc
-  question about confirmation bias in AI-for-Science and ends with
-  a concrete engineering artefact that rejects textbook biology the
-  researcher had expected to survive and accepts a 2-gene subtype
-  axis the researcher had *not* planted. The user-side workflow for
-  a new task is "drop a CSV with a label column and a gene-name
-  columns, run `lacuna compare --dataset-card <your_card>.json`,
-  read the pass/fail table." See
-  [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) for the
-  full reproducible steps and [`docs/paper/paper.pdf`](docs/paper/paper.pdf)
-  for the 6-page methodology + results write-up in workshop-paper
-  form.
-- **If you are evaluating the science (domain-expert):** start with
-  [`results/track_a_task_landscape/SUMMARY.md`](results/track_a_task_landscape/SUMMARY.md)
-  (4-task cross-matrix, both panel sizes), then
-  [`results/track_a_task_landscape/survivor_robustness/SUMMARY.md`](results/track_a_task_landscape/survivor_robustness/SUMMARY.md)
-  (6-axis stress test of the `TOP2A − EPAS1` survivor, with the
-  explicit caveat on the pair-with-interaction baseline), then
-  [`results/track_b_gate_robustness/SUMMARY.md`](results/track_b_gate_robustness/SUMMARY.md)
-  (6-axis robustness of the reject verdict). The Phase G + I rigor
-  extensions add five pre-registered analyses on the same survivor
-  (12/13 of their own predictions PASS, 1 honest FAIL):
-  [`rigor_extension/SUMMARY.md`](results/track_a_task_landscape/rigor_extension/SUMMARY.md)
-  (G2: AUPRC 0.321 / 2.05× lift, Brier 0.122, calibration slope 0.979),
-  [`knockoff_v2/SUMMARY.md`](results/track_a_task_landscape/knockoff_v2/SUMMARY.md)
-  (G1: 0/45 individually selected — signal is genuinely compound),
-  [`rashomon_set/SUMMARY.md`](results/track_a_task_landscape/rashomon_set/SUMMARY.md)
-  (I2: rank 1/990 in 2-gene-difference class, tight set = 3 pairs),
-  [`clinical_utility/SUMMARY.md`](results/track_a_task_landscape/clinical_utility/SUMMARY.md)
-  (I3: Cohen's d 0.856, OR 2.07/SD; honest screening-FAIL on P3),
-  [`information_theory/SUMMARY.md`](results/track_a_task_landscape/information_theory/SUMMARY.md)
-  (I4: simple difference captures 98.1% of bivariate joint MI).
-  Every reported number has a JSON file behind it in the same directory.
-  **Interpreter role quality ablation
-  ([results/live_evidence/phl19_interpreter_depth/](results/live_evidence/phl19_interpreter_depth/SUMMARY.md)):**
-  Opus 4.7 achieves 100% caveat rate, 100% downstream-prediction
-  rate, and averages 12 citations per interpretation; Sonnet 4.6 and
-  Haiku 4.5 both reach 0% on caveat and prediction dimensions. The
-  "what this is NOT" paragraph (not a diagnostic biomarker / not novel
-  biology / not superior to the paired LR baseline) is Opus-specific
-  at this task complexity.
-  **5-verdict replication chain:**
-  TCGA-KIRC metastasis PASS (AUROC 0.726) →
-  IMmotion150 PFS PASS (HR 1.36 · 7.53-month gap) →
-  GSE53757 stage PASS (AUROC 0.714) →
-  GSE53757 tumor-vs-normal expected FAIL ✓ (tumor-marker saturation) →
-  TCGA-BRCA tumor-vs-normal expected FAIL ✓ (cross-cancer mismatch).
-  Three platforms; two endpoint types; falsification biting on both
-  sides.
-- **If you are time-boxed (5 minutes) and want to challenge the claims:**
-  read [`docs/judge_faq.md`](docs/judge_faq.md). It consolidates the
-  12 most-likely reviewer challenges (rediscovery vs discovery,
-  AUROC ceiling, cohort independence, Sonnet drop-in, memorisation
-  audit, `delta_confound` null caveat) with 30-second answers and
-  direct links to the load-bearing evidence file for each.
+| Axis | Weight | Entry point |
+|---|---|---|
+| **Opus 4.7 use** | 25% | [`docs/methodology.md §4`](docs/methodology.md) — three isolated Managed Agents sessions · [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) — Path A/B/C · [PhL-8 Routines live](results/live_evidence/phl8_routine_fire/) · [180-call Skeptic ablation](results/ablation/SUMMARY.md): Opus 10/60 PASS vs Sonnet 0/60 |
+| **Impact** | 30% | [IPF Run #1](results/external_validation_ipf/) — Skeptic caught 2 fabricated trial-design claims ($58 · 32 min) · 3 diseases (ccRCC · DIPG · IPF) · [`DatasetCard`](config/dataset_cards/) plug-in for any disease CSV |
+| **Demo** | 25% | Loom video (≤3 min) · `make venv && make smoke` (no API key, < 60 s) · [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) |
+| **Depth & execution** | 20% | [12/13 G+I predictions PASS](results/track_a_task_landscape/rigor_extension/SUMMARY.md) · [own-output killed by own gate (PhL-1)](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md) · [14-question `judge_faq.md`](docs/judge_faq.md) |
+
+---
+
+## Start here (by role)
+
+> **Navigator:** [`docs/ARTIFACT_INDEX.md`](docs/ARTIFACT_INDEX.md) is the canonical 60-second tour — every claim maps to exactly one artefact. If a claim is not in that index, it is not in the submission.
+
+**Agentic architecture (Boris, Lydia)**
+- [`docs/methodology.md §4`](docs/methodology.md) — three isolated Managed Agents sessions (Proposer / Skeptic / Interpreter); separate context windows by design, not convention
+- [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) — Path A (sequential 3-session chain) · Path B (single agent, `agent_toolset_20260401`) · Path C (Routines `/fire` HTTP client)
+- [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log) — live agent/environment/session/stream trace
+- Two Skills: [`falsification-gate`](.claude/skills/falsification-gate/SKILL.md) (gate a candidate) + [`pre-register-claim`](.claude/skills/pre-register-claim/SKILL.md) (lock kill-tests before fit); compose in sequence
+- Brain/body decoupling: `lacuna persist-events` → `replay-events` — session event log survives harness crashes; re-injects client-originated events into a fresh session
+- [`docs/managed_agents_evidence_card.md`](docs/managed_agents_evidence_card.md) — 20 PhL experiments with per-session event counts, wall-clock times, and cost; cross-reference table for all 3 paths
+- **Context isolation in practice:** IPF Run #1 [`results/external_validation_ipf/`](results/external_validation_ipf/) — Skeptic (separate context, never sees Advocate tokens) caught 2 fabricated trial-design claims. $58.28 · 32 min.
+- **Memorization control** [`phl13_memorization_audit`](results/live_evidence/phl13_memorization_audit/SUMMARY.md): 0 / 10 zero-shot retrievals returned `TOP2A−EPAS1`. PySR found it; Opus did not recall it.
+
+**DX and reproducibility (Lydia, Ado)**
+- `make venv && make smoke` — passes in < 60 s, no API key needed
+- [`src/README.md`](src/README.md) — map of all 60+ `src/` scripts organized by track
+- [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) — one-click Codespaces
+- `make test` — 118 local-runnable tests (no API key); `make audit` — compliance grep, passes on every commit
+
+**Real-world impact (Ado, Jason)**
+- 3 diseases with the same gate and thresholds: ccRCC (flagship) · DIPG ([`results/external_validation_dipg/`](results/external_validation_dipg/)) · IPF ([`results/external_validation_ipf/`](results/external_validation_ipf/))
+- Plug-in workflow: drop any disease CSV → `lacuna compare --dataset-card <card>.json` → pass/fail table in ~30 min; see [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md)
+- IPF Run #1: Skeptic caught 2 fabricated claims about prior trial design (RAINIER, Raghu 2017). $58.28 · 32 min. See [`results/external_validation_ipf/`](results/external_validation_ipf/)
+
+**Scientific depth (domain expert)**
+- 5-verdict replication chain: TCGA-KIRC PASS (AUROC 0.726) → IMmotion150 PASS (HR 1.36) → GSE53757 stage PASS (AUROC 0.714) → GSE53757 T-vs-N exp. FAIL ✓ → TCGA-BRCA T-vs-N exp. FAIL ✓ — 3 platforms, 2 endpoint types
+- G + I rigor package (12 / 13 predictions PASS): [`rigor_extension`](results/track_a_task_landscape/rigor_extension/SUMMARY.md) (G2: AUPRC 0.321, Brier 0.122, calibration slope 0.979) · [`knockoff_v2`](results/track_a_task_landscape/knockoff_v2/SUMMARY.md) (G1: 0/45 genes selected — signal is genuinely compound) · [`rashomon_set`](results/track_a_task_landscape/rashomon_set/SUMMARY.md) (I2: rank 1/990) · [`clinical_utility`](results/track_a_task_landscape/clinical_utility/SUMMARY.md) (I3: Cohen's d 0.856, honest P3 FAIL retained) · [`information_theory`](results/track_a_task_landscape/information_theory/SUMMARY.md) (I4: 98.1% bivariate MI captured)
+- [Interpreter ablation PhL-19](results/live_evidence/phl19_interpreter_depth/SUMMARY.md): Opus 4.7 = 100% caveat rate, 100% prediction rate, avg 12 citations; Sonnet/Haiku = 0% on both
+- Own-output falsification: H1-loop 3-gene extension (`TOP2A − EPAS1 − SLC22A8`) failed IMmotion150 survival replay ([PhL-1](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md))
+
+**5-minute challenge check → [`docs/judge_faq.md`](docs/judge_faq.md)** — 14 reviewer challenges (rediscovery vs discovery, AUROC ceiling, cohort independence, Sonnet drop-in, memorisation audit, `delta_confound` null) with direct evidence links
 
 ---
 
@@ -157,7 +92,28 @@ Proposal → Search → Falsification → Survivor → Replay
 | **Survivor** | Opus 4.7 reviews each candidate's metric pattern and writes a biological mechanism hypothesis for the survivors. | Opus 4.7 (extended thinking) |
 | **Replay** | Survivors replayed on an independent cohort with per-cohort z-score standardization. Three-way verdict: law_transfers / workflow_transfers / neither. | Opus 4.7 spot-check |
 
-![Lacuna — 5-stage discovery pipeline](docs/architecture.png)
+```mermaid
+flowchart TB
+    classDef opus      fill:#eef2ff,stroke:#1e3a8a,stroke-width:2px,color:#141413
+    classDef adversary fill:#faf9f5,stroke:#d97757,stroke-width:2px,stroke-dasharray:4 2,color:#141413
+    classDef gate      fill:#141413,stroke:#141413,color:#faf9f5
+    classDef fail      fill:#fff0f0,stroke:#9b2c2c,color:#9b2c2c
+
+    Sk[Adversary · Opus 4.7 · writes kill tests before any fit]:::adversary
+    P[Proposer · Opus 4.7 · emits 3-5 law families + negative controls]:::opus
+    Sr[Searcher · PySR · symbolic regression 203 candidates]:::opus
+    G[Falsification Gate · Python · 5 tests + BH-FDR pre-registered]:::gate
+    F[194 REJECTED · perm-p / ci-lower / delta-baseline / decoy]:::fail
+    I[Interpreter · Opus 4.7 · mechanism hypothesis + testable prediction]:::opus
+
+    Sk -. "kill tests locked in" .-> G
+    Sk --> P
+    P -- "law families" --> Sr
+    Sr -- "203 candidates" --> G
+    G -- "FAIL 194/203" --> F
+    G -- "PASS 9/203" --> I
+    I -. "next iteration" .-> Sk
+```
 
 ---
 
@@ -180,19 +136,23 @@ Proposal → Search → Falsification → Survivor → Replay
 
 ## Quick Start
 
-**Python ≥ 3.10 required** (`pyproject.toml` needs `X | Y` union syntax; `match` statements in `src/lacuna/managed_agent_runner.py` also require 3.10+). macOS default `/usr/bin/python3` is 3.9.x — use a venv. `make install` creates `.venv/` and points the Makefile at it by default.
+```bash
+# Fastest confidence check — no API key, < 60 seconds
+make venv && make smoke
+```
+
+This creates `.venv/`, installs the package, runs critical module imports, fires a deterministic gate sanity check, runs the compliance audit, and verifies all judge-facing artefact indices are present. Expected output: `SMOKE OK`.
+
+> **Python ≥ 3.10 required.** `pyproject.toml` uses `X | Y` union syntax; macOS default `/usr/bin/python3` is 3.9.x. `make venv` handles this via the project-local virtualenv.
 
 ```bash
-# Install into .venv (Python ≥ 3.10, Julia 1.10.0 for PySR)
-python3 -m venv .venv && .venv/bin/pip install -e .
-
-# Run tests (no API key needed — all mocked)
-python -m pytest tests/ -v
+# Full test suite (118 tests, no API key, several minutes)
+make test
 
 # Generate synthetic KIRC-compatible demo data
 python data/examples/make_kirc_demo.py
 
-# Smoke test: 4 candidates (2 strong + 2 negative controls) → 1 survivor expected
+# Gate a set of candidates directly (no Opus call)
 cat > /tmp/candidates.json <<EOF
 [
   {"equation": "log1p(CA9) + log1p(VEGFA) - log1p(AGXT)", "complexity": 8},
@@ -235,6 +195,10 @@ Thresholds pre-registered in [`falsification.py`](src/lacuna/falsification.py).
 Multiple candidates are tested per run → permutation p-values are adjusted with
 Benjamini-Hochberg FDR across the family, and **the gate uses the FDR-adjusted p**.
 
+> **Scoping note on the metastasis run.** The 9 survivors clear 4 active legs — `delta_confound` is null because the M0/M1 task has no non-degenerate covariates after filtering. The gate design specifies "run confound leg when covariates vary; skip otherwise." `docs/methodology.md §3` has the full specification. The framework is 5-test; the active legs for any given run depend on data availability and are logged per-candidate in the report JSON.
+
+> **On rediscovery as evaluation.** Re-deriving the published ccA/ccB axis under a pre-registered gate — without seeding the law family — is the evaluation paradigm formalised by [FIRE-Bench (arXiv 2602.02905)](https://arxiv.org/abs/2602.02905), where current SOTA agents score <50 F1 on rediscovering established findings. The contribution is the workflow, not a claim of novel biology.
+
 > **Gate cannot be exploited by iteration.** In the H1 LLM-SR 10-iteration
 > loop, **18 / 18 post-seed proposals generated by Opus and Sonnet were
 > rejected** by the same gate
@@ -244,6 +208,8 @@ Benjamini-Hochberg FDR across the family, and **the gate uses the FDR-adjusted p
 > "couldn't the model just try harder?"
 
 ![Rejection landscape — 194/203 candidate evaluations rejected across 11 task × panel combinations](docs/figures/rejection_landscape.png)
+
+> **Interactive version:** [`results/rejection_log.html`](results/rejection_log.html) — filterable by cohort, task, panel, and fail reason; every candidate's full metric bundle.
 
 ---
 
