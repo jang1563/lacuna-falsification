@@ -30,6 +30,8 @@ Built by a bioinformatics postdoc · *Built with Opus 4.7* Hackathon · April 20
 | LLM-SR 10-iteration loop: post-seed proposals killed by gate | **18 / 18** |
 | Total API cost (all sweeps + ablation runs) | **< $65** |
 
+> *Ablation honest null: 2/3 pre-registered citation-specificity predictions were falsified — all three models cite ≥2 metrics in 100% of critiques. The meaningful signal is verdict distribution (PASS 10 vs 14 vs 0 / 60). Full prediction verification in [`results/ablation/SUMMARY.md`](results/ablation/SUMMARY.md).*
+
 ---
 
 ## Judging criteria
@@ -171,12 +173,13 @@ python src/falsification_sweep.py \
   --output /tmp/report.json
 # → "4 candidates → 1 survived falsification"
 
-# Full pipeline with Opus 4.7 (requires ANTHROPIC_API_KEY)
+# Step 1 of full pipeline (Opus 4.7, requires ANTHROPIC_API_KEY)
+# Prints the next PySR + gate commands to run; does NOT run them automatically.
 export ANTHROPIC_API_KEY=sk-ant-...
 lacuna compare --config config/datasets.json \
   --proposals config/law_proposals.json \
   --flagship-dataset kirc --output-root artifacts/
-# → prints the PySR + falsification commands to run next
+# → prints PySR + falsification_sweep commands to run next
 ```
 
 ---
@@ -209,7 +212,7 @@ Benjamini-Hochberg FDR across the family, and **the gate uses the FDR-adjusted p
 > deterministic threshold — this is the empirical answer to
 > "couldn't the model just try harder?"
 
-![Rejection landscape — 194/203 candidate evaluations rejected across 11 task × panel combinations](docs/figures/rejection_landscape.png)
+![Rejection landscape — 194/203 candidate evaluations rejected across 7 task × panel configurations](docs/figures/rejection_landscape.png)
 
 > **Interactive version:** [`results/rejection_log.html`](results/rejection_log.html) — filterable by cohort, task, panel, and fail reason; every candidate's full metric bundle.
 
@@ -248,7 +251,9 @@ law earned that survival by genuinely adding 0.11 over any single gene.
 
 Boris Cherny in the 2026-04-21 *Built with Opus 4.7* kickoff flagged server-side
 Routines — Claude sessions that wake on a schedule and outlive the laptop — as
-the feature space "no one has cracked yet." Path C is Lacuna's answer:
+the feature space "no one has cracked yet." Path C is Lacuna's answer.
+
+> **Product boundary:** Claude Code Routines (`code.claude.com`, beta header `experimental-cc-routine-2026-04-01`) and Managed Agents (`platform.claude.com`, beta header `managed-agents-2026-04-01`) are two separate Anthropic products. Path C bridges them; see [`docs/methodology.md §4`](docs/methodology.md) for the full distinction.
 a replication-watchdog driver that re-runs the Managed Agent on a cadence or
 when a watched directory changes.
 

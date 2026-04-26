@@ -27,7 +27,7 @@ from lacuna.opus_client import OpusClient
 
 client = OpusClient()
 result = client.propose_laws(
-    dataset_card={"name": "TCGA-KIRC", "n_samples": 606, "platform": "RNA-seq"},
+    dataset_card={"name": "TCGA-KIRC", "n_samples": 606, "platform": "RNA-seq"},  # n=606 synthetic; real metastasis cohort n=505
     features=["CA9", "VEGFA", "LDHA", "AGXT", "ALB", "SLC2A1", "NDUFA4L2"],
     context="VHL-HIF axis in kidney renal clear cell carcinoma",
 )

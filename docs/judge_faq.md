@@ -234,10 +234,11 @@ Out of scope for a 5-day hackathon. We commit:
 - Self-kill on our own H1 LLM-SR extension (PhL-1, the 3-gene SLC22A8
   variant fails the same survival gate, C-index drops to 0.566).
 
-The DIPG top-lead (panobinostat-CED-MTX110, score 13/15) names
-Dr. Mark Souweidane (pioneer of convection-enhanced delivery for
-pediatric brain tumors) as the deployment pathway — wet-lab validation
-remains a separate post-hackathon track.
+The DIPG top-lead (panobinostat-CED-MTX110, score 13/15 by delivery-rescue
+actionability; avapritinib also scores 13/15 but has a `wrong_population`
+limitation) names Dr. Mark Souweidane (pioneer of convection-enhanced
+delivery for pediatric brain tumors) as the deployment pathway — wet-lab
+validation remains a separate post-hackathon track.
 
 ---
 
