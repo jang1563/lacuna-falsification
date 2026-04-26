@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 # Import after module-level setup so patch targets are resolvable
-from theory_copilot.opus_client import OpusClient
+from lacuna.opus_client import OpusClient
 
 
 def _mock_content(*blocks):
@@ -57,7 +57,7 @@ def test_propose_laws_returns_families():
         ("text", json.dumps({"families": families_data})),
     )
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.propose_laws(
@@ -77,7 +77,7 @@ def test_propose_laws_bad_json_returns_empty_families():
         ("text", "not json at all"),
     )
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.propose_laws({}, [])
@@ -96,7 +96,7 @@ def test_judge_candidate_accept():
         ("text", json.dumps({"verdict": "ACCEPT", "reason": "Passes all checks"})),
     )
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.judge_candidate(
@@ -115,7 +115,7 @@ def test_judge_candidate_reject():
         ("text", json.dumps({"verdict": "REJECT", "reason": "AUC near chance"})),
     )
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.judge_candidate(equation="A > 1", metrics={"auc": 0.55})
@@ -130,7 +130,7 @@ def test_judge_candidate_uncertain_on_bad_json():
         ("text", "not json"),
     )
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.judge_candidate(equation="X", metrics={})
@@ -151,7 +151,7 @@ def test_interpret_survivor():
     }
     blocks = _mock_content(("text", json.dumps(payload)))
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.interpret_survivor(
@@ -167,7 +167,7 @@ def test_interpret_survivor():
 def test_interpret_survivor_fallback_on_bad_json():
     blocks = _mock_content(("text", "plain text explanation"))
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key")
         result = client.interpret_survivor(equation="A", dataset_context={})
@@ -182,7 +182,7 @@ def test_interpret_survivor_fallback_on_bad_json():
 # ---------------------------------------------------------------------------
 
 def test_prompts_dir_defaults_to_prompts_under_project_root():
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = MagicMock()
         client = OpusClient(api_key="test-key")
 
@@ -196,7 +196,7 @@ def test_prompts_dir_custom(tmp_path):
 
     blocks = _mock_content(("text", json.dumps({"families": []})))
 
-    with patch("theory_copilot.opus_client.anthropic") as mock_anthropic:
+    with patch("lacuna.opus_client.anthropic") as mock_anthropic:
         _make_client(mock_anthropic, blocks)
         client = OpusClient(api_key="test-key", prompts_dir=tmp_path)
         assert client.prompts_dir == tmp_path

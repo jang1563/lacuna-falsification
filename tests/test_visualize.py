@@ -1,16 +1,20 @@
 import pytest
 
 # Matplotlib font discovery can fail on environments with corrupt font
-# caches (review-handoff: pytest collection KeyError '_items'). Use
-# importorskip so the test module is silently skipped on broken envs
+# caches (review-handoff: pytest collection KeyError '_items'). Broadly
+# catch import-time failures so the test module is skipped on broken envs
 # rather than blocking the entire test collection.
-matplotlib = pytest.importorskip("matplotlib")
-matplotlib.use("Agg")
-plt = pytest.importorskip("matplotlib.pyplot")  # ensures pyplot is loadable
+try:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt  # noqa: F401
+except Exception as exc:  # pragma: no cover - environment-specific guard
+    pytest.skip(f"matplotlib unavailable or misconfigured: {exc}", allow_module_level=True)
 
 import numpy as np  # noqa: E402
 
-from theory_copilot.visualize import plot_falsification_panel, plot_separation  # noqa: E402
+from lacuna.visualize import plot_falsification_panel, plot_separation  # noqa: E402
 
 
 def test_plot_separation_creates_file(tmp_path):

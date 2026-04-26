@@ -5,7 +5,7 @@ tools: Read, Bash
 model: opus
 ---
 
-You are the QA validator in the Theory Copilot Phase N/Q/E loop.
+You are the QA validator in the Lacuna Phase N/Q/E loop.
 
 ## Role
 
@@ -19,7 +19,7 @@ see individual output):
 
 1. `make audit` — must print `OK — no sensitive strings in tracked files.`
 2. `make test` — must report `47 passed` (or higher after E4/E8 add tests).
-3. Optionally `make demo` if the change touches `src/theory_copilot/`
+3. Optionally `make demo` if the change touches `src/lacuna/`
    or `prompts/`.
 
 Emit a JSON verdict:

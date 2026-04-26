@@ -1,4 +1,4 @@
-# Theory Copilot — Three Headline Findings
+# Lacuna — Three Headline Findings
 
 *Last updated 2026-04-23 (Phase G/H/I post-verification). Written after Phase F (PhF-1..PhF-5) and rigorously updated with G1-G5 mathematical gate audits, H1-H2 Opus-4.7-overhang experiments, and I2-I4 Rashomon/information-theoretic/clinical-translation analyses.*
 
@@ -63,18 +63,17 @@ statistically significantly better than the best single gene (MKI67):
 ΔAUROC = +0.081, 95% CI [+0.023, +0.143], one-sided bootstrap p=0.004.
 This directly answers "could a single gene do just as well?"
 
-**AUPRC at low prevalence (G2):** At 16% M1 prevalence, AUPRC=0.317
-vs no-skill baseline 0.156 — **lift 2.03×**. At the precision
+**AUPRC at low prevalence (G2):** At 16% M1 prevalence, AUPRC=0.321
+vs no-skill baseline 0.156 — **lift 2.05×**. At the precision
 thresholds a clinician would screen, the compound performs 2× better
 than random.
 
 **Uniqueness (Lane I · I2, 2026-04-23):** Among all C(45,2)=990 possible
-2-gene linear-difference pairs, `TOP2A − EPAS1` is **rank 1 of 990**,
-and is UNIQUE at ε=0.005 and ε=0.01 AUROC tolerance. Of the top-20
-near-optimal pairs, 15 contain a proliferation-axis gene — so the
-*sufficient condition* for near-optimal compactness is "proliferation
-axis minus any other axis", an invariant structural property
-empirically established over 990 candidates.
+2-gene linear-difference pairs, `TOP2A − EPAS1` is **rank 1 of 990**.
+The tight Rashomon set within 0.02 AUROC has only **3** pairs:
+`TOP2A − EPAS1`, `CDK1 − EPAS1`, and `MKI67 − EPAS1`. The near-optimal
+class is therefore a compact proliferation-minus-EPAS1 representation
+of the ccA/ccB axis, not an arbitrary high-AUROC pair.
 
 **Independent protein-level consensus (HPA v21.0):** TOP2A is classified
 `prognostic_unfavorable` and EPAS1 `prognostic_favorable` in renal
@@ -111,7 +110,7 @@ having access to HPA — an external sanity check on direction.
 - `make prereg` retroactively emits one YAML per law family;
   `make prereg-validate` + `make prereg-audit` give machine-verifiable
   tamper evidence.
-- `theory-copilot compare --dataset-card ...` runs the same Proposer +
+- `lacuna compare --dataset-card ...` runs the same Proposer +
   Skeptic + gate in your cohort.
 
 ---
@@ -169,7 +168,7 @@ problem:
   novelty. Community question shifted: "can an AI reject its own bad
   paper?"
 
-Theory Copilot answers that specific question in the affirmative by
+Lacuna answers that specific question in the affirmative by
 making rejection the main output. The 194 TCGA-gate failing candidates are not
 an appendix — they are the central artefact. If we had cherry-picked
 a single AUROC 0.984 tumor-vs-normal "finding", we would have published
@@ -265,7 +264,7 @@ of evidence*.
 
 ### What we did
 
-1. **`preregistrations/` directory** — 21 YAMLs (retroactive Phase-F
+1. **`preregistrations/` directory** — 28 YAMLs (retroactive Phase-F
    + prospective IMmotion150 2-gene PhF-3 replay + prospective PhL-1
    3-gene SLC22A8 extension replay), each pinning H0 / H1 / kill
    tests / BH-FDR / α / stopping rule / analyst / data cutoff /
@@ -279,14 +278,14 @@ of evidence*.
    against a 3-gene extension the system itself proposed. Order proven
    by git log.
 3. **Path C Routine driver** (`run_path_c_routine` in
-   `src/theory_copilot/managed_agent_runner.py`). Managed Agents
+   `src/lacuna/managed_agent_runner.py`). Managed Agents
    (`managed-agents-2026-04-01`) shipped in public beta 2026-04-08;
    Claude Code Routines (`experimental-cc-routine-2026-04-01`) shipped
    in research preview 2026-04-14. Path C is our shipped driver:
    interval cadence OR watch-dir fingerprint change triggers an
    iteration; verdicts appended to `results/routine/verdicts.jsonl`;
    `invoke_fn` hook lets a native Routine `/fire` call drop in via
-   `src/theory_copilot/routines_client.py`. A
+   `src/lacuna/routines_client.py`. A
    `.github/workflows/nightly_falsifier.yml` fires this nightly on
    main, posts a pinned GitHub Issue comment with the audit chain,
    and exercises the full pipeline without the laptop being awake.
@@ -296,7 +295,7 @@ of evidence*.
 - **Pre-reg YAMLs are cheap to emit and expensive to misuse.** 16 were
   written in under one second via `make prereg`. Any edit after commit
   is `git log -p` visible; any threshold change to
-  `src/theory_copilot/falsification.py` invalidates every YAML in the
+  `src/lacuna/falsification.py` invalidates every YAML in the
   directory and requires a new pre-reg with a new timestamp.
 - **Path C runs the falsification loop without a laptop.** The local
   driver fires Path B on an interval; the GitHub Actions workflow

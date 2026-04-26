@@ -43,7 +43,7 @@ from falsification_sr_loop import (
     _fallback_skeleton_proposal,
     run_pysr_on_skeleton,
 )
-from theory_copilot.cost_ledger import log_usage
+from lacuna.cost_ledger import log_usage
 
 
 # ---------------------------------------------------------------------------

@@ -129,7 +129,7 @@ is a high-event-rate setting. The appropriate primary metrics are C-index (0.601
 and Cox HR (1.36), already reported above. AUPRC=0.706 vs baseline 0.624 (lift
 1.13x) — modest positive signal.
 
-TCGA-KIRC (16% M1): AUROC=0.726, **AUPRC=0.317** vs baseline 0.156 (**lift 2.03x**).
+TCGA-KIRC (16% M1): AUROC=0.726, **AUPRC=0.321** vs baseline 0.156 (**lift 2.05x**).
 At low prevalence, AUPRC demonstrates meaningful clinical discrimination.
 
 ## Reproduce

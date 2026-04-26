@@ -2,7 +2,7 @@
 """PhL-4 — `sessions.events.list` persist + replay live demo.
 
 Exercises the two durability primitives we already ship in
-`src/theory_copilot/managed_agent_runner.py`:
+`src/lacuna/managed_agent_runner.py`:
 
   1. `persist_session_events(session_id, out_path)` — page through
      `client.beta.sessions.events.list` and dump every event to JSONL.
@@ -52,7 +52,7 @@ from pathlib import Path
 
 import anthropic
 
-from theory_copilot.managed_agent_runner import (
+from lacuna.managed_agent_runner import (
     persist_session_events,
     replay_session_from_log,
 )
@@ -70,7 +70,7 @@ def _load_or_create_state(client: anthropic.Anthropic) -> dict:
 
     print(">>> Creating a plain Path-B agent for the demo ...")
     agent = client.beta.agents.create(
-        name="theory-copilot-phl4-persist-replay",
+        name="lacuna-phl4-persist-replay",
         model="claude-opus-4-7",
         system=(
             "You are a minimal assistant. Answer concisely and literally. "
@@ -80,7 +80,7 @@ def _load_or_create_state(client: anthropic.Anthropic) -> dict:
         tools=[{"type": "agent_toolset_20260401"}],
     )
     environment = client.beta.environments.create(
-        name="theory-copilot-phl4-env",
+        name="lacuna-phl4-env",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
     state = {

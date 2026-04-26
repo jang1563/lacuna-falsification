@@ -150,10 +150,10 @@ def make_routine_invoke_fn(
     """Return an `invoke_fn(night) -> dict` ready to pass to run_path_c_routine.
 
     Usage:
-        from theory_copilot.managed_agent_runner import (
+        from lacuna.managed_agent_runner import (
             run_path_c_routine, _NIGHT_TASKS,
         )
-        from theory_copilot.routines_client import make_routine_invoke_fn
+        from lacuna.routines_client import make_routine_invoke_fn
 
         fire = make_routine_invoke_fn(_NIGHT_TASKS)
         run_path_c_routine(night=3, interval_seconds=0, invoke_fn=fire)

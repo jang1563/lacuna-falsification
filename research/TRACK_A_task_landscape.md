@@ -29,7 +29,7 @@ narrative wins either way, but a survivor is a much stronger demo.
 | `research/TRACK_A_*.md` | This brief + progress notes |
 | `results/track_a_task_landscape/**` | All Track A outputs |
 
-**Read-only for this track:** everything under `src/theory_copilot/**`,
+**Read-only for this track:** everything under `src/lacuna/**`,
 `src/pysr_sweep.py`, `src/falsification_sweep.py`, `data/kirc_tumor_normal.csv`,
 `data/kirc_stage.csv`, `data/gse40435_kirc.csv`. If a change in those is needed,
 open `HANDOFF_to_shared.md` rather than editing directly.
@@ -65,7 +65,7 @@ open `HANDOFF_to_shared.md` rather than editing directly.
 
 ### Step A1 — Pull latest + verify tool chain
 ```bash
-cd theory_copilot_discovery
+cd lacuna_discovery
 git pull --rebase origin main
 git status --short         # expect: nothing under src/task_* or data/kirc_survival*
 make audit                 # must pass
@@ -161,5 +161,5 @@ Write `results/track_a_task_landscape/SUMMARY.md` with:
 - Commit within one hour of starting a work block.
 - `make audit` before every push.
 - Never touch the other track's directories.
-- Never touch `src/theory_copilot/**` without a `HANDOFF_to_shared.md`
+- Never touch `src/lacuna/**` without a `HANDOFF_to_shared.md`
   request.

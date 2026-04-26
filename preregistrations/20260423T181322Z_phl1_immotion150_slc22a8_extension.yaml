@@ -1,4 +1,4 @@
-# Pre-registration artifact — Theory Copilot Phase L (PhL-1)
+# Pre-registration artifact — Lacuna Phase L (PhL-1)
 #
 # Committed once and never modified. Any subsequent edit of this file
 # invalidates the pre-registration (verifiable via `git log -p <file>`).
@@ -8,7 +8,7 @@ hypothesis_id: phl1_immotion150_slc22a8_extension
 emitted_at_utc: 2026-04-23T18:13:22Z
 emitted_git_sha: 87a2710
 retroactive: false
-analyst: theory-copilot-team
+analyst: lacuna-team
 data_cutoff_date: 2026-04-23
 dataset_context: immotion150
 
@@ -94,7 +94,7 @@ stopping_rule: |
 references:
   h1_loop_result: results/overhang/sr_loop_run.json
   phf3_2gene_replay: results/track_a_task_landscape/external_replay/immotion150_pfs/verdict.json
-  falsification_gate_impl: src/theory_copilot/falsification.py
+  falsification_gate_impl: src/lacuna/falsification.py
   cohort_build: data/build_immotion150.py
   methodology_doc: docs/methodology.md
 

@@ -88,12 +88,12 @@ _NIGHT_TASKS = {
     4: (
         "Run GSE40435 replay validation on the surviving equation from "
         "Night 3's falsification report:\n"
-        "  PYTHONPATH=src .venv/bin/python -m theory_copilot.cli replay \\\n"
+        "  PYTHONPATH=src .venv/bin/python -m lacuna.cli replay \\\n"
         "    --flagship-artifacts results/night3 \\\n"
         "    --transfer-dataset gse40435 \\\n"
         "    --output-root results/night4\n"
         "Or, equivalently with the installed console script: \n"
-        "  theory-copilot replay --flagship-artifacts results/night3 "
+        "  lacuna replay --flagship-artifacts results/night3 "
         "--transfer-dataset gse40435 --output-root results/night4\n"
         "Write transfer_report.json (AUC + 95% CI + replay verdict)."
     ),
@@ -194,14 +194,14 @@ def run_path_b(
     task = _NIGHT_TASKS[night]
 
     agent = client.beta.agents.create(
-        name=f"theory_copilot_night{night}",
+        name=f"lacuna_night{night}",
         model="claude-opus-4-7",
         system=system,
         tools=[{"type": "agent_toolset_20260401"}],
     )
 
     environment = client.beta.environments.create(
-        name=f"theory-copilot-env-night{night}",
+        name=f"lacuna-env-night{night}",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
 
@@ -375,7 +375,7 @@ def _run_path_a_callable_agents(night: int, title: str | None) -> dict:
     )
 
     environment = client.beta.environments.create(
-        name=f"theory-copilot-multiagent-night{night}",
+        name=f"lacuna-multiagent-night{night}",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
 
@@ -454,7 +454,7 @@ def _run_path_a_sequential_fallback(night: int, title: str | None) -> dict:
     )
 
     environment = client.beta.environments.create(
-        name=f"theory-copilot-seqfallback-night{night}",
+        name=f"lacuna-seqfallback-night{night}",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
 
@@ -561,7 +561,7 @@ def run_path_c_routine(
 ) -> dict:
     """
     Path C: local scheduled/watch-dir driver around Path B (fallback) or a
-    native Routine `/fire` call (via `theory_copilot.routines_client`).
+    native Routine `/fire` call (via `lacuna.routines_client`).
 
     Parameters
     ----------

@@ -1,5 +1,5 @@
 [project]
-name = "theory-copilot-discovery"
+name = "lacuna-discovery"
 version = "0.1.0"
 description = "Workflow-first discovery artifact scaffold for compact biological law discovery"
 readme = "README.md"
@@ -21,7 +21,7 @@ dependencies = [
 test = ["pytest>=8.0"]
 
 [project.scripts]
-theory-copilot = "theory_copilot.cli:main"
+lacuna = "lacuna.cli:main"
 
 [build-system]
 requires = ["setuptools>=68"]

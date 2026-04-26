@@ -1,11 +1,11 @@
 ---
 title: "Falsification-Aware Biological Law Discovery with Opus 4.7"
 subtitle: "A pre-registered 5-test gate accepts 9 compact candidates, rejects 194 of 203 — and a separately pre-registered survival replay then kills our own H1 extension"
-author: "Theory Copilot Discovery — Built with Opus 4.7 Hackathon"
+author: "Lacuna Discovery — Built with Opus 4.7 Hackathon"
 date: "April 2026"
 abstract: |
   Most AI-for-Science loops automate confirmation bias: an LLM proposes a
-  hypothesis, runs a fit, reports a number. We present **Theory Copilot**,
+  hypothesis, runs a fit, reports a number. We present **Lacuna**,
   a verification-first discovery pipeline built around Claude Opus 4.7.
   Opus proposes 3-5 compact biological law families and the skeptic test
   for each, *before* any fit; PySR searches candidates; a deterministic
@@ -50,7 +50,7 @@ a pipeline output.
 
 Pre-registration is the discipline biology keeps pointing back to.
 You write down what would falsify the claim *before* you see whether
-it passes. Theory Copilot takes that seriously: every law family is
+it passes. Lacuna takes that seriously: every law family is
 paired with skeptic tests Opus 4.7 writes **before any fit is
 attempted**, and the law has to survive those tests as a condition
 for being called a survivor. The tests are executed by plain Python
@@ -88,12 +88,12 @@ Opus does not run the falsification gate and does not decide pass/fail.
 The API call uses `thinking={"type":"adaptive","display":"summarized"}`
 + `output_config={"effort":"high"}` via the streaming endpoint (the
 non-streaming 32000-token request trips the SDK 10-minute guard; see
-`src/theory_copilot/opus_client.py` commit history).
+`src/lacuna/opus_client.py` commit history).
 
 ## 2.2 The 5-test gate
 
 Every candidate passes through five deterministic tests. Thresholds
-are pre-registered in `src/theory_copilot/falsification.py`.
+are pre-registered in `src/lacuna/falsification.py`.
 
 Anthropic's launch copy for Opus 4.7 (2026-04-16) introduces the model
 as one that *"devises ways to verify its own outputs before reporting
@@ -375,18 +375,18 @@ together when the task has multi-gene structure.
 
 Detailed section in `docs/paper/benchmark_vs_related.md`. Short form:
 SPOT (arXiv 2505.11855) measures post-hoc error detection on retracted
-papers — SOTA LLMs get recall ≤ 21%, precision ≤ 6%. Theory Copilot is
+papers — SOTA LLMs get recall ≤ 21%, precision ≤ 6%. Lacuna is
 *pre-registered* error prevention at generation time, so its analogous
 "recall" is 100% against the two explicit negative controls. Sakana v2
 (arXiv 2504.08066) autonomously writes papers; its peer-review-passing
 result was later debunked for hallucinations and faked numbers.
-Theory Copilot does not try to write papers autonomously — the
+Lacuna does not try to write papers autonomously — the
 **deterministic 5-test gate decides**, the Skeptic role only reviews
 the gate's numbers, and the cross-model ablation
 (`results/ablation/SUMMARY.md`) shows that verdict distributions
 differ across Opus/Sonnet/Haiku, so the Skeptic is not rubber-stamping.
 POPPER (arXiv 2502.09858) covers the validation-leg statistics with
-sequential e-values; Theory Copilot uses classical BH-FDR because the
+sequential e-values; Lacuna uses classical BH-FDR because the
 hypothesis families are small (≤ 30 candidates per gate run). The two
 could compose: POPPER over cross-cohort replay, our 5-test gate
 within-cohort. The regulatory context — FDA-EMA 2026-01 Common
@@ -441,7 +441,7 @@ mirrors the RLVR-range / non-RLVR-range distinction: the gate is the
 *"RL range"* (verifiable, superluminal under RL), while Opus's
 interpretive, novelty-estimating, and clinical-translation work is
 *outside* it (drifts without a verifier, relies on domain judgement).
-Theory Copilot's contribution is precisely this separation — drawing
+Lacuna's contribution is precisely this separation — drawing
 the boundary empirically on real biology data rather than assuming
 the whole pipeline is reducible to a single reward function.
 
@@ -491,7 +491,7 @@ direction but do not change the artefact:
 - **Comet/Opik 1.0** (Gideon Mendels CV Deep Dive 2026-04-23):
   "close the loop between production and development for AI agents,"
   "self-improving agents," "Test Suites auto-created from fixes."
-  Theory Copilot's pre-registered gate + H1 LLM-SR loop + PhL-3
+  Lacuna's pre-registered gate + H1 LLM-SR loop + PhL-3
   Memory chain instantiate the same close-the-loop pattern at the
   scientific-discovery layer rather than the production-API layer.
   The differentiator: our judgment function is *deterministic
@@ -520,10 +520,10 @@ skeptic tests for that discipline to have bite.
 
 # Code, data, and reproducibility
 
-Code: `https://github.com/jang1563/theory-copilot-falsification`
+Code: `https://github.com/jang1563/lacuna-falsification`
 (flipped public at submission). Primary entry points:
 `make install && make test && make demo-kirc`. Re-running the full
-flagship flow: `theory-copilot compare --dataset-card
+flagship flow: `lacuna compare --dataset-card
 config/dataset_cards/kirc_metastasis_expanded.json --proposals
 config/law_proposals.json --output-root artifacts/`, then the PySR +
 falsification commands the CLI prints.

@@ -86,4 +86,4 @@ locally.
   `emitted_git_sha` to a repo state that commits `data/SHA256SUMS`
   atomically with the YAML.
 - `Makefile` target `prereg-audit` — machine-verifies the tamper-
-  evidence chain across all 21 YAMLs.
+  evidence chain across all 28 YAMLs.

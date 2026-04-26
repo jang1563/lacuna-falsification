@@ -124,7 +124,7 @@ scrolling distracts. Don't try to make a slide at recording time.
 ## Recording mechanics
 
 - 1080p, 30 fps, single take preferred per attempt.
-- Loom title: `Theory Copilot — verification-first biological law discovery`.
+- Loom title: `Lacuna — falsification-first biological law discovery`.
 - Description: paste the one-line pitch + GitHub URL.
 - Trim leading silence aggressively (≤ 1 s).
 - Trim trailing silence aggressively (no dead space after "Adversarial

@@ -9,8 +9,8 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-import theory_copilot.falsification as falsification_module
-from theory_copilot.falsification import (
+import lacuna.falsification as falsification_module
+from lacuna.falsification import (
     baseline_comparison,
     bootstrap_stability,
     confound_only,

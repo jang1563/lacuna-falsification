@@ -18,7 +18,7 @@ from statsmodels.stats.multitest import multipletests
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from theory_copilot.falsification import (
+from lacuna.falsification import (
     baseline_comparison,
     bootstrap_stability,
     confound_only,

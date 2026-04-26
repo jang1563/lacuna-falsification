@@ -1,6 +1,6 @@
 ================================================================================
 API VALIDATION LOG — 2026-04-22
-Theory Copilot Discovery / Hackathon 2026-04-26
+Lacuna Discovery / Hackathon 2026-04-26
 ================================================================================
 
 PART 0 — Setup check
@@ -9,8 +9,8 @@ ANTHROPIC_API_KEY: present (loaded from shell env; prefix redacted 2026-04-23 au
 .venv/bin/python: Python 3.13 (symlink to /usr/local/opt/python@3.13)
 anthropic SDK version: 0.96.0
 All four required files read:
-  - src/theory_copilot/opus_client.py
-  - src/theory_copilot/managed_agent_runner.py
+  - src/lacuna/opus_client.py
+  - src/lacuna/managed_agent_runner.py
   - docs/managed_agents_verification.md
   - docs/opus47_api_verification.md
 
@@ -40,7 +40,7 @@ Initial failure: ValueError from SDK: "Streaming is required for operations that
 may take longer than 10 minutes" — triggered by nonstreaming request with
 max_tokens=32000 on claude-opus-4-7.
 
-FIX APPLIED (src/theory_copilot/opus_client.py, _call method):
+FIX APPLIED (src/lacuna/opus_client.py, _call method):
 Replaced `client.messages.create(...)` with `client.messages.stream(...)`
 context manager + `stream.get_final_message()`. Also stashes usage on
 `self._last_usage` for downstream cost reporting.
@@ -129,7 +129,7 @@ identical verified API shape.
 PART 5 — Fixes applied
 --------------------------------------------------------------------------------
 Files modified: 1
-  - src/theory_copilot/opus_client.py
+  - src/lacuna/opus_client.py
       _call() now uses client.messages.stream(...) + get_final_message()
       instead of nonstreaming messages.create(). Required because max_tokens
       =32000 on Opus 4.7 trips the SDK's 10-minute nonstreaming guard. Also

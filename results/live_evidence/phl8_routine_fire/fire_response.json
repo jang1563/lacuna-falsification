@@ -10,5 +10,5 @@
   "normalized_status": "completed",
   "fire_elapsed_seconds": 0.721,
   "text_body_sent": "Fire from PhL-8 live smoke test. No candidate equation passed; run the standard verification pulse only (make venv, make audit, report canonical survivor).",
-  "narrative": "Live fire of the claude.ai/code/routines/theory-copilot-falsification-gate Routine via POST /v1/claude_code/routines/{trig_id}/fire. The claude_code_session_url in this artefact is the reviewer-clickable live session; the claude_code_session_id anchors the fire in Claude's backend log."
+  "narrative": "Live fire of the claude.ai/code/routines/lacuna-falsification-gate Routine via POST /v1/claude_code/routines/{trig_id}/fire. The claude_code_session_url in this artefact is the reviewer-clickable live session; the claude_code_session_id anchors the fire in Claude's backend log."
 }

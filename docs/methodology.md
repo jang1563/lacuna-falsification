@@ -79,7 +79,7 @@ model, and pre-specified: three properties (adapted from Karpathy's
 autoresearch criteria and elaborated in `docs/why_opus_4_7.md §1`) that
 together make the difference between selecting for self-consistency and
 selecting for truth. Every candidate passes through five tests.
-Thresholds are pre-registered in `src/theory_copilot/falsification.py`
+Thresholds are pre-registered in `src/lacuna/falsification.py`
 and applied uniformly.
 
 | Test | Statistic | Threshold |
@@ -179,7 +179,7 @@ supposed to prevent. Three separate Managed Agents preserve both the
 isolation and the adaptive-thinking state; the architecture choice is
 load-bearing to the artifact, not ornamental.
 
-Role separation in `src/theory_copilot/managed_agent_runner.py`:
+Role separation in `src/lacuna/managed_agent_runner.py`:
 
 - **Proposer** — `claude-opus-4-7` with adaptive thinking. Emits 3–5 law
   families + ex-ante skeptic test per family. Required to include at least
@@ -220,7 +220,7 @@ Three delegation paths:
   is no `push` trigger. The swap point is one line:
   `invoke_fn=make_routine_invoke_fn(_NIGHT_TASKS)` replaces the local
   `run_path_b` loop with a real `/fire` HTTP call
-  (`src/theory_copilot/routines_client.py`).
+  (`src/lacuna/routines_client.py`).
 
 All paths expose the same `{session_id, agent_id, output, status}` return
 shape; switching is a one-line change. Path A additionally returns
@@ -361,7 +361,7 @@ Pre-registered in `preregistrations/20260425T164840Z_g2_rigor_extension.yaml`
 prevalence-invariant — useful when comparing tasks but blind to the
 imbalance regime (16% M1 on `kirc_metastasis_expanded`). G2 attaches
 three reporting metrics to every gate output, computed by
-`src/theory_copilot/rigor_metrics.py` and exposed under the `rigor`
+`src/lacuna/rigor_metrics.py` and exposed under the `rigor`
 key of `run_falsification_suite()`:
 
 - **AUPRC (sign-invariant).** Mirrors the gate's AUROC sign convention.
@@ -396,7 +396,7 @@ Pre-registered in `preregistrations/20260425T170647Z_g1_knockoff_v2.yaml`
 (`gate_logic_changed: true`, `extension_type: parallel_v2_gate`). The
 v1 5-test gate decision surface is unchanged; v2 runs alongside.
 
-`src/theory_copilot/knockoff_gate.py` implements a Model-X knockoff
+`src/lacuna/knockoff_gate.py` implements a Model-X knockoff
 filter (Barber & Candès 2015; arXiv 1404.5609) with LedoitWolf
 shrinkage Sigma, MVR construction (Spector & Janson 2022), `lcd`
 feature statistic, FDR target q=0.10, and 25 derandomized replicates

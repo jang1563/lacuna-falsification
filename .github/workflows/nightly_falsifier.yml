@@ -67,7 +67,7 @@ jobs:
         run: |
           # Single-shot Path C invocation. `invoke_fn` defaults to Path B.
           python -c "
-          from theory_copilot.managed_agent_runner import run_path_c_routine
+          from lacuna.managed_agent_runner import run_path_c_routine
           out = run_path_c_routine(
               night=3,
               interval_seconds=0,

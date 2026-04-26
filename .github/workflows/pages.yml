@@ -45,7 +45,7 @@ jobs:
           mkdir -p _site/immotion150_pfs
           cp -r results/track_a_task_landscape/external_replay/immotion150_pfs/* _site/immotion150_pfs/ || true
           # Render a tiny README header if a logo/asset dir is needed later.
-          echo "Theory Copilot — live rejection log." > _site/ABOUT.txt
+          echo "Lacuna — live rejection log." > _site/ABOUT.txt
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

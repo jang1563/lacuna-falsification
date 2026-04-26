@@ -1,4 +1,4 @@
-"""Theory Copilot CLI.
+"""Lacuna CLI.
 
 Two commands:
 
@@ -190,7 +190,7 @@ def _cmd_compare(args: argparse.Namespace) -> int:
     )
     print()
     print(
-        f"Then: theory-copilot replay "
+        f"Then: lacuna replay "
         f"--flagship-artifacts {output_root}/flagship_run/ "
         f"--transfer-dataset <dataset-id> --output-root {output_root}"
     )
@@ -383,7 +383,7 @@ def _cmd_replay_events(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="theory-copilot",
+        prog="lacuna",
         description="Falsification-aware biological law discovery loop.",
     )
     sub = parser.add_subparsers(dest="command", required=True)

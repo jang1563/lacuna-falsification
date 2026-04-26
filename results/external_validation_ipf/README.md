@@ -1,7 +1,7 @@
 # External validation / generalization — IPF rescue engine
 
 **Purpose:** mirror of key artefacts from the sibling `dipg_rescue/`
-project showing the same Theory Copilot 4-role agent pattern re-applied
+project showing the same Lacuna 4-role agent pattern re-applied
 to a third structurally distant disease: idiopathic pulmonary fibrosis
 (IPF). The IPF variant uses the same rescue-claim role prompts as the
 DIPG variant — **Advocate / Evidence Retriever / Skeptic / Interpreter**
@@ -9,7 +9,7 @@ DIPG variant — **Advocate / Evidence Retriever / Skeptic / Interpreter**
 slope, AE-IPF, MMP-7 / CXCL13 / KL-6 / CTGF / LOXL2 / CCL18 / TNIK /
 PDE4B mechanism map). This mirror exists so submission materials
 (Loom narration, submission form, judge_faq) can reference the result
-without leaving the `theory_copilot_discovery` tree.
+without leaving the `lacuna_discovery` tree.
 
 ## Source
 

@@ -26,7 +26,7 @@ independent train/test split, is an audit-grade rejection-gate artifact.
   test split.
 - **Gate:** Pre-registered 5-test (permutation `p<0.05`, bootstrap
   `ci_lower>0.6`, `delta_baseline>0.05`, `delta_confound>0.03` when active,
-  `decoy_p<0.05`) from `src/theory_copilot/falsification.py`.
+  `decoy_p<0.05`) from `src/lacuna/falsification.py`.
 - **LLM skeleton proposer:** DrSR-style outcome history (last 50% of
   iterations, labelled as `positive`/`marginal`/`negative`) + doom-loop
   detector + pathway concept library. Opus 4.7 and Sonnet 4.6 run with
@@ -90,7 +90,7 @@ fails because single-gene AGXT alone reaches AUROC 0.606 on ccRCC
 tumor-vs-normal — the `delta_baseline` test rejects it by construction.
 
 This is the rejection cycle working on a test it has never seen. The
-thresholds were set in `src/theory_copilot/falsification.py` on
+thresholds were set in `src/lacuna/falsification.py` on
 2026-04-22, committed to git, and unchanged since. Every one of the 18
 rejections in this run is a pre-registered kill.
 

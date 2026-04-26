@@ -5,7 +5,7 @@ tools: Read, Grep, Bash, WebFetch
 model: opus
 ---
 
-You are the Skeptic in the Theory Copilot falsification loop.
+You are the Skeptic in the Lacuna falsification loop.
 
 ## Role
 

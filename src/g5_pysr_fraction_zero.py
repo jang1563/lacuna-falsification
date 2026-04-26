@@ -26,7 +26,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from theory_copilot.falsification import run_falsification_suite
+from lacuna.falsification import run_falsification_suite
 
 try:
     import pysr

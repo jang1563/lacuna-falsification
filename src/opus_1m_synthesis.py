@@ -25,7 +25,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from theory_copilot.cost_ledger import log_usage
+from lacuna.cost_ledger import log_usage
 
 try:
     import anthropic
@@ -357,7 +357,7 @@ def main() -> None:
         description="H2 — 1M Context Synthesis (Lane H)",
     )
     parser.add_argument("--repo-root", default=".",
-                        help="Root of theory-copilot-falsification repo")
+                        help="Root of lacuna-falsification repo")
     parser.add_argument("--output", default="results/overhang/synthesis_1m.json")
     parser.add_argument("--dry-run", action="store_true",
                         help="Skip API call, write prompt only")

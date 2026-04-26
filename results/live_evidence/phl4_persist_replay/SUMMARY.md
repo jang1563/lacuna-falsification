@@ -1,7 +1,7 @@
 # PhL-4 — `sessions.events.list` persist + replay live demo
 
 **Run date:** 2026-04-23. Exercises the two durability primitives
-shipped in `src/theory_copilot/managed_agent_runner.py`:
+shipped in `src/lacuna/managed_agent_runner.py`:
 `persist_session_events(session_id, out_path)` and
 `replay_session_from_log(log_path, target_session_id)`.
 

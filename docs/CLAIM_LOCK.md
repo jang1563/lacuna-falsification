@@ -1,6 +1,6 @@
 # CLAIM LOCK — authoritative phrasing for the submission
 
-**Last locked:** 2026-04-24 (after PhL-1 to PhL-14 + review-handoff pass).
+**Last locked:** 2026-04-25 (after late G/I rigor package + G1/G2 test review).
 **Scope:** every judge-facing surface (README, submission form, Loom
 narration, demo script, paper, STATUS). Any rewrite in the final 48 hours
 must cross-check this file first.
@@ -18,7 +18,7 @@ README do not drift from the committed evidence when written in parallel.
 
 ## One-paragraph summary (canonical)
 
-> Theory Copilot Discovery is a verification-first biological law discovery
+> Lacuna Discovery is a verification-first biological law discovery
 > workflow built around Opus 4.7. Opus proposes compact law families and
 > ex-ante skeptic tests; PySR instantiates equations; a deterministic
 > Python 5-test classification gate rejects weak candidates before any LLM
@@ -54,8 +54,8 @@ README do not drift from the committed evidence when written in parallel.
 | Haiku 4.5 PASS / 60 | **14 / 60** | same |
 | Sonnet 4.6 PASS / 60 | **0 / 60** | same |
 | Memory chain lessons (PhL-12) | **8** | `results/live_evidence/phl12_memory_chain_deepen/SUMMARY.md` |
-| Local tests | **105 / 105** | `make test` |
-| PhL artefact count | **15** (PhL-1 to PhL-14 + PhL-9v2) | `STATUS.md` |
+| Local tests | **118 / 118** | `.venv/bin/python -m pytest`, 2026-04-25 package review |
+| PhL artefact count | **20** (PhL-1 to PhL-19 + PhL-9v2) | `STATUS.md` |
 | Memorization audit (PhL-13): zero-shot TOP2A-EPAS1 exact top | **0 / 10** | `results/live_evidence/phl13_memorization_audit/SUMMARY.md` |
 | Memorization audit: literature-anchor rediscovery | **2 / 2** structurally-equivalent | same |
 | PhL-14 LLM-SR 10-iter: post-seed skeleton families tested | **18** (9 Opus + 9 Sonnet) | `results/overhang/llm_sr_10iter/SUMMARY.md` |
@@ -149,7 +149,7 @@ Triggered by `rg` in P0.1:
 | `5-session` (Path A) | PhL-9 = 3 sessions, not 5 | `sequential 3-session chain` |
 | `one flag-flip away` (Path A) | PhL-9 is LIVE | `live sequential Path A` |
 | `smaller models collapse to rubber-stamp` | strong form falsified by ablation | `Sonnet 4.6 dissents on 100% of gate-PASS candidates (0/60 PASS) while Opus 4.7 draws the gate's line (10/60 PASS)` |
-| `47/47` tests | current is 105/105 | `105/105 local tests` |
+| `47/47` / `90/90` / `105/105` tests | current package-time suite is 118/118 | `118/118 local tests` |
 | `ci_width` as gate metric | replaced by `ci_lower > 0.6` | `ci_lower` |
 | `open-source data` | publicly available but not always open-source licensed | `public/no-login data` or `publicly accessible data` |
 | `diagnostic tool` | research-use only | `research-use-only compact law` |
@@ -175,12 +175,12 @@ Before every submission-bound commit, run from repo root. Two passes:
 
 **Pass 1 — forbidden phrases:**
 ```bash
-rg -n "194 of 204|194/204|204 candidates|10 survivor|full five-test pass|same gate on IMmotion|same gate.*survival|repo private|5-session|one flag-flip|smaller models collapse to rubber|47/47|ci_width|open.source data|diagnostic tool|universal biological law" \
+rg -n "194 of 204|194/204|204 candidates|10 survivor|full five-test pass|same gate on IMmotion|same gate.*survival|repo private|5-session|one flag-flip|smaller models collapse to rubber|47/47|90/90|90 / 90|105/105|105 / 105|ci_width|open.source data|diagnostic tool|universal biological law" \
   README.md docs STATUS.md CLAUDE.md results -g '*.md' \
   -g '!docs/CLAIM_LOCK.md' \
   -g '!docs/loom_narration_final_90s.md' \
   -g '!results/qa/SUMMARY_qa.md' \
-  | rg -v "(historical|was the pre-registered|previously|previous why_opus|not rubber|pre-registered strong form|rubber-stamp agreement. This ablation|This is NOT the same gate|perm_p_fdr, ci_lower, ci_width, delta)"
+  | rg -v "(historical|was the pre-registered|previously|previous why_opus|not rubber|pre-registered strong form|rubber-stamp agreement. This ablation|This is NOT the same gate|Not \"194|Not \"10|❌|perm_p_fdr, ci_lower, ci_width, delta)"
 ```
 *Excludes: `CLAIM_LOCK.md` (documents the forbidden list), and
 `loom_narration_final_90s.md` honest-framing trigger section
@@ -204,6 +204,8 @@ rg -n "IMmotion.*n\s*=\s*(?!263)" README.md docs -g '*.md'
 rg -n "IMmotion.*HR\s*=?\s*(?!1\.36)" README.md docs -g '*.md'
 # Flagship AUROC must be 0.726 (full-train) or 0.722 ± 0.078 (5-fold CV)
 rg -n "TOP2A.*EPAS1.*AUROC\s*0\.(?!726|722)" README.md docs -g '*.md'
+# G2 calibration slope must be the corrected OOF Platt diagnostic.
+rg -n "calibration slope 0\.54|calibration_slope = 0\.540" README.md docs STATUS.md -g '*.md'
 ```
 
 Both passes MUST return zero results before `git push` on any

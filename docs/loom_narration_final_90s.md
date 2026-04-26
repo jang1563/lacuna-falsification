@@ -227,7 +227,7 @@ hook. Gains 3 s of budget.
 Unchanged from `loom_narration_verbatim.md §Recording mechanics`:
 
 - 1080p, 30 fps, single take preferred.
-- Title: `Theory Copilot — verification-first biological law discovery`
+- Title: `Lacuna — falsification-first biological law discovery`
 - Description: one-line pitch from `docs/submission_form_draft.md`
   + GitHub URL.
 - Trim leading/trailing silence aggressively.

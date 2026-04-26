@@ -1,4 +1,4 @@
-# Theory Copilot
+# Lacuna
 
 > *Rejects 194 of 203 candidate laws — including its own.*
 
@@ -6,7 +6,7 @@
 <img src="https://img.shields.io/badge/Built_with-Claude_Opus_4.7-1E3A8A?style=flat-square" alt="Built with Claude Opus 4.7" />
 <img src="https://img.shields.io/badge/Hackathon-Cerebral_Valley_2026-faf9f5?labelColor=141413&style=flat-square" alt="Cerebral Valley Hackathon 2026" />
 
-Theory Copilot is a **verification-first** pipeline for biological law discovery, built around Opus 4.7. A verification-isolated three-session loop (Proposer / Skeptic / Interpreter, each in its own Managed Agents session with separate context windows) proposes compact symbolic laws; a pre-registered five-test Python gate — running **before** any LLM judgement — rejects the ones that can't survive contact with held-out biology. On real TCGA-KIRC the gate **rejects 194 of 203 candidate evaluations under the 5-test classification gate** across 11 task × panel combinations; **9 candidates pass on metastasis** (45-gene expanded panel), led by `TOP2A − EPAS1` — the published ccA/ccB ccRCC subtype axis, rediscovered from unconstrained symbolic regression. The 2-gene law then **replicates on the independent IMmotion150 Phase-2 trial cohort** (n=263, log-rank p=0.0003, Cox HR=1.36, 7.5-month median-PFS gap) under **three separately pre-registered survival kill tests** (log-rank on median split, Cox HR per z-score, Harrell C-index) — a different gate, not the same 5-test classification gate, committed before the survival analysis ran. When the system's own H1 LLM-SR loop later proposed a 3-gene extension (adding `SLC22A8`), that **extension failed the same separately pre-registered IMmotion150 survival replay** ([PhL-1, commit 60d3952](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md)) — **our own downstream best output, killed by our own gate on independent data**. That is what a verification loop looks like when the judgment function is outside the model.
+Lacuna is a **falsification-first** pipeline for biological law discovery, built around Opus 4.7. A verification-isolated three-session loop (Proposer / Skeptic / Interpreter, each in its own Managed Agents session with separate context windows) proposes compact symbolic laws; a pre-registered five-test Python gate — running **before** any LLM judgement — rejects the ones that can't survive contact with held-out biology. On real TCGA-KIRC the gate **rejects 194 of 203 candidate evaluations under the 5-test classification gate** across 11 task × panel combinations; **9 candidates pass on metastasis** (45-gene expanded panel), led by `TOP2A − EPAS1` — the published ccA/ccB ccRCC subtype axis, rediscovered from unconstrained symbolic regression. The 2-gene law then **replicates on the independent IMmotion150 Phase-2 trial cohort** (n=263, log-rank p=0.0003, Cox HR=1.36, 7.5-month median-PFS gap) under **three separately pre-registered survival kill tests** (log-rank on median split, Cox HR per z-score, Harrell C-index) — a different gate, not the same 5-test classification gate, committed before the survival analysis ran. When the system's own H1 LLM-SR loop later proposed a 3-gene extension (adding `SLC22A8`), that **extension failed the same separately pre-registered IMmotion150 survival replay** ([PhL-1, commit 60d3952](results/track_a_task_landscape/external_replay/immotion150_slc22a8/SUMMARY.md)) — **our own downstream best output, killed by our own gate on independent data**. That is what a verification loop looks like when the judgment function is outside the model.
 
 > **Honest scoping note.** The 9 metastasis survivors clear 4 active tests of the 5-test gate — the `delta_confound` leg is null for all 9 because the metastasis task has no non-degenerate covariates after filtering. The gate design specifies this as "run the confound leg when covariates vary; otherwise skip." So "5-test gate" here is the *framework*; the *active* legs for metastasis are permutation, bootstrap CI lower-bound, sign-invariant single-feature baseline, and decoy null. See `docs/methodology.md §3` for the exact specification.
 
@@ -22,14 +22,14 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   start with [`docs/methodology.md §4`](docs/methodology.md) (three
   Managed Agents sessions with verification isolation and a verified
   Path B run) and
-  [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py).
+  [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py).
   Live agent / environment / session / stream trace is at
   [`results/live_evidence/04_managed_agents_e2e.log`](results/live_evidence/04_managed_agents_e2e.log).
   Submission run uses public-beta features only: Path B (single agent,
   `agent_toolset_20260401`), Path A as a sequential chain of three Path
   B sessions with structured-JSON handoff, Path C via Claude Code
   Routines `/fire` with local watch-dir fallback.
-  Brain/body-decouple demo: `theory-copilot persist-events` +
+  Brain/body-decouple demo: `lacuna persist-events` +
   `replay-events` CLI two-liner.
   Two Agent Skills wrap the methodology as natural-language entry
   points: [`.claude/skills/falsification-gate/SKILL.md`](.claude/skills/falsification-gate/SKILL.md)
@@ -59,7 +59,7 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   researcher had expected to survive and accepts a 2-gene subtype
   axis the researcher had *not* planted. The user-side workflow for
   a new task is "drop a CSV with a label column and a gene-name
-  columns, run `theory-copilot compare --dataset-card <your_card>.json`,
+  columns, run `lacuna compare --dataset-card <your_card>.json`,
   read the pass/fail table." See
   [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) for the
   full reproducible steps and [`docs/paper/paper.pdf`](docs/paper/paper.pdf)
@@ -76,7 +76,7 @@ Built by a biomedical postdoc for the *Built with Opus 4.7* Hackathon · April 2
   extensions add five pre-registered analyses on the same survivor
   (12/13 of their own predictions PASS, 1 honest FAIL):
   [`rigor_extension/SUMMARY.md`](results/track_a_task_landscape/rigor_extension/SUMMARY.md)
-  (G2: AUPRC 0.321 / 2.05× lift, Brier 0.122, calibration slope 0.54),
+  (G2: AUPRC 0.321 / 2.05× lift, Brier 0.122, calibration slope 0.979),
   [`knockoff_v2/SUMMARY.md`](results/track_a_task_landscape/knockoff_v2/SUMMARY.md)
   (G1: 0/45 individually selected — signal is genuinely compound),
   [`rashomon_set/SUMMARY.md`](results/track_a_task_landscape/rashomon_set/SUMMARY.md)
@@ -109,7 +109,7 @@ Proposal → Search → Falsification → Survivor → Replay
 | **Survivor** | Opus 4.7 reviews each candidate's metric pattern and writes a biological mechanism hypothesis for the survivors. | Opus 4.7 (extended thinking) |
 | **Replay** | Survivors replayed on an independent cohort with per-cohort z-score standardization. Three-way verdict: law_transfers / workflow_transfers / neither. | Opus 4.7 spot-check |
 
-![Theory Copilot — 5-stage discovery pipeline](docs/architecture.png)
+![Lacuna — 5-stage discovery pipeline](docs/architecture.png)
 
 ---
 
@@ -117,11 +117,11 @@ Proposal → Search → Falsification → Survivor → Replay
 
 | File | Role |
 |---|---|
-| [`src/theory_copilot/falsification.py`](src/theory_copilot/falsification.py) | 5-test statistical gate |
-| [`src/theory_copilot/opus_client.py`](src/theory_copilot/opus_client.py) | Opus 4.7 three-role wrapper + JSON-fence-tolerant parser |
-| [`src/theory_copilot/managed_agent_runner.py`](src/theory_copilot/managed_agent_runner.py) | Path B (single agent, public beta) + Path A (sequential chain of 3 Path B sessions) + Path C Routine driver + event-log persistence/replay |
-| [`src/theory_copilot/routines_client.py`](src/theory_copilot/routines_client.py) | Claude Code Routines `/fire` HTTP client (research-preview beta header) |
-| [`src/theory_copilot/cli.py`](src/theory_copilot/cli.py) | `theory-copilot compare` + `replay` commands |
+| [`src/lacuna/falsification.py`](src/lacuna/falsification.py) | 5-test statistical gate |
+| [`src/lacuna/opus_client.py`](src/lacuna/opus_client.py) | Opus 4.7 three-role wrapper + JSON-fence-tolerant parser |
+| [`src/lacuna/managed_agent_runner.py`](src/lacuna/managed_agent_runner.py) | Path B (single agent, public beta) + Path A (sequential chain of 3 Path B sessions) + Path C Routine driver + event-log persistence/replay |
+| [`src/lacuna/routines_client.py`](src/lacuna/routines_client.py) | Claude Code Routines `/fire` HTTP client (research-preview beta header) |
+| [`src/lacuna/cli.py`](src/lacuna/cli.py) | `lacuna compare` + `replay` commands |
 | [`src/pysr_sweep.py`](src/pysr_sweep.py) | PySR sweep with law-family injection, train/test split, novelty scoring |
 | [`src/falsification_sweep.py`](src/falsification_sweep.py) | Batch falsification runner + BH-FDR |
 | [`prompts/`](prompts/) | JSON-schema-enforced Opus 4.7 prompts |
@@ -132,7 +132,7 @@ Proposal → Search → Falsification → Survivor → Replay
 
 ## Quick Start
 
-**Python ≥ 3.10 required** (`pyproject.toml` needs `X | Y` union syntax; `match` statements in `src/theory_copilot/managed_agent_runner.py` also require 3.10+). macOS default `/usr/bin/python3` is 3.9.x — use a venv. `make install` creates `.venv/` and points the Makefile at it by default.
+**Python ≥ 3.10 required** (`pyproject.toml` needs `X | Y` union syntax; `match` statements in `src/lacuna/managed_agent_runner.py` also require 3.10+). macOS default `/usr/bin/python3` is 3.9.x — use a venv. `make install` creates `.venv/` and points the Makefile at it by default.
 
 ```bash
 # Install into .venv (Python ≥ 3.10, Julia 1.10.0 for PySR)
@@ -163,7 +163,7 @@ python src/falsification_sweep.py \
 
 # Full pipeline with Opus 4.7 (requires ANTHROPIC_API_KEY)
 export ANTHROPIC_API_KEY=sk-ant-...
-theory-copilot compare --config config/datasets.json \
+lacuna compare --config config/datasets.json \
   --proposals config/law_proposals.json \
   --flagship-dataset kirc --output-root artifacts/
 # → prints the PySR + falsification commands to run next
@@ -174,7 +174,7 @@ theory-copilot compare --config config/datasets.json \
 ## The 5-Test Falsification Gate
 
 Every candidate must clear all five tests before being called a survivor.
-Thresholds pre-registered in [`falsification.py`](src/theory_copilot/falsification.py).
+Thresholds pre-registered in [`falsification.py`](src/lacuna/falsification.py).
 
 | Test | Statistic | Threshold |
 |---|---|---|
@@ -224,19 +224,19 @@ law earned that survival by genuinely adding 0.11 over any single gene.
 
 Boris Cherny in the 2026-04-21 *Built with Opus 4.7* kickoff flagged server-side
 Routines — Claude sessions that wake on a schedule and outlive the laptop — as
-the feature space "no one has cracked yet." Path C is Theory Copilot's answer:
+the feature space "no one has cracked yet." Path C is Lacuna's answer:
 a replication-watchdog driver that re-runs the Managed Agent on a cadence or
 when a watched directory changes.
 
 ```bash
 # Fire once (equivalent to Path B, but with a JSONL verdict log)
-theory-copilot loop --night 3 --interval-seconds 0 --max-iterations 1
+lacuna loop --night 3 --interval-seconds 0 --max-iterations 1
 
 # Poll every 30 minutes, 10 times, logging to a dated JSONL
-theory-copilot loop --night 3 --interval-seconds 1800 --max-iterations 10
+lacuna loop --night 3 --interval-seconds 1800 --max-iterations 10
 
 # Watch an input directory — only invoke when a new cohort CSV lands
-theory-copilot loop \
+lacuna loop \
     --night 3 \
     --watch-dir inputs/new_cohorts \
     --interval-seconds 600 \
@@ -246,7 +246,7 @@ theory-copilot loop \
 Each iteration appends a verdict to `results/routine/verdicts.jsonl`
 (`iteration`, `timestamp`, `night`, `watch_fingerprint`, `session_id`,
 `status`, `output_chars`). The implementation in
-`src/theory_copilot/managed_agent_runner.py::run_path_c_routine` exposes an
+`src/lacuna/managed_agent_runner.py::run_path_c_routine` exposes an
 `invoke_fn` hook so a native Routines API can be swapped in once the public
 interface stabilizes — today's loop driver is intentionally local so the repo
 ships without a dependency on an unreleased API.
@@ -279,7 +279,7 @@ This artifact is the Opus 4.7-centered proof-of-concept of a larger research
 program — **NegBioDB**, a structured database of ~32.8M confirmed negative
 biomedical results (drug–target inactives, failed clinical trials, protein
 non-interactions, non-essential genes, benign variants) paired with benchmarks
-for publication-bias propagation into ML/LLM predictions. Theory Copilot
+for publication-bias propagation into ML/LLM predictions. Lacuna
 operationalizes NegBioDB's core thesis — falsification as the expensive,
 neglected half of scientific inference — on real cancer-genomics data. The
 public NegBioDB repository will be linked here at release.
@@ -307,7 +307,7 @@ Discord Q&A clarifications:
 **Code provenance.** Every commit in `git log` has a timestamp from
 2026-04-22 04:01 ET or later (the earliest commit in the repo). All
 code in the submitted tree was written during the hackathon. Pre-
-hackathon scaffold files (`src/theory_copilot/contracts.py`, `qc.py`,
+hackathon scaffold files (`src/lacuna/contracts.py`, `qc.py`,
 `reuse_inventory.py`, `reuse_plan.py`, `staging.py`, `workflow_data.py`
 plus a few config / docs / test files) are explicitly excluded via
 `.gitignore` and are not part of the submission — `git ls-files` does
@@ -342,7 +342,7 @@ access application, or any other gate that would fail the Q&A test
 cited in the prompts is open-access per PubMed / arXiv / DOI.
 
 **Repo visibility.** Public during the judging window (`git remote -v`
-→ `github.com/jang1563/theory-copilot-falsification`). MIT licensed.
+→ `github.com/jang1563/lacuna-falsification`). MIT licensed.
 
 ---
 

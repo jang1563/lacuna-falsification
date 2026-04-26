@@ -1,7 +1,7 @@
 .PHONY: help install test smoke demo demo-kirc demo-templates clean status audit paper skeptic-review prereg prereg-validate prereg-audit rejection-log h1 h2 venv all
 
 # ============================================================
-# Theory Copilot Falsification — Developer Commands
+# Lacuna Falsification — Developer Commands
 # ============================================================
 # Run `make help` for the list of targets.
 # ============================================================
@@ -18,7 +18,7 @@ TRANSFER_OUT := artifacts/transfer_run
 # override with `make test PYTHON=python3.12`.
 
 help:
-	@echo "Theory Copilot Falsification — available targets:"
+	@echo "Lacuna Falsification — available targets:"
 	@echo ""
 	@echo "  make venv          Create .venv and install the package (fresh-clone one-liner)"
 	@echo "  make install       Install package + dependencies into existing .venv (editable)"
@@ -108,7 +108,7 @@ smoke:
 	@echo ">>> [smoke 2/4] Gate importable + deterministic on fixed-seed null..."
 	@$(PYTHONPATH_SRC) $(PYTHON) -c "\
 import numpy as np; \
-from theory_copilot.falsification import run_falsification_suite; \
+from lacuna.falsification import run_falsification_suite; \
 rng = np.random.default_rng(42); \
 X = rng.normal(size=(200, 5)); \
 y = rng.integers(0, 2, size=200); \
@@ -138,12 +138,12 @@ print(f'  gate OK — null AUC={r[\"law_auc\"]:.3f} (expected ~0.5), perm_p={r[\
 demo:
 	@echo ">>> Running end-to-end demo on synthetic data..."
 	@mkdir -p $(DEMO_OUT) $(TRANSFER_OUT)
-	$(PYTHONPATH_SRC) $(PYTHON) -m theory_copilot.cli compare \
+	$(PYTHONPATH_SRC) $(PYTHON) -m lacuna.cli compare \
 		--config config/datasets.json \
 		--proposals config/law_proposals.json \
 		--flagship-dataset flagship_demo \
 		--output-root artifacts
-	$(PYTHONPATH_SRC) $(PYTHON) -m theory_copilot.cli replay \
+	$(PYTHONPATH_SRC) $(PYTHON) -m lacuna.cli replay \
 		--flagship-artifacts $(DEMO_OUT) \
 		--transfer-dataset transfer_demo \
 		--output-root artifacts
@@ -153,12 +153,12 @@ demo:
 demo-kirc:
 	@echo ">>> Running KIRC-flavoured demo..."
 	@mkdir -p $(DEMO_OUT) $(TRANSFER_OUT)
-	$(PYTHONPATH_SRC) $(PYTHON) -m theory_copilot.cli compare \
+	$(PYTHONPATH_SRC) $(PYTHON) -m lacuna.cli compare \
 		--config config/datasets.json \
 		--proposals config/law_proposals.json \
 		--flagship-dataset flagship_kirc_demo \
 		--output-root artifacts
-	$(PYTHONPATH_SRC) $(PYTHON) -m theory_copilot.cli replay \
+	$(PYTHONPATH_SRC) $(PYTHON) -m lacuna.cli replay \
 		--flagship-artifacts $(DEMO_OUT) \
 		--transfer-dataset transfer_kirc_demo \
 		--output-root artifacts
@@ -271,7 +271,7 @@ prereg:
 		--proposals config/law_proposals.json \
 		--out preregistrations \
 		--retroactive \
-		--analyst "theory-copilot-team"
+		--analyst "lacuna-team"
 
 prereg-validate:
 	$(PYTHONPATH_SRC) $(PYTHON) src/preregistration.py validate --dir preregistrations

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Reconcile cohort sizing across the 4 Tier-1 substrate verdicts (n=192) with the upstream PBTA v15 H3 K27M DMG cohort (n=237 participants, 845 biospecimens).",
+  "source_data": {
+    "histologies_path": "(remote PBTA v15 mirror) histologies.tsv",
+    "filter_regex": "^DMG, H3 K2[78]",
+    "exclude_composition": ["Cell Line", "Derived Cell Line"]
+  },
+  "cohort_funnel": {
+    "matched_dmg_h3_k28_biospecimens_total": 894,
+    "after_excluding_cell_lines_biospecimens": 845,
+    "unique_participants_in_dmg_h3_k28_cohort": 237,
+    "participants_with_OS_days_AND_OS_status": 192,
+    "events_DECEASED_in_survival_evaluable": 182,
+    "censored_LIVING_in_survival_evaluable": 10,
+    "participants_with_extent_of_tumor_resection": 112,
+    "covariate_age_at_diagnosis_days_coverage_in_survival_subset": "215 / 225 RNA-seq biospec (proxy)"
+  },
+  "molecular_subtype_breakdown": {
+    "DMG, H3 K28": 385,
+    "DMG, H3 K28, TP53": 509
+  },
+  "experimental_strategy_in_dmg_cohort": {
+    "WGS": 281,
+    "RNA-Seq": 225,
+    "Methylation": 199,
+    "WXS": 86,
+    "Targeted Sequencing": 37
+  },
+  "tier1_per_candidate_n_strat": {
+    "02_avapritinib_PDGFRA": {"n_strat_pos": 11, "n_strat_neg": 181, "stratifier": "PDGFRA CN amp >=5 OR hotspot SNV"},
+    "06_ACVR1i_H31_comut": {"n_strat_pos": 19, "n_strat_neg": 173, "stratifier": "ACVR1-mut as H3.1 surrogate"},
+    "12_pembrolizumab_CMMRD": {"n_strat_pos": 3, "n_strat_neg": 189, "stratifier": "TMB-high (>=10 mut/Mb)"},
+    "13_H3K27M_peptide_dual_ICB": {"n_strat_pos": 188, "n_strat_neg": 4, "stratifier": "ACVR1-WT as H3.3 surrogate (HLA-A2 reduced)"}
+  },
+  "pre_reg_deviations_summary": [
+    "KPS_substituted_by_extent_of_tumor_resection (KPS not in PBTA schema)",
+    "HLA_A02_01_dimension_dropped_for_candidate_13 (BAM-tier blocker)",
+    "H3_status_inferred_via_ACVR1_for_candidates_06_and_13 (PBTA SNV consensus does NOT include H3 mutations; molecular_subtype field is the H3K27M annotation source)",
+    "PDGFRA_and_ACVR1_hotspot_lists_expanded (G328W/G328E/D846Y/V536E/P577R observed in PBTA DMG)"
+  ],
+  "test_kind": "prognostic_under_SOC",
+  "therapy_administered_in_cohort": false,
+  "therapy_administered_note": "PBTA cohort received standard-of-care (radiation +/- TMZ +/- investigational ONC201 in PNOC003 subset). The proposed therapeutic agents (avapritinib / ACVR1i / pembrolizumab / peptide vaccine) were NOT administered. Substrate test asks whether the proposed stratifier shows prognostic distinction under SOC, NOT whether the proposed therapy works.",
+  "pre_reg_lock_sha": "8a4ecc5",
+  "engine_run_dir": "(sibling) dipg_rescue/runs/2026-04-24_run01"
+}

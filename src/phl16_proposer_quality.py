@@ -42,7 +42,7 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
-from theory_copilot.falsification import run_falsification_suite  # noqa: E402
+from lacuna.falsification import run_falsification_suite  # noqa: E402
 
 OUT = REPO / "results" / "live_evidence" / "phl16_proposer_quality"
 OUT.mkdir(parents=True, exist_ok=True)

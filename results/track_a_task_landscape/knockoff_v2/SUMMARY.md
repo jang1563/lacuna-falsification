@@ -11,7 +11,7 @@ compound `TOP2A − EPAS1`. The honest finding is documented below.
 
 | Knob | Value | Source |
 |---|---|---|
-| Sigma estimator | LedoitWolf shrinkage | `src/theory_copilot/knockoff_gate.py` |
+| Sigma estimator | LedoitWolf shrinkage | `src/lacuna/knockoff_gate.py` |
 | Knockoff construction | MVR (minimum variance reconstructability) | knockpy 1.3.x |
 | Feature statistic | `lcd` (signed log-feature-importance contrast) | knockpy default for binary y |
 | FDR target | **q = 0.10** | pre-registered |

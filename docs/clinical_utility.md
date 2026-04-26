@@ -8,13 +8,14 @@ into clinical decision-relevant numbers. Every claim cites its source.
 | Source metric | Value | Converted |
 |---|---|---|
 | AUROC | 0.7256 | → Cohen's d ≈ 0.857 (large effect per Cohen 1988) |
-| | | → log-odds shift ≈ 1.556 → **Odds Ratio ≈ 4.74** |
-| AUPRC | 0.317 (baseline 0.156) | **2.03× lift over no-skill** — at the precision thresholds a clinician would screen, the compound performs 2× better than random |
+| | | → logistic OR per 1-SD score increase = **2.07** (95% CI 1.65–2.59) |
+| AUPRC | 0.321 (baseline 0.156) | **2.05× lift over no-skill** — at the precision thresholds a clinician would screen, the compound performs 2× better than random |
 | DeLong ΔAUROC vs best single (MKI67) | **+0.081 (p = 0.004)** | statistically significant improvement over the strongest single-gene biomarker at 95% CI [0.023, 0.143] |
 
 Conversion formulas:
 - AUROC → Cohen's d: `d = √2 · Φ⁻¹(AUROC)` (Ruscio 2008)
-- Cohen's d → OR (log-logistic approximation): `OR = exp(d · π / √3)`
+- OR is now taken from the pre-registered I3 logistic regression on the
+  z-scored `TOP2A − EPAS1` score, not the older Cohen's-d approximation.
 - References: [Ruscio 2008, EJPALC](https://journals.copmadrid.org/ejpalc/art/ejpalc2018a5)
 
 ## 2. Cox / survival interpretation (IMmotion150 independent replay)

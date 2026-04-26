@@ -1,6 +1,6 @@
 """DatasetCard abstraction — plug-in-dataset layer.
 
-A `DatasetCard` is the minimum contract the Theory Copilot pipeline needs
+A `DatasetCard` is the minimum contract the Lacuna pipeline needs
 to evaluate law candidates on any disease CSV:
 
   sample_id, label (disease/control or 0/1), covariates..., gene columns...
@@ -11,7 +11,7 @@ covariates, and which are genes. Two load methods are exposed:
   DatasetCard.from_json(path)
       Parse a card JSON file.
   DatasetCard.infer_from_csv(csv_path, label_column, disease_id, ...)
-      Auto-infer a card from a CSV (used by `theory-copilot plug-in-dataset`).
+      Auto-infer a card from a CSV (used by `lacuna plug-in-dataset`).
 
 `card.load(csv_path_override=None)` returns `(X_raw, X_zscored, y, gene_cols,
 X_cov_or_None)` — a single tuple that `cli._cmd_compare` and downstream

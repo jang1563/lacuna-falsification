@@ -1,6 +1,6 @@
 """E10 — Path A (callable_agents multiagent) waitlist probe.
 
-The `src/theory_copilot/managed_agent_runner.py::run_path_a` function builds
+The `src/lacuna/managed_agent_runner.py::run_path_a` function builds
 a 3-agent chain (Proposer -> Searcher -> Falsifier) using
 `client.beta.agents.create(..., tools=[{"type": "agent_toolset_20260401"}])`
 followed by per-agent sessions. Path B (single-agent tool loop) already
@@ -112,7 +112,7 @@ def main() -> None:
     flag = os.environ.get("MANAGED_AGENTS_WAITLIST", "unset")
     lines.append(
         f"`MANAGED_AGENTS_WAITLIST={flag}` — `run_path_a()` in "
-        "`src/theory_copilot/managed_agent_runner.py` raises "
+        "`src/lacuna/managed_agent_runner.py` raises "
         "`NotImplementedError` unless this env var is set to `approved`, so "
         "Path A remains a documented code path that can be activated the "
         "moment the waitlist opens for this key."

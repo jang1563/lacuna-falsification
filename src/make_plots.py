@@ -25,7 +25,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from theory_copilot.visualize import plot_separation  # noqa: F401 (kept for parity)
+from lacuna.visualize import plot_separation  # noqa: F401 (kept for parity)
 
 
 ROOT = Path(__file__).resolve().parent.parent

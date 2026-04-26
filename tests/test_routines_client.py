@@ -15,7 +15,7 @@ def _mock_transport(response_payload: dict, status: int = 200):
 
 
 def test_fire_routine_success_returns_session_info():
-    from theory_copilot import routines_client
+    from lacuna import routines_client
 
     payload = {
         "type": "routine_fire",
@@ -36,7 +36,7 @@ def test_fire_routine_success_returns_session_info():
 
 
 def test_fire_routine_non_2xx_sets_error_status():
-    from theory_copilot import routines_client
+    from lacuna import routines_client
 
     transport = _mock_transport({"error": "unauthorized"}, status=401)
 
@@ -49,7 +49,7 @@ def test_fire_routine_non_2xx_sets_error_status():
 
 
 def test_fire_routine_from_env_raises_when_missing(monkeypatch):
-    from theory_copilot import routines_client
+    from lacuna import routines_client
 
     monkeypatch.delenv("CLAUDE_ROUTINE_TRIG_ID", raising=False)
     monkeypatch.delenv("CLAUDE_ROUTINE_TOKEN", raising=False)
@@ -61,7 +61,7 @@ def test_fire_routine_from_env_raises_when_missing(monkeypatch):
 def test_make_routine_invoke_fn_shapes_result_like_path_b(monkeypatch):
     """The invoke_fn returned by make_routine_invoke_fn must return the same
     dict shape run_path_c_routine expects from run_path_b."""
-    from theory_copilot import routines_client
+    from lacuna import routines_client
 
     monkeypatch.setenv("CLAUDE_ROUTINE_TRIG_ID", "trig_test")
     monkeypatch.setenv("CLAUDE_ROUTINE_TOKEN", "token_test")

@@ -236,7 +236,7 @@ def analyze() -> None:
         "",
         "## Why this matters",
         "",
-        "The 'Rejection-as-Product' thesis of Theory Copilot claims that the",
+        "The 'Rejection-as-Product' thesis of Lacuna claims that the",
         "core competence we elevate is *disciplined abstention* — the model",
         "refusing to claim a law survives when the evidence is ambiguous.",
         "Opus 4.7's published calibration delta (61→36% on unknowns) is the",

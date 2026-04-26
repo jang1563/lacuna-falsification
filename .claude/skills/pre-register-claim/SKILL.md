@@ -6,7 +6,7 @@ allowed-tools: Read, Grep, Bash, Write
 
 # Pre-register a claim — emit a tamper-evident YAML before the fit
 
-You are invoking the Theory Copilot pre-registration emitter. A pre-registration
+You are invoking the Lacuna pre-registration emitter. A pre-registration
 is a committed YAML in `preregistrations/` that pins the hypothesis, its kill
 tests, and the active git SHA *before* any data is touched. Once committed,
 any subsequent edit shows up in `git log -p` on the file — that is the
@@ -114,7 +114,7 @@ This skill writes the contract. It does NOT:
 - Decide pass/fail (that is `falsification-gate`).
 - Choose the hypothesis (that is the Proposer subagent
   `.claude/agents/proposer.md`).
-- Modify thresholds in `src/theory_copilot/falsification.py`. If the user
+- Modify thresholds in `src/lacuna/falsification.py`. If the user
   wants different thresholds, they must use `kill_tests_override` and accept
   that the override is hypothesis-specific — it does not retroactively change
   the binary-classification 5-test gate.
@@ -137,7 +137,7 @@ natural-language command.
 
 User: *"Pre-register this: high MKI67 relative to EPAS1 should predict ccRCC
 metastasis. I expect this to PASS. Use the default 5-test gate. Data cutoff
-2026-04-22, analyst 'theory-copilot-team'."*
+2026-04-22, analyst 'lacuna-team'."*
 
 Skill response (after one confirmation round):
 

@@ -18,7 +18,7 @@ Instructions.
 
 ## What it actually ran
 
-`theory_copilot.managed_agent_runner.run_path_a(night=2,
+`lacuna.managed_agent_runner.run_path_a(night=2,
 fallback_on_no_waitlist=True)` — the **exact** function cited in
 `docs/submission_description.md` as our Path A execution model.
 Because `MANAGED_AGENTS_WAITLIST` is not set to `approved` in this

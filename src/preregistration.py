@@ -41,7 +41,7 @@ import sys
 from pathlib import Path
 
 
-# Hard-coded 5-test thresholds mirror src/theory_copilot/falsification.py.
+# Hard-coded 5-test thresholds mirror src/lacuna/falsification.py.
 # Pre-registered as of Phase-N 2026-04-22; any change invalidates ALL
 # existing pre-reg YAMLs.
 _GATE_THRESHOLDS = {
@@ -123,7 +123,7 @@ def _emit_yaml(
         raise ValueError(f"family {hid} has no initial_guess / symbolic_template")
 
     # Per-test threshold list. Defaults to the 5-test binary-classification
-    # gate in src/theory_copilot/falsification.py. A family JSON may override
+    # gate in src/lacuna/falsification.py. A family JSON may override
     # this with a `kill_tests_override` list when the hypothesis is not a
     # binary classification (e.g. a survival-analysis replay); in that case
     # the override is written verbatim and the override flag is recorded.
@@ -142,7 +142,7 @@ def _emit_yaml(
             tests_yaml.append(f"    {k}: {v}")
 
     body = [
-        "# Pre-registration artifact — Theory Copilot Phase F",
+        "# Pre-registration artifact — Lacuna Phase F",
         "#",
         "# Committed once and never modified. Any subsequent edit of this file",
         "# invalidates the pre-registration (verifiable via `git log -p <file>`).",
@@ -170,7 +170,7 @@ def _emit_yaml(
         f"expected_verdict: {family.get('expected_verdict', 'UNKNOWN')}",
         "",
         "# Deterministic kill-test thresholds. By default these mirror the",
-        "# 5-test binary-classification gate in src/theory_copilot/falsification.py",
+        "# 5-test binary-classification gate in src/lacuna/falsification.py",
         "# (a change to that file invalidates every classification pre-reg).",
         "# When `uses_kill_tests_override: true`, the hypothesis is not a binary",
         "# classification and the tests below are hypothesis-specific (e.g.",
@@ -188,7 +188,7 @@ def _emit_yaml(
         "",
         "# Tamper-evidence pointers.",
         "references:",
-        "  falsification_gate_impl: src/theory_copilot/falsification.py",
+        "  falsification_gate_impl: src/lacuna/falsification.py",
         "  law_proposal_source: config/law_proposals.json",
         "  methodology_doc: docs/methodology.md",
         "",
@@ -362,7 +362,7 @@ def _cmd_audit(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="theory-copilot-preregistration")
+    p = argparse.ArgumentParser(prog="lacuna-preregistration")
     sub = p.add_subparsers(dest="command", required=True)
 
     common = {

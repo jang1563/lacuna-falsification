@@ -46,8 +46,8 @@ SRC = REPO / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from theory_copilot.falsification import run_falsification_suite  # noqa: E402
-from theory_copilot.cost_ledger import estimate_cost, log_usage  # noqa: E402
+from lacuna.falsification import run_falsification_suite  # noqa: E402
+from lacuna.cost_ledger import estimate_cost, log_usage  # noqa: E402
 
 OUT = REPO / "results" / "ablation"
 OUT.mkdir(parents=True, exist_ok=True)

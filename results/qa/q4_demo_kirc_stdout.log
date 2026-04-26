@@ -1,5 +1,5 @@
 >>> Running KIRC-flavoured demo...
-PYTHONPATH=src .venv/bin/python -m theory_copilot.cli compare \
+PYTHONPATH=src .venv/bin/python -m lacuna.cli compare \
 		--config config/datasets.json \
 		--proposals config/law_proposals.json \
 		--flagship-dataset flagship_kirc_demo \
@@ -7,21 +7,21 @@ PYTHONPATH=src .venv/bin/python -m theory_copilot.cli compare \
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/src/theory_copilot/cli.py", line 242, in <module>
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/src/lacuna/cli.py", line 242, in <module>
     raise SystemExit(main())
                      ~~~~^^
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/src/theory_copilot/cli.py", line 238, in main
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/src/lacuna/cli.py", line 238, in main
     return args.func(args)
            ~~~~~~~~~^^^^^^
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/src/theory_copilot/cli.py", line 79, in _cmd_compare
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/src/lacuna/cli.py", line 79, in _cmd_compare
     proposer_result = client.propose_laws(
         dataset_card=flagship_card,
         features=features,
         context=flagship_card.get("name", ""),
     )
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/src/theory_copilot/opus_client.py", line 79, in propose_laws
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/src/lacuna/opus_client.py", line 79, in propose_laws
     blocks = self._call(system, user_msg, role="scientist")
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/src/theory_copilot/opus_client.py", line 48, in _call
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/src/lacuna/opus_client.py", line 48, in _call
     with self.client.messages.stream(
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
         model=self.model,
@@ -31,19 +31,19 @@ Traceback (most recent call last):
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     ) as stream:
     ^
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/lib/streaming/_messages.py", line 167, in __enter__
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/lib/streaming/_messages.py", line 167, in __enter__
     raw_stream = self.__api_request()
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 1368, in post
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 1368, in post
     return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 1062, in request
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 1062, in request
     request = self._build_request(options, retries_taken=retries_taken)
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 521, in _build_request
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 521, in _build_request
     headers = self._build_headers(options, retries_taken=retries_taken)
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 451, in _build_headers
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/_base_client.py", line 451, in _build_headers
     self._validate_headers(headers_dict, custom_headers)
     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/theory_copilot_discovery/.venv/lib/python3.13/site-packages/anthropic/_client.py", line 196, in _validate_headers
+  File "<home>/Dropbox/Lab/Post-doc_cmlab/Proposal/2026_Cerebralvalley_built_with_4_7_hackathon/lacuna_discovery/.venv/lib/python3.13/site-packages/anthropic/_client.py", line 196, in _validate_headers
     raise TypeError(
         '"Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"'
     )

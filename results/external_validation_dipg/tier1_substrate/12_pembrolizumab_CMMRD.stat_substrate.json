@@ -1,0 +1,33 @@
+{
+  "candidate_id": "12_pembrolizumab_CMMRD",
+  "test_kind": "prognostic_under_SOC",
+  "therapy_administered_in_cohort": false,
+  "cohort_n": 192,
+  "n_strat_pos": 3,
+  "n_strat_neg": 189,
+  "prevalence": 0.015625,
+  "cox_hr": null,
+  "cox_ci_low": null,
+  "cox_ci_high": null,
+  "cox_p": null,
+  "perm_p": null,
+  "bootstrap_ci_lower_coef": null,
+  "decoy_p": null,
+  "confound_incremental_delta": null,
+  "n_per_arm_meets_min": false,
+  "flags": [
+    "STAT_TIER_VIOLATION_UNDERPOWERED_SUBSTRATE"
+  ],
+  "pre_reg_deviations": [
+    "KPS_substituted_by_extent_of_tumor_resection"
+  ],
+  "substrate_verdict": "UNDERPOWERED",
+  "notes": "n_strat_pos=3, n_strat_neg=189; pre-reg minimum per arm = 8. Substrate test cannot proceed; this is the engine's intended falsifier output for under-powered substrate hypotheses.",
+  "tmb_distribution": {
+    "n_samples_with_tmb": 4691,
+    "median_tmb": 0.5,
+    "max_tmb": 566.4666666666667,
+    "n_hypermutator_above_threshold": 316
+  },
+  "therapy_administered_in_cohort_note": "PBTA cohort received standard-of-care (radiation +/- TMZ +/- investigational ONC201 in PNOC003 subset). The proposed agent for this candidate (avapritinib / ACVR1i / pembrolizumab / peptide vaccine) was NOT administered. Substrate test is prognostic-under-SOC, not therapeutic-rescue."
+}

@@ -1,10 +1,10 @@
-# Pre-registration artifact — Theory Copilot Phase G
+# Pre-registration artifact — Lacuna Phase G
 #
 # Committed once and never modified. Any subsequent edit of this file
 # invalidates the pre-registration (verifiable via `git log -p <file>`).
 # This file documents the G2 rigor-extension addition: AUPRC + Brier +
 # calibration slope/intercept added as REPORTING-ONLY metrics. The
-# original 5-test gate thresholds in src/theory_copilot/falsification.py
+# original 5-test gate thresholds in src/lacuna/falsification.py
 # remain unchanged. This is consistent with TRIPOD+AI 2024 reporting
 # standards (Collins et al., BMJ 385:e078378) which mandate calibration
 # alongside discrimination — adding standard reporting metrics does not
@@ -15,7 +15,7 @@ hypothesis_id: g2_rigor_extension_2026-04-25
 emitted_at_utc: 2026-04-25T16:48:40Z
 emitted_git_sha: af6289e
 retroactive: false
-analyst: theory-copilot-team
+analyst: lacuna-team
 data_cutoff_date: 2026-04-25
 dataset_context: tcga_kirc_metastasis_expanded
 
@@ -74,8 +74,8 @@ stopping_rule: |
 
 # Tamper-evidence pointers.
 references:
-  rigor_metrics_impl: src/theory_copilot/rigor_metrics.py
-  falsification_gate_impl: src/theory_copilot/falsification.py
+  rigor_metrics_impl: src/lacuna/rigor_metrics.py
+  falsification_gate_impl: src/lacuna/falsification.py
   methodology_doc: docs/methodology.md
 
 # Regulatory + reporting-standard context.

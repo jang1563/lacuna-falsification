@@ -1,4 +1,4 @@
-# Pre-registration artifact — Theory Copilot Phase F
+# Pre-registration artifact — Lacuna Phase F
 #
 # Committed once and never modified. Any subsequent edit of this file
 # invalidates the pre-registration (verifiable via `git log -p <file>`).
@@ -9,7 +9,7 @@ hypothesis_id: phi1_h2_prop4_sqrt_top2a_ccnb1_sqrt_epas1_ndufa4l2
 emitted_at_utc: 2026-04-23T14:58:49Z
 emitted_git_sha: f3072e61a747
 retroactive: false
-analyst: theory-copilot-team
+analyst: lacuna-team
 data_cutoff_date: 2026-04-23
 dataset_context: kirc_metastasis_expanded
 
@@ -26,7 +26,7 @@ negative_control: false
 expected_verdict: UNKNOWN
 
 # Deterministic kill-test thresholds. By default these mirror the
-# 5-test binary-classification gate in src/theory_copilot/falsification.py
+# 5-test binary-classification gate in src/lacuna/falsification.py
 # (a change to that file invalidates every classification pre-reg).
 # When `uses_kill_tests_override: true`, the hypothesis is not a binary
 # classification and the tests below are hypothesis-specific (e.g.
@@ -60,7 +60,7 @@ stopping_rule: |
 
 # Tamper-evidence pointers.
 references:
-  falsification_gate_impl: src/theory_copilot/falsification.py
+  falsification_gate_impl: src/lacuna/falsification.py
   law_proposal_source: config/law_proposals.json
   methodology_doc: docs/methodology.md
 

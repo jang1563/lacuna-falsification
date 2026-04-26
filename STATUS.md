@@ -1,21 +1,21 @@
-# STATUS — theory-copilot-falsification
+# STATUS — lacuna-falsification
 
-**Last updated:** 2026-04-24 (deep-research rebuild + PhL-9v2 real-data + PhL-11/12/13 shipped + Codex stale-phrase pass + PhL-14 LLM-SR 10-iter convergence in progress)
+**Last updated:** 2026-04-25 (late G/I rigor package + G1/G2 test review + readiness count refresh)
 **Submit window:** 2026-04-26 20:00 ET (T-2d 22h)
 **Judging:** 2026-04-28 12:00 ET final round
-**Repo:** https://github.com/jang1563/theory-copilot-falsification (public since 2026-04-23 19:32 ET)
-**Console script:** `theory-copilot` (post-`pip install -e .`)
+**Repo:** https://github.com/jang1563/lacuna-falsification (public since 2026-04-23 19:32 ET)
+**Console script:** `lacuna` (post-`pip install -e .`)
 
 ---
 
 ## 🎯 Submission-ready snapshot
 
 - **20 PhL artefacts** (PhL-1 to PhL-19 + PhL-9v2) all live, all committed. Newest 5 (PhL-15 to PhL-19) are capability-overhang measurements — aggregated at `docs/capability_overhang_measurements.md`.
-- **Review-handoff** (`plans/theory_copilot_review_handoff_2026_04_23.md`) processed: 12 of 20 findings fixed (P0 + P1 batch); 8 deferred with explicit rationale in commit messages.
+- **Review-handoff** (`plans/lacuna_review_handoff_2026_04_23.md`) processed: 12 of 20 findings fixed (P0 + P1 batch); 8 deferred with explicit rationale in commit messages.
 - **`make all`** one-command reproduction of tests + audit + prereg-audit + rejection-log + paper PDF (no API key required).
 - **`.devcontainer/devcontainer.json`** — judges can click "Open in GitHub Codespaces" and reach `make test` green in ~2 min.
 - **`.claude/skills/falsification-gate/SKILL.md`** — Claude Code skill wrapping the gate as a discoverable, deterministic verification primitive.
-- 105/105 local tests · `make audit` OK · GitHub public, `make all` runnable end-to-end without credentials.
+- 118/118 local tests · `make audit` OK · GitHub public, `make all` runnable end-to-end without credentials.
 
 ## 🧪 Phase L artefact ledger (this hackathon's contributions)
 
@@ -60,12 +60,12 @@ Plus pre-Phase-L artefacts (Flagship + Tier 2 + Track A/B + Phase F preregs + G/
 - **Path C — Claude Code Routines `/fire` LIVE** (PhL-8 200 OK with clickable session URL).
 - **Memory primitives** — `persist_session_events` + `replay_session_from_log` shipping as working code (PhL-4) and as a same-day Memory-store integration (PhL-3).
 - **MCP biology validator** — PubMed E-utilities + GDC REST tools, exercisable via MCP and direct CLI.
-- **Pre-registration framework** — 21 YAMLs, tamper-evidence via git commit-SHA binding + `data/SHA256SUMS`.
+- **Pre-registration framework** — 28 YAMLs, tamper-evidence via git commit-SHA binding + `data/SHA256SUMS`.
 - **Console script + `make` targets + `.devcontainer/`** — one-command reproduction surfaces.
 
 ## 🛠 Code health
 
-- 105/105 local tests pass (`make test`, ~26 min full / ~4 min critical subset).
+- 118/118 local tests pass (`.venv/bin/python -m pytest`, 4:14 full local suite after G1/G2 additions).
 - `make audit` OK — institutional-identifier scan + API-key-shape regex (`sk-ant-api{2}-{6}`) clean.
 - `make all` (no API key) reproduces: tests + audit + prereg-audit + rejection-log + paper PDF.
 - Falsification gate verified sign-symmetric (`fn` and `-fn` produce identical verdicts post-2026-04-23 P1 fix) and deterministic (same seed → identical perm_p / ci_lower / decoy_p).

@@ -1,6 +1,6 @@
 ---
-title: "Theory Copilot in context — benchmark vs. SPOT / Sakana v2 / POPPER"
-subtitle: "What Theory Copilot is, and what it is not, with respect to the
+title: "Lacuna in context — benchmark vs. SPOT / Sakana v2 / POPPER"
+subtitle: "What Lacuna is, and what it is not, with respect to the
 three live AI-for-Science rigor benchmarks of April 2026."
 date: "2026-04-23"
 ---
@@ -8,7 +8,7 @@ date: "2026-04-23"
 ## Why this section exists
 
 Three rigor-benchmark conversations are live in AI-for-Science as of
-April 2026. Theory Copilot sits *between* the problems these benchmarks
+April 2026. Lacuna sits *between* the problems these benchmarks
 target; the contribution is a specific niche, not a universal claim.
 This note states the niche precisely so a reviewer can decide whether the
 pipeline fits their use case.
@@ -20,8 +20,8 @@ can an LLM detect the specific error that caused the retraction?
 Current SOTA (o3, Gemini-2.5-Pro, Claude-3.7-Sonnet:Thinking) sits at
 **recall ≤ 21 %, precision ≤ 6 %** across 83 papers × 8 repeat runs.
 
-**What Theory Copilot does differently.** SPOT is *post-hoc error
-detection on already-published claims*. Theory Copilot is
+**What Lacuna does differently.** SPOT is *post-hoc error
+detection on already-published claims*. Lacuna is
 *pre-registered error prevention at generation time.* The 5-test gate
 is applied **before a candidate is ever called a finding**, so by
 construction it cannot miss an error that the SPOT set later reports —
@@ -33,7 +33,7 @@ which the gate rejects on TCGA-KIRC. Our "false-accept rate" on those
 controls is 0 / 2.
 
 **Take-away.** These are complementary, not competing. SPOT measures
-what happens when verification is post-hoc; Theory Copilot measures
+what happens when verification is post-hoc; Lacuna measures
 what happens when verification is pre-registered.
 
 ## Sakana AI Scientist v2 (arXiv [2504.08066](https://arxiv.org/abs/2504.08066))
@@ -49,7 +49,7 @@ arXiv comments and the Sakana blog response, has shifted the central
 question from *"can an AI write a paper?"* to *"can an AI reject its
 own bad paper?"*
 
-**What Theory Copilot does differently.** Our Skeptic role does not
+**What Lacuna does differently.** Our Skeptic role does not
 decide whether to accept; the **deterministic 5-test gate does**. Opus
 4.7 in the Skeptic role reviews metric values and produces a
 `PASS / FAIL / NEEDS_MORE_TESTS` verdict *against* the gate, not
@@ -60,7 +60,7 @@ shows explicitly that model verdict distributions differ across Opus
 Skeptic is not rubber-stamping because the gate's numbers are
 external-to-the-model and immutable.
 
-**Take-away.** Theory Copilot does not try to write papers autonomously.
+**Take-away.** Lacuna does not try to write papers autonomously.
 It tries to reject autonomously. The 100+ rejected candidates (see
 [Rejection Log](../../results/rejection_log.html)) are the central
 artefact; the one accepted law (`TOP2A − EPAS1`) is the remainder.
@@ -71,7 +71,7 @@ artefact; the one accepted law (`TOP2A − EPAS1`) is the remainder.
 LLM-generated scientific hypotheses. Targets hypothesis *validation*
 against a held-out evidence stream.
 
-**Where Theory Copilot overlaps.** Our two-sided permutation null +
+**Where Lacuna overlaps.** Our two-sided permutation null +
 Benjamini-Hochberg FDR is a simpler, classical-statistics analog of
 POPPER's sequential-e-value approach. For small hypothesis families
 (≤ ~30 candidates per gate run) the BH-FDR bound is tight enough that
@@ -79,8 +79,8 @@ POPPER's sequential machinery is overkill; for larger families a
 POPPER-style e-value controller would be a natural swap into the
 `_gate_test_results()` aggregation.
 
-**Where Theory Copilot differs.** POPPER covers the validation leg.
-Theory Copilot covers the generation + rejection loop on a single
+**Where Lacuna differs.** POPPER covers the validation leg.
+Lacuna covers the generation + rejection loop on a single
 dataset, with a biology-specific five-test gate (permutation,
 bootstrap CI, sign-invariant single-gene baseline, incremental-
 covariate confound, decoy-feature null). The two could compose: POPPER
@@ -88,7 +88,7 @@ runs over the cross-cohort replay step; our 5-test gate runs within
 cohort.
 
 **Take-away.** POPPER is a statistical-primitives benchmark.
-Theory Copilot is a domain-biased discovery pipeline that uses
+Lacuna is a domain-biased discovery pipeline that uses
 BH-FDR where POPPER would use sequential e-values — a pragmatic
 choice for small hypothesis families.
 
@@ -102,7 +102,7 @@ YAML, plus an independent-cohort replay (here: IMmotion150 PFS), is a
 concrete template for both requirements — and it is machine-verifiable
 via `make prereg-audit`.
 
-## What Theory Copilot will not give you
+## What Lacuna will not give you
 
 - **A universal replacement for peer review.** The gate is biology-
   specific (5 tests defined for binary-classification + compound laws

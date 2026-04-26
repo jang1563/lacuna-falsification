@@ -28,7 +28,7 @@ All three prompts enforce JSON-only output. Good.
 
 ## opus_client.py — _call streaming check
 
-  src/theory_copilot/opus_client.py:44
+  src/lacuna/opus_client.py:44
     response = self.client.messages.create(
         model=self.model,
         max_tokens=32000,
@@ -97,4 +97,4 @@ All three prompts enforce JSON-only output. Good.
 
   Only outstanding QA issue: the streaming fix documented in
   api_validation_log.txt Part 5 must be re-applied to
-  src/theory_copilot/opus_client.py:_call before submission.
+  src/lacuna/opus_client.py:_call before submission.

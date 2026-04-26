@@ -10,7 +10,7 @@ laptop; the offline test section at the end runs with no API key.
 - `ANTHROPIC_API_KEY` in the environment for Opus 4.7 stages
 
 ```bash
-cd theory_copilot_discovery
+cd lacuna_discovery
 pip install -e .
 python -c "import pysr"   # first run: 5–15 min Julia compilation
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -23,7 +23,7 @@ law families with biological rationale and pre-registered skeptic
 tests.
 
 ```python
-from theory_copilot.opus_client import OpusClient
+from lacuna.opus_client import OpusClient
 
 client = OpusClient()
 result = client.propose_laws(
@@ -53,7 +53,7 @@ PySR instantiates concrete equations, seeded by the Opus-proposed
 templates via `guesses=` and `fraction_replaced_guesses=0.3`.
 
 ```bash
-python -m theory_copilot.pysr_sweep \
+python -m lacuna.pysr_sweep \
     --data data/examples/flagship_demo.csv \
     --label-col label \
     --feature-cols CA9 VEGFA LDHA AGXT ALB \
@@ -78,7 +78,7 @@ confound, and a decoy-feature null. Opus 4.7 does not decide pass/fail
 here; it reviews the metric pattern afterward.
 
 ```bash
-python -m theory_copilot.falsification_sweep \
+python -m lacuna.falsification_sweep \
     --candidates artifacts/kirc_candidates.jsonl \
     --data data/examples/flagship_demo.csv \
     --label-col label \
@@ -131,7 +131,7 @@ example below, the dataset id is `transfer_demo`. In the real judged
 path, replace it with `gse40435`.
 
 ```bash
-theory-copilot replay \
+lacuna replay \
     --flagship-artifacts artifacts/flagship_run \
     --transfer-dataset transfer_demo \
     --output-root artifacts
@@ -158,7 +158,7 @@ Artifacts written:
 For the judged-core run, the same command becomes:
 
 ```bash
-theory-copilot replay \
+lacuna replay \
     --flagship-artifacts artifacts/flagship_run \
     --transfer-dataset gse40435 \
     --output-root artifacts
@@ -170,7 +170,7 @@ Fully public-beta; no waitlist required. Path B drives the same
 pipeline through a single agent with `agent_toolset_20260401`.
 
 ```python
-from theory_copilot.managed_agent_runner import run_path_b
+from lacuna.managed_agent_runner import run_path_b
 
 result = run_path_b(
     dataset_csv="data/examples/flagship_demo.csv",
@@ -185,9 +185,9 @@ Expected delegation log (abbreviated):
 ```text
 [Agent] pysr-sweep-agent (id=agt_01H...) created
 [Env]   pysr-compute-env (id=env_01H...) created
-[Session] title="theory_copilot_flagship" started
-  [Tool: bash] python -m theory_copilot.pysr_sweep ...
-  [Tool: bash] python -m theory_copilot.falsification_sweep ...
+[Session] title="lacuna_flagship" started
+  [Tool: bash] python -m lacuna.pysr_sweep ...
+  [Tool: bash] python -m lacuna.falsification_sweep ...
   [Tool: read] artifacts/kirc_survivors.jsonl
   [agent.message] Pipeline complete. 1 survivor after FDR. Details written to artifacts/.
 [session.status_idle]
@@ -199,7 +199,7 @@ hackathon submission. Three public-beta Managed Agents sessions
 structured-JSON handoff between them:
 
 ```python
-from theory_copilot.managed_agent_runner import run_path_a
+from lacuna.managed_agent_runner import run_path_a
 result = run_path_a(night=2, fallback_on_no_waitlist=True)
 # result["delegation_mode"] == "sequential_fallback"
 ```
@@ -220,12 +220,12 @@ independent of the original harness:
 
 ```bash
 # 1. Run a session, then dump the server-side event log.
-theory-copilot persist-events \
+lacuna persist-events \
     --session-id sess_01H... --output artifacts/session_log.jsonl
 
 # 2. Kill the original harness. Later, re-inject user-origin events
 #    into a fresh session id.
-theory-copilot replay-events \
+lacuna replay-events \
     --log artifacts/session_log.jsonl \
     --target-session-id sess_01H_NEW
 ```
@@ -244,7 +244,7 @@ Separate product from Managed Agents (`code.claude.com`, beta header
 ```bash
 export CLAUDE_ROUTINE_TRIG_ID=trig_01H...
 export CLAUDE_ROUTINE_TOKEN=sk-ant-oat01-...
-theory-copilot loop --night 3 --use-routine
+lacuna loop --night 3 --use-routine
 ```
 
 Without the env vars, the command falls back to a local watch-dir /
@@ -261,7 +261,7 @@ python -m pytest tests/ -v
 
 python - <<'PY'
 import numpy as np
-from theory_copilot.falsification import run_falsification_suite
+from lacuna.falsification import run_falsification_suite
 
 rng = np.random.default_rng(42)
 X = rng.normal(size=(200, 3))

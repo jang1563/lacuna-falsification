@@ -1,7 +1,7 @@
 # External validation / generalization — DIPG rescue engine
 
 **Purpose:** mirror of key artefacts from the sibling `dipg_rescue/`
-project showing the same Theory Copilot 4-role agent pattern re-applied
+project showing the same Lacuna 4-role agent pattern re-applied
 to a structurally distant second disease: H3 K27M-mutant diffuse
 intrinsic pontine glioma (DIPG / diffuse midline glioma). The DIPG
 variant uses rescue-claim-specific role prompts — **Advocate /
@@ -9,7 +9,7 @@ Evidence Retriever / Skeptic / Interpreter** — the clinical-rescue
 analogue of the KIRC flagship's Proposer / Searcher / Skeptic /
 Interpreter pipeline. This mirror exists so submission materials
 (Loom narration, submission form) can reference the result without
-leaving the `theory_copilot_discovery` tree.
+leaving the `lacuna_discovery` tree.
 
 ## Source
 
@@ -62,7 +62,7 @@ and (2) the top-lead verdict structure.
 
 - **Same role-separation pattern, different gate type.** The DIPG
   rescue engine reuses the role-isolated 4-agent pattern from
-  `theory_copilot_discovery` (see `../dipg_rescue/prompts_kirc_reference/`
+  `lacuna_discovery` (see `../dipg_rescue/prompts_kirc_reference/`
   for the KIRC prompts used as templates) and the same pre-reg
   discipline (YAMLs frozen at SHA `8a4ecc5` before any engine run).
   But the gates are functionally different by design: KIRC's gate is a
@@ -106,7 +106,7 @@ and (2) the top-lead verdict structure.
   translation, pioneering pediatric brainstem-tumor CED) is the
   clinical-context backdrop; no endorsement or collaboration commitment
   is claimed here.
-- **Not a replacement for the Theory Copilot flagship narrative.** The
+- **Not a replacement for the Lacuna flagship narrative.** The
   ccRCC TOP2A − EPAS1 result + IMmotion150 replay + SLC22A8 own-output
   kill remain the primary falsification-loop evidence. DIPG is a
   **generalization tag** showing the pattern transfers to a

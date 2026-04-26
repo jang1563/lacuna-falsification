@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from theory_copilot.falsification import run_falsification_suite
+from lacuna.falsification import run_falsification_suite
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent

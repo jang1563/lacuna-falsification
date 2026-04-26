@@ -30,7 +30,7 @@ sequential falsification agents at human-comparable accuracy with
 ICLR 2025 Oral, equation discovery as evolutionary search), and
 **BioDiscoveryAgent** ([OpenReview HAwZGLcye3](https://openreview.net/forum?id=HAwZGLcye3),
 LLMs as search operators over hypothesis space) — has matured in the
-last 12 months. Theory Copilot ships the missing piece: a
+last 12 months. Lacuna ships the missing piece: a
 deterministic Python gate the proposer cannot renegotiate.
 
 **The frame in one phrase.** *Kepler-style induction* (data →
@@ -55,13 +55,13 @@ argues for *"compressing the progress that human biologists would
 have achieved over the next 50–100 years into 5–10 years"* and
 flags coordination — *"hundreds of these discoveries waiting to be
 made if scientists were smarter and better at making connections"* —
-as a binding constraint, not capability per se. Theory Copilot
+as a binding constraint, not capability per se. Lacuna
 ships the verification primitive that lets such compression remain
 auditable: every law family is paired with a kill-test before any
 fit, every gate-rejected candidate is published alongside the
 survivors, and every pre-registration is bound by SHA to the
 analysis state at emission time. Acceleration without falsification
-is just confirmation bias at higher throughput; Theory Copilot is
+is just confirmation bias at higher throughput; Lacuna is
 the falsification half.
 
 **What we explicitly do NOT claim.** That Opus 4.7 contains
@@ -270,7 +270,7 @@ The judge-facing surfaces we *do* ship:
 - 90-second Loom narration
 - `make demo` end-to-end (no API key needed; synthetic-data path)
 - `make test` (105 tests, ~90 s, audit clean)
-- `theory-copilot persist-events` + `replay-events` CLI two-liner
+- `lacuna persist-events` + `replay-events` CLI two-liner
 
 ---
 
@@ -291,7 +291,7 @@ delegation events) and is gated behind `MANAGED_AGENTS_WAITLIST=approved`
 
 **Evidence.**
 - [`docs/methodology.md` §4](methodology.md) — three-path architecture + fairness caveat
-- `src/theory_copilot/managed_agent_runner.py` — `_run_path_a_callable_agents` body
+- `src/lacuna/managed_agent_runner.py` — `_run_path_a_callable_agents` body
 
 ---
 
@@ -342,7 +342,7 @@ incremental-AUC test on this task.
 ## Q13 — "Is there cross-disease validation at the clinical-trial level — and what did it find?"
 
 Yes. A companion analysis strand (v3 scope-of-evidence audit — a separate
-tool from Theory Copilot) applied the same pre-registered falsification
+tool from Lacuna) applied the same pre-registered falsification
 posture at a different level: does classifying drug-target coupling evidence
 predict clinical trial outcomes across ccRCC, DIPG, and IPF?
 

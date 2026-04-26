@@ -10,7 +10,7 @@ the pre-fix era. PhL-9 produces an on-disk full transcript of all
 three sequential sessions running with the latest agent code +
 post-review-handoff Instructions.
 
-Calls `theory_copilot.managed_agent_runner.run_path_a(
+Calls `lacuna.managed_agent_runner.run_path_a(
 night=2, fallback_on_no_waitlist=True)` which exercises the
 `_run_path_a_sequential_fallback` branch — the actual public-beta-
 compliant code path our submission claims uses.
@@ -30,7 +30,7 @@ from pathlib import Path
 
 # Reuse the same managed_agent_runner.run_path_a entry point our
 # submission cites — do not duplicate logic here.
-from theory_copilot.managed_agent_runner import run_path_a
+from lacuna.managed_agent_runner import run_path_a
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = REPO_ROOT / "results" / "live_evidence" / "phl9_path_a_chain"

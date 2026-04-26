@@ -4,7 +4,7 @@ Compares v1 decoy gate survivors against v2 knockoff-selected genes.
 Pre-registered in preregistrations/20260425T170647Z_g1_knockoff_v2.yaml.
 
 Usage:
-    cd theory_copilot_discovery
+    cd lacuna_discovery
     source .venv/bin/activate
     python src/track_a_knockoff_sweep.py
 """
@@ -37,7 +37,7 @@ V1_REJECT_LAWS = [
 
 
 def main():
-    from theory_copilot.knockoff_gate import run_knockoff_gate, check_compound_law
+    from lacuna.knockoff_gate import run_knockoff_gate, check_compound_law
 
     df = pd.read_csv(DATA)
     print(f"Loaded {len(df)} samples, {df.shape[1]} columns")

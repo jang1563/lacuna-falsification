@@ -29,8 +29,8 @@ From `api_validation_log.txt`:
 
 Judges who want to confirm the Opus 4.7 and Managed Agents claims
 without running a full session themselves can read these logs end-to-
-end. The `anthropic.Anthropic` SDK calls in `src/theory_copilot/opus_client.py`
-and `src/theory_copilot/managed_agent_runner.py` match the shapes
+end. The `anthropic.Anthropic` SDK calls in `src/lacuna/opus_client.py`
+and `src/lacuna/managed_agent_runner.py` match the shapes
 verified here. `api_validation_log.txt` also records the single bug
 that was caught and fixed during this validation (non-streaming
 `messages.create` tripped the SDK's 10-minute guard at `max_tokens=32000`

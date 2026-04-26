@@ -1,11 +1,11 @@
-# Pre-registration artifact — Theory Copilot Phase L (PhL-6)
+# Pre-registration artifact — Lacuna Phase L (PhL-6)
 # Written BEFORE running src/phl6_gse53757_probe.py.
 
 hypothesis_id: phl6_gse53757_external_replay
 emitted_at_utc: 2026-04-23T22:42:29Z
 emitted_git_sha: 8abbcfd
 retroactive: false
-analyst: theory-copilot-team
+analyst: lacuna-team
 data_cutoff_date: 2026-04-23
 dataset_context: gse53757_ccrcc_microarray
 
@@ -70,5 +70,5 @@ stopping_rule: |
 references:
   flagship_gate: results/track_a_task_landscape/metastasis_expanded/falsification_report.json
   prior_external_replay: results/track_a_task_landscape/external_replay/immotion150_pfs/verdict.json
-  falsification_gate_impl: src/theory_copilot/falsification.py
+  falsification_gate_impl: src/lacuna/falsification.py
   cohort_build: data/build_gse53757.py

@@ -1,12 +1,12 @@
 # Cross-disease meta-validation — the framework applied to the framework
 
 This document describes a second, parallel analysis strand that applies the
-same falsification posture as Theory Copilot's discovery loop — but at a
+same falsification posture as Lacuna's discovery loop — but at a
 different level. Instead of asking *"does this molecular law survive contact
 with biology?"* it asks: *"does the audit framework itself survive validation
 against clinical trial outcomes?"*
 
-The two systems are distinct. Theory Copilot is a discovery loop for compact
+The two systems are distinct. Lacuna is a discovery loop for compact
 biological laws (Proposer → PySR → 5-test gate → Skeptic → Interpreter).
 The v3 scope-of-evidence audit framework is a separate tool that classifies
 drug-target coupling evidence across diseases and asks whether that
@@ -15,7 +15,7 @@ posture — pre-registered criteria, honest reporting of nulls — but they are
 not the same pipeline.
 
 **Why include it here.** The answers to the v3 meta-validation are the same
-kind of honest output that Theory Copilot's gate produces: the framework IS
+kind of honest output that Lacuna's gate produces: the framework IS
 non-trivially discriminative (null sampling, below); it does NOT predict trial
 failure (GEE model, below); and the initial claim that it did (v3.2.1's 4.6×
 enrichment) was a selection-bias artifact that the framework then self-corrected
@@ -219,7 +219,7 @@ are systematically `untestable` under the current v3 framework and should not
 be interpreted as "lacking evidence" in a clinical sense.
 
 The GEE result is an honest null, not a failure. The same pre-registered
-falsification posture that makes Theory Copilot's discovery loop credible
+falsification posture that makes Lacuna's discovery loop credible
 makes this meta-validation credible: the null is informative precisely because
 it was sought under conditions designed to find a signal if one existed.
 

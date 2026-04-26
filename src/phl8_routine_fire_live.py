@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """PhL-8 — Claude Code Routines `/fire` live execution.
 
-Fires the `theory-copilot-falsification-gate` Routine (configured
+Fires the `lacuna-falsification-gate` Routine (configured
 2026-04-23 in the claude.ai/code/routines UI) via the documented
 `POST /v1/claude_code/routines/{trig_id}/fire` endpoint. Commits the
 response JSON (including `claude_code_session_url` — the reviewer-
 clickable artefact) to `results/live_evidence/phl8_routine_fire/`.
 
-This is the Path C proof-of-life: `src/theory_copilot/routines_client.py`
+This is the Path C proof-of-life: `src/lacuna/routines_client.py`
 has been in the repo as working code since commit 585ea0e, but without
 a real fire call against a real routine it was just a tested HTTP
 client with no on-disk live artefact. PhL-8 closes that gap.
@@ -35,7 +35,7 @@ import sys
 import time
 from pathlib import Path
 
-from theory_copilot.routines_client import fire_routine_from_env
+from lacuna.routines_client import fire_routine_from_env
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = REPO_ROOT / "results" / "live_evidence" / "phl8_routine_fire"
@@ -83,7 +83,7 @@ def main() -> int:
         "text_body_sent": text_body,
         "narrative": (
             "Live fire of the claude.ai/code/routines/"
-            "theory-copilot-falsification-gate Routine via "
+            "lacuna-falsification-gate Routine via "
             "POST /v1/claude_code/routines/{trig_id}/fire. The "
             "claude_code_session_url in this artefact is the reviewer-"
             "clickable live session; the claude_code_session_id anchors "

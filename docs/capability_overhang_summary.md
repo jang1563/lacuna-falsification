@@ -91,7 +91,7 @@
   survival validation. Not a general-biology claim.
 - **Gate is binding, not Opus**: every finding above sits on top of
   the pre-registered deterministic Python gate in
-  `src/theory_copilot/falsification.py`, thresholds committed before
+  `src/lacuna/falsification.py`, thresholds committed before
   fit. Opus-4.7 calibration is the capability that **reads the gate
   output correctly** — it does not replace the gate.
 - **Human oversight is essential**: Jan Leike's

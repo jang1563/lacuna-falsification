@@ -348,7 +348,7 @@ The gate's immutable thresholds + the Skeptic's ability to cite
 them is the core capability substrate — *not* adaptive thinking,
 *not* 1M context, *not* single-model dominance. This is consistent
 with the AAR paper (2026-04-14)'s requirement for "evaluations that
-the AARs can't tamper with". Theory Copilot's gate gives the
+the AARs can't tamper with". Lacuna's gate gives the
 Skeptic both the target to uphold and the argument to uphold it with.
 
 ---

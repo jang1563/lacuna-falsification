@@ -28,7 +28,7 @@ narrative.
 | `research/TRACK_B_*.md` | This brief + progress notes |
 | `results/track_b_gate_robustness/**` | All Track B outputs |
 
-**Read-only for this track:** everything under `src/theory_copilot/**`,
+**Read-only for this track:** everything under `src/lacuna/**`,
 `src/pysr_sweep.py`, `src/falsification_sweep.py`, the existing
 falsification reports under `results/flagship_run/`,
 `results/tier2_run/`, `results/opus_exante/`. If a change in the
@@ -134,7 +134,7 @@ Write `results/track_b_gate_robustness/SUMMARY.md` answering:
 ### Step B1 — Pull + start
 
 ```bash
-cd theory_copilot_discovery
+cd lacuna_discovery
 git pull --rebase origin main
 git status --short       # expect: nothing under src/gate_* or results/track_b_*
 make audit
@@ -179,5 +179,5 @@ prefix.
 - Commit within one hour of starting a work block.
 - `make audit` before every push.
 - Never touch the other track's directories.
-- Never touch `src/theory_copilot/**` or the canonical
+- Never touch `src/lacuna/**` or the canonical
   `falsification_sweep.py` without a `HANDOFF_to_shared.md` request.

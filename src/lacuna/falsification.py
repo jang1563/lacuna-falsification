@@ -233,7 +233,7 @@ def run_falsification_suite(
     }
 
     if include_rigor_extension:
-        from theory_copilot.rigor_metrics import rigor_metrics
+        from lacuna.rigor_metrics import rigor_metrics
 
         X_arr = np.asarray(X)
         if X_arr.ndim == 1:

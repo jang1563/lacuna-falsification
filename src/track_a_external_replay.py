@@ -35,7 +35,7 @@ SRC = REPO / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from theory_copilot.falsification import run_falsification_suite  # noqa: E402
+from lacuna.falsification import run_falsification_suite  # noqa: E402
 
 OUT_DIR = REPO / "results" / "track_a_task_landscape" / "external_replay"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

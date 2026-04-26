@@ -1,0 +1,25 @@
+{
+  "candidate_id": "02_avapritinib_PDGFRA",
+  "test_kind": "prognostic_under_SOC",
+  "therapy_administered_in_cohort": false,
+  "cohort_n": 192,
+  "n_strat_pos": 11,
+  "n_strat_neg": 181,
+  "prevalence": 0.057291666666666664,
+  "cox_hr": 0.9900600167697424,
+  "cox_ci_low": 0.35359981959518205,
+  "cox_ci_high": 2.7721135093572835,
+  "cox_p": 0.9848278671619114,
+  "perm_p": 0.8706129387061294,
+  "bootstrap_ci_lower_coef": -0.648809895670154,
+  "decoy_p": 0.89,
+  "confound_incremental_delta": 0.000956937799043045,
+  "n_per_arm_meets_min": true,
+  "flags": [],
+  "pre_reg_deviations": [
+    "KPS_substituted_by_extent_of_tumor_resection"
+  ],
+  "substrate_verdict": "FAIL",
+  "notes": "Failed gate checks: perm_p=0.8706129387061294; cox_p=0.9848278671619114; bootstrap_ci_lower=-0.648809895670154",
+  "therapy_administered_in_cohort_note": "PBTA cohort received standard-of-care (radiation +/- TMZ +/- investigational ONC201 in PNOC003 subset). The proposed agent for this candidate (avapritinib / ACVR1i / pembrolizumab / peptide vaccine) was NOT administered. Substrate test is prognostic-under-SOC, not therapeutic-rescue."
+}

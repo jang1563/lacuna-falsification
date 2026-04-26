@@ -54,7 +54,7 @@ class HttpClient:
     Abstracted so tests can inject a fake without reaching the network.
     """
 
-    user_agent: str = "theory-copilot-biology-validator/0.1"
+    user_agent: str = "lacuna-biology-validator/0.1"
 
     def get_json(self, url: str, timeout: float = 10.0) -> dict:
         req = Request(url, headers={"User-Agent": self.user_agent})
@@ -190,7 +190,7 @@ def _run_mcp() -> int:
         )
         return 2
 
-    app = FastMCP("theory-copilot-biology-validator")
+    app = FastMCP("lacuna-biology-validator")
 
     @app.tool()
     def validate_law_tool(gene_symbols: list[str], disease: str | None = None) -> dict:
@@ -220,7 +220,7 @@ def _run_cli(args: argparse.Namespace) -> int:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(prog="theory-copilot-mcp-biology-validator")
+    parser = argparse.ArgumentParser(prog="lacuna-mcp-biology-validator")
     parser.add_argument(
         "--tool",
         choices=["validate_law", "fetch_cohort_summary", "server"],

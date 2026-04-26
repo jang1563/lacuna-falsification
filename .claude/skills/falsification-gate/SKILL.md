@@ -7,8 +7,8 @@ allowed-tools: Read, Grep, Bash
 
 # Falsification gate — pre-registered 5-test adjudicator
 
-You are invoking the Theory Copilot pre-registered falsification gate. The
-thresholds below were committed to `src/theory_copilot/falsification.py`
+You are invoking the Lacuna pre-registered falsification gate. The
+thresholds below were committed to `src/lacuna/falsification.py`
 before any fit was run. **You do not re-negotiate them. You apply them.**
 
 ## What this skill does
@@ -21,7 +21,7 @@ inactive leg.
 
 ## Pre-registered thresholds (load-bearing — do not edit)
 
-Read `src/theory_copilot/falsification.py` before applying. As of the
+Read `src/lacuna/falsification.py` before applying. As of the
 `emitted_git_sha` in the latest `preregistrations/*.yaml`:
 
 | Test                   | Statistic                                                                  | Threshold          |
@@ -64,7 +64,7 @@ that runs on imputed thresholds is not a gate.
 
 ### Algorithm (deterministic — no LLM judgement)
 
-1. Read `src/theory_copilot/falsification.py::passes_falsification` and
+1. Read `src/lacuna/falsification.py::passes_falsification` and
    confirm thresholds match this SKILL.md's table. If they have drifted,
    STOP and report a pre-registration integrity violation.
 2. Apply each threshold to the supplied metric. For an inactive leg
@@ -98,7 +98,7 @@ Append one JSONL row to `results/live_evidence/skill_verdicts.jsonl`:
   "metrics_supplied": {...input.metrics...},
   "prereg_id": "<input.prereg_id>",
   "dataset_sha256": "<input.dataset_sha256>",
-  "gate_source_sha": "<git rev-parse HEAD of src/theory_copilot/falsification.py>"
+  "gate_source_sha": "<git rev-parse HEAD of src/lacuna/falsification.py>"
 }
 ```
 
@@ -107,7 +107,7 @@ this skill emits `event: "verdict"`; `pre-register-claim` emits
 `event: "preregistered"`. Downstream parsers should branch on `event`.
 
 Use `Bash` with `date -u +%Y-%m-%dT%H:%M:%SZ` for the timestamp and
-`git log -1 --format=%H -- src/theory_copilot/falsification.py` for
+`git log -1 --format=%H -- src/lacuna/falsification.py` for
 the gate source SHA. Append with `>>`, never overwrite.
 
 ## Role boundary (important)
@@ -145,7 +145,7 @@ supplied metric to its threshold, and writes:
 
 ## References
 
-- `src/theory_copilot/falsification.py` — load-bearing thresholds.
+- `src/lacuna/falsification.py` — load-bearing thresholds.
 - `docs/methodology.md §3` — full per-test rationale and caveats.
 - `docs/survivor_narrative.md` — worked accept/reject examples.
 - `preregistrations/*.yaml` — per-task emitted_git_sha binding.

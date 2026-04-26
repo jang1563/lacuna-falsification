@@ -29,7 +29,7 @@ defines the product abstraction as *"decoupling the brain from the
 hands,"* virtualising the agent into three components: *"a session (the
 append-only log of everything that happened), a harness (the loop that
 calls Claude and routes Claude's tool calls to the relevant
-infrastructure), and a sandbox."* Theory Copilot exercises each of
+infrastructure), and a sandbox."* Lacuna exercises each of
 those three substrates as scientific-audit surfaces:
 
 - **Session (append-only log)** — PhL-4 `persist_session_events` pages

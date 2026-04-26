@@ -85,7 +85,7 @@ def _load_or_create_state(client: anthropic.Anthropic) -> dict:
     print(">>> First run — creating agent / environment / memory store ...")
 
     agent = client.beta.agents.create(
-        name="theory-copilot-skeptic-memory",
+        name="lacuna-skeptic-memory",
         model=MODEL,
         system=(
             "You are a falsification-first scientific Skeptic. The memory store "
@@ -105,7 +105,7 @@ def _load_or_create_state(client: anthropic.Anthropic) -> dict:
     print(f"    agent_id    = {agent.id}")
 
     environment = client.beta.environments.create(
-        name="theory-copilot-phl3-env",
+        name="lacuna-phl3-env",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
     )
     print(f"    env_id      = {environment.id}")
@@ -118,7 +118,7 @@ def _load_or_create_state(client: anthropic.Anthropic) -> dict:
             json={
                 "name": "skeptic-lessons",
                 "description": (
-                    "Rejection-pattern lessons the Theory Copilot Skeptic agent "
+                    "Rejection-pattern lessons the Lacuna Skeptic agent "
                     "accumulates across sessions — each entry cites the specific "
                     "equation + fail_reason so future Skeptic sessions can apply "
                     "the same bar."

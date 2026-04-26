@@ -140,7 +140,7 @@ def main() -> None:
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Theory Copilot — Rejection Log</title>
+<title>Lacuna — Rejection Log</title>
 <style>
   html, body {{ margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1a1a1a; background:#fafafa; }}
   header {{ background:#1a1a1a; color:white; padding:24px 32px; }}
@@ -174,7 +174,7 @@ def main() -> None:
 </head>
 <body>
 <header>
-  <h1>Theory Copilot — The Rejection Log</h1>
+  <h1>Lacuna — The Rejection Log</h1>
   <p>Every single candidate ever put through the pre-registered 5-test gate, including the ones that failed. The rejection rate <em>is</em> the product.</p>
   <p>Accepted rows are green at the top. The one external-cohort replay (PhF-3, IMmotion150 PFS) sits in amber.</p>
 </header>

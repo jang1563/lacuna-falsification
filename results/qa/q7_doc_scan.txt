@@ -29,10 +29,10 @@ Existing targets:
   results/track_b_gate_robustness/SUMMARY.md                            OK
   src/falsification_sweep.py                                            OK
   src/pysr_sweep.py                                                     OK
-  src/theory_copilot/cli.py                                             OK
-  src/theory_copilot/falsification.py                                   OK
-  src/theory_copilot/managed_agent_runner.py                            OK
-  src/theory_copilot/opus_client.py                                     OK
+  src/lacuna/cli.py                                             OK
+  src/lacuna/falsification.py                                   OK
+  src/lacuna/managed_agent_runner.py                            OK
+  src/lacuna/opus_client.py                                     OK
   prompts/                                                              OK
 
 Numeric consistency checks:

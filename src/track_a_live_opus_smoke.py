@@ -26,7 +26,7 @@ SRC = REPO / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from theory_copilot.opus_client import OpusClient  # noqa: E402
+from lacuna.opus_client import OpusClient  # noqa: E402
 
 
 DATASET_CARD = {

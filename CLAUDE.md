@@ -1,4 +1,4 @@
-# CLAUDE.md — Theory Copilot Falsification
+# CLAUDE.md — Lacuna Falsification
 
 **TL;DR.** Falsification-aware biological law discovery built around Opus 4.7.
 Opus proposes compact law families (and the skeptic test for each, *before* any fit);
@@ -17,7 +17,7 @@ string will fail the audit and block `git push`.
 
 ## Repo map
 
-- `src/theory_copilot/` — library: `falsification.py` (5-test gate),
+- `src/lacuna/` — library: `falsification.py` (5-test gate),
   `opus_client.py` (Opus 4.7 streaming wrapper), `cli.py` (`compare` + `replay`
   + `loop`), `managed_agent_runner.py` (Path B public beta + Path A waitlist
   + Path C Routine driver), `data_loader.py` (DatasetCard abstraction — E4).
@@ -60,7 +60,7 @@ for the individual prompts.
 | Command | What it does |
 |---|---|
 | `make install` | Editable install into `.venv` (Python 3.10+, Julia 1.10 for PySR). |
-| `make test` | pytest with pre-hackathon scaffold tests ignored. Currently 90/90. |
+| `make test` | pytest with pre-hackathon scaffold tests ignored. Current package-time suite: 118/118. |
 | `make audit` | Compliance grep. Must print `OK`. |
 | `make demo` | Full synthetic-data end-to-end. |
 | `make demo-kirc` | KIRC-flavoured synthetic demo. |
@@ -112,7 +112,7 @@ One-liner notes on non-obvious learnings (compounding-engineering loop).
 - 2026-04-22 · Opus 4.7 `thinking={"type":"adaptive","display":"summarized"}` +
   `output_config={"effort":"high"}` with `max_tokens=32000` trips the SDK
   10-minute guard on non-streaming `.messages.create`. Must use
-  `.messages.stream()` context manager (see `src/theory_copilot/opus_client.py`).
+  `.messages.stream()` context manager (see `src/lacuna/opus_client.py`).
 - 2026-04-22 · PySR 0.19.4 on older Julia lacks `guesses=` kwarg. Wrap the
   fit call in `try / except TypeError` and drop `guesses` + `fraction_replaced_guesses`
   on fallback (see `src/pysr_sweep.py`).

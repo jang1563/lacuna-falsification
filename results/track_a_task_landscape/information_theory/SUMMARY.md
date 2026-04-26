@@ -99,11 +99,10 @@ This sits with three other findings from this push:
 - **G1 knockoff v2 (0/45 individually selected):** neither gene
   passes individually under FDR control — the signal is
   genuinely compound.
-- **G2 calibration slope = 0.54:** the raw difference is more
-  *discriminative* than its scale suggests; a Platt rescaling
-  is required for probability claims (consistent with a
-  high-MI compact form sitting on a non-natively-probabilistic
-  scale).
+- **G2 calibration slope = 0.979:** the 5-fold OOF Platt-scaled
+  probabilities are well-calibrated; the related raw-score logistic
+  coefficient is 0.540 and should not be read as the calibration
+  diagnostic.
 
 Together: the survivor is rank 1 within its model class, captures
 98%+ of available bivariate information, has a compound signal

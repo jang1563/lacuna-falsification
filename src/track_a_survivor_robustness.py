@@ -34,7 +34,7 @@ from sklearn.metrics import roc_auc_score
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from theory_copilot.falsification import (
+from lacuna.falsification import (
     baseline_comparison,
     bootstrap_stability,
     decoy_feature_test,

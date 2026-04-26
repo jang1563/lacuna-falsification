@@ -6,7 +6,7 @@ Opus 4.7 made a breaking change: `thinking.display` default shifted from
 `display: "summarized"` to retain the model's reasoning trace — otherwise
 it is silently discarded.
 
-This is directly aligned with Theory Copilot's pre-registration thesis:
+This is directly aligned with Lacuna's pre-registration thesis:
 a verdict is stronger when its *reasoning* is also committed to disk,
 not just the final decision. This script shows the pattern on one
 concrete Skeptic judgement of the TOP2A − EPAS1 survivor:

@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from theory_copilot.cli import main
+from lacuna.cli import main
 
 
 # ---- shared helpers ----
@@ -116,12 +116,12 @@ def test_compare_prints_pysr_handoff(tmp_path, monkeypatch, capsys):
     output_root = str(tmp_path / "artifacts")
 
     mock_client = _mock_opus_client()
-    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+    with patch("lacuna.cli.OpusClient", return_value=mock_client):
         monkeypatch.setattr(
             sys,
             "argv",
             [
-                "theory-copilot",
+                "lacuna",
                 "compare",
                 "--config", str(config_path),
                 "--proposals", str(proposals_path),
@@ -134,7 +134,7 @@ def test_compare_prints_pysr_handoff(tmp_path, monkeypatch, capsys):
     captured = capsys.readouterr()
     assert result == 0
     assert "python3 src/pysr_sweep.py" in captured.out
-    assert "theory-copilot replay" in captured.out
+    assert "lacuna replay" in captured.out
 
 
 def test_compare_calls_propose_laws(tmp_path, monkeypatch):
@@ -142,12 +142,12 @@ def test_compare_calls_propose_laws(tmp_path, monkeypatch):
     proposals_path = _make_proposals_config(tmp_path)
 
     mock_client = _mock_opus_client()
-    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+    with patch("lacuna.cli.OpusClient", return_value=mock_client):
         monkeypatch.setattr(
             sys,
             "argv",
             [
-                "theory-copilot",
+                "lacuna",
                 "compare",
                 "--config", str(config_path),
                 "--proposals", str(proposals_path),
@@ -172,12 +172,12 @@ def test_replay_creates_transfer_report(tmp_path, monkeypatch, capsys):
 
     mock_client = _mock_opus_client()
     monkeypatch.chdir(tmp_path)
-    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+    with patch("lacuna.cli.OpusClient", return_value=mock_client):
         monkeypatch.setattr(
             sys,
             "argv",
             [
-                "theory-copilot",
+                "lacuna",
                 "replay",
                 "--flagship-artifacts", str(flagship_dir),
                 "--transfer-dataset", "gse40435",
@@ -202,12 +202,12 @@ def test_replay_saves_interpretation(tmp_path, monkeypatch):
 
     mock_client = _mock_opus_client()
     monkeypatch.chdir(tmp_path)
-    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+    with patch("lacuna.cli.OpusClient", return_value=mock_client):
         monkeypatch.setattr(
             sys,
             "argv",
             [
-                "theory-copilot",
+                "lacuna",
                 "replay",
                 "--flagship-artifacts", str(flagship_dir),
                 "--transfer-dataset", "gse40435",
@@ -242,7 +242,7 @@ def test_replay_no_survivors_returns_one(tmp_path, monkeypatch):
         sys,
         "argv",
         [
-            "theory-copilot",
+            "lacuna",
             "replay",
             "--flagship-artifacts", str(flagship_dir),
             "--transfer-dataset", "gse40435",
@@ -261,7 +261,7 @@ def test_replay_missing_csv_returns_one(tmp_path, monkeypatch):
         sys,
         "argv",
         [
-            "theory-copilot",
+            "lacuna",
             "replay",
             "--flagship-artifacts", str(flagship_dir),
             "--transfer-dataset", "nonexistent_dataset",
@@ -300,7 +300,7 @@ def test_plug_in_dataset_emits_valid_card(tmp_path, monkeypatch, capsys):
         sys,
         "argv",
         [
-            "theory-copilot", "plug-in-dataset",
+            "lacuna", "plug-in-dataset",
             "--csv", str(csv),
             "--label-column", "label",
             "--disease-id", "mini",
@@ -329,7 +329,7 @@ def test_compare_accepts_dataset_card(tmp_path, monkeypatch, capsys):
         sys,
         "argv",
         [
-            "theory-copilot", "plug-in-dataset",
+            "lacuna", "plug-in-dataset",
             "--csv", str(csv),
             "--label-column", "label",
             "--disease-id", "mini",
@@ -342,12 +342,12 @@ def test_compare_accepts_dataset_card(tmp_path, monkeypatch, capsys):
 
     # Now run compare --dataset-card
     mock_client = _mock_opus_client()
-    with patch("theory_copilot.cli.OpusClient", return_value=mock_client):
+    with patch("lacuna.cli.OpusClient", return_value=mock_client):
         monkeypatch.setattr(
             sys,
             "argv",
             [
-                "theory-copilot", "compare",
+                "lacuna", "compare",
                 "--dataset-card", str(card_path),
                 "--proposals", str(proposals_path),
                 "--output-root", str(tmp_path / "artifacts"),
@@ -367,7 +367,7 @@ def test_compare_requires_card_or_legacy_config(tmp_path, monkeypatch, capsys):
         sys,
         "argv",
         [
-            "theory-copilot", "compare",
+            "lacuna", "compare",
             "--proposals", str(proposals_path),
             "--output-root", str(tmp_path / "out"),
         ],

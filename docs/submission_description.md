@@ -1,8 +1,8 @@
-# Theory Copilot — Submission Description
+# Lacuna — Submission Description
 
 ## Project Summary
 
-**Theory Copilot is a verification-first discovery pipeline — the
+**Lacuna is a falsification-first discovery pipeline — the
 agent kills its own best guesses, including ones it generates downstream,
 when independent data says no.** On real cancer data the 5-test
 classification gate rejected 194 of 203 candidate evaluations (9 pass
@@ -78,7 +78,7 @@ staff) opened with the complementary framing for why the platform
 exists at all: *"building agents is difficult and is only getting
 more difficult over time"* — Anthropic taking on the harness,
 sandbox, retries, credentials, and event streaming so developers
-can focus on product logic. Theory Copilot composes both products
+can focus on product logic. Lacuna composes both products
 in one pipeline: Managed Agents (`platform.claude.com`) for the
 durable Proposer / Searcher / Skeptic chain, Claude Code Routines
 (`code.claude.com`) for the laptop-closed nightly audit. That
@@ -123,7 +123,7 @@ section evidences. Full artefact table at
   exercised in the submitted run.
 - **Path C — Claude Code Routines (separate product).** `POST
   /v1/claude_code/routines/{trig_id}/fire` with per-routine bearer
-  token (`src/theory_copilot/routines_client.py`). Live evidence
+  token (`src/lacuna/routines_client.py`). Live evidence
   (PhL-8) uses the **API trigger**; the same routine binding also
   accepts **Schedule** (cron, ≥1 h) and **GitHub** (`pull_request` +
   `release` event categories) triggers via the same web UI — these are
@@ -139,7 +139,7 @@ section evidences. Full artefact table at
 
 ## External Validation of the Problem Framing
 
-At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) named "a verification script that forces the agent to test its own outputs against hard constraints before it sends the payload" as an open community problem on Opus 4.7 — serious enough that he proposed writing a follow-up article on it. The same session's stated development posture was "trying to **disprove it** versus trying to test a bunch of different hypotheses." Theory Copilot is a worked example of exactly that script, ported from product development into scientific discovery: a pre-registered deterministic gate that the proposing model itself cannot rationalize past. This is not a coincidence of framing — the falsification-first loop was built to solve the confirmation-bias-automation problem that the Cloud Code team publicly flagged the same week.
+At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) named "a verification script that forces the agent to test its own outputs against hard constraints before it sends the payload" as an open community problem on Opus 4.7 — serious enough that he proposed writing a follow-up article on it. The same session's stated development posture was "trying to **disprove it** versus trying to test a bunch of different hypotheses." Lacuna is a worked example of exactly that script, ported from product development into scientific discovery: a pre-registered deterministic gate that the proposing model itself cannot rationalize past. This is not a coincidence of framing — the falsification-first loop was built to solve the confirmation-bias-automation problem that the Cloud Code team publicly flagged the same week.
 
 ## Prize Category Justification
 
@@ -180,11 +180,11 @@ At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) n
 
 ## What We Built
 
-- `src/theory_copilot/falsification.py` — 5-test statistical gate.
-- `src/theory_copilot/opus_client.py` — three-role Opus 4.7 wrapper
+- `src/lacuna/falsification.py` — 5-test statistical gate.
+- `src/lacuna/opus_client.py` — three-role Opus 4.7 wrapper
   with adaptive thinking, JSON-fence-tolerant parser, cost ledger.
-- `src/theory_copilot/managed_agent_runner.py` — Path A + Path B.
-- `src/theory_copilot/cli.py` — `theory-copilot compare` + `replay`.
+- `src/lacuna/managed_agent_runner.py` — Path A + Path B.
+- `src/lacuna/cli.py` — `lacuna compare` + `replay`.
 - `.claude/skills/falsification-gate/SKILL.md` and
   `.claude/skills/pre-register-claim/SKILL.md` — the methodology made
   portable. Two Agent Skills that wrap the deterministic gate and the
@@ -216,7 +216,7 @@ At the 2026-04-22 *Built with Opus 4.7* live session, Tharik (Cloud Code team) n
 ## Technical Novelty
 
 Most AI-for-Science pipelines optimize for hit rate: propose, fit,
-report whatever cleared a threshold. Theory Copilot inverts the
+report whatever cleared a threshold. Lacuna inverts the
 incentive — a proposal only counts if a pre-registered five-test
 gate fails to reject it, and the thresholds are written down before
 any fit. Confirmation bias is engineered out of the loop rather
@@ -242,6 +242,6 @@ aggregating ~32.8 million confirmed negative biomedical results
 (drug–target inactives, failed clinical trials, protein non-
 interactions, non-essential genes, benign variants) paired with
 benchmarks for how publication bias propagates into ML / LLM
-predictions. Theory Copilot operationalizes NegBioDB's core thesis
+predictions. Lacuna operationalizes NegBioDB's core thesis
 — that falsification is the expensive, neglected half of scientific
 inference — as a runnable Opus 4.7 loop on real cancer-genomics data.

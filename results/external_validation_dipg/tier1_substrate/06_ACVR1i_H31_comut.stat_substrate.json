@@ -1,0 +1,27 @@
+{
+  "candidate_id": "06_ACVR1i_H31_comut",
+  "test_kind": "prognostic_under_SOC",
+  "therapy_administered_in_cohort": false,
+  "cohort_n": 192,
+  "n_strat_pos": 19,
+  "n_strat_neg": 173,
+  "prevalence": 0.09895833333333333,
+  "cox_hr": 1.1798894274671299,
+  "cox_ci_low": 0.5671188045460226,
+  "cox_ci_high": 2.4547573628123933,
+  "cox_p": 0.6580879424889363,
+  "perm_p": 0.21597840215978403,
+  "bootstrap_ci_lower_coef": -0.04093740026176036,
+  "decoy_p": 0.24,
+  "confound_incremental_delta": -0.0052631578947368585,
+  "n_per_arm_meets_min": true,
+  "flags": [
+    "STRATIFIER_SURROGATE_ACVR1_FOR_H31_DUE_TO_PBTA_SNV_LACKS_H3"
+  ],
+  "pre_reg_deviations": [
+    "KPS_substituted_by_extent_of_tumor_resection"
+  ],
+  "substrate_verdict": "FAIL",
+  "notes": "Failed gate checks: perm_p=0.21597840215978403; cox_p=0.6580879424889363; bootstrap_ci_lower=-0.04093740026176036; confound_delta=-0.0052631578947368585",
+  "therapy_administered_in_cohort_note": "PBTA cohort received standard-of-care (radiation +/- TMZ +/- investigational ONC201 in PNOC003 subset). The proposed agent for this candidate (avapritinib / ACVR1i / pembrolizumab / peptide vaccine) was NOT administered. Substrate test is prognostic-under-SOC, not therapeutic-rescue."
+}

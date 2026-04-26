@@ -35,9 +35,9 @@ def _make_mock_client():
 
 def test_run_path_b_night2_calls_agents_create_with_opus():
     mock_client = _make_mock_client()
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         result = managed_agent_runner.run_path_b(night=2)
 
     mock_client.beta.agents.create.assert_called_once()
@@ -49,9 +49,9 @@ def test_run_path_b_night2_calls_agents_create_with_opus():
 
 def test_run_path_b_night2_calls_sessions_create():
     mock_client = _make_mock_client()
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         managed_agent_runner.run_path_b(night=2)
 
     mock_client.beta.sessions.create.assert_called_once()
@@ -59,9 +59,9 @@ def test_run_path_b_night2_calls_sessions_create():
 
 def test_run_path_b_night2_uses_stream_as_context_manager():
     mock_client = _make_mock_client()
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         managed_agent_runner.run_path_b(night=2)
 
     mock_client.beta.sessions.events.stream.assert_called_once()
@@ -72,9 +72,9 @@ def test_run_path_b_night2_uses_stream_as_context_manager():
 
 def test_run_path_b_night2_calls_events_send():
     mock_client = _make_mock_client()
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         managed_agent_runner.run_path_b(night=2)
 
     mock_client.beta.sessions.events.send.assert_called_once()
@@ -85,9 +85,9 @@ def test_run_path_b_night2_calls_events_send():
 
 def test_run_path_b_returns_expected_shape():
     mock_client = _make_mock_client()
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         result = managed_agent_runner.run_path_b(night=2)
 
     assert "session_id" in result
@@ -112,9 +112,9 @@ def test_run_path_b_stream_opened_before_send():
         lambda *a, **kw: call_order.append("send")
     )
 
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         managed_agent_runner.run_path_b(night=2)
 
     assert "stream" in call_order and "send" in call_order, (
@@ -128,9 +128,9 @@ def test_run_path_b_pin_version_passes_versioned_agent_ref():
     mock_client = _make_mock_client()
     mock_client.beta.agents.create.return_value.version = 3
 
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         result = managed_agent_runner.run_path_b(night=2, pin_version=True)
 
     assert result["agent_version"] == 3
@@ -146,16 +146,16 @@ def test_run_path_b_pin_version_passes_versioned_agent_ref():
 
 def test_run_path_a_raises_not_implemented_without_waitlist_env(monkeypatch):
     monkeypatch.delenv("MANAGED_AGENTS_WAITLIST", raising=False)
-    with patch("theory_copilot.managed_agent_runner.anthropic"):
-        from theory_copilot import managed_agent_runner
+    with patch("lacuna.managed_agent_runner.anthropic"):
+        from lacuna import managed_agent_runner
         with pytest.raises(NotImplementedError, match="callable_agents requires waitlist approval"):
             managed_agent_runner.run_path_a(night=2)
 
 
 def test_run_path_a_raises_when_waitlist_not_approved(monkeypatch):
     monkeypatch.setenv("MANAGED_AGENTS_WAITLIST", "pending")
-    with patch("theory_copilot.managed_agent_runner.anthropic"):
-        from theory_copilot import managed_agent_runner
+    with patch("lacuna.managed_agent_runner.anthropic"):
+        from lacuna import managed_agent_runner
         with pytest.raises(NotImplementedError):
             managed_agent_runner.run_path_a(night=2)
 
@@ -182,9 +182,9 @@ def test_run_path_a_approved_uses_real_callable_agents(monkeypatch):
     idle_event.type = "session.status_idle"
     mock_client.beta.sessions.events.stream.return_value.__enter__.return_value = [idle_event]
 
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         result = managed_agent_runner.run_path_a(night=2)
 
     assert mock_client.beta.agents.create.call_count == 4, (
@@ -219,9 +219,9 @@ def test_run_path_a_fallback_creates_three_agents_and_three_sessions(monkeypatch
     idle_event.type = "session.status_idle"
     mock_client.beta.sessions.events.stream.return_value.__enter__.return_value = [idle_event]
 
-    with patch("theory_copilot.managed_agent_runner.anthropic") as mock_anthropic:
+    with patch("lacuna.managed_agent_runner.anthropic") as mock_anthropic:
         mock_anthropic.Anthropic.return_value = mock_client
-        from theory_copilot import managed_agent_runner
+        from lacuna import managed_agent_runner
         result = managed_agent_runner.run_path_a(
             night=2, fallback_on_no_waitlist=True
         )
@@ -236,13 +236,13 @@ def test_run_path_a_fallback_creates_three_agents_and_three_sessions(monkeypatch
 # ---------------------------------------------------------------------------
 
 def test_run_path_c_routine_rejects_invalid_night():
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     with pytest.raises(ValueError):
         managed_agent_runner.run_path_c_routine(night=1)
 
 
 def test_run_path_c_routine_runs_once_when_interval_zero(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     calls = []
 
     def fake_invoke(night):
@@ -266,7 +266,7 @@ def test_run_path_c_routine_runs_once_when_interval_zero(tmp_path):
 
 
 def test_run_path_c_routine_respects_max_iterations(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     calls = []
 
     def fake_invoke(night):
@@ -286,7 +286,7 @@ def test_run_path_c_routine_respects_max_iterations(tmp_path):
 
 
 def test_run_path_c_routine_watch_dir_skips_when_unchanged(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     calls = []
 
     def fake_invoke(night):
@@ -314,7 +314,7 @@ def test_run_path_c_routine_watch_dir_skips_when_unchanged(tmp_path):
 
 
 def test_run_path_c_routine_watch_dir_triggers_on_change(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     calls = []
     watch = tmp_path / "watch"
     watch.mkdir()
@@ -338,7 +338,7 @@ def test_run_path_c_routine_watch_dir_triggers_on_change(tmp_path):
 
 
 def test_run_path_c_routine_log_path_is_jsonl_appendable(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
     log = tmp_path / "a" / "b" / "verdicts.jsonl"
 
     def fake_invoke(night):
@@ -362,7 +362,7 @@ def test_run_path_c_routine_log_path_is_jsonl_appendable(tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_persist_session_events_dumps_jsonl(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
 
     events = [
         {"type": "user.message", "id": "ev1", "content": [{"type": "text", "text": "hi"}]},
@@ -388,7 +388,7 @@ def test_persist_session_events_dumps_jsonl(tmp_path):
 
 
 def test_replay_session_from_log_sends_only_user_events(tmp_path):
-    from theory_copilot import managed_agent_runner
+    from lacuna import managed_agent_runner
 
     log = tmp_path / "events.jsonl"
     log.write_text(

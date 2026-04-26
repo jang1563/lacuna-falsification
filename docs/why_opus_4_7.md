@@ -1,6 +1,6 @@
 # Why Opus 4.7
 
-Theory Copilot is an Opus 4.7-centered discovery loop. The work Opus 4.7 does is
+Lacuna is an Opus 4.7-centered discovery loop. The work Opus 4.7 does is
 deliberately bounded — the statistical falsification gate is plain Python, PySR
 runs locally — but the three places where Opus 4.7 *is* load-bearing cannot be
 replaced by a smaller model without changing what the artifact claims.
@@ -30,18 +30,18 @@ Jan Leike's
 (Anthropic, 2026-04-14) makes the same requirement explicit in the
 opposite direction: *"any deployment of automated researchers will
 require evaluations that the AARs can't tamper with — and human
-inspections of both their results and their methods."* Theory Copilot
+inspections of both their results and their methods."* Lacuna
 is neither an AAR nor a replacement for human oversight; it is the
 tamper-resistant evaluation component that makes human inspection
 *scalable* — the deterministic gate's thresholds are committed in git
 before any fit runs, so the Opus-proposed law cannot re-negotiate the
 criterion mid-session, and the skeptic review reads the gate's output
 (not its own rationale). The AAR paper documents reward-hacking and
-non-generalisation as *"findings,"* not obstacles; Theory Copilot
+non-generalisation as *"findings,"* not obstacles; Lacuna
 encodes the same stance by publishing the 194 rejections alongside
 the 9 survivors.
 
-Theory Copilot is the external script that turns native self-verification
+Lacuna is the external script that turns native self-verification
 into an audit-grade measurement harness. The two layers compose:
 
 - **Model-level (native to 4.7):** on the AA-Omniscience benchmark
@@ -165,7 +165,7 @@ have achieved over the next 50–100 years into 5–10 years"* and
 explicitly identifies coordination — *"hundreds of these
 discoveries waiting to be made if scientists were smarter and
 better at making connections"* — as a binding constraint, not raw
-capability. Theory Copilot is consistent with that thesis without
+capability. Lacuna is consistent with that thesis without
 restating it: acceleration without falsification is just
 confirmation bias at higher throughput, and the verification
 primitive that prevents the regression has to be *outside the
@@ -223,7 +223,7 @@ operationalise, **hypothesis-validation accuracy — not generation
 novelty — is the contribution this class of system ships first**. POPPER
 demonstrates falsification-driven validation at human-comparable
 accuracy with a 10× speedup; FIRE-Bench reports current SOTA agents at
-<50 F1 on rediscovering established findings. Theory Copilot is one
+<50 F1 on rediscovering established findings. Lacuna is one
 worked instance of that paradigm, with the validation harness in plain
 Python rather than another LLM judge.
 
@@ -233,14 +233,14 @@ three structural requirements ([Karpathy autoresearch, 2026-03](https://karpathy
 are: (1) **measurable output**, (2) **pre-specified judgment function**,
 (3) **machine-executable falsification — no human decides whether the
 result is good enough; the comparison is automatic and deterministic.**
-Theory Copilot's three analogues: (1) H1 LLM-SR loop convergence on
+Lacuna's three analogues: (1) H1 LLM-SR loop convergence on
 held-out AUROC + Δ-baseline lift, (2) the 5-test gate thresholds
-committed in `src/theory_copilot/falsification.py` and the YAMLs in
+committed in `src/lacuna/falsification.py` and the YAMLs in
 `preregistrations/` before any analysis ran, (3) `make audit` + `make
 test` re-runnable by any reviewer without a human call.
 
 Karpathy's autoresearch judgment function is training loss — continuous
-but ungrounded. Theory Copilot's judgment function is a pre-registered
+but ungrounded. Lacuna's judgment function is a pre-registered
 statistical gate on independent biology — binary and experimentally
 grounded. Same loop shape, different truth conditions. That is the move
 biology needs.
@@ -256,7 +256,7 @@ a novel metastasis signal on a small cohort without an external
 decisional surface. The companion engineering post
 [*Demystifying evals for AI agents*](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
 recommends *"deterministic graders where possible"* and flags LLM-as-
-judge eval-gaming explicitly — Theory Copilot's Python gate is that
+judge eval-gaming explicitly — Lacuna's Python gate is that
 deterministic grader, at the scientific-claim level rather than the
 coding-task level.
 
@@ -264,7 +264,7 @@ This rigor framing matches the NeurIPS 2025 AI4Science workshop *"[The Reach and
 
 > "Have conviction... trying to **disprove it** versus trying to test a bunch of different hypotheses."
 
-Theory Copilot ports that epistemic posture from product development into scientific discovery itself: Opus 4.7 proposes a law *and writes the test that would kill it*, then a deterministic gate runs the kill test, then Opus 4.7 interprets only what the gate failed to reject. The same-session Q&A also confirmed that "a verification script that forces the agent to test its own outputs against hard constraints" is an open problem the Cloud Code team intends to write a post about. This repository is a worked example of that script.
+Lacuna ports that epistemic posture from product development into scientific discovery itself: Opus 4.7 proposes a law *and writes the test that would kill it*, then a deterministic gate runs the kill test, then Opus 4.7 interprets only what the gate failed to reject. The same-session Q&A also confirmed that "a verification script that forces the agent to test its own outputs against hard constraints" is an open problem the Cloud Code team intends to write a post about. This repository is a worked example of that script.
 
 The same pattern was described the following day by Michael Cohen (Anthropic technical staff) at the 2026-04-23 *Claude Managed Agents* live session as the intended shape of the upcoming `outcomes` research-preview feature:
 
@@ -297,7 +297,7 @@ Our pre-registered 5-test gate is exactly that shape — a plain-text rubric (fi
 
 **What Opus 4.7 does not do:**
 
-- It does not run the falsification gate. `src/theory_copilot/falsification.py`
+- It does not run the falsification gate. `src/lacuna/falsification.py`
   runs the two-sided permutation null, bootstrap stability, sign-invariant
   best-single-feature baseline, incremental-covariate confound, and
   decoy-feature null. These are deterministic Python.

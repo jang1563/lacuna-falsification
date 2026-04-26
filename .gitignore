@@ -20,12 +20,12 @@ scripts/
 
 # Pre-hackathon scaffold — excluded per hackathon rule
 # (code must be new as of kickoff; these predate it)
-src/theory_copilot/contracts.py
-src/theory_copilot/qc.py
-src/theory_copilot/reuse_inventory.py
-src/theory_copilot/reuse_plan.py
-src/theory_copilot/staging.py
-src/theory_copilot/workflow_data.py
+src/lacuna/contracts.py
+src/lacuna/qc.py
+src/lacuna/reuse_inventory.py
+src/lacuna/reuse_plan.py
+src/lacuna/staging.py
+src/lacuna/workflow_data.py
 tests/test_contracts.py
 tests/test_reuse_inventory.py
 tests/test_reuse_plan.py

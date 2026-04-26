@@ -22,7 +22,7 @@ is the spoken text only, with timing markers + breath / cue marks.
 In a clean terminal, with browser tab open to `loom.com/new`:
 
 ```bash
-cd ~/path/to/theory-copilot-falsification
+cd ~/path/to/lacuna-falsification
 make audit          # confirm OK before recording
 git rev-parse HEAD  # note current SHA for the commit caption
 ```
@@ -214,7 +214,7 @@ Pronunciation aids:
    is fine for breaks but a clean single take of 90 s reads better
    than a stitched take.
 4. After recording, in Loom UI:
-   - Title: "Theory Copilot — verification-first biological law discovery"
+   - Title: "Lacuna — falsification-first biological law discovery"
    - Description: paste the one-line pitch from
      `docs/submission_form_draft.md` plus the GitHub URL
    - Trim leading/trailing silence aggressively (target: video

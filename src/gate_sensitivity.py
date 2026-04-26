@@ -30,7 +30,7 @@ import numpy as np
 import pandas as pd
 
 
-# Pre-registered thresholds encoded in src/theory_copilot/falsification.py.
+# Pre-registered thresholds encoded in src/lacuna/falsification.py.
 CURRENT_THRESHOLDS: dict[str, float] = {
     "perm_p_fdr": 0.05,
     "ci_lower": 0.60,

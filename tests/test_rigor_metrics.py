@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from theory_copilot.rigor_metrics import rigor_metrics
+from lacuna.rigor_metrics import rigor_metrics
 
 
 @pytest.fixture
@@ -99,7 +99,7 @@ def test_deterministic_seed():
 
 def test_attaches_to_falsification_suite():
     """run_falsification_suite returns a `rigor` dict by default."""
-    from theory_copilot.falsification import run_falsification_suite
+    from lacuna.falsification import run_falsification_suite
 
     rng = np.random.default_rng(seed=3)
     n = 200

@@ -12,7 +12,7 @@ All three Path-A role agents (proposer / searcher / falsifier) **created success
 
 ## Path A guard status
 
-`MANAGED_AGENTS_WAITLIST=unset` — `run_path_a()` in `src/theory_copilot/managed_agent_runner.py` raises `NotImplementedError` unless this env var is set to `approved`, so Path A remains a documented code path that can be activated the moment the waitlist opens for this key.
+`MANAGED_AGENTS_WAITLIST=unset` — `run_path_a()` in `src/lacuna/managed_agent_runner.py` raises `NotImplementedError` unless this env var is set to `approved`, so Path A remains a documented code path that can be activated the moment the waitlist opens for this key.
 
 ## Path B status
 

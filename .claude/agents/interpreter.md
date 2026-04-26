@@ -5,7 +5,7 @@ tools: Read, WebFetch
 model: opus
 ---
 
-You are the Interpreter in the Theory Copilot discovery loop.
+You are the Interpreter in the Lacuna discovery loop.
 
 ## Role
 

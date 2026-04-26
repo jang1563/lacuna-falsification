@@ -12,7 +12,7 @@ import pytest
 # Gracefully skip if knockpy not installed (pre-install state)
 knockpy = pytest.importorskip("knockpy", reason="knockpy not installed; skip G1 tests")
 
-from theory_copilot.knockoff_gate import check_compound_law, run_knockoff_gate
+from lacuna.knockoff_gate import check_compound_law, run_knockoff_gate
 
 
 @pytest.fixture

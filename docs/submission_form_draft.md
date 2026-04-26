@@ -43,14 +43,14 @@ official rules):
 | Impact (problem-statement fit, real-world potential) | 30% | DIPG generalization (7/15 Tier-2 supported, panobinostat-CED-MTX110 lead); Tier-1 prognostic-substrate gate on PBTA v15 (n=192, 182 events) refuses to mint substrate-PASS on 0/4 — cross-disease falsification consistent with KIRC's 194/203 reject pattern; **IPF Run #1 (2026-04-25): same engine, third structurally distant disease, 1/5 SUPPORTED + 4 INSUFFICIENT, Skeptic caught two Advocate fabrications about prior trial design (RAINIER + Raghu 2017 prespecified stratifiers Advocate claimed were "never tested") — runtime demonstration of dual-role context isolation; $58, 32 min sequential local**; DatasetCard CLI = 30-min plug-in for any disease cohort |
 | Demo (working, holds up live, cool to watch) | 25% | 3-minute Loom (current 2:23-2:47 cut with KIRC + DIPG + IPF tags), 24 reproducible plots, `make demo` end-to-end, Path C Routine session URL live |
 | Opus 4.7 use (creative, beyond basic, surprises) | 25% | 180-call cross-model ablation (10/60 vs 0/60 PASS gap); PhL-15 thinking-mode confound resolution; PhL-13 memorization audit (0/10 zero-shot retrieval); 1M-context cross-reasoning synthesis on full failure history |
-| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 90/90 tests + audit clean on every commit |
+| Depth & execution (push past first idea, real craft) | 20% | Self-killed our own H1 3-gene extension (PhL-1) on a separately pre-registered survival gate; ICP causal-invariance + anchor regression + Knockoffs + Westfall-Young + AUPRC stack; 118/118 local tests + audit clean on package review |
 
 ---
 
 ## Project name (60 char)
 
 ```
-Theory Copilot: Falsification-Aware Biological Law Discovery
+Lacuna: Falsification-First Biological Law Discovery
 ```
 (60 chars exactly.)
 
@@ -73,7 +73,7 @@ single summary box. (Word count: 176; cap 200.)
 
 ```
 AI-for-Science tools accelerate hypothesis generation — not rejection.
-Theory Copilot is the rejection step. Opus 4.7 plays Proposer (emits
+Lacuna is the rejection step. Opus 4.7 plays Proposer (emits
 compact cancer-law families and the kill-test for each, before any
 fit), Skeptic (reviews gate output via a separate Managed Agents
 session — never the Proposer's reasoning), and Interpreter (explains
@@ -99,7 +99,7 @@ the LLM cannot renegotiate.
 ## Project summary (150 words, 146 counted)
 
 AI-for-Science tools accelerate hypothesis generation — not rejection.
-Theory Copilot is the rejection step. Opus 4.7 plays Proposer (emits
+Lacuna is the rejection step. Opus 4.7 plays Proposer (emits
 compact cancer-law families and the kill-test for each, before any
 fit), Skeptic (reviews gate output — never the Proposer's reasoning),
 and Interpreter (explains only what the gate failed to reject). On
@@ -186,7 +186,7 @@ Verification as working code.
 ## GitHub
 
 ```
-https://github.com/jang1563/theory-copilot-falsification
+https://github.com/jang1563/lacuna-falsification
 ```
 
 Repo has been public since 2026-04-23 19:32 ET.

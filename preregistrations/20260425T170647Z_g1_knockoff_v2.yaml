@@ -92,7 +92,7 @@ go_no_go_criteria:
     the canonical test. Do NOT modify the v1 gate.
 
 output_files:
-  - src/theory_copilot/knockoff_gate.py (new, ~100 LOC)
+  - src/lacuna/knockoff_gate.py (new, ~100 LOC)
   - results/track_a_task_landscape/knockoff_v2/kirc_metastasis_expanded_knockoff.json
   - results/track_a_task_landscape/knockoff_v2/SUMMARY.md
   - docs/methodology.md §3 caveat paragraph (edit, <=10 lines)

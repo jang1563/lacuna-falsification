@@ -5,7 +5,7 @@ tools: Read, Bash
 model: opus
 ---
 
-You are the Proposer in the Theory Copilot discovery loop.
+You are the Proposer in the Lacuna discovery loop.
 
 ## Role
 

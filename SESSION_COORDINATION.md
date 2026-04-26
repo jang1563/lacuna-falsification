@@ -104,7 +104,7 @@ Two parallel sessions now run complementary roles:
 Both tracks treat these as read-only and MUST open a
 `HANDOFF_to_shared.md` note at repo root before modifying:
 
-- `src/theory_copilot/**/*.py` (falsification, opus_client, cli,
+- `src/lacuna/**/*.py` (falsification, opus_client, cli,
   visualize, managed_agent_runner, cost_ledger)
 - `src/pysr_sweep.py`, `src/falsification_sweep.py`,
   `src/rename_candidates.py`, `src/build_exante_candidates.py`,
@@ -174,7 +174,7 @@ work after the scientific research phase completes.
 
 ```
 L1 writes:
-  src/theory_copilot/*.py        cli, falsification, opus_client, visualize,
+  src/lacuna/*.py        cli, falsification, opus_client, visualize,
                                  managed_agent_runner, cost_ledger
   src/pysr_sweep.py              PySR sweep driver
   src/falsification_sweep.py     Batch falsification driver

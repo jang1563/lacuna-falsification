@@ -1,20 +1,20 @@
 # PhL-8 — Claude Code Routines `/fire` live execution
 
 **Run date:** 2026-04-23 23:39:59 UTC. Closes the Path C proof-of-life
-gap: `src/theory_copilot/routines_client.py` has been in the repo as
+gap: `src/lacuna/routines_client.py` has been in the repo as
 tested HTTP client code since commit `585ea0e` (2026-04-23 early AM),
 but until this commit there was no on-disk artefact of a real fire
 call against a real Routine.
 
 ## What ran
 
-1. User configured the `theory-copilot-falsification-gate` Routine at
+1. User configured the `lacuna-falsification-gate` Routine at
    `claude.ai/code/routines` with:
    - **Instructions** from `docs/submission_form_draft.md` (fork of
      the recommended text — verification pulse: `make venv`,
      `make audit`, load canonical survivor, apply gate only if text
      input has `"equation:"`, final block summary).
-   - **Repository**: `jang1563/theory-copilot-falsification`
+   - **Repository**: `jang1563/lacuna-falsification`
      (flipped public at 2026-04-23 19:32 ET to become visible in the
      routine's repo dropdown — public-flip was planned for Sunday
      anyway; 48 hours early).
@@ -23,7 +23,7 @@ call against a real Routine.
    - **Model**: Opus 4.7 (1M context), default settings.
 2. `src/phl8_routine_fire_live.py` loaded `CLAUDE_ROUTINE_TRIG_ID` +
    `CLAUDE_ROUTINE_TOKEN` from `~/.api_keys` and called
-   `theory_copilot.routines_client.fire_routine_from_env(text=...)`,
+   `lacuna.routines_client.fire_routine_from_env(text=...)`,
    which issues the documented
    `POST /v1/claude_code/routines/{trig_id}/fire` with the
    `experimental-cc-routine-2026-04-01` beta header.
@@ -56,7 +56,7 @@ Routines as *"the area no one has cracked yet"* at the 2026-04-21
 kickoff, and Thariq Shihipar named the "verification script" pattern
 an open problem at the 2026-04-22 session. We had:
 
-- **Code**: `src/theory_copilot/routines_client.py` (HTTP client,
+- **Code**: `src/lacuna/routines_client.py` (HTTP client,
   verified with httpx.MockTransport unit tests).
 - **Docs**: README + submission_form_draft referencing Path C as a
   shipping primitive.
@@ -74,7 +74,7 @@ re-fire themselves with their own credentials if desired.
 
 Requires:
 - A Routine configured at `claude.ai/code/routines` pointing at the
-  public `jang1563/theory-copilot-falsification` repo, with API
+  public `jang1563/lacuna-falsification` repo, with API
   trigger enabled.
 - `CLAUDE_ROUTINE_TRIG_ID` and `CLAUDE_ROUTINE_TOKEN` in
   `~/.api_keys` (bearer token is shown once at routine-save time —
