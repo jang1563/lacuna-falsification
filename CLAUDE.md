@@ -77,7 +77,7 @@ Context isolation is load-bearing: steps 4 and 5 run in separate Managed Agents 
 | Command | What it does |
 |---|---|
 | `make install` | Editable install into `.venv` (Python 3.10-3.13, Julia 1.10 for PySR). |
-| `make test` | pytest with pre-hackathon scaffold tests ignored. Current local-runnable suite: 107/107. |
+| `make test` | pytest with pre-hackathon scaffold tests ignored. Current local-runnable suite: 115/115. |
 | `make audit` | Compliance grep. Must print `OK`. |
 | `make demo` | Guided synthetic proposer handoff; requires API key and prints PySR/gate commands. |
 | `make demo-kirc` | KIRC-flavoured guided handoff. |

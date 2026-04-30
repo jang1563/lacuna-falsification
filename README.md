@@ -19,10 +19,11 @@ The current package is **not a new biomarker claim** and **not a clinical
 validation package**. Its flagship task is a positive-control rediscovery
 benchmark in ccRCC/KIRC: recover a compact proliferation-minus-HIF/EPAS1 axis,
 then account for what survives, what fails, and why. The same five-test Python
-gate rejected 203 of 203 initial candidate evaluations, accepted 9 of 30 after
-one named panel-absence failure was repaired, and later rejected the system's
-own three-gene extension on an independently pre-registered IMmotion150
-survival replay.
+gate rejected 194 of 203 candidate evaluations on the KIRC layer — the 9
+survivors all came from the 45-gene metastasis_expanded sub-layer, after the
+loop diagnosed panel absence on the original 11-gene layer and repaired only
+that cause. The system's own three-gene downstream extension was later
+rejected by an independently pre-registered IMmotion150 survival replay.
 
 Unlike LLM-as-judge systems, Lacuna's gate is plain Python: Opus 4.7 can
 propose, critique, and interpret, but it cannot move the threshold after seeing
@@ -53,7 +54,7 @@ Built by a bioinformatics postdoc · *Built with Claude Opus 4.7* · April 2026 
 | External failure profile | endpoint mismatch `0.5`, underpowered same-endpoint fail `0.5`, missing-data subtype `0.5`, single-gene saturation subtype `1.0` |
 | Failure Atlas v1 | 21 failed records; label coverage `0.667`; dominant labels: bootstrap unstable, underpowered, single-gene saturation |
 | RL readiness | Failure-memory retrieval/reranking is justified; contextual bandit, offline RL, and RLVR are **not** yet justified |
-| Candidate evaluations (classification gate) | [**385** across 14 task × panel configs](results/track_a_task_landscape/SUMMARY.md) (KIRC original layer: 203/203 rejected; KIRC panel repair: 9/30 accepted; platform expansion: 61/101 reject; new disease tracks: 20/81 accept; **60 non-KIRC survivors total** = 40 platform + 20 new-disease) |
+| Candidate evaluations (classification gate) | [**385** across 14 task × panel configs](results/track_a_task_landscape/SUMMARY.md) (KIRC: 194/203 rejected, 9 survivors all from the 45-gene metastasis_expanded sub-layer; platform expansion: 61/101 reject; new disease tracks: 20/81 accept; **60 non-KIRC survivors total** = 40 platform + 20 new-disease) |
 | 6-verdict evidence chain | **3 PASS · 2 pre-registered FAIL · 1 honest FAIL** · 5 cohorts · 3 platforms |
 | Rashomon rank within all C(45,2) = 990 two-gene pairs | **1 / 990** |
 | Memorization check: zero-shot TOP2A−EPAS1 retrieval rate | **0 / 10** probes |
@@ -144,15 +145,15 @@ flowchart TB
     P[Proposer · Opus 4.7 · emits 3-5 law families + negative controls]:::opus
     Sr[Searcher · PySR · symbolic regression · local, no API]:::local
     G[Falsification Gate · Python · 5 tests + BH-FDR pre-registered]:::gate
-    F[203 INITIAL REJECTED · perm-p / ci-lower / delta-baseline / decoy]:::fail
+    F[194 / 203 REJECTED · perm-p / ci-lower / delta-baseline / decoy]:::fail
     I[Interpreter · Opus 4.7 · mechanism hypothesis + testable prediction]:::opus
 
     Sk -. "kill tests locked in" .-> G
     P -. "writes kill tests" .-> Sk
     P -- "law families" --> Sr
     Sr -- "initial layer" --> G
-    G -- "FAIL 203/203" --> F
-    G -- "REPAIR: PASS 9/30" --> I
+    G -- "FAIL 194/203" --> F
+    G -- "PASS 9/30 (sub-layer)" --> I
     I -. "next iteration" .-> Sk
 ```
 
@@ -189,7 +190,7 @@ Use Python **3.10-3.13**. Lacuna intentionally excludes Python 3.14 for the publ
 > **Python 3.10-3.13 required.** `pyproject.toml` enforces this range so unsupported 3.14 environments fail fast instead of hanging during dependency installs. `make venv` creates the project-local virtualenv with `VENV_PYTHON` (default `python3`).
 
 ```bash
-# Full local-runnable test suite (107 tests, no API key, several minutes)
+# Full local-runnable test suite (115 tests, no API key, several minutes)
 make test
 
 # Generate synthetic KIRC-compatible demo data
@@ -251,7 +252,7 @@ Benjamini-Hochberg FDR across the family, and **the gate uses the FDR-adjusted p
 > deterministic threshold — this is the empirical answer to
 > "couldn't the model just try harder?"
 
-![Rejection landscape — original KIRC layer rejected 203/203 initial evaluations; repaired expanded-panel metastasis layer accepted 9/30](docs/figures/rejection_landscape.png)
+![Rejection landscape — KIRC layer: 194/203 rejected, 9 survivors all from the 45-gene metastasis_expanded sub-layer](docs/figures/rejection_landscape.png)
 
 > **Interactive version:** [`results/rejection_log.html`](results/rejection_log.html) — filterable by cohort, task, panel, and fail reason; every candidate's full metric bundle.
 

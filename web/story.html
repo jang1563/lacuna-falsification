@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lacuna — Discovery Story</title>
-<meta name="description" content="A falsification-first loop rejected 203 initial candidate evaluations, repaired panel absence, then accepted 9 of 30 expanded-panel candidates.">
+<meta name="description" content="A falsification-first loop rejected 194 of 203 KIRC candidate evaluations; the 9 survivors all came from the 45-gene metastasis_expanded sub-layer.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -586,7 +586,7 @@ body {
     <span class="nav-panel__num">04</span>
     <span class="nav-panel__info">
       <span class="nav-panel__name">Rejection</span>
-      <span class="nav-panel__desc">203 initial refused · 9/30 repaired pass · hover cells for gate detail</span>
+      <span class="nav-panel__desc">194 / 203 rejected · 9 survivors from 45-gene sub-layer · hover cells for gate detail</span>
     </span>
   </button>
   <button class="nav-panel__beat" data-beat="beat-5">
@@ -683,7 +683,7 @@ body {
         <div class="de-gate__sub">5 pre-registered tests<br>deterministic · BH-FDR</div>
         <div class="de-gate__tally">
           <div class="de-gate__in">203 enter</div>
-          <div class="de-gate__fail">203 initial rejected ✗</div>
+          <div class="de-gate__fail">194 / 203 rejected ✗</div>
           <div class="de-gate__pass">9/30 repaired pass ✓</div>
         </div>
         <div class="de-gate__rule">"Cannot be rationalized past."</div>
@@ -1005,7 +1005,7 @@ body {
 <section class="beat" id="beat-4">
   <div class="beat__text">
     <div class="eyebrow">04 · Rejection</div>
-    <h2>203 initial refused. 9/30 repaired pass.</h2>
+    <h2>194 of 203 refused. 9 survivors from the 45-gene sub-layer.</h2>
     <p>CA9, the go-to kidney cancer gene in every review for two decades, was too dominant — it already reaches AUROC 0.965 as a single gene. The gate's rule: if one gene does it, a compound law isn't a discovery.</p>
     <p>On four tasks — tumor vs. normal, cancer stage, 5-year survival, metastasis (11-gene panel) — <strong>not one of 100+ candidates survived</strong>. The gate was working.</p>
     <p>One task unlocked when the panel expanded from 11 to 45 genes: <strong>9 of 30 passed</strong>. Same classification gate. Same thresholds. The bar never moved.</p>
@@ -1014,12 +1014,12 @@ body {
       <div class="stat"><div class="stat__num stat__num--red">203</div><div class="stat__label">initial<br>rejected</div></div>
       <div class="stat"><div class="stat__num stat__num--sage">9 / 30</div><div class="stat__label">repaired-panel<br>pass</div></div>
     </div>
-    <div class="beat__note">Original layer: 203/203 rejected · Repaired metastasis layer: 9/30 pass · TCGA-KIRC n=505.</div>
+    <div class="beat__note">11-gene initial layer: 100% rejected (panel absence) · 45-gene repair sub-layer: 9/30 pass · combined: 194/203 rejected · TCGA-KIRC n=505.</div>
   </div>
   <div class="beat__visual">
     <div style="width:100%;">
       <div style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-text);margin-bottom:10px;">
-        233 internal evaluations · 203 initial reject + 9/30 repair pass
+        203 KIRC evaluations · 194 rejected · 9 survivors all from the 45-gene sub-layer
       </div>
       <div class="rej-progress-wrap">
         <div class="rej-progress-track"><div class="rej-progress-fill" id="rej-progress-fill"></div></div>
@@ -1039,7 +1039,7 @@ body {
     <div class="ev-drawer" id="ev-drawer-4">
       <div class="ev-body">
         <div class="ev-head">Task Landscape — Why Most Tasks Hit Zero</div>
-        <div class="ev-sub">203 initial rejects + 9/30 repaired-panel pass · five-test classification gate applied uniformly</div>
+        <div class="ev-sub">194 of 203 rejected · 9 survivors all from 45-gene metastasis_expanded sub-layer · five-test classification gate applied uniformly</div>
         <div style="overflow-x:auto;">
           <table class="gate-table" style="margin-bottom:20px;">
             <thead>

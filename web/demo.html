@@ -1235,15 +1235,16 @@ body {
      SCENE 4 — Rejection (0:45–1:05)
 ═══════════════════════════════════════════ -->
 <section class="scene scene--split" id="s4"
-  data-narration="On a public kidney-cancer dataset, the original gate rejects 203 of 203 initial evaluations. Even a CA9-dominated oxygen-sensing contrast fails because one gene alone already scores 0.965 on our accuracy metric. After panel repair, 9 of 30 metastasis candidates pass.">
+  data-narration="On a public kidney-cancer dataset, the gate rejects 194 of 203 candidate evaluations. Even a CA9-dominated oxygen-sensing contrast fails because one gene alone already scores 0.965 on our accuracy metric. The 9 survivors all come from the 45-gene metastasis_expanded sub-layer, after panel repair.">
 
   <div class="scene__text">
     <p class="eyebrow rv">Rejection</p>
     <h2 class="display rv rv-d1">The gate refused.</h2>
     <p class="body-p rv rv-d2">
-      The original TCGA-KIRC layer rejected 203 initial evaluations. After panel repair,
-      9 of 30 expanded-panel metastasis candidates passed. CA9 alone saturates
-      tumor-normal AUROC at 0.965, so CA9-dominated compounds are refused.
+      The TCGA-KIRC gate rejected 194 of 203 candidate evaluations. The 9 survivors
+      all came from the 45-gene metastasis_expanded sub-layer, after the loop diagnosed
+      panel absence on the original 11-gene layer. CA9 alone saturates tumor-normal
+      AUROC at 0.965, so CA9-dominated compounds are refused.
     </p>
     <div style="margin-top:28px;" class="rv rv-d3">
       <div class="rej-stats">
@@ -1264,7 +1265,7 @@ body {
 
   <div class="scene__visual" style="align-items:flex-start;padding-top:64px;">
     <div style="width:100%;">
-      <div class="mono-label rv rv-d1" style="margin-bottom:12px;">233 internal evaluations · 203 initial rejects + 9/30 repair pass</div>
+      <div class="mono-label rv rv-d1" style="margin-bottom:12px;">203 KIRC evaluations · 194 rejected · 9 survivors all from 45-gene sub-layer</div>
       <div class="rej-grid" id="rej-grid"></div>
       <div style="margin-top:12px;display:flex;align-items:center;gap:16px;" class="rv rv-d5">
         <div style="display:flex;align-items:center;gap:6px;">
