@@ -84,8 +84,17 @@ docs/capability_overhang_summary.md
 docs/hpc_session_prompt_platform_generalization.md
 docs/clinical_utility.md
 
-# Post-hackathon paper drafts (WIP, contain local paths / harness refs)
-docs/paper/paper_v2_*.md
+# Post-hackathon paper drafts (excluded for conference double-blind review)
+docs/paper/paper.md
+docs/paper/paper.pdf
+docs/paper/paper_fmai*.md
+docs/paper/paper_fmai*.pdf
+docs/paper/paper_v*.md
+docs/paper/paper_v*.pdf
+docs/paper/benchmark_vs_related.md
+docs/paper/figures/
+docs/paper/icml_fmai_v*/
+docs/paper/VERSIONS.md
 docs/paper/research/
 docs/paper/review/
 

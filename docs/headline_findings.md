@@ -349,10 +349,8 @@ shows the pattern holds on additional diseases.
 
 ## Supporting files (judge-facing read order)
 
-1. [`docs/paper/paper.pdf`](paper/paper.pdf) — 6-page workshop paper.
-2. [`docs/paper/benchmark_vs_related.md`](paper/benchmark_vs_related.md) — positioning vs SPOT, Sakana v2, POPPER.
-3. [`results/rejection_log.html`](../results/rejection_log.html) — the 203-candidate KIRC classification log (open in a browser).
-4. [`results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md`](../results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md) — IMmotion150 replay write-up.
-5. [`preregistrations/`](../preregistrations/) — the 28 YAMLs; run `make prereg-audit` to see SHA + content hash per file.
-6. [`docs/methodology.md`](methodology.md) — full methods.
-7. [`docs/survivor_narrative.md`](survivor_narrative.md) — the single-paragraph "what is this and what it isn't" on TOP2A − EPAS1.
+1. [`results/rejection_log.html`](../results/rejection_log.html) — the 203-candidate KIRC classification log (open in a browser).
+2. [`results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md`](../results/track_a_task_landscape/external_replay/immotion150_pfs/SUMMARY.md) — IMmotion150 replay write-up.
+3. [`preregistrations/`](../preregistrations/) — the 28 YAMLs; run `make prereg-audit` to see SHA + content hash per file.
+4. [`docs/methodology.md`](methodology.md) — full methods.
+5. [`docs/survivor_narrative.md`](survivor_narrative.md) — the single-paragraph "what is this and what it isn't" on TOP2A − EPAS1.

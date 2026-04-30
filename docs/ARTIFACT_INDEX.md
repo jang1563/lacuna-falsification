@@ -108,10 +108,9 @@ the submission.
 4. `docs/why_opus_4_7.md` — orchestrator framing, Karpathy +
    Sakana citations, Michael Cohen `outcomes` parallel
 5. `docs/survivor_narrative.md` — TOP2A − EPAS1 in plain language
-6. `docs/paper/paper_fmai.md` — current workshop-paper source
-7. `docs/submission_description.md` + `docs/submission_form_draft.md` —
+6. `docs/submission_description.md` + `docs/submission_form_draft.md` —
    what we submit
-8. This file — back-reference for any claim → artefact lookup
+7. This file — back-reference for any claim → artefact lookup
 
 ## Doc reading order for non-technical reviewers
 

@@ -39,7 +39,7 @@ Built by a bioinformatics postdoc · *Built with Claude Opus 4.7* · April 2026 
 
 > **Start here:** [3-minute overview](https://youtu.be/eB-gREA4zGI?si=8hjo-BhMtKqtN_lV) · [Dashboard](https://jang1563.github.io/lacuna-falsification/) · [Interactive story](https://jang1563.github.io/lacuna-falsification/story.html) · [Artifact index](docs/ARTIFACT_INDEX.md) · [Quick start](#quick-start)
 >
-> **Evidence surfaces:** [Lacuna-Bench audit](results/lacuna_bench_v1/audit.json) · [Failure Atlas](results/failure_atlas_v1/SUMMARY.json) · [RL readiness](results/rl_readiness_v1/report.json) · [Full rejection log](https://jang1563.github.io/lacuna-falsification/rejection-log.html) · [FMAI paper draft](docs/paper/paper_fmai.md)
+> **Evidence surfaces:** [Lacuna-Bench audit](results/lacuna_bench_v1/audit.json) · [Failure Atlas](results/failure_atlas_v1/SUMMARY.json) · [RL readiness](results/rl_readiness_v1/report.json) · [Full rejection log](https://jang1563.github.io/lacuna-falsification/rejection-log.html)
 
 ---
 
