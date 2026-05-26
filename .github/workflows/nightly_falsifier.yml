@@ -36,6 +36,8 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,16 +51,23 @@ jobs:
           pip install lifelines  # for PFS replay side-experiments
 
       - name: Re-render rejection log
-        run: python src/render_rejection_log.py
+        id: render_rejection_log
+        run: |
+          set -o pipefail
+          python src/render_rejection_log.py 2>&1 | tee /tmp/rejection_log_render.log
 
       - name: Validate pre-registrations (tamper-evidence chain)
-        run: python src/preregistration.py validate --dir preregistrations
+        id: prereg_validate
+        run: |
+          set -o pipefail
+          python src/preregistration.py validate --dir preregistrations 2>&1 | tee /tmp/prereg_validate.log
 
       - name: Audit pre-reg commit SHAs
+        id: prereg_audit
         run: |
           python src/preregistration.py audit --dir preregistrations \
             > /tmp/prereg_audit.json
-          cat /tmp/prereg_audit.json | head -20
+          head -20 /tmp/prereg_audit.json
 
       - name: Falsification gate — Path C one-shot (gated on API key)
         if: env.ANTHROPIC_API_KEY != ''
@@ -85,22 +94,64 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const audit = fs.existsSync('/tmp/prereg_audit.json')
-              ? fs.readFileSync('/tmp/prereg_audit.json', 'utf8')
-              : '(no audit output)';
-            const body = [
+            const outcomes = {
+              render: '${{ steps.render_rejection_log.outcome }}',
+              validate: '${{ steps.prereg_validate.outcome }}',
+              audit: '${{ steps.prereg_audit.outcome }}',
+            };
+            const statusLabel = (value) => {
+              if (value === 'success') return 'OK';
+              if (value === 'skipped') return 'SKIPPED';
+              return (value || 'unknown').toUpperCase();
+            };
+            const readIfExists = (path) =>
+              fs.existsSync(path) ? fs.readFileSync(path, 'utf8') : '';
+            const audit = readIfExists('/tmp/prereg_audit.json') || '(no audit output)';
+            const validateLog = readIfExists('/tmp/prereg_validate.log').trim();
+            const formatAudit = (raw) => {
+              if (outcomes.audit !== 'success') return raw.slice(0, 4000);
+              try {
+                const rows = JSON.parse(raw);
+                if (Array.isArray(rows) && rows.length > 20) {
+                  return JSON.stringify([
+                    ...rows.slice(0, 20),
+                    { omitted_rows: rows.length - 20 },
+                  ], null, 2);
+                }
+                return JSON.stringify(rows, null, 2);
+              } catch {
+                return raw.slice(0, 4000);
+              }
+            };
+            const auditBlock = formatAudit(audit);
+            const bodyParts = [
               '### Nightly Falsifier — ' + new Date().toISOString(),
               '',
-              '- Rejection log re-rendered: OK',
-              '- Pre-reg validate: OK',
-              '- Pre-reg audit (first-committed SHA + content hash per YAML):',
+              '- Rejection log re-rendered: ' + statusLabel(outcomes.render),
+              '- Pre-reg validate: ' + statusLabel(outcomes.validate),
+              '- Pre-reg audit: ' + statusLabel(outcomes.audit),
               '',
-              '```json',
-              audit.slice(0, 4000),
+              'Pre-reg audit (first-committed SHA + content hash per YAML):',
+              '',
+              outcomes.audit === 'success' ? '```json' : '```text',
+              auditBlock,
               '```',
               '',
-              'Run ID: ' + context.runId
-            ].join('\n');
+              'Run ID: ' + context.runId,
+              'Run: https://github.com/' + context.repo.owner + '/' +
+                context.repo.repo + '/actions/runs/' + context.runId
+            ];
+            if (outcomes.validate !== 'success' && validateLog) {
+              bodyParts.push(
+                '',
+                'Pre-reg validate log:',
+                '',
+                '```text',
+                validateLog.slice(-4000),
+                '```',
+              );
+            }
+            const body = bodyParts.join('\n');
             // Create or update a pinned "Nightly Falsifier" issue.
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner, repo: context.repo.repo,

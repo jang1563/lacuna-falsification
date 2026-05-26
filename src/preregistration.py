@@ -267,6 +267,16 @@ _REQUIRED_TOP_KEYS = {
     "multiple_testing_correction", "alpha", "stopping_rule",
 }
 
+_REQUIRED_EXTENSION_TOP_KEYS = {
+    "hypothesis_id", "emitted_at_utc", "emitted_git_sha", "retroactive",
+    "extension_type", "gate_logic_changed",
+}
+
+_EXTENSION_DETAIL_KEYS = {
+    "scope", "design", "pre_registered_implementation",
+    "pre_registered_predictions", "interpretation_targets",
+}
+
 
 def _parse_yaml_ascii(text: str) -> dict:
     """Tiny hand-rolled YAML subset parser for the pre-reg files we emit.
@@ -317,37 +327,91 @@ def _parse_yaml_ascii(text: str) -> dict:
                 multiline_key = key.strip()
                 continue
             obj[key.strip()] = val
+    if multiline_key is not None:
+        obj[multiline_key] = "\n".join(multiline_acc).rstrip()
     if current is not None:
         tests.append(current)
     obj["kill_tests"] = tests
     return obj
 
 
+def _bool_field_error(parsed: dict, key: str) -> str | None:
+    val = str(parsed.get(key, "")).split("#", 1)[0].strip().lower()
+    if val not in {"true", "false"}:
+        return f"{key} must be true or false, got {parsed.get(key)!r}"
+    return None
+
+
+def _validate_law_family_prereg(parsed: dict) -> str | None:
+    missing = _REQUIRED_TOP_KEYS - set(parsed.keys())
+    if missing:
+        return f"missing keys: {sorted(missing)}"
+    for key in ("retroactive", "negative_control", "uses_kill_tests_override"):
+        err = _bool_field_error(parsed, key)
+        if err:
+            return err
+    # Default binary-gate pre-regs must have all 5 tests. Override pre-regs
+    # (survival analysis, etc.) must have at least 2 tests specified.
+    uses_override = (
+        str(parsed.get("uses_kill_tests_override", "false"))
+        .split("#", 1)[0]
+        .strip()
+        .lower()
+        == "true"
+    )
+    min_tests = 2 if uses_override else 5
+    expected_str = "at least 2 (override)" if uses_override else "exactly 5 (binary gate)"
+    if (uses_override and len(parsed["kill_tests"]) < min_tests) or \
+       (not uses_override and len(parsed["kill_tests"]) != 5):
+        return f"expected {expected_str} kill_tests, got {len(parsed['kill_tests'])}"
+    return None
+
+
+def _validate_extension_prereg(parsed: dict) -> str | None:
+    missing = _REQUIRED_EXTENSION_TOP_KEYS - set(parsed.keys())
+    if missing:
+        return f"missing extension keys: {sorted(missing)}"
+    for key in ("retroactive", "gate_logic_changed"):
+        err = _bool_field_error(parsed, key)
+        if err:
+            return err
+    if not parsed.get("extension_type", "").strip():
+        return "extension_type must be non-empty"
+    if not (_EXTENSION_DETAIL_KEYS & set(parsed.keys())):
+        return (
+            "extension prereg must include at least one detail key: "
+            f"{sorted(_EXTENSION_DETAIL_KEYS)}"
+        )
+    return None
+
+
 def _cmd_validate(args: argparse.Namespace) -> int:
     bad: list[tuple[str, str]] = []
+    schema_counts = {"law_family": 0, "extension": 0}
     for yml in sorted(Path(args.dir).glob("*.yaml")):
         try:
             parsed = _parse_yaml_ascii(yml.read_text())
         except Exception as exc:  # noqa: BLE001
             bad.append((str(yml), f"parse error: {exc}"))
             continue
-        missing = _REQUIRED_TOP_KEYS - set(parsed.keys())
-        if missing:
-            bad.append((str(yml), f"missing keys: {sorted(missing)}"))
-            continue
-        # Default binary-gate pre-regs must have all 5 tests. Override pre-regs
-        # (survival analysis, etc.) must have at least 2 tests specified.
-        uses_override = parsed.get("uses_kill_tests_override", "false").lower() == "true"
-        min_tests = 2 if uses_override else 5
-        expected_str = "at least 2 (override)" if uses_override else "exactly 5 (binary gate)"
-        if (uses_override and len(parsed["kill_tests"]) < min_tests) or \
-           (not uses_override and len(parsed["kill_tests"]) != 5):
-            bad.append((str(yml), f"expected {expected_str} kill_tests, got {len(parsed['kill_tests'])}"))
+        if "extension_type" in parsed:
+            schema_counts["extension"] += 1
+            err = _validate_extension_prereg(parsed)
+        else:
+            schema_counts["law_family"] += 1
+            err = _validate_law_family_prereg(parsed)
+        if err:
+            bad.append((str(yml), err))
     if bad:
         for p, msg in bad:
             print(f"INVALID {p}: {msg}")
         return 1
-    print(f"OK — {len(list(Path(args.dir).glob('*.yaml')))} pre-registration(s) valid")
+    total = sum(schema_counts.values())
+    print(
+        f"OK — {total} pre-registration(s) valid "
+        f"({schema_counts['law_family']} law-family, "
+        f"{schema_counts['extension']} extension/descriptive)"
+    )
     return 0
 
 

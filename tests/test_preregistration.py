@@ -120,6 +120,47 @@ def test_validate_ok_on_freshly_emitted(tmp_path):
     assert rc == 0
 
 
+def test_validate_ok_on_extension_prereg(tmp_path):
+    extension = tmp_path / "extension.yaml"
+    extension.write_text(
+        "\n".join([
+            "hypothesis_id: g2_rigor_extension_2026-04-25",
+            "emitted_at_utc: 2026-04-25T16:48:40Z",
+            "emitted_git_sha: af6289e",
+            "retroactive: false",
+            "extension_type: reporting_only",
+            "gate_logic_changed: false",
+            "scope: |",
+            "  Report AUPRC and calibration metrics without changing",
+            "  the canonical 5-test pass/fail gate.",
+            "",
+        ])
+    )
+    import argparse
+    args = argparse.Namespace(dir=str(tmp_path))
+    rc = pr._cmd_validate(args)
+    assert rc == 0
+
+
+def test_validate_rejects_extension_without_detail_key(tmp_path):
+    extension = tmp_path / "extension.yaml"
+    extension.write_text(
+        "\n".join([
+            "hypothesis_id: incomplete_extension",
+            "emitted_at_utc: 2026-04-25T16:48:40Z",
+            "emitted_git_sha: af6289e",
+            "retroactive: false",
+            "extension_type: reporting_only",
+            "gate_logic_changed: false",
+            "",
+        ])
+    )
+    import argparse
+    args = argparse.Namespace(dir=str(tmp_path))
+    rc = pr._cmd_validate(args)
+    assert rc == 1
+
+
 def test_parse_yaml_ascii_roundtrip(tmp_path):
     p = pr._emit_yaml(_fam(), tmp_path, analyst="a", data_cutoff="2026-04-23", retroactive=True)
     parsed = pr._parse_yaml_ascii(p.read_text())
