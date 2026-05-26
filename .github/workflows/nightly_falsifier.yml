@@ -108,6 +108,22 @@ jobs:
               fs.existsSync(path) ? fs.readFileSync(path, 'utf8') : '';
             const audit = readIfExists('/tmp/prereg_audit.json') || '(no audit output)';
             const validateLog = readIfExists('/tmp/prereg_validate.log').trim();
+            const formatAudit = (raw) => {
+              if (outcomes.audit !== 'success') return raw.slice(0, 4000);
+              try {
+                const rows = JSON.parse(raw);
+                if (Array.isArray(rows) && rows.length > 20) {
+                  return JSON.stringify([
+                    ...rows.slice(0, 20),
+                    { omitted_rows: rows.length - 20 },
+                  ], null, 2);
+                }
+                return JSON.stringify(rows, null, 2);
+              } catch {
+                return raw.slice(0, 4000);
+              }
+            };
+            const auditBlock = formatAudit(audit);
             const bodyParts = [
               '### Nightly Falsifier — ' + new Date().toISOString(),
               '',
@@ -118,7 +134,7 @@ jobs:
               'Pre-reg audit (first-committed SHA + content hash per YAML):',
               '',
               outcomes.audit === 'success' ? '```json' : '```text',
-              audit.slice(0, 4000),
+              auditBlock,
               '```',
               '',
               'Run ID: ' + context.runId,
